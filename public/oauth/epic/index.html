@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enva — Coming soon</title>
-  <meta name="description" content="Enva turns your Apple Health, wearable, and fitness-platform data into personalized insights. Coming soon to iPhone.">
+  <title>Enva</title>
+  <meta name="description" content="Enva — health intelligence.">
   <meta name="theme-color" content="#0E0E0E">
-
-  <meta property="og:title" content="Enva">
-  <meta property="og:description" content="Health intelligence for people who train. Coming soon to iPhone.">
-  <meta property="og:type" content="website">
+  <meta name="robots" content="noindex">
 
   <link rel="preload" href="/fonts/EnvaSans-Light.woff2" as="font"
         type="font/woff2" crossorigin>
@@ -62,13 +59,13 @@
       margin: 0;
     }
 
-    .lede {
-      font-size: clamp(15px, 3.6vw, 18px);
+    p {
+      font-size: clamp(15px, 3.6vw, 17px);
       font-weight: 400;
       line-height: 1.6;
-      color: var(--ink);
-      max-width: 32ch;
-      margin: 26px auto 0;
+      color: var(--muted);
+      max-width: 30ch;
+      margin: 22px auto 0;
     }
 
     .rule {
@@ -78,48 +75,13 @@
       border: 0;
       margin: 30px auto 0;
     }
-
-    .status {
-      font-size: clamp(12px, 3vw, 13px);
-      font-weight: 400;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 30px 0 0;
-    }
-
-    .contact {
-      font-size: clamp(13px, 3.2vw, 14px);
-      color: var(--muted);
-      margin: 14px 0 0;
-    }
-
-    .contact a {
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(138, 130, 121, 0.4);
-      padding-bottom: 1px;
-      transition: color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .contact a:hover,
-    .contact a:focus-visible {
-      color: var(--ink);
-      border-bottom-color: var(--accent);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .contact a { transition: none; }
-    }
   </style>
 </head>
 <body>
   <main>
     <h1>Enva</h1>
-    <p class="lede">Your Apple Health, wearable, and fitness-platform data — turned into insight you can act on.</p>
+    <p>Open this link on your iPhone with Enva installed.</p>
     <hr class="rule">
-    <p class="status">Coming soon to iPhone</p>
-    <p class="contact"><a href="mailto:hello@getenva.ai">hello@getenva.ai</a></p>
   </main>
 </body>
 </html>
