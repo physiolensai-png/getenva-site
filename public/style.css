@@ -1,0 +1,384 @@
+/* ============================================
+   ENVA — Shared Stylesheet
+   Brand: warm neutrals, monoline geometric
+   Ground: Charcoal #121212   Ink: Bone #F2EFE9
+   Accent: Terracotta #E4652A (dark grounds only)
+   Type:   Display = Enva Sans, Body = system UI
+   ============================================ */
+
+/* ─── Enva Sans ───────────────────────────────
+   Display tier only. The face maps 88 glyphs and
+   has no italic — it lacks & … ₂ · → ↑ < > @ ©
+   and curly quotes, all of which occur in body
+   copy. A missing glyph falls back per-character,
+   so a single "&" renders in a different typeface
+   mid-word. Do not widen this to body text.
+   ------------------------------------------- */
+@font-face {
+  font-family: 'Enva Sans';
+  src: url('fonts/EnvaSans-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Enva Sans';
+  src: url('fonts/EnvaSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Enva Sans';
+  src: url('fonts/EnvaSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Tokens ─── */
+:root {
+  /* Grounds — warm, not neutral grey */
+  --ground:       #121212;
+  --ground-2:     #181615;
+  --surface:      #1E1B19;
+  --surface-2:    #272320;
+  --border:       rgba(242,239,233,0.09);
+  --border-light: rgba(242,239,233,0.17);
+
+  /* Ink */
+  --ink:          #F2EFE9;  /* Bone      16.6:1 on charcoal */
+  --ink-2:        #A8A199;  /*            7.3:1 */
+  --ink-3:        #8A8279;  /*            5.0:1 — smallest usable */
+
+  /* Accent — Terracotta is approved on charcoal only.
+     On any light ground use Terracotta Deep instead. */
+  --accent:       #E4652A;  /* 5.6:1 on charcoal */
+  --accent-deep:  #C4501B;
+  --accent-tint:  rgba(228,101,42,0.10);
+  --accent-line:  rgba(228,101,42,0.28);
+
+  /* Legacy aliases kept so any stray inline style still resolves */
+  --text-primary:   var(--ink);
+  --text-secondary: var(--ink-2);
+  --text-muted:     var(--ink-3);
+  --bg:             var(--ground);
+
+  --font-display: 'Enva Sans', system-ui, sans-serif;
+  --font-body:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                  Helvetica, Arial, sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  18px;
+  --radius-xl:  28px;
+
+  --transition: 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--accent); color: var(--ground); }
+
+/* ─── Display type ───────────────────────────
+   Three weights, one per role. Enva Sans has no
+   kerning (no GPOS), so tracking is held near
+   zero at display sizes and opened up for the
+   uppercase micro-labels, where pair-fitting
+   stops being visible.
+   ------------------------------------------ */
+.display-xl,
+.display-l,
+.display-m {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: 0;
+}
+.display-xl { font-size: clamp(44px, 6vw, 78px); }
+.display-l  { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.12; }
+.display-m  { font-size: clamp(24px, 3vw, 34px);  line-height: 1.18; }
+
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 300; }
+
+/* Accented word inside a display line */
+.accent-text { color: var(--accent); }
+
+/* ─── Wordmark ───────────────────────────────
+   Inlined as a <symbol> sprite per page so the
+   approved path data is tinted with currentColor
+   rather than recoloured or re-exported. Ratio is
+   locked at 2349:802 and the brand minimum is
+   120px wide — below that, use the E monogram.
+   ------------------------------------------ */
+.wordmark {
+  display: block;
+  width: 120px;
+  height: auto;
+  aspect-ratio: 2349 / 802;
+  fill: currentColor;
+}
+.wordmark-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ─── Nav ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 48px;
+  background: rgba(18,18,18,0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: block;
+  color: var(--ink);
+  flex-shrink: 0;
+  transition: color var(--transition);
+}
+.nav-logo:hover { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-2);
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ink); border-bottom-color: var(--accent); }
+
+.nav-cta {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--ground);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+.nav-cta:hover { background: #F0793F; }
+
+/* ─── Sections ─── */
+section { padding: 104px 48px; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Uppercase micro-label — the one place Enva is set
+   small, and the wide tracking is what makes it work. */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+/* Brand rule — the 2px terracotta hairline motif */
+.rule {
+  width: 34px;
+  height: 2px;
+  background: var(--accent);
+  border: 0;
+  margin: 28px 0 0;
+}
+
+/* ─── Card ─── */
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.glass-card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-3px);
+}
+
+/* ─── Buttons ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--ground);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+.btn-primary:hover { background: #F0793F; transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ─── Waitlist form ─── */
+.waitlist-form {
+  display: flex;
+  gap: 10px;
+  max-width: 460px;
+}
+
+.waitlist-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.waitlist-form input::placeholder { color: var(--ink-3); }
+.waitlist-form input:focus { border-color: var(--accent); }
+
+/* ─── Footer ─── */
+footer {
+  padding: 52px 48px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-logo {
+  display: block;
+  color: var(--ink-2);
+  transition: color var(--transition);
+}
+.footer-logo:hover { color: var(--ink); }
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: var(--ink-3);
+  transition: color var(--transition);
+}
+.footer-links a:hover { color: var(--ink); }
+
+.footer-copy {
+  font-size: 13px;
+  color: var(--ink-3);
+  width: 100%;
+}
+
+/* ─── Divider ─── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 48px;
+}
+
+/* ─── Ambient warmth ─── */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Monoline icons ──────────────────────────
+   Stroked, round-capped, uniform weight — drawn
+   on the same logic as the typeface rather than
+   dropped in as emoji.
+   ------------------------------------------ */
+.icon-line {
+  width: 26px;
+  height: 26px;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* ─── Focus ─── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  nav { padding: 14px 22px; }
+  .nav-links { display: none; }
+  section { padding: 72px 22px; }
+  footer { padding: 40px 22px; flex-direction: column; align-items: flex-start; }
+  .waitlist-form { flex-direction: column; }
+  .waitlist-form input,
+  .waitlist-form .btn-primary { width: 100%; }
+  .divider { margin: 0 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

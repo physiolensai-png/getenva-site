@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Enva</title>
+  <meta name="description" content="Why Marcus built Enva — and what it means to truly own your health data." />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
+  <meta name="theme-color" content="#121212" />
+  <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-hero {
+      padding-top: 170px;
+      padding-bottom: 84px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-glow {
+      width: 520px; height: 520px;
+      background: rgba(228,101,42,0.09);
+      top: -60px; right: -140px;
+    }
+    .about-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5.4vw, 72px);
+      font-weight: 300;
+      letter-spacing: 0;
+      line-height: 1.05;
+      margin-bottom: 26px;
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-hero-sub {
+      font-size: 18px;
+      color: var(--ink-2);
+      max-width: 560px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Story layout */
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .story-nav {
+      position: sticky;
+      top: 110px;
+    }
+    .story-nav-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 18px;
+    }
+    .story-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .story-nav-links a {
+      font-size: 14px;
+      color: var(--ink-3);
+      padding: 9px 0 9px 16px;
+      border-left: 1px solid var(--border);
+      display: block;
+      transition: color var(--transition), border-color var(--transition);
+    }
+    .story-nav-links a:hover {
+      color: var(--ink);
+      border-left-color: var(--accent);
+    }
+
+    .story-content {
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+    }
+
+    .story-block h2 {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 300;
+      letter-spacing: 0;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .story-block p {
+      font-size: 16px;
+      color: var(--ink-2);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .story-block p:last-child { margin-bottom: 0; }
+
+    /* Pull quote — set in Enva, but upright: the face has no
+       italic, so an oblique here would be synthesised and skew
+       the monoline strokes unevenly. */
+    .pull-quote {
+      border-left: 2px solid var(--accent);
+      padding: 6px 0 6px 26px;
+      margin: 32px 0;
+    }
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 300;
+      color: var(--ink) !important;
+      line-height: 1.5;
+      margin: 0 !important;
+    }
+
+    /* Architecture visual */
+    .arch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 32px 0;
+    }
+    .arch-item {
+      padding: 22px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+    .arch-item-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .arch-item-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .arch-item-desc { font-size: 13px; color: var(--ink-2); line-height: 1.55; }
+
+    /* Data sources */
+    .sources-list {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 24px 0;
+    }
+    .source-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--surface);
+    }
+    .source-row + .source-row { border-top: 1px solid var(--border); }
+    .source-name { font-size: 15px; font-weight: 600; flex-shrink: 0; }
+    .source-detail { font-size: 13px; color: var(--ink-2); text-align: right; flex: 1; }
+    .source-badge {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--accent-line);
+      color: var(--accent);
+      flex-shrink: 0;
+      width: 104px;
+      text-align: center;
+    }
+    .source-badge.soon {
+      border-color: var(--border);
+      color: var(--ink-3);
+    }
+
+    /* Founder sign-off */
+    .founder-card {
+      padding: 38px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-top: 16px;
+      position: relative;
+    }
+    .founder-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 38px;
+      width: 34px; height: 2px;
+      background: var(--accent);
+    }
+    .founder-greeting {
+      font-family: var(--font-display);
+      font-size: 23px;
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .founder-card p { font-size: 16px; color: var(--ink-2); line-height: 1.78; margin-bottom: 16px; }
+    .founder-sig {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+    .founder-sig-name {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .founder-sig-title { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+
+    @media (max-width: 768px) {
+      .story { grid-template-columns: 1fr; gap: 44px; }
+      .story-nav { position: static; }
+      .arch-grid { grid-template-columns: 1fr; }
+      .source-row { flex-wrap: wrap; }
+      .source-detail { text-align: left; flex-basis: 100%; order: 3; }
+    }
+  </style>
+</head>
+<body data-page="about">
+
+<!-- Enva wordmark — approved production pass. Path data is byte-identical to
+     Brand/logo/svg (sha256 672d64021d776879). Do not regenerate or re-trace. -->
+<svg class="wordmark-sprite" aria-hidden="true" focusable="false">
+  <symbol id="enva-wordmark" viewBox="0 -30 2349 802">
+    <path fill-rule="nonzero" d="M 266 30 C 142.91667 30 40 130.22222 40 254 L 40 486 C 40 609.77778 142.91667 710 266 710 L 600 710 A 50 50 0 0 0 650 660 A 50 50 0 0 0 600 610 L 266 610 C 197.08333 610 140 554.22222 140 486 L 140 390 L 540 390 A 50 50 0 0 0 590 340 A 50 50 0 0 0 540 290 L 140 290 L 140 254 C 140 185.77778 197.08333 130 266 130 L 600 130 A 50 50 0 0 0 650 80 A 50 50 0 0 0 600 30 L 266 30 z M 950 207 C 885.81481 207 826.53288 226.28198 781.33203 261.38477 C 736.13118 296.48755 705 349.83333 705 410 L 705 660 A 50 50 0 0 0 755 710 A 50 50 0 0 0 805 660 L 805 410 C 805 383.16667 817.36882 360.01245 842.66797 340.36523 C 867.96712 320.71802 906.18519 307 950 307 C 993.81481 307 1032.0329 320.71802 1057.332 340.36523 C 1082.6312 360.01245 1095 383.16667 1095 410 L 1095 660 A 50 50 0 0 0 1145 710 A 50 50 0 0 0 1195 660 L 1195 410 C 1195 349.83333 1163.8688 296.48755 1118.668 261.38477 C 1073.4671 226.28198 1014.1852 207 950 207 z M 1930 207 A 50 50 0 0 0 1880 257 A 50 50 0 0 0 1930 307 L 2080 307 C 2126.9203 307 2157.3736 320.8766 2177.6973 341.2832 C 2188.167 351.7957 2196.3722 364.67443 2201.916 380 L 2035 380 C 1985.3704 380 1937.9103 385.64963 1896.6465 408.97266 C 1855.3827 432.29569 1825 480.41667 1825 535 C 1825 634.44444 1907.9167 713 2010 713 L 2075 713 C 2141.6304 713 2200.8507 694.47511 2243.7891 656.41992 C 2286.7274 618.36473 2310 561.66667 2310 500 L 2310 430 C 2310 369.16667 2289.4791 311.8102 2248.5527 270.7168 C 2207.6264 229.6234 2148.0797 207 2080 207 L 1930 207 z M 1285.291 207.22266 A 50 50 0 0 0 1266.6016 212.8125 A 50 50 0 0 0 1245.8125 280.39844 L 1460.8125 686.39844 A 50.005 50.005 0 0 0 1549.1875 686.39844 L 1764.1875 280.39844 A 50 50 0 0 0 1743.3984 212.8125 A 50 50 0 0 0 1675.8125 233.60156 L 1505 556.1582 L 1334.1875 233.60156 A 50 50 0 0 0 1285.291 207.22266 z M 2035 480 L 2210 480 L 2210 500 C 2210 538.33333 2198.2726 563.13527 2177.4609 581.58008 C 2156.6493 600.02489 2123.3696 613 2075 613 L 2010 613 C 1952.0833 613 1925 585.55556 1925 535 C 1925 509.58333 1929.6173 505.20431 1945.8535 496.02734 C 1962.0897 486.85037 1994.6296 480 2035 480 z "/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="biological-age.html">Biological Age</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="support.html">Support</a></li>
+  </ul>
+  <a href="index.html#waitlist" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container" style="position:relative;">
+    <div class="glow about-glow"></div>
+    <span class="section-label">Our Story</span>
+    <h1>The Full Picture<br />of <span class="accent-text">Your Health</span></h1>
+    <p class="about-hero-sub">
+      Enva exists because the tools we use to track our health are fundamentally disconnected — and one person got tired of being their own data scientist.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STORY -->
+<section style="padding-top:80px;">
+  <div class="container">
+    <div class="story">
+
+      <!-- Sticky nav -->
+      <div class="story-nav">
+        <p class="story-nav-label">On this page</p>
+        <ul class="story-nav-links">
+          <li><a href="#problem">The Problem</a></li>
+          <li><a href="#origin">Origin Story</a></li>
+          <li><a href="#what-we-built">What We Built</a></li>
+          <li><a href="#data">Your Data Sources</a></li>
+          <li><a href="#privacy">Our Privacy Promise</a></li>
+          <li><a href="#founder">From the Founder</a></li>
+        </ul>
+      </div>
+
+      <!-- Content -->
+      <div class="story-content">
+
+        <div class="story-block" id="problem">
+          <h2>Health is holistic.<br />Our tools are not.</h2>
+          <p>
+            Health, wellness, and fitness data is scattered across half a dozen different apps and wearables. Even when you visit a doctor, blood work arrives as an isolated report — a PDF with no connection to your sleep quality, training load, or daily recovery patterns.
+          </p>
+          <p>
+            Your Peloton doesn't know about last night's HRV dip. Your nutrition app doesn't know you just finished a hard block of training. And none of them have seen your labs.
+          </p>
+          <div class="pull-quote">
+            <p>"The data existed. The insight didn't. No single tool could tell me how these factors actually influenced each other."</p>
+          </div>
+        </div>
+
+        <div class="story-block" id="origin">
+          <h2>The Origin Story</h2>
+          <p>
+            Enva was born out of that frustration. Marcus found himself taking screenshots of multiple apps every day, just to piece together a complete view of how his body was performing. He started building custom templates and feeding those screenshots into generative AI to force disparate data points to talk to each other.
+          </p>
+          <p>
+            The insights were genuinely useful. The process was exhausting. There had to be a better way to take all of these distinct inputs and seamlessly turn them into a single, cohesive output.
+          </p>
+          <p>
+            That's exactly how Enva was created.
+          </p>
+        </div>
+
+        <div class="story-block" id="what-we-built">
+          <h2>What We Built</h2>
+          <p>
+            The entire journey of building Enva was driven by a single goal: transforming all of your health inputs into actionable analysis. No manual templates. No screenshots. No stitching together data yourself.
+          </p>
+          <p>
+            Enva is built around a four-layer intelligence model — from what happened last night to what your data says about how you're aging:
+          </p>
+          <div class="arch-grid">
+            <div class="arch-item">
+              <div class="arch-item-label">Last Night</div>
+              <div class="arch-item-name">Sleep Score</div>
+              <div class="arch-item-desc">How well did you recover?</div>
+            </div>
+            <div class="arch-item">
+              <div class="arch-item-label">Today</div>
+              <div class="arch-item-name">Recovery</div>
+              <div class="arch-item-desc">Are you ready to train hard?</div>
+            </div>
+            <div class="arch-item">
+              <div class="arch-item-label">This Week</div>
+              <div class="arch-item-name">Health Score</div>
+              <div class="arch-item-desc">Are you trending in the right direction?</div>
+            </div>
+            <div class="arch-item" style="border-color:var(--accent-line);">
+              <div class="arch-item-label">Long Term</div>
+              <div class="arch-item-name">Biological Age</div>
+              <div class="arch-item-desc">What is all of this adding up to?</div>
+            </div>
+          </div>
+          <p>
+            The AI coaching layer goes beyond generic advice. It knows your goals, your recent training zones, your lab values — and it connects them. "Based on your fat loss goals, your past two weeks were heavy on Zone 1 and Zone 4/5. You need more Zone 2 this week — it's key to fat oxidation." That's the difference between a dashboard and a coach.
+          </p>
+        </div>
+
+        <div class="story-block" id="data">
+          <h2>Your Data Sources</h2>
+          <p>
+            Enva connects directly to each ecosystem rather than routing everything through Apple Health — because Apple Health flattens the data and misses the metrics that matter most.
+          </p>
+          <div class="sources-list">
+            <div class="source-row">
+              <span class="source-name">Apple Watch</span>
+              <span class="source-detail">HRV, RHR, sleep architecture, steps, VO₂ Max</span>
+              <span class="source-badge">Live</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">Peloton</span>
+              <span class="source-detail">Output, resistance, cadence, leaderboard ranking</span>
+              <span class="source-badge">Live</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">Orangetheory</span>
+              <span class="source-detail">Splat points, treadmill pace, rower 500m avg, distance</span>
+              <span class="source-badge">Live</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">MyChart / Athena Health</span>
+              <span class="source-detail">Lab results — ApoB, HbA1c, CRP, lipids, testosterone, and more</span>
+              <span class="source-badge">Live</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">Oura Ring</span>
+              <span class="source-detail">Sleep stages, HRV, readiness</span>
+              <span class="source-badge soon">Coming Soon</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">Whoop</span>
+              <span class="source-detail">Strain, recovery, sleep performance</span>
+              <span class="source-badge soon">Coming Soon</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">Garmin / Fitbit</span>
+              <span class="source-detail">Enriched activity and biometric data</span>
+              <span class="source-badge soon">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-block" id="privacy">
+          <h2>Our Core Promise:<br />You Own Your Data</h2>
+          <p>
+            In today's tech landscape, personal health data is too often treated as a commodity — mined, aggregated, and sold to the highest bidder. Enva fundamentally rejects that model.
+          </p>
+          <p>
+            All calculations and summaries run on-device. When deeper AI analysis leaves your phone, it goes to an enterprise-secure LLM environment. Your data is never used to train models. It is never sold. It never becomes someone else's product.
+          </p>
+          <p>
+            By prioritizing on-device processing and strict privacy protocols, we ensure you get the immense benefits of AI analysis without ever sacrificing your personal privacy.
+          </p>
+          <p>
+            <a href="privacy.html" style="color:var(--accent);font-weight:500;">Read our full Privacy Policy →</a>
+          </p>
+        </div>
+
+        <div class="story-block" id="founder">
+          <h2>From the Founder</h2>
+          <div class="founder-card">
+            <div class="founder-greeting">Cheers,</div>
+            <p>
+              I built Enva because I was the person taking screenshots every morning. I was the person pasting data into AI tools just to understand my own body. I was frustrated — not because the data didn't exist, but because no one had built the thing that made it all make sense together.
+            </p>
+            <p>
+              Enva is that thing. It's built for the serious biohacker who knows what ApoB means and wants it in the same view as their VO₂ Max trend. It's built for the Orangetheory member who wants more than splat points. And it's built for anyone who's ever stood at the beginning of a fitness journey wishing someone would just show them where to start.
+            </p>
+            <p>
+              Whatever brought you here — I built this for you.
+            </p>
+            <div class="founder-sig">
+              <div class="founder-sig-name">Marcus</div>
+              <div class="founder-sig-title">Founder, Enva</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section style="text-align:center;">
+  <div class="container">
+    <span class="section-label">Early Access</span>
+    <h2 class="display-l" style="margin-bottom:18px;">
+      Ready to see <span class="accent-text">your full picture?</span>
+    </h2>
+    <p style="color:var(--ink-2);margin-bottom:36px;font-size:16px;">Join the waitlist and be first to know when Enva launches.</p>
+    <div style="display:flex;justify-content:center;">
+      <div class="waitlist-form">
+            <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+        <input type="email" id="about-email" placeholder="your@email.com" />
+        <button class="btn-primary" onclick="handleWaitlist()">Join Waitlist</button>
+      </div>
+    </div>
+    <p id="about-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">✓ You're on the list.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="footer-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="support.html">Support</a></li>
+    <li><a href="privacy.html">Privacy Policy</a></li>
+    <li><a href="terms.html">Terms of Service</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+</footer>
+
+<script src="waitlist.js" defer></script>
+</body>
+</html>
