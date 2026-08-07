@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hyrox Training — Enva</title>
+  <meta name="description" content="Set a Hyrox finish time and let Enva work backwards — reading your sleep, nutrition, zone distribution, recovery and progressive overload to tell you what is actually holding the time back." />
+  <link rel="canonical" href="https://getenva.ai/hyrox" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
+  <meta name="theme-color" content="#121212" />
+  <meta property="og:title" content="Hyrox Training — Enva" />
+  <meta property="og:description" content="Set the finish time. Enva works backwards." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getenva.ai/hyrox" />
+  <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Landing pages carry a tighter hero than the feature pages: most of this
+       traffic arrives from a printed URL on a phone, mid-gym, with no context
+       and about five seconds of patience. */
+    .lp-hero {
+      padding-top: 150px;
+      padding-bottom: 68px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lp-glow {
+      width: 600px; height: 600px;
+      background: rgba(228,101,42,0.11);
+      top: -160px; right: -180px;
+    }
+    .lp-hero-inner { position: relative; z-index: 1; }
+    .lp-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6vw, 76px);
+      font-weight: 300;
+      line-height: 1.03;
+      letter-spacing: 0;
+      margin-bottom: 22px;
+      max-width: 16ch;
+    }
+    .lp-lede {
+      font-size: 18px;
+      color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 54ch;
+      margin-bottom: 34px;
+    }
+    .lp-cta { display: flex; flex-direction: column; gap: 14px; max-width: 460px; }
+    .lp-note { font-size: 13px; color: var(--ink-3); }
+
+    /* Goal card — the single idea the page is selling */
+    .goal-card {
+      margin-top: 48px;
+      background: var(--surface);
+      border: 1px solid var(--accent-line);
+      border-radius: var(--radius-lg);
+      padding: 30px 32px;
+      max-width: 520px;
+      position: relative;
+    }
+    .goal-card::before {
+      content: ""; position: absolute; top: 0; left: 32px;
+      width: 34px; height: 2px; background: var(--accent);
+    }
+    .goal-label {
+      font-family: var(--font-display);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px;
+    }
+    .goal-target {
+      font-family: var(--font-display);
+      font-size: 44px; font-weight: 300; color: var(--ink);
+      line-height: 1.05; margin-bottom: 6px;
+    }
+    .goal-target span { color: var(--accent); }
+    .goal-meta { font-size: 14px; color: var(--ink-2); }
+    .goal-split { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border); }
+    .goal-row {
+      display: flex; justify-content: space-between; gap: 16px;
+      font-size: 14px; padding: 7px 0; color: var(--ink-2);
+    }
+    .goal-row strong { color: var(--ink); font-weight: 600; }
+    .goal-row .lag { color: var(--accent); font-weight: 600; }
+
+    /* Problem / mechanism blocks */
+    .lp-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 18px; margin-top: 44px;
+    }
+    .lp-card {
+      padding: 28px 26px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+    }
+    .lp-card h3 {
+      font-family: var(--font-display); font-size: 19px; font-weight: 400;
+      margin-bottom: 10px; line-height: 1.25;
+    }
+    .lp-card p { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+    .lp-card .icon-line { margin-bottom: 18px; }
+
+    /* Inputs list */
+    .inputs {
+      display: flex; flex-direction: column;
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      overflow: hidden; margin-top: 34px;
+    }
+    .input-row {
+      display: grid; grid-template-columns: 190px 1fr;
+      gap: 22px; padding: 20px 24px; background: var(--surface);
+      align-items: baseline;
+    }
+    .input-row + .input-row { border-top: 1px solid var(--border); }
+    .input-name {
+      font-family: var(--font-display); font-size: 17px; font-weight: 400; color: var(--ink);
+    }
+    .input-desc { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+
+    .prose { font-size: 16px; color: var(--ink-2); line-height: 1.8; max-width: 64ch; }
+    .prose + .prose { margin-top: 15px; }
+
+    @media (max-width: 900px) {
+      .lp-grid { grid-template-columns: 1fr; }
+      .input-row { grid-template-columns: 1fr; gap: 6px; }
+      .lp-hero h1 { max-width: none; }
+    }
+  </style>
+</head>
+<body data-page="hyrox">
+
+<!-- Enva wordmark — approved production pass. Path data is byte-identical to
+     Brand/logo/svg (sha256 672d64021d776879). Do not regenerate or re-trace. -->
+<svg class="wordmark-sprite" aria-hidden="true" focusable="false">
+  <symbol id="enva-wordmark" viewBox="0 -30 2349 802">
+    <path fill-rule="nonzero" d="M 266 30 C 142.91667 30 40 130.22222 40 254 L 40 486 C 40 609.77778 142.91667 710 266 710 L 600 710 A 50 50 0 0 0 650 660 A 50 50 0 0 0 600 610 L 266 610 C 197.08333 610 140 554.22222 140 486 L 140 390 L 540 390 A 50 50 0 0 0 590 340 A 50 50 0 0 0 540 290 L 140 290 L 140 254 C 140 185.77778 197.08333 130 266 130 L 600 130 A 50 50 0 0 0 650 80 A 50 50 0 0 0 600 30 L 266 30 z M 950 207 C 885.81481 207 826.53288 226.28198 781.33203 261.38477 C 736.13118 296.48755 705 349.83333 705 410 L 705 660 A 50 50 0 0 0 755 710 A 50 50 0 0 0 805 660 L 805 410 C 805 383.16667 817.36882 360.01245 842.66797 340.36523 C 867.96712 320.71802 906.18519 307 950 307 C 993.81481 307 1032.0329 320.71802 1057.332 340.36523 C 1082.6312 360.01245 1095 383.16667 1095 410 L 1095 660 A 50 50 0 0 0 1145 710 A 50 50 0 0 0 1195 660 L 1195 410 C 1195 349.83333 1163.8688 296.48755 1118.668 261.38477 C 1073.4671 226.28198 1014.1852 207 950 207 z M 1930 207 A 50 50 0 0 0 1880 257 A 50 50 0 0 0 1930 307 L 2080 307 C 2126.9203 307 2157.3736 320.8766 2177.6973 341.2832 C 2188.167 351.7957 2196.3722 364.67443 2201.916 380 L 2035 380 C 1985.3704 380 1937.9103 385.64963 1896.6465 408.97266 C 1855.3827 432.29569 1825 480.41667 1825 535 C 1825 634.44444 1907.9167 713 2010 713 L 2075 713 C 2141.6304 713 2200.8507 694.47511 2243.7891 656.41992 C 2286.7274 618.36473 2310 561.66667 2310 500 L 2310 430 C 2310 369.16667 2289.4791 311.8102 2248.5527 270.7168 C 2207.6264 229.6234 2148.0797 207 2080 207 L 1930 207 z M 1285.291 207.22266 A 50 50 0 0 0 1266.6016 212.8125 A 50 50 0 0 0 1245.8125 280.39844 L 1460.8125 686.39844 A 50.005 50.005 0 0 0 1549.1875 686.39844 L 1764.1875 280.39844 A 50 50 0 0 0 1743.3984 212.8125 A 50 50 0 0 0 1675.8125 233.60156 L 1505 556.1582 L 1334.1875 233.60156 A 50 50 0 0 0 1285.291 207.22266 z M 2035 480 L 2210 480 L 2210 500 C 2210 538.33333 2198.2726 563.13527 2177.4609 581.58008 C 2156.6493 600.02489 2123.3696 613 2075 613 L 2010 613 C 1952.0833 613 1925 585.55556 1925 535 C 1925 509.58333 1929.6173 505.20431 1945.8535 496.02734 C 1962.0897 486.85037 1994.6296 480 2035 480 z "/>
+  </symbol>
+</svg>
+
+<nav>
+  <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="index">Home</a></li>
+    <li><a href="biological-age" class="active">Biological Age</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="support">Support</a></li>
+  </ul>
+  <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<section class="lp-hero">
+  <div class="container">
+    <div class="glow lp-glow"></div>
+    <div class="lp-hero-inner">
+      <span class="section-label">Hyrox</span>
+      <h1>Set the finish time. Enva works backwards.</h1>
+      <p class="lp-lede">
+        Eight runs and eight stations, and the whole race is decided by how well you run tired. Enva takes your target time and reads everything feeding it — sleep, fuel, zone distribution, recovery, how your load is balanced — then tells you which one is actually costing you the minutes.
+      </p>
+      <div class="lp-cta">
+        <div class="waitlist-form">
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+          <input type="email" id="hyrox-email" placeholder="your@email.com" />
+          <button class="btn-primary" onclick="handleWaitlist('hyrox-email','hyrox-success')">Get Early Access</button>
+        </div>
+        <p class="lp-note" id="hyrox-success" style="display:none;"></p>
+        <p class="lp-note">Coming soon to iPhone. Join the waitlist and be first in.</p>
+      </div>
+
+      <div class="goal-card">
+        <p class="goal-label">Your Goal</p>
+        <p class="goal-target">Hyrox Solo in <span>1:29:00</span></p>
+        <p class="goal-meta">Target date 14 December. 68 days out.</p>
+        <div class="goal-split">
+          <div class="goal-row"><span>Projected finish at current rate</span><strong>1:32:40</strong></div>
+          <div class="goal-row"><span>Gap to target</span><span class="lag">3:40 behind</span></div>
+          <div class="goal-row"><span>Limiter this week</span><span class="lag">Zone 2 volume</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="container">
+    <span class="section-label">The Problem</span>
+    <h2 class="display-l" style="max-width:18ch;margin-bottom:18px;">Nothing you use measures compromised running.</h2>
+    <p class="prose">
+      Your running watch sees the runs. Your gym app sees the strength work. Neither sees the thing that decides the race — what your legs do on run six, after the sled and the burpee broad jumps. The number that matters is not your 1k time. It is your 1k time when you are already wrecked.
+    </p>
+
+    <div class="lp-grid">
+      <div class="lp-card">
+        <svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 17.5 8 11l4 3.5 3.5-5.5 4.5 4"/>
+          <path d="M3 21h18"/>
+        </svg>
+        <h3>Split training, split data</h3>
+        <p>Runs in one app, stations in another, and no single view that knows how one is eating into the other.</p>
+      </div>
+      <div class="lp-card">
+        <svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.75"/>
+          <path d="M12 6.75V12l3.5 2"/>
+        </svg>
+        <h3>Volume without direction</h3>
+        <p>More sessions is not a plan. Without a target time nothing tells you whether this week moved you closer or further away.</p>
+      </div>
+      <div class="lp-card">
+        <svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21s-7.25-4.4-7.25-9.75A4.25 4.25 0 0 1 12 8.5a4.25 4.25 0 0 1 7.25 2.75C19.25 16.6 12 21 12 21z"/>
+        </svg>
+        <h3>Recovery treated as separate</h3>
+        <p>Sleep and fuel are not a wellness sidebar. They are inputs to the finish time, and they belong in the same model as the training.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="container">
+    <span class="section-label">How It Works</span>
+    <h2 class="display-l" style="max-width:20ch;margin-bottom:18px;">One target. Every input that feeds it.</h2>
+    <p class="prose">
+      You set the time you want and the date you want it. From there Enva stops reporting numbers at you and starts answering one question instead: what is holding this back right now.
+    </p>
+
+    <div class="inputs">
+      <div class="input-row">
+        <div class="input-name">Zone distribution</div>
+        <div class="input-desc">Whether your easy work is genuinely easy. Hyrox punishes an aerobic base built entirely at threshold, and most people training for it are living in the wrong zone.</div>
+      </div>
+      <div class="input-row">
+        <div class="input-name">Recovery</div>
+        <div class="input-desc">HRV, resting heart rate and how fast your heart drops after effort — read against your own baseline, not a population chart.</div>
+      </div>
+      <div class="input-row">
+        <div class="input-name">Sleep</div>
+        <div class="input-desc">Duration, consistency, and the deep and REM split. The part that determines whether last week's training turned into fitness or just fatigue.</div>
+      </div>
+      <div class="input-row">
+        <div class="input-name">Nutrition</div>
+        <div class="input-desc">Calories against your real expenditure, and whether protein is actually supporting the strength side while you hold a deficit.</div>
+      </div>
+      <div class="input-row">
+        <div class="input-name">Load balance</div>
+        <div class="input-desc">Running against stations against everything else. Progressive overload only works when the progression is visible.</div>
+      </div>
+      <div class="input-row">
+        <div class="input-name">Labs</div>
+        <div class="input-desc">Ferritin, vitamin D, thyroid, inflammatory markers. When the training is right and the times still are not moving, this is usually where the answer is.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="container">
+    <span class="section-label">Connected</span>
+    <h2 class="display-l" style="max-width:20ch;margin-bottom:18px;">Already training. Bring it with you.</h2>
+    <p class="prose">
+      Enva connects to each platform directly rather than flattening everything through Apple Health, so an Orangetheory class arrives as splat points, tread pace and rower splits rather than a generic entry marked "workout."
+    </p>
+    <div class="integration-pills" style="justify-content:flex-start;margin-top:28px;">
+      <span class="pill">Apple Watch</span>
+      <span class="pill">Orangetheory</span>
+      <span class="pill">Peloton</span>
+      <span class="pill">MyChart</span>
+      <span class="pill">Athena Health</span>
+      <span class="pill coming">Oura Ring — soon</span>
+      <span class="pill coming">Whoop — soon</span>
+      <span class="pill coming">Garmin — soon</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section style="text-align:center;">
+  <div class="container">
+    <span class="section-label">Early Access</span>
+    <h2 class="display-l" style="margin-bottom:18px;">Put a number on it.</h2>
+    <p style="color:var(--ink-2);margin-bottom:34px;font-size:16px;">Enva is coming to iPhone. Join the waitlist and start your first goal on day one.</p>
+    <div style="display:flex;justify-content:center;">
+      <div class="waitlist-form">
+        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+        <input type="email" id="hyrox-email-2" placeholder="your@email.com" />
+        <button class="btn-primary" onclick="handleWaitlist('hyrox-email-2','hyrox-success-2')">Get Early Access</button>
+      </div>
+    </div>
+    <p id="hyrox-success-2" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;"></p>
+  </div>
+</section>
+
+<footer>
+  <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="footer-links">
+    <li><a href="hyrox">Hyrox</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="support">Support</a></li>
+    <li><a href="privacy">Privacy Policy</a></li>
+    <li><a href="terms">Terms of Service</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+</footer>
+
+<script src="waitlist.js" defer></script>
+</body>
+</html>
