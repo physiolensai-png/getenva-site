@@ -1,5 +1,9 @@
 {
   "outputDirectory": "public",
+
+  "cleanUrls": true,
+  "trailingSlash": false,
+
   "headers": [
     {
       "source": "/.well-known/apple-app-site-association",
@@ -7,5 +11,14 @@
         { "key": "Content-Type", "value": "application/json" }
       ]
     }
+  ],
+
+  "redirects": [
+    { "source": "/Hyrox", "destination": "/hyrox", "permanent": true },
+    { "source": "/HYROX", "destination": "/hyrox", "permanent": true },
+    { "source": "/Otf", "destination": "/otf", "permanent": true },
+    { "source": "/OTF", "destination": "/otf", "permanent": true },
+    { "source": "/Peloton", "destination": "/peloton", "permanent": true },
+    { "source": "/PELOTON", "destination": "/peloton", "permanent": true }
   ]
 }
