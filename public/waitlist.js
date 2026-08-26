@@ -1,4 +1,5 @@
 /* Enva — waitlist and contact form handling.
+ * Copyright © 2026 Olympus Hills Ventures LLC. All rights reserved.
  *
  * One integration point. To move off the Cloud Function, change ENDPOINT and
  * nothing else: every form on the site routes through submit() below.
