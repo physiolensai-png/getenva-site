@@ -1,14 +1,12 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
-        "appID": "2L6K33C283.com.physiolens.PhysioLens-v1",
-        "paths": ["/oauth/epic"]
+        "appIDs": ["2L6K33C283.com.enva.Enva"],
+        "components": [
+          { "/": "/oauth/epic", "comment": "Epic FHIR OAuth callback" }
+        ]
       }
     ]
-  },
-  "webcredentials": {
-    "apps": ["2L6K33C283.com.physiolens.PhysioLens-v1"]
   }
 }

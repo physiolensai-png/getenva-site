@@ -132,7 +132,7 @@
   <div class="container">
     <span class="section-label">Legal</span>
     <h1>Privacy Policy</h1>
-    <p class="policy-meta">Last updated: July 20, 2026</p>
+    <p class="policy-meta">Last updated: August 26, 2026</p>
   </div>
 </section>
 
@@ -169,14 +169,14 @@
         </div>
 
         <div class="policy-section" id="golden-rule">
-          <h2>1. The Golden Rule: Your Health Data Stays on Your Phone</h2>
+          <h2>1. The Golden Rule: Your Raw Health Data Stays on Your Phone</h2>
           <div class="highlight-box">
-            <p>We designed Enva so that we don't have to secure your sensitive health data on our servers — because we don't collect it in the first place.</p>
+            <p>We designed Enva so that we don't have to secure your sensitive health data on our servers — because we don't collect raw records in the first place.</p>
           </div>
           <ul>
-            <li><strong>Local storage.</strong> When you connect Enva to Apple Health or other third-party integrations, that health and fitness data (like your heart rate, sleep metrics, and workout history) is imported and processed <strong>locally on your device</strong>.</li>
-            <li><strong>No cloud servers.</strong> We do not transmit, upload, or store your raw health or biometric data on our company servers.</li>
-            <li><strong>Not subject to HIPAA.</strong> Because we are a wellness app and not a healthcare provider, and because we don't store your health data, we are not a "covered entity" under HIPAA.</li>
+            <li><strong>Local storage.</strong> When you connect Enva to Apple Health or other third-party integrations, that health and fitness data (like your heart rate, sleep metrics, and workout history) is imported and processed <strong>locally on your device</strong>. Individual timestamped records — discrete heart rate samples, GPS tracks, raw sleep stage events — never leave your phone.</li>
+            <li><strong>Computed summaries, not raw records.</strong> When AI features are enabled, Enva computes aggregate metrics from your data (like your weekly training load or your average sleep score) and sends that computed summary to our AI service to generate a response. The distinction matters: summaries are sent, raw records are not.</li>
+            <li><strong>Not subject to HIPAA.</strong> Because we are a wellness app and not a healthcare provider, and because we don't store your raw health data on servers we control, we are not a "covered entity" under HIPAA.</li>
           </ul>
         </div>
 
@@ -190,22 +190,40 @@
           </ul>
           <p><strong>B. Information collected automatically (app analytics)</strong></p>
           <ul>
-            <li><strong>Usage data:</strong> We collect anonymized, non-personally identifiable data about how you use the app (for example, which screens you visit, what features you click, and crash reports).</li>
-            <li><strong>Device data:</strong> Basic information like your device model, iOS version, general geographic region (not precise location), and IP address.</li>
-            <li><strong>Tracking technologies:</strong> We use standard analytics tools (like Mixpanel, Google Analytics, or Apple App Analytics) to understand app performance. This data does not contain health information.</li>
+            <li><strong>Usage data:</strong> We collect anonymized, non-personally identifiable data about how you use the app (for example, which screens you visit, what features you use, and session frequency). This data does not contain health information.</li>
+            <li><strong>Device data:</strong> Basic information like your device model, iOS version, and app version — used for crash analysis and compatibility.</li>
+            <li><strong>Analytics vendor:</strong> We use PostHog for product analytics. Analytics is opt-in: you are asked during onboarding and can change your preference in Settings. PostHog receives an anonymous rotating session ID — not your name, email, or Apple ID. No health data is included.</li>
           </ul>
+          <p><strong>C. Bug reports and crash diagnostics</strong></p>
+          <ul>
+            <li><strong>MetricKit:</strong> If the app crashes, Apple's MetricKit framework sends an anonymized crash summary (crash type, app version, OS version, device model) to us. No health data is included.</li>
+            <li><strong>Report a Bug:</strong> If you submit a bug report through Settings → Report a Bug, we collect your written description, up to 30 recent in-app events (a breadcrumb log of actions, not health records), your device model and OS version, and optionally a screenshot you choose to attach. This is sent to our backend and retained for up to 12 months for debugging purposes.</li>
+          </ul>
+          <p><strong>D. AI-generated inferences</strong></p>
+          <p>When you use AI features, Enva computes inferences from your health data — such as a recovery score, a training load estimate, or a wellness insight — entirely on your device. These inferences may be included in the computed summary sent to our AI service (see §3), but the underlying raw health records are not transmitted.</p>
+          <p><strong>E. AI chat feedback</strong></p>
+          <p>If you give a thumbs-down to an AI response in chat, we store a snippet of your question (up to 200 characters), the response index, and an anonymous session ID. This is retained for up to 12 months and used to improve response quality. A thumbs-up records only an anonymous count — no content is stored.</p>
         </div>
 
         <div class="policy-section" id="ai">
           <h2>3. How Enva's AI Features Work</h2>
-          <p>If you choose to enable Enva's AI-powered wellness insights, here is exactly what happens to your data:</p>
+          <p>Enva Intelligence is opt-in. If you choose not to enable it, no health data ever leaves your device for AI processing. If you do enable it, here is exactly what happens:</p>
+          <p><strong>What is sent — tiered by feature:</strong></p>
           <ul>
-            <li><strong>Anonymization.</strong> When you ask a question or request an insight, Enva compiles the necessary inputs and strips them of personally identifiable information.</li>
-            <li><strong>Transmission.</strong> This anonymized payload is sent to Google Cloud's Vertex AI, powered by Gemini.</li>
-            <li><strong>No retention or training.</strong> Google processes the data to generate your insight and immediately discards the prompt. As per our enterprise agreement with Google Cloud, <strong>your data is never retained, and it is never used to train Google's AI models.</strong></li>
-            <li><strong>No chat history on our servers.</strong> Unlike other apps, we do not store your AI conversation history on our servers for QA or debugging. If you delete the app, your AI history is gone.</li>
+            <li><strong>All AI features</strong> include a biometric baseline: recent HRV, resting heart rate, sleep score, recovery score, VO₂ Max estimate, and training load metrics — all as computed aggregates, never as raw timestamped records.</li>
+            <li><strong>Body and Insights features</strong> additionally include: weight, BMI, and body fat percentage (if you've entered them), and nutrition macro totals.</li>
+            <li><strong>AI Chat</strong> additionally includes: blood work values you've imported, goal notes you've typed, and the messages in your current conversation.</li>
+            <li><strong>Workout analysis</strong> additionally includes: session notes you've typed for that workout.</li>
           </ul>
-          <p><strong>A note on reproductive health.</strong> Because all health data stays on your device, we do not collect, process, or store reproductive health data on our servers, nor is it transmitted to our AI partners unless you explicitly write it into a custom prompt.</p>
+          <p><strong>How the data travels — two paths:</strong></p>
+          <ul>
+            <li><strong>Most features.</strong> The context block is sent from the app to our backend (Google Cloud, us-central1 region), which forwards it to our AI service provider to generate your response. The backend does not write your health context to a database — it is used only to produce the response and is not retained after that.</li>
+            <li><strong>Workout screenshot import.</strong> If you use the screenshot import feature to import a workout from another app, the screenshot is sent directly from your phone to our AI service for data extraction. The image is not stored on our backend after extraction is complete.</li>
+          </ul>
+          <p><strong>Device identity.</strong> Your app is associated with an anonymous Firebase device ID — a stable per-install identifier used for AI quota tracking and to associate your conversation history within the app. This ID is not linked to your name, Apple ID, or email address. It is stored in your device's Keychain and survives app updates but is reset on reinstall.</p>
+          <p><strong>What our AI service provider does not do.</strong> Your data is not retained by our AI service provider after your response is generated, and is not used to train AI models. For details, refer to our AI service provider's data processing terms.</p>
+          <p><strong>Conversation history.</strong> Your AI chat history is stored locally on your device. It is not stored on our servers. If you delete the app, your conversation history is gone. The only exception is the chat feedback described in §2E above.</p>
+          <p><strong>Reproductive health.</strong> Reproductive health data (menstrual cycle, fertility metrics) is not included in any AI context block by default. It stays on your device unless you explicitly type it into a chat message.</p>
         </div>
 
         <div class="policy-section" id="sharing">
@@ -215,39 +233,51 @@
           </div>
           <p>We only share the limited data we collect (like your email or anonymized analytics) in the following scenarios:</p>
           <ul>
-            <li><strong>Service providers:</strong> With trusted companies that help us run our business, like email providers for customer support or crash-reporting software.</li>
-            <li><strong>Legal compliance:</strong> If we are legally required to do so by a valid court order, subpoena, or law enforcement request.</li>
-            <li><strong>Business transfers:</strong> If Olympus Hills Ventures LLC is acquired, merged, or sold, your contact and analytics data (but not your on-device health data) may be transferred as a business asset.</li>
+            <li><strong>Service providers:</strong> With trusted vendors who help us operate the Services, including:
+              <ul style="margin-top:8px;">
+                <li><strong>Google Cloud</strong> — backend infrastructure and Firebase services (anonymous device authentication, crash reporting via Crashlytics, and the backend that routes AI requests). Governed by Google Cloud's Data Processing Addendum.</li>
+                <li><strong>PostHog</strong> — product analytics (opt-in only; receives an anonymous session ID and event names, no health data).</li>
+                <li><strong>Apple</strong> — subscription billing via the App Store and MetricKit crash diagnostics.</li>
+                <li><strong>AI service provider(s)</strong> — process computed health summaries on our behalf to generate AI responses when you have enabled Enva Intelligence. See §3 for details.</li>
+              </ul>
+            </li>
+            <li><strong>Legal compliance:</strong> If we are legally required to do so by a valid court order, subpoena, or law enforcement request. We will notify you of any compelled disclosure to the extent permitted by law.</li>
+            <li><strong>Business transfers:</strong> If Olympus Hills Ventures LLC is acquired, merged, or sold, your contact and analytics data (but not your on-device health data) may be transferred as a business asset. Any successor will be bound to treat your data under terms no less protective than this policy.</li>
           </ul>
         </div>
 
         <div class="policy-section" id="security">
           <h2>5. Security and Data Retention</h2>
-          <p>We use commercially reasonable security measures to protect the limited data we do hold, like support emails and account credentials.</p>
+          <p>We use commercially reasonable security measures, including AES-256 encryption at rest and TLS in transit, to protect the limited data we do hold.</p>
           <ul>
-            <li><strong>Account data:</strong> Retained as long as your account is active.</li>
-            <li><strong>Analytics data:</strong> Retained indefinitely in an aggregated, anonymized format.</li>
-            <li><strong>Health data:</strong> Because health data lives on your device, <strong>you control the retention</strong>. When you delete the Enva app, your local Enva data is permanently deleted from your phone.</li>
+            <li><strong>Health data on-device:</strong> Stored in an encrypted SwiftData database protected by iOS file protection. You control retention — when you delete the Enva app, your local data is permanently deleted.</li>
+            <li><strong>Bug reports:</strong> Retained for up to 12 months and then deleted.</li>
+            <li><strong>AI chat feedback (thumbs-down):</strong> The prompt snippet (≤200 characters) is retained for up to 12 months and then deleted.</li>
+            <li><strong>PostHog analytics:</strong> Retained in anonymized, aggregated form. No health data is included.</li>
+            <li><strong>Crash reports (MetricKit / Crashlytics):</strong> Retained according to Google Firebase's standard retention policy.</li>
+            <li><strong>Subscription and contact data:</strong> Retained as long as your account is active or as required by law.</li>
           </ul>
         </div>
 
         <div class="policy-section" id="children">
           <h2>6. Children's Privacy</h2>
-          <p>Enva is not meant for anyone under 13. We do not knowingly collect personal information from children under 13. If you are between 13 and 17, your use of the app is governed by Apple App Store parental controls. If we learn we have collected data from a child under 13, we will delete it immediately.</p>
+          <p>Enva is intended for users who are <strong>18 years of age or older</strong>. You must be at least 18 to create an account and use the Services. We do not knowingly collect personal information from anyone under 18. If we learn that a user under 18 has accessed the Services, we will terminate that account and delete any associated data promptly. If you believe a minor has used Enva, please contact us at <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>.</p>
         </div>
 
         <div class="policy-section" id="state-rights">
-          <h2>7. U.S. State-Specific Privacy Rights (Including Utah and California)</h2>
-          <p>If you live in a state with comprehensive privacy laws (like California, Utah, Colorado, Virginia, or Texas), you have specific rights regarding your personal data.</p>
-          <p>Because we do not store your health data, these rights primarily apply to your email address and analytics profile:</p>
+          <h2>7. U.S. State Privacy Rights</h2>
+          <p>Many U.S. states have enacted comprehensive consumer privacy laws. If you are a resident of California, Utah, Colorado, Virginia, Texas, Washington, or another state with applicable privacy legislation, you have specific rights regarding your personal data.</p>
+          <p>Because we do not store your raw health data on our servers, these rights primarily apply to the data we do hold: your email address, support correspondence, analytics profile, and any bug report or feedback data.</p>
           <ul>
-            <li><strong>Right to know or access:</strong> You can ask us what personal data we have about you.</li>
+            <li><strong>Right to know or access:</strong> You can ask us what personal data we hold about you.</li>
             <li><strong>Right to delete:</strong> You can ask us to delete your personal data from our systems.</li>
-            <li><strong>Right to correct:</strong> You can ask us to fix inaccurate data.</li>
-            <li><strong>Right to opt out:</strong> You can direct us not to "sell" or "share" your data for targeted advertising. We don't do this anyway.</li>
+            <li><strong>Right to correct:</strong> You can ask us to correct inaccurate data.</li>
+            <li><strong>Right to opt out of sale or sharing:</strong> We do not sell or share your personal data for targeted advertising. This right is satisfied by our practices.</li>
+            <li><strong>Right to data portability:</strong> You can request a copy of your data in a portable format.</li>
           </ul>
-          <p>To exercise these rights, email us at <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>. We will not discriminate against you for exercising your privacy rights.</p>
-          <p><strong>"Do Not Track" and Global Privacy Control.</strong> We do not track users across third-party websites, so we do not respond to DNT signals. However, we honor Global Privacy Control (GPC) signals for our website analytics.</p>
+          <p><strong>Washington My Health MY Data Act (MHMDA) and similar state health data laws.</strong> Enva processes certain health data as defined under state-level health privacy statutes, including biometric and fitness data. We collect and process this data only with your authorization, use it only to provide the Services, and do not sell it. To the extent state law grants additional rights with respect to health data, we honor those rights. Requests can be submitted to <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>.</p>
+          <p>To exercise any of these rights, email us at <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>. We will respond within 45 days. We will not discriminate against you for exercising your privacy rights.</p>
+          <p><strong>"Do Not Track" and Global Privacy Control.</strong> We do not track users across third-party websites. We honor Global Privacy Control (GPC) signals for website analytics.</p>
         </div>
 
         <div class="policy-section" id="international">
@@ -268,7 +298,7 @@
 
         <div class="policy-section" id="changes">
           <h2>10. Changes to this Policy</h2>
-          <p>We may update this Privacy Policy from time to time. If we make material changes, we will let you know by updating the "Last updated" date at the top of this page, and we may also notify you within the app. Your continued use of Enva after the changes take effect means you agree to the new policy.</p>
+          <p>We may update this Privacy Policy from time to time. For non-material changes (typo corrections, clarifications that do not affect your rights), we will update the "Last updated" date at the top of this page. For material changes — changes that affect what data we collect, how we use it, or who we share it with — we will provide at least 30 days' notice through a prominent in-app notice before the change takes effect. Your continued use of Enva after the effective date of a material change constitutes your acceptance of the updated policy.</p>
         </div>
 
         <div class="policy-section" id="contact">
@@ -276,8 +306,10 @@
           <p>If you have any questions, concerns, or requests regarding your privacy, please reach out to us:</p>
           <p>
             <strong>Olympus Hills Ventures LLC</strong><br />
-            Website: <a href="https://getenva.ai">getenva.ai</a><br />
-            Email: <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>
+            7533 S Center View Ct # R<br />
+            West Jordan, Utah 84084<br />
+            Email: <a href="mailto:hello@getenva.ai">hello@getenva.ai</a><br />
+            Website: <a href="https://getenva.ai">getenva.ai</a>
           </p>
         </div>
 

@@ -182,7 +182,7 @@
   <div class="container">
     <span class="section-label">Legal</span>
     <h1>Terms of Service</h1>
-    <p class="policy-meta">Last updated: July 20, 2026</p>
+    <p class="policy-meta">Last updated: August 26, 2026</p>
   </div>
 </section>
 
@@ -238,21 +238,26 @@
           <h2>2. Your Data Stays on Your Phone. Full Stop.</h2>
           <p>This is the part we're most proud of, so we want to say it clearly.</p>
           <div class="highlight-box">
-            <p><strong>Your personal health and fitness data never leaves your device.</strong> It is stored locally on your phone. We do not transmit it, upload it, or store it on any server we own or maintain. When you delete the app, that data is gone.</p>
+            <p><strong>Your raw health and fitness data never leaves your device.</strong> Individual timestamped records — discrete heart rate readings, GPS tracks, raw sleep stages — are stored locally on your phone and are never uploaded to our servers. When you delete the app, that data is gone.</p>
           </div>
           <p>Here's exactly what does and doesn't leave your device.</p>
           <h3>What stays on your device</h3>
           <ul>
-            <li>All Apple Health data and any health metrics Enva generates</li>
-            <li>Your personal profile and fitness history</li>
+            <li>All Apple Health records and raw data imported from third-party integrations</li>
+            <li>Your personal profile, fitness history, and AI conversation history</li>
             <li>Everything that makes Enva useful to you</li>
           </ul>
           <h3>What leaves your device, and what it is</h3>
           <ul>
-            <li><strong>App analytics.</strong> We collect anonymized, non-personally identifiable usage data — things like which features you use, where the app crashes, and which screens you spend the most time on. This data contains no health information and cannot be used to identify you. It exists solely to help us make Enva better.</li>
-            <li><strong>AI processing.</strong> Some AI-powered features process anonymized, non-personally identifiable inputs through Google Cloud's Vertex AI platform, powered by Gemini. In practice that means the data sent is not personally identifiable and is never your raw health data; Google does not retain it after processing is complete; it is never used to train or improve Google's AI models; and the arrangement is governed by Google Cloud's enterprise data processing terms.</li>
+            <li><strong>App analytics (opt-in).</strong> If you consent during onboarding, we collect anonymized usage data through PostHog — things like which features you use and session frequency. No health data is included. You can change this preference in Settings at any time.</li>
+            <li><strong>AI processing (opt-in).</strong> If you enable Enva Intelligence, Enva computes aggregate metrics from your on-device data and sends that computed summary to our AI service provider to generate your response. What is sent is a structured summary — not your raw health records — and is not personally identifiable. Our AI service provider processes it to generate your response and does not retain it afterward. For a full breakdown of what each AI feature sends, see our <a href="privacy">Privacy Policy §3</a>.</li>
+            <li><strong>Bug reports.</strong> If you submit a bug report through Settings → Report a Bug, we collect your written description, up to 30 recent in-app events, device information, and an optional screenshot you choose to attach.</li>
+            <li><strong>Crash diagnostics.</strong> If the app crashes, Apple's MetricKit sends an anonymized crash summary (no health data) to Firebase Crashlytics.</li>
+            <li><strong>AI chat feedback.</strong> A thumbs-down on an AI response stores a snippet of your question (up to 200 characters) and an anonymous session ID for up to 12 months.</li>
+            <li><strong>Workout screenshot import.</strong> If you import a workout using the screenshot feature, the image is sent directly from your phone to our AI service for data extraction. It is not stored on our backend after extraction is complete.</li>
           </ul>
-          <p>By enabling AI features, you consent to this limited, anonymized processing as described above.</p>
+          <p><strong>Anonymous device identity.</strong> Your app is associated with an anonymous Firebase device ID — a stable per-install identifier used for AI quota tracking. It is not linked to your name or Apple ID.</p>
+          <p>By enabling AI features, you consent to the limited, anonymized processing described above and in our <a href="privacy">Privacy Policy</a>.</p>
         </div>
 
         <div class="policy-section" id="medical">
@@ -281,11 +286,11 @@
           <h2>5. Who Can Use Enva</h2>
           <p>By accessing or using the Services, you confirm that:</p>
           <ul>
-            <li>You are at least <strong>13 years of age</strong>;</li>
-            <li>If you are between 13 and 17, your access is subject to Apple App Store parental controls and account permissions;</li>
+            <li>You are at least <strong>18 years of age</strong>;</li>
+            <li>You have the legal capacity to enter into a binding agreement;</li>
             <li>You are not prohibited by applicable law or U.S. government sanctions from using the Services.</li>
           </ul>
-          <p>We do not knowingly collect personal information from children under 13. If we learn that a child under 13 has created an account, we will delete it promptly in accordance with the Children's Online Privacy Protection Act (COPPA).</p>
+          <p>Enva is not intended for users under 18. We do not knowingly collect personal information from anyone under 18. If we learn that a user under 18 has accessed the Services, we will terminate that account and delete associated data promptly. If you believe a minor has used Enva, please contact us at <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>.</p>
         </div>
 
         <div class="policy-section" id="billing">
@@ -349,7 +354,7 @@
             <p class="notice-title">Class action and jury trial waiver</p>
             <p><strong>No class actions.</strong> You and Olympus Hills Ventures LLC agree that claims must be brought individually. You may not participate in class action lawsuits or representative proceedings against us.</p>
             <p><strong>No jury trial.</strong> By agreeing to arbitration, both parties waive the right to a jury trial.</p>
-            <p><strong>Opt-out.</strong> You have the right to opt out of this arbitration agreement. If you do not wish to be bound by arbitration, you must notify us in writing within 30 days of first downloading the app by emailing <a href="mailto:hello@getenva.ai?subject=Arbitration%20Opt-Out">hello@getenva.ai</a> with the subject line "Arbitration Opt-Out." If you opt out, all other parts of these Terms will still apply.</p>
+            <p><strong>Opt-out.</strong> You have the right to opt out of this arbitration agreement. If you do not wish to be bound by arbitration, you must notify us in writing within 30 days of completing onboarding and accepting these Terms by emailing <a href="mailto:hello@getenva.ai?subject=Arbitration%20Opt-Out">hello@getenva.ai</a> with the subject line "Arbitration Opt-Out." If you opt out, all other parts of these Terms will still apply.</p>
           </div>
         </div>
 
@@ -361,7 +366,7 @@
 
         <div class="policy-section" id="changes">
           <h2>14. Changes to These Terms</h2>
-          <p>We may update these Terms from time to time. When we do, we'll update the "Last updated" date at the top and notify you through the app or by email if the changes are material. Continued use of the Services after changes take effect constitutes your acceptance of the revised Terms.</p>
+          <p>We may update these Terms from time to time. For non-material changes (clarifications, corrections that do not affect your rights), we will update the "Last updated" date at the top. For material changes — changes to data practices, your legal rights, or subscription terms — we will provide at least 30 days' notice through a prominent in-app notice before the change takes effect. Continued use of the Services after the effective date of a material change constitutes your acceptance of the revised Terms.</p>
         </div>
 
         <div class="policy-section" id="contact">
@@ -369,6 +374,8 @@
           <p>Questions, concerns, or just want to say hi?</p>
           <p>
             <strong>Olympus Hills Ventures LLC</strong><br />
+            7533 S Center View Ct # R<br />
+            West Jordan, Utah 84084<br />
             Email: <a href="mailto:hello@getenva.ai">hello@getenva.ai</a><br />
             Website: <a href="https://getenva.ai">getenva.ai</a>
           </p>
