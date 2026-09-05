@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep &amp; Recovery · Enva</title>
+  <meta name="description" content="How Enva scores Sleep and Recovery: sleep stages against your own baseline, HRV from the full sleep period, and a readiness read that tells you what today's training should look like." />
+  <link rel="canonical" href="https://getenva.ai/sleep-recovery" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
+  <meta name="theme-color" content="#121212" />
+  <meta property="og:title" content="Sleep &amp; Recovery · Enva" />
+  <meta property="og:description" content="Last night, and whether you're ready today. Sleep stages against your baseline, HRV done right." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getenva.ai/sleep-recovery" />
+  <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .feat-hero { padding-top: 170px; padding-bottom: 76px; position: relative; overflow: hidden; }
+    .feat-glow { width: 560px; height: 560px; background: rgba(228,101,42,0.10); top: -120px; right: -160px; }
+    .feat-hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px; align-items: center;
+    }
+    .feat-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5.4vw, 70px);
+      font-weight: 300; letter-spacing: 0; line-height: 1.05;
+      margin-bottom: 22px; text-wrap: balance;
+    }
+    .feat-lede { font-size: 18px; color: var(--ink-2); line-height: 1.7; max-width: 520px; }
+
+    .readout {
+      background: var(--surface);
+      border: 1px solid var(--accent-line);
+      border-radius: var(--radius-lg);
+      padding: 30px 32px; position: relative;
+    }
+    .readout::before { content: ""; position: absolute; top: 0; left: 32px; width: 32px; height: 2px; background: var(--accent); }
+    .readout-label {
+      font-family: var(--font-display);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 14px;
+    }
+    .readout-pair { display: flex; gap: 28px; }
+    .readout-metric { }
+    .readout-metric .n { font-family: var(--font-display); font-size: 46px; font-weight: 300; color: var(--ink); line-height: 1; }
+    .readout-metric .k { font-size: 11px; color: var(--ink-3); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 6px; }
+    .readout-delta { font-size: 13px; color: var(--ink-2); margin-top: 14px; }
+    .readout-rows { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 9px; }
+    .readout-row { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--ink-2); }
+    .readout-row strong { color: var(--ink); font-weight: 600; }
+
+    .rows {
+      display: flex; flex-direction: column;
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      overflow: hidden; margin-top: 40px;
+    }
+    .row {
+      display: grid; grid-template-columns: 190px 1fr;
+      gap: 24px; padding: 26px 26px;
+      background: var(--surface); align-items: start;
+    }
+    .row + .row { border-top: 1px solid var(--border); }
+    .row-name { font-family: var(--font-display); font-size: 18px; font-weight: 400; color: var(--ink); }
+    .row-desc { font-size: 14.5px; color: var(--ink-2); line-height: 1.65; }
+
+    .callout {
+      margin-top: 40px;
+      padding: 30px 32px;
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background: var(--surface);
+    }
+    .callout h3 { font-family: var(--font-display); font-size: 20px; font-weight: 400; margin-bottom: 12px; }
+    .callout p { font-size: 14.5px; color: var(--ink-2); line-height: 1.7; }
+    .callout p + p { margin-top: 10px; }
+
+    .connects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+    .connect-card { padding: 26px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    .connect-to { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .connect-card p { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+
+    .prose { font-size: 16px; color: var(--ink-2); line-height: 1.8; max-width: 64ch; }
+    .prose + .prose { margin-top: 16px; }
+
+    @media (max-width: 900px) {
+      .feat-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .row { grid-template-columns: 1fr; gap: 8px; }
+      .connects { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-page="sleep-recovery">
+
+<svg class="wordmark-sprite" aria-hidden="true" focusable="false">
+  <symbol id="enva-wordmark" viewBox="0 -30 2349 802">
+    <path fill-rule="nonzero" d="M 266 30 C 142.91667 30 40 130.22222 40 254 L 40 486 C 40 609.77778 142.91667 710 266 710 L 600 710 A 50 50 0 0 0 650 660 A 50 50 0 0 0 600 610 L 266 610 C 197.08333 610 140 554.22222 140 486 L 140 390 L 540 390 A 50 50 0 0 0 590 340 A 50 50 0 0 0 540 290 L 140 290 L 140 254 C 140 185.77778 197.08333 130 266 130 L 600 130 A 50 50 0 0 0 650 80 A 50 50 0 0 0 600 30 L 266 30 z M 950 207 C 885.81481 207 826.53288 226.28198 781.33203 261.38477 C 736.13118 296.48755 705 349.83333 705 410 L 705 660 A 50 50 0 0 0 755 710 A 50 50 0 0 0 805 660 L 805 410 C 805 383.16667 817.36882 360.01245 842.66797 340.36523 C 867.96712 320.71802 906.18519 307 950 307 C 993.81481 307 1032.0329 320.71802 1057.332 340.36523 C 1082.6312 360.01245 1095 383.16667 1095 410 L 1095 660 A 50 50 0 0 0 1145 710 A 50 50 0 0 0 1195 660 L 1195 410 C 1195 349.83333 1163.8688 296.48755 1118.668 261.38477 C 1073.4671 226.28198 1014.1852 207 950 207 z M 1930 207 A 50 50 0 0 0 1880 257 A 50 50 0 0 0 1930 307 L 2080 307 C 2126.9203 307 2157.3736 320.8766 2177.6973 341.2832 C 2188.167 351.7957 2196.3722 364.67443 2201.916 380 L 2035 380 C 1985.3704 380 1937.9103 385.64963 1896.6465 408.97266 C 1855.3827 432.29569 1825 480.41667 1825 535 C 1825 634.44444 1907.9167 713 2010 713 L 2075 713 C 2141.6304 713 2200.8507 694.47511 2243.7891 656.41992 C 2286.7274 618.36473 2310 561.66667 2310 500 L 2310 430 C 2310 369.16667 2289.4791 311.8102 2248.5527 270.7168 C 2207.6264 229.6234 2148.0797 207 2080 207 L 1930 207 z M 1285.291 207.22266 A 50 50 0 0 0 1266.6016 212.8125 A 50 50 0 0 0 1245.8125 280.39844 L 1460.8125 686.39844 A 50.005 50.005 0 0 0 1549.1875 686.39844 L 1764.1875 280.39844 A 50 50 0 0 0 1743.3984 212.8125 A 50 50 0 0 0 1675.8125 233.60156 L 1505 556.1582 L 1334.1875 233.60156 A 50 50 0 0 0 1285.291 207.22266 z M 2035 480 L 2210 480 L 2210 500 C 2210 538.33333 2198.2726 563.13527 2177.4609 581.58008 C 2156.6493 600.02489 2123.3696 613 2075 613 L 2010 613 C 1952.0833 613 1925 585.55556 1925 535 C 1925 509.58333 1929.6173 505.20431 1945.8535 496.02734 C 1962.0897 486.85037 1994.6296 480 2035 480 z "/>
+  </symbol>
+</svg>
+
+<nav>
+  <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="index">Home</a></li>
+    <li><a href="envahealthscore">How It Works</a></li>
+    <li><a href="biological-age">Biological Age</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="support">Support</a></li>
+  </ul>
+  <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="feat-hero">
+  <div class="container">
+    <div class="glow feat-glow"></div>
+    <div class="feat-hero-inner">
+      <div>
+        <span class="section-label">Sleep &amp; Recovery &#183; Output</span>
+        <h1>Last night, and<br />whether you're ready today.</h1>
+        <p class="feat-lede">
+          Sleep Score is built from what the night actually produced: stage distribution against your own baseline, not just hours in bed. Recovery turns that into a readiness read: what today's training should look like.
+        </p>
+        <hr class="rule" />
+      </div>
+      <div class="readout">
+        <p class="readout-label">This morning &#183; sample</p>
+        <div class="readout-pair">
+          <div class="readout-metric"><div class="n">78</div><div class="k">Sleep</div></div>
+          <div class="readout-metric"><div class="n">63</div><div class="k">Recovery</div></div>
+        </div>
+        <p class="readout-delta">Usable, not optimal. A moderate session fits the day; a threshold effort does not.</p>
+        <div class="readout-rows">
+          <div class="readout-row"><span>Deep sleep</span><strong>85% of baseline</strong></div>
+          <div class="readout-row"><span>REM sleep</span><strong>on baseline</strong></div>
+          <div class="readout-row"><span>HRV at wake</span><strong>&#8595; 6% vs 60-day</strong></div>
+          <div class="readout-row"><span>Wrist temp</span><strong>normal</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT GOES IN -->
+<section>
+  <div class="container">
+    <span class="section-label">What goes in</span>
+    <h2 class="display-l" style="max-width:22ch;margin-bottom:18px;">Measured against your baseline, not a population chart.</h2>
+    <p class="prose">
+      A person whose deep sleep averages 45 minutes should not be scored against someone who averages 80. Enva learns your 30 to 60-day baseline for each signal and scores the night relative to it, with absolute duration still weighted so stage proportions alone cannot carry a short night.
+    </p>
+
+    <div class="rows">
+      <div class="row">
+        <div class="row-name">Deep sleep</div>
+        <p class="row-desc">Growth hormone and tissue repair. Scored against your own baseline, with a floor on absolute minutes.</p>
+      </div>
+      <div class="row">
+        <div class="row-name">REM sleep</div>
+        <p class="row-desc">Cognitive consolidation. Weighted alongside deep sleep rather than lumped into a single "quality" figure.</p>
+      </div>
+      <div class="row">
+        <div class="row-name">Duration &amp; consistency</div>
+        <p class="row-desc">Total time asleep and how steady your schedule is. Irregularity carries its own penalty.</p>
+      </div>
+      <div class="row">
+        <div class="row-name">HRV at wake</div>
+        <p class="row-desc">The strongest single predictor of autonomic recovery. Enva uses the full sleep-period average, not a pre-wake spike, which is why the number matches how you feel instead of flattering it.</p>
+      </div>
+      <div class="row">
+        <div class="row-name">Resting heart rate</div>
+        <p class="row-desc">Overnight low against your baseline. A sustained rise is one of the earliest signs of accumulated stress or illness.</p>
+      </div>
+      <div class="row">
+        <div class="row-name">Wrist temperature</div>
+        <p class="row-desc">Confirmatory. A deviation above 0.5&#8202;&#176; signals physiological stress and suppresses the rest-day boost, regardless of what the sleep stages show.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW THEY RELATE -->
+<section>
+  <div class="container">
+    <span class="section-label">How they relate</span>
+    <h2 class="display-l" style="max-width:24ch;margin-bottom:18px;">Sleep feeds Recovery. Recovery calibrates the day.</h2>
+
+    <div class="callout">
+      <h3>Low Recovery is not a warning</h3>
+      <p>Recovery is not about rest. It is about whether your body is in a position to absorb today's work. High Recovery on a rest day is exactly right. Low Recovery after a hard block means the training is doing its job. Today's effort should match what the body can currently handle.</p>
+      <p>Yesterday's load above your 30-day average lowers the score. A genuine rest day adds a boost. If wrist temperature signals stress, that boost is suppressed. Rest days and sick days should not look the same.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHERE IT CONNECTS -->
+<section>
+  <div class="container">
+    <span class="section-label">Where it connects</span>
+    <h2 class="display-l" style="max-width:24ch;margin-bottom:18px;">The output that sets today's plan.</h2>
+
+    <div class="connects">
+      <div class="connect-card">
+        <p class="connect-to">Health Score</p>
+        <p>A rolling 7-day average of Recovery is the Readiness pillar, 40% of the weekly number. One bad night does not crater it; a run of them shows up exactly as it should.</p>
+      </div>
+      <div class="connect-card">
+        <p class="connect-to">Nutrition</p>
+        <p>Late meals, alcohol, and low carbohydrate availability register here first, the morning after.</p>
+      </div>
+      <div class="connect-card">
+        <p class="connect-to">Biological Age</p>
+        <p>HR recovery and sleep architecture feed the Recovery Capacity domain of the long-term model.</p>
+      </div>
+    </div>
+
+    <p class="prose" style="margin-top:34px;">
+      See how the pillars are weighted on the <a href="envahealthscore" style="color:var(--accent);">How It Works</a> page.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section style="text-align:center;">
+  <div class="container">
+    <span class="section-label">Early Access</span>
+    <h2 class="display-l" style="margin-bottom:18px;">Know what today should look like.</h2>
+    <p style="color:var(--ink-2);margin-bottom:34px;font-size:16px;">Join the waitlist and be first in line when Enva launches.</p>
+    <div style="display:flex;justify-content:center;">
+      <div class="waitlist-form">
+        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+        <input type="email" id="sleep-email" placeholder="your@email.com" />
+        <button class="btn-primary" onclick="handleWaitlist('sleep-email','sleep-success')">Join Waitlist</button>
+      </div>
+    </div>
+    <p id="sleep-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="footer-links">
+    <li><a href="envahealthscore">How It Works</a></li>
+    <li><a href="nutrition">Nutrition</a></li>
+    <li><a href="fitness">Fitness</a></li>
+    <li><a href="recovery-actions">Recovery Actions</a></li>
+    <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
+    <li><a href="biological-age">Biological Age</a></li>
+    <li><a href="hyrox">Hyrox</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="support">Support</a></li>
+    <li><a href="privacy">Privacy Policy</a></li>
+    <li><a href="terms">Terms of Service</a></li>
+  </ul>
+  <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+</footer>
+
+<script src="waitlist.js" defer></script>
+</body>
+</html>

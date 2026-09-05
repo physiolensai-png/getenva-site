@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <!-- Copyright © 2026 Olympus Hills Ventures LLC. All rights reserved. Confidential and proprietary. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biological Age — Enva</title>
+  <title>Biological Age &#183; Enva</title>
   <meta name="description" content="How Enva calculates Biological Age: five weighted domains, built from your own data, with a confidence range instead of a false-precision number." />
   <link rel="canonical" href="https://getenva.ai/biological-age" />
   <link rel="icon" href="favicon.ico" sizes="any" />
@@ -235,7 +235,7 @@
   <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="nav-links">
     <li><a href="index">Home</a></li>
-    <li><a href="metrics">How It Works</a></li>
+    <li><a href="envahealthscore">How It Works</a></li>
     <li><a href="biological-age" class="active">Biological Age</a></li>
     <li><a href="about">About</a></li>
     <li><a href="support">Support</a></li>
@@ -252,7 +252,7 @@
         <span class="section-label">Signature Feature</span>
         <h1>The number that<br />outranks your birthday.</h1>
         <p class="feat-lede">
-          Your chronological age is a fact about the calendar. Your biological age is a fact about your body — and unlike the first one, it moves. Enva builds it from five weighted domains of your own data, and tells you how much to trust the answer.
+          Your chronological age is a fact about the calendar. Your biological age is a fact about your body, and unlike the first one, it moves. Enva builds it from five weighted domains of your own data, and tells you how much to trust the answer.
         </p>
         <hr class="rule" />
       </div>
@@ -262,7 +262,7 @@
           <span class="readout-number">34.2</span><span class="readout-unit">years</span>
         </div>
         <p class="readout-delta">4.8 years younger than your chronological age of 39.</p>
-        <p class="readout-conf">High confidence — 5 of 5 domains reporting.</p>
+        <p class="readout-conf">High confidence. 5 of 5 domains reporting.</p>
       </div>
     </div>
   </div>
@@ -298,7 +298,7 @@
         <div class="domain-weight">20%</div>
         <div>
           <div class="domain-name">Recovery Capacity</div>
-          <p class="domain-desc">Whether your body actually repairs between sessions. Sleep architecture matters more here than sleep duration alone — deep and REM percentages carry their own weight.</p>
+          <p class="domain-desc">Whether your body actually repairs between sessions. Sleep architecture matters more here than sleep duration alone. Deep and REM percentages carry their own weight.</p>
           <div class="signals">
             <span class="signal">HR recovery, 2-min drop</span>
             <span class="signal">Deep sleep %</span>
@@ -343,7 +343,7 @@
         <div class="domain-weight">15%</div>
         <div>
           <div class="domain-name">Biomarker Health</div>
-          <p class="domain-desc">Your labs, read as a system instead of a PDF. Pulled straight from MyChart or Athena Health and scored against clinical reference ranges, then folded into the same number as your training.</p>
+          <p class="domain-desc">Your labs, read as a system instead of a PDF. Pulled straight from MyChart and scored against clinical reference ranges, then folded into the same number as your training.</p>
           <div class="signals">
             <span class="signal">ApoB</span>
             <span class="signal">LDL</span>
@@ -386,7 +386,7 @@
       <div class="method-step">
         <div class="method-num">02</div>
         <h3>Reweight to what is present</h3>
-        <p>Weights renormalize across the domains that actually reported. If you have never uploaded labs, the remaining four are rescaled to sum to one — you are never penalized for data you don't have yet.</p>
+        <p>Weights renormalize across the domains that actually reported. If you have never uploaded labs, the remaining four are rescaled to sum to one. You are never penalized for data you don't have yet.</p>
       </div>
       <div class="method-step">
         <div class="method-num">03</div>
@@ -435,7 +435,7 @@
     <div class="limits">
       <h3>What this is not</h3>
       <ul>
-        <li><strong>Not an epigenetic clock.</strong> Enva does not measure DNA methylation. This is a functional model built from physiology, training and blood chemistry — a different and more actionable thing, but not the same measurement.</li>
+        <li><strong>Not an epigenetic clock.</strong> Enva does not measure DNA methylation. This is a functional model built from physiology, training and blood chemistry: a different and more actionable thing, but not the same measurement.</li>
         <li><strong>Not a diagnosis.</strong> Nothing here is medical advice. A biomarker outside its reference range is a reason to talk to a clinician, not a conclusion.</li>
         <li><strong>Not a score to game.</strong> The domains are weighted by predictive value, not by how easy they are to move. Chasing the number by optimizing one input is how you end up with a better number and the same body.</li>
       </ul>
@@ -455,7 +455,7 @@
       <div class="waitlist-form">
             <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <input type="email" id="bio-email" placeholder="your@email.com" />
-        <button class="btn-primary" onclick="handleWaitlist()">Join Waitlist</button>
+        <button class="btn-primary" onclick="handleWaitlist('bio-email','bio-success')">Join Waitlist</button>
       </div>
     </div>
     <p id="bio-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">✓ You're on the list.</p>
@@ -466,6 +466,12 @@
 <footer>
   <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
+    <li><a href="envahealthscore">How It Works</a></li>
+    <li><a href="nutrition">Nutrition</a></li>
+    <li><a href="fitness">Fitness</a></li>
+    <li><a href="recovery-actions">Recovery Actions</a></li>
+    <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
+    <li><a href="biological-age">Biological Age</a></li>
     <li><a href="hyrox">Hyrox</a></li>
     <li><a href="about">About</a></li>
     <li><a href="support">Support</a></li>

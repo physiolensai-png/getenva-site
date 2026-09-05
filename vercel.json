@@ -14,6 +14,8 @@
   ],
 
   "redirects": [
+    { "source": "/metrics", "destination": "/envahealthscore", "permanent": true },
+    { "source": "/health-score", "destination": "/envahealthscore", "permanent": true },
     { "source": "/Hyrox", "destination": "/hyrox", "permanent": true },
     { "source": "/HYROX", "destination": "/hyrox", "permanent": true },
     { "source": "/Otf", "destination": "/otf", "permanent": true },
