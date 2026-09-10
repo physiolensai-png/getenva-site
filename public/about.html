@@ -2,239 +2,158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Copyright © 2026 Olympus Hills Ventures LLC. All rights reserved. Confidential and proprietary. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About · Enva</title>
-  <meta name="description" content="Why Marcus built Enva, and what it means to truly own your health data." />
+  <title>About &#183; Enva</title>
+  <meta name="description" content="Enva started with one person taking screenshots of six apps every morning, just to understand his own body. This is why it exists." />
   <link rel="canonical" href="https://getenva.ai/about" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
   <meta name="theme-color" content="#121212" />
+  <meta property="og:title" content="About &#183; Enva" />
+  <meta property="og:description" content="It started with one person tired of being his own data scientist." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getenva.ai/about" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .about-hero {
-      padding-top: 170px;
-      padding-bottom: 84px;
-      position: relative;
-      overflow: hidden;
-    }
-    .about-glow {
-      width: 520px; height: 520px;
-      background: rgba(228,101,42,0.09);
-      top: -60px; right: -140px;
-    }
-    .about-hero h1 {
+    /* ============================================================
+       About — 2026 rebuild. Same system as the rest of the site,
+       but this page is story-first: lean, personal, low on chrome.
+       ============================================================ */
+
+    .beat { padding: 92px 32px; position: relative; }
+    .beat-inner { max-width: 760px; margin: 0 auto; }
+    .beat-inner.wide { max-width: 1040px; }
+
+    .kicker {
       font-family: var(--font-display);
-      font-size: clamp(42px, 5.4vw, 72px);
-      font-weight: 300;
-      letter-spacing: 0;
-      line-height: 1.05;
-      margin-bottom: 26px;
-      max-width: 720px;
-      position: relative;
-      z-index: 1;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 22px;
     }
-    .about-hero-sub {
-      font-size: 18px;
-      color: var(--ink-2);
-      max-width: 560px;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
+    .h-section {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(28px, 3.8vw, 42px);
+      line-height: 1.14; letter-spacing: 0.02em; max-width: 20ch;
     }
+    .arrow-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 15px; font-weight: 600; color: var(--accent);
+    }
+    .arrow-link::after { content: "\203A"; font-size: 17px; transition: transform var(--transition); }
+    .arrow-link:hover::after { transform: translateX(4px); }
 
-    /* Story layout */
-    .story {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 80px;
-      align-items: start;
+    /* ---- hero ---- */
+    .hero {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 168px 32px 92px;
+      position: relative; overflow: hidden;
     }
-    .story-nav {
-      position: sticky;
-      top: 110px;
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(58% 42% at 50% 0%, rgba(228,101,42,0.10), transparent 70%);
+      pointer-events: none;
     }
-    .story-nav-label {
+    .hero-content { position: relative; z-index: 1; max-width: 840px; }
+    .hero-eyebrow {
       font-family: var(--font-display);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 18px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px;
     }
-    .story-nav-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
+    .hero-eyebrow::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(40px, 5.6vw, 72px);
+      line-height: 1.08; letter-spacing: 0.028em; text-wrap: balance;
     }
-    .story-nav-links a {
-      font-size: 14px;
-      color: var(--ink-3);
-      padding: 9px 0 9px 16px;
-      border-left: 1px solid var(--border);
-      display: block;
-      transition: color var(--transition), border-color var(--transition);
-    }
-    .story-nav-links a:hover {
-      color: var(--ink);
-      border-left-color: var(--accent);
+    .hero h1 .accent-text { color: var(--accent); }
+    .hero-sub {
+      font-size: 20px; line-height: 1.6; color: var(--ink-2);
+      max-width: 46ch; margin: 26px auto 0; text-wrap: balance;
     }
 
-    .story-content {
-      display: flex;
-      flex-direction: column;
-      gap: 72px;
+    /* ---- story prose ---- */
+    .story p {
+      font-size: 17px; line-height: 1.8; color: var(--ink-2);
     }
+    .story p + p { margin-top: 18px; }
+    .story h2 { margin-bottom: 20px; }
+    .story .h-section + p { margin-top: 0; }
 
-    .story-block h2 {
-      font-family: var(--font-display);
-      font-size: 30px;
-      font-weight: 300;
-      letter-spacing: 0;
-      margin-bottom: 20px;
-      line-height: 1.2;
-    }
-    .story-block p {
-      font-size: 16px;
-      color: var(--ink-2);
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-    .story-block p:last-child { margin-bottom: 0; }
-
-    /* Pull quote — set in Enva, but upright: the face has no
-       italic, so an oblique here would be synthesised and skew
-       the monoline strokes unevenly. */
     .pull-quote {
       border-left: 2px solid var(--accent);
-      padding: 6px 0 6px 26px;
-      margin: 32px 0;
+      padding: 4px 0 4px 26px;
+      margin: 34px 0;
     }
     .pull-quote p {
-      font-family: var(--font-display);
-      font-size: 21px;
-      font-weight: 300;
-      color: var(--ink) !important;
-      line-height: 1.5;
-      margin: 0 !important;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(20px, 2.5vw, 26px);
+      line-height: 1.45; letter-spacing: 0.012em;
+      color: var(--ink);
     }
 
-    /* Architecture visual */
-    .arch-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin: 32px 0;
+    /* ---- origin figure ---- */
+    .figure {
+      margin: 40px 0 8px;
     }
-    .arch-item {
-      padding: 22px 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-    }
-    .arch-item-label {
-      font-family: var(--font-display);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-    .arch-item-name {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 400;
-      margin-bottom: 6px;
-    }
-    .arch-item-desc { font-size: 13px; color: var(--ink-2); line-height: 1.55; }
-
-    /* Data sources */
-    .sources-list {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      margin: 24px 0;
-    }
-    .source-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 20px;
-      background: var(--surface);
-    }
-    .source-row + .source-row { border-top: 1px solid var(--border); }
-    .source-name { font-size: 15px; font-weight: 600; flex-shrink: 0; }
-    .source-detail { font-size: 13px; color: var(--ink-2); text-align: right; flex: 1; }
-    .source-badge {
-      font-family: var(--font-display);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 100px;
-      border: 1px solid var(--accent-line);
-      color: var(--accent);
-      flex-shrink: 0;
-      width: 104px;
-      text-align: center;
-    }
-    .source-badge.soon {
-      border-color: var(--border);
-      color: var(--ink-3);
-    }
-
-    /* Founder sign-off */
-    .founder-card {
-      padding: 38px;
-      background: var(--surface);
-      border: 1px solid var(--border);
+    .figure img {
+      width: 100%; display: block;
       border-radius: var(--radius-lg);
-      margin-top: 16px;
-      position: relative;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
-    .founder-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 38px;
-      width: 34px; height: 2px;
-      background: var(--accent);
+    .figure figcaption {
+      font-size: 13px; color: var(--ink-3);
+      margin-top: 12px; text-align: center;
     }
-    .founder-greeting {
-      font-family: var(--font-display);
-      font-size: 23px;
-      font-weight: 400;
-      margin-bottom: 16px;
-    }
-    .founder-card p { font-size: 16px; color: var(--ink-2); line-height: 1.78; margin-bottom: 16px; }
-    .founder-sig {
-      margin-top: 28px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-    }
-    .founder-sig-name {
-      font-family: var(--font-display);
-      font-size: 19px;
-      font-weight: 400;
-      color: var(--accent);
-    }
-    .founder-sig-title { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
 
-    @media (max-width: 768px) {
-      .story { grid-template-columns: 1fr; gap: 44px; }
-      .story-nav { position: static; }
-      .arch-grid { grid-template-columns: 1fr; }
-      .source-row { flex-wrap: wrap; }
-      .source-detail { text-align: left; flex-basis: 100%; order: 3; }
+    .changed-band { background: var(--ground-2); }
+
+    /* ---- founder ---- */
+    .founder { border-left: 2px solid var(--accent); padding-left: 26px; }
+    .founder .greeting {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(22px, 2.6vw, 30px); letter-spacing: 0.012em;
+      color: var(--ink); margin-bottom: 18px;
+    }
+    .founder p { font-size: 16.5px; line-height: 1.8; color: var(--ink-2); }
+    .founder p + p { margin-top: 16px; }
+    .founder .sig { margin-top: 28px; }
+    .founder .sig-name {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 19px; color: var(--accent); letter-spacing: 0.012em;
+    }
+    .founder .sig-title { font-size: 13px; color: var(--ink-3); margin-top: 3px; }
+
+    /* ---- waitlist ---- */
+    .wl { text-align: center; position: relative; overflow: hidden; }
+    .wl::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(50% 60% at 50% 50%, rgba(228,101,42,0.09), transparent 70%);
+    }
+    .wl-inner { position: relative; z-index: 1; }
+    .wl h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(32px, 4.6vw, 56px);
+      line-height: 1.08; letter-spacing: 0.028em; margin-bottom: 16px;
+    }
+    .wl h2 .accent-text { color: var(--accent); }
+    .wl p { font-size: 17px; color: var(--ink-2); margin-bottom: 32px; }
+    .wl .waitlist-form { margin: 0 auto; }
+    .wl .fineprint { font-size: 13px; color: var(--ink-3); margin-top: 16px; }
+
+    [data-reveal] { opacity: 0; transform: translateY(18px); }
+    .revealed { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
+
+    @media (max-width: 900px) {
+      .beat { padding: 76px 24px; }
+      .hero { padding-top: 150px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -248,7 +167,6 @@
   </symbol>
 </svg>
 
-<!-- NAV -->
 <nav>
   <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="nav-links">
@@ -261,209 +179,101 @@
   <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
 </nav>
 
-<!-- HERO -->
-<section class="about-hero">
-  <div class="container" style="position:relative;">
-    <div class="glow about-glow"></div>
-    <span class="section-label">Our Story</span>
-    <h1>The Full Picture<br />of <span class="accent-text">Your Health</span></h1>
-    <p class="about-hero-sub">
-      Enva exists because the tools we use to track our health are fundamentally disconnected, and one person got tired of being their own data scientist.
-    </p>
-  </div>
-</section>
+<main>
 
-<div class="divider"></div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Our story</p>
+      <h1>One person got tired of being<br /><span class="accent-text">his own data scientist.</span></h1>
+      <p class="hero-sub">Enva exists because the tools we use to track our health don't talk to each other, and piecing it together by hand every morning is exhausting.</p>
+    </div>
+  </header>
 
-<!-- STORY -->
-<section style="padding-top:80px;">
-  <div class="container">
-    <div class="story">
-
-      <!-- Sticky nav -->
-      <div class="story-nav">
-        <p class="story-nav-label">On this page</p>
-        <ul class="story-nav-links">
-          <li><a href="#problem">The Problem</a></li>
-          <li><a href="#origin">Origin Story</a></li>
-          <li><a href="#what-we-built">What We Built</a></li>
-          <li><a href="#data">Your Data Sources</a></li>
-          <li><a href="#privacy">Our Privacy Promise</a></li>
-          <li><a href="#founder">From the Founder</a></li>
-        </ul>
-      </div>
-
-      <!-- Content -->
-      <div class="story-content">
-
-        <div class="story-block" id="problem">
-          <h2>Health is holistic.<br />Our tools are not.</h2>
-          <p>
-            Health, wellness, and fitness data is scattered across half a dozen different apps and wearables. Even when you visit a doctor, blood work arrives as an isolated report: a PDF with no connection to your sleep quality, training load, or daily recovery patterns.
-          </p>
-          <p>
-            Your Peloton doesn't know about last night's HRV dip. Your nutrition app doesn't know you just finished a hard block of training. And none of them have seen your labs.
-          </p>
-          <div class="pull-quote">
-            <p>"The data existed. The insight didn't. No single tool could tell me how these factors actually influenced each other."</p>
-          </div>
-        </div>
-
-        <div class="story-block" id="origin">
-          <h2>The Origin Story</h2>
-          <p>
-            Enva was born out of that frustration. Marcus found himself taking screenshots of multiple apps every day, just to piece together a complete view of how his body was performing. He started building custom templates and feeding those screenshots into generative AI to force disparate data points to talk to each other.
-          </p>
-          <p>
-            The insights were genuinely useful. The process was exhausting. There had to be a better way to take all of these distinct inputs and seamlessly turn them into a single, cohesive output.
-          </p>
-          <p>
-            That's exactly how Enva was created.
-          </p>
-        </div>
-
-        <div class="story-block" id="what-we-built">
-          <h2>What We Built</h2>
-          <p>
-            The entire journey of building Enva was driven by a single goal: transforming all of your health inputs into actionable analysis. No manual templates. No screenshots. No stitching together data yourself.
-          </p>
-          <p>
-            Enva is built around a four-layer intelligence model, from what happened last night to what your data says about how you're aging:
-          </p>
-          <div class="arch-grid">
-            <div class="arch-item">
-              <div class="arch-item-label">Last Night</div>
-              <div class="arch-item-name">Sleep Score</div>
-              <div class="arch-item-desc">How well did you recover?</div>
-            </div>
-            <div class="arch-item">
-              <div class="arch-item-label">Today</div>
-              <div class="arch-item-name">Recovery</div>
-              <div class="arch-item-desc">Are you ready to train hard?</div>
-            </div>
-            <div class="arch-item">
-              <div class="arch-item-label">This Week</div>
-              <div class="arch-item-name">Health Score</div>
-              <div class="arch-item-desc">Are you trending in the right direction?</div>
-            </div>
-            <div class="arch-item" style="border-color:var(--accent-line);">
-              <div class="arch-item-label">Long Term</div>
-              <div class="arch-item-name">Biological Age</div>
-              <div class="arch-item-desc">What is all of this adding up to?</div>
-            </div>
-          </div>
-          <p>
-            The AI coaching layer goes beyond generic advice. It knows your goals, your recent training zones, your lab values, and it connects them. "Based on your fat loss goals, your past two weeks were heavy on Zone 1 and Zone 4/5. You need more Zone 2 this week. It's key to fat oxidation." That's the difference between a dashboard and a coach.
-          </p>
-        </div>
-
-        <div class="story-block" id="data">
-          <h2>Your Data Sources</h2>
-          <p>
-            Enva connects directly to each ecosystem rather than routing everything through Apple Health, because Apple Health flattens the data and misses the metrics that matter most.
-          </p>
-          <div class="sources-list">
-            <div class="source-row">
-              <span class="source-name">Apple Watch</span>
-              <span class="source-detail">HRV, RHR, sleep architecture, steps, VO₂ Max</span>
-              <span class="source-badge">Live</span>
-            </div>
-            <div class="source-row">
-              <span class="source-name">Peloton</span>
-              <span class="source-detail">Output, resistance, cadence, leaderboard ranking</span>
-              <span class="source-badge">Live</span>
-            </div>
-            <div class="source-row">
-              <span class="source-name">Orangetheory</span>
-              <span class="source-detail">Splat points, treadmill pace, rower 500m avg, distance</span>
-              <span class="source-badge">Live</span>
-            </div>
-            <div class="source-row">
-              <span class="source-name">MyChart</span>
-              <span class="source-detail">Lab results: ApoB, HbA1c, CRP, lipids, testosterone, and more</span>
-              <span class="source-badge">Live</span>
-            </div>
-            <div class="source-row">
-              <span class="source-name">Oura Ring</span>
-              <span class="source-detail">Sleep stages, HRV, readiness</span>
-              <span class="source-badge soon">Coming Soon</span>
-            </div>
-            <div class="source-row">
-              <span class="source-name">Whoop</span>
-              <span class="source-detail">Strain, recovery, sleep performance</span>
-              <span class="source-badge soon">Coming Soon</span>
-            </div>
-            <div class="source-row">
-              <span class="source-name">Garmin / Fitbit</span>
-              <span class="source-detail">Enriched activity and biometric data</span>
-              <span class="source-badge soon">Coming Soon</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="story-block" id="privacy">
-          <h2>Our Core Promise:<br />You Own Your Data</h2>
-          <p>
-            In today's tech landscape, personal health data is too often treated as a commodity: mined, aggregated, and sold to the highest bidder. Enva fundamentally rejects that model.
-          </p>
-          <p>
-            All calculations and summaries run on-device. When deeper AI analysis leaves your phone, it goes to an enterprise-secure LLM environment. Your data is never used to train models. It is never sold. It never becomes someone else's product.
-          </p>
-          <p>
-            By prioritizing on-device processing and strict privacy protocols, we ensure you get the immense benefits of AI analysis without ever sacrificing your personal privacy.
-          </p>
-          <p>
-            <a href="privacy" style="color:var(--accent);font-weight:500;">Read our full Privacy Policy →</a>
-          </p>
-        </div>
-
-        <div class="story-block" id="founder">
-          <h2>From the Founder</h2>
-          <div class="founder-card">
-            <div class="founder-greeting">Cheers,</div>
-            <p>
-              I built Enva because I was the person taking screenshots every morning. I was the person pasting data into AI tools just to understand my own body. I was frustrated, not because the data didn't exist, but because no one had built the thing that made it all make sense together.
-            </p>
-            <p>
-              Enva is that thing. It's built for the serious biohacker who knows what ApoB means and wants it in the same view as their VO₂ Max trend. It's built for the Orangetheory member who wants more than splat points. And it's built for anyone who's ever stood at the beginning of a fitness journey wishing someone would just show them where to start.
-            </p>
-            <p>
-              Whatever brought you here, I built this for you.
-            </p>
-            <div class="founder-sig">
-              <div class="founder-sig-name">Marcus</div>
-              <div class="founder-sig-title">Founder, Enva</div>
-            </div>
-          </div>
-        </div>
-
+  <!-- THE PROBLEM -->
+  <section class="beat">
+    <div class="beat-inner story" data-reveal>
+      <p class="kicker">The problem</p>
+      <h2 class="h-section">Health is holistic. The tools are not.</h2>
+      <p>Your training, your sleep, your nutrition and your blood work each live in a different app. Even a doctor's visit ends with a PDF that connects to nothing: no link to last night's HRV, this week's training load, or how you've been recovering.</p>
+      <p>Your bike doesn't know about the HRV dip. Your nutrition app doesn't know you just finished a hard block. And none of them have seen your labs.</p>
+      <div class="pull-quote">
+        <p>The data existed. The insight didn't. No single tool could tell me how these things were actually affecting each other.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
+  <!-- THE ORIGIN -->
+  <section class="beat">
+    <div class="beat-inner story" data-reveal>
+      <p class="kicker">How it started</p>
+      <h2 class="h-section">Screenshots, every morning.</h2>
+      <p>Marcus found himself taking screenshots of half a dozen apps every day, building his own templates, and feeding all of it into a chatbot just to force the numbers to talk to each other.</p>
+      <p>The answers were genuinely useful. The process was miserable. There had to be a better way to take all of those separate inputs and turn them into one coherent read, without doing the assembly by hand.</p>
+      <figure class="figure">
+        <img src="screens/about-before.jpg" alt="A phone screen full of health-app screenshots pasted into a chatbot" onerror="this.closest('figure').remove()" />
+        <figcaption>The old workflow. Every morning.</figcaption>
+      </figure>
+      <p>That is exactly what Enva became.</p>
+    </div>
+  </section>
 
-<!-- CTA -->
-<section style="text-align:center;">
-  <div class="container">
-    <span class="section-label">Early Access</span>
-    <h2 class="display-l" style="margin-bottom:18px;">
-      Ready to see <span class="accent-text">your full picture?</span>
-    </h2>
-    <p style="color:var(--ink-2);margin-bottom:36px;font-size:16px;">Join the waitlist and be first to know when Enva launches.</p>
-    <div style="display:flex;justify-content:center;">
+  <!-- WHAT CHANGED -->
+  <section class="beat changed-band">
+    <div class="beat-inner story" data-reveal>
+      <p class="kicker">What changed</p>
+      <h2 class="h-section">The assembly happens on its own now.</h2>
+      <p>Enva connects directly to each source, keeps the detail the others flatten, and reads it all together. It answers four questions in one system, from what happened last night to what your data says about how you're aging: your Sleep Score, your Recovery, your Enva Health Score for the week, and your Biological Age over time.</p>
+      <p>The intelligence runs through all of it. It knows your goals, your recent training zones and your lab values, and it connects them, the way you used to try to do by pasting screenshots into a chat window.</p>
+      <p><a href="envahealthscore" class="arrow-link">See how it works</a></p>
+    </div>
+  </section>
+
+  <!-- YOU OWN YOUR DATA -->
+  <section class="beat">
+    <div class="beat-inner story" data-reveal>
+      <p class="kicker">The promise</p>
+      <h2 class="h-section">You own your data.</h2>
+      <p>Health data is too often mined, aggregated and sold. Enva rejects that model. Summaries and scores are computed on your device. When deeper analysis has to leave your phone, it goes to an enterprise-secure model, never used to train anything, never sold. You can export everything, and delete everything.</p>
+      <p><a href="privacy" class="arrow-link">Read the full Privacy Policy</a></p>
+    </div>
+  </section>
+
+  <!-- FROM THE FOUNDER -->
+  <section class="beat">
+    <div class="beat-inner" data-reveal>
+      <p class="kicker">From the founder</p>
+      <div class="founder">
+        <p class="greeting">Cheers,</p>
+        <p>I built Enva because I was the person taking screenshots every morning, pasting data into AI tools just to understand my own body. The frustration was never that the data didn't exist. It was that no one had built the thing that made it make sense together.</p>
+        <p>Enva is that thing. It's for the person who knows what ApoB means and wants it in the same view as their VO&#8322; Max trend. It's for the Orangetheory member who wants more than splat points. And it's for anyone who has ever stood at the start of a fitness journey wishing someone would just show them where to begin.</p>
+        <p>Whatever brought you here, I built this for you.</p>
+        <div class="sig">
+          <div class="sig-name">Marcus</div>
+          <div class="sig-title">Founder, Enva</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="beat wl" id="waitlist">
+    <div class="wl-inner beat-inner" data-reveal>
+      <p class="kicker" style="color:var(--accent);">Early Access</p>
+      <h2>Ready to see <span class="accent-text">your full picture?</span></h2>
+      <p>Join the waitlist and be first to know when Enva launches.</p>
       <div class="waitlist-form">
-            <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <input type="email" id="about-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('about-email','about-success')">Join Waitlist</button>
       </div>
+      <p id="about-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
+      <p class="fineprint">Coming soon to iPhone.</p>
     </div>
-    <p id="about-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">✓ You're on the list.</p>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
   <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
@@ -479,9 +289,24 @@
     <li><a href="privacy">Privacy Policy</a></li>
     <li><a href="terms">Terms of Service</a></li>
   </ul>
-  <p class="footer-copy">© 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+  <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
 </footer>
 
 <script src="waitlist.js" defer></script>
+<script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if ((window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || !('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('revealed'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('revealed'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>
