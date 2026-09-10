@@ -2,221 +2,214 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Copyright © 2026 Olympus Hills Ventures LLC. All rights reserved. Confidential and proprietary. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biological Age &#183; Enva</title>
-  <meta name="description" content="How Enva calculates Biological Age: five weighted domains, built from your own data, with a confidence range instead of a false-precision number." />
+  <meta name="description" content="How Enva calculates Biological Age: five weighted domains built from your own data, with a confidence range instead of a false-precision number." />
   <link rel="canonical" href="https://getenva.ai/biological-age" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
   <meta name="theme-color" content="#121212" />
+  <meta property="og:title" content="Biological Age &#183; Enva" />
+  <meta property="og:description" content="Five weighted domains, built from your own data, with a confidence range." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getenva.ai/biological-age" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .feat-hero {
-      padding-top: 170px;
-      padding-bottom: 76px;
-      position: relative;
-      overflow: hidden;
-    }
-    .feat-glow {
-      width: 560px; height: 560px;
-      background: rgba(228,101,42,0.10);
-      top: -120px; right: -160px;
-    }
-    .feat-hero-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 56px;
-      align-items: center;
-    }
-    .feat-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(42px, 5.4vw, 72px);
-      font-weight: 300;
-      letter-spacing: 0;
-      line-height: 1.04;
-      margin-bottom: 22px;
-    }
-    .feat-lede {
-      font-size: 18px;
-      color: var(--ink-2);
-      line-height: 1.7;
-      max-width: 520px;
-    }
+    /* ============================================================
+       Biological Age — 2026 rebuild
+       Same system as the homepage and Health Score page.
+       ============================================================ */
 
-    /* Hero readout */
-    .readout {
-      background: var(--surface);
-      border: 1px solid var(--accent-line);
+    .beat { padding: 92px 32px; position: relative; }
+    .beat-inner { max-width: 1040px; margin: 0 auto; }
+
+    .kicker {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 22px;
+    }
+    .h-section {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(30px, 4.4vw, 52px);
+      line-height: 1.1; letter-spacing: 0.022em;
+      max-width: 24ch;
+    }
+    .lede {
+      font-size: 19px; line-height: 1.65;
+      color: var(--ink-2); max-width: 58ch; margin-top: 18px;
+    }
+    .arrow-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 15px; font-weight: 600; color: var(--accent);
+    }
+    .arrow-link::after { content: "\203A"; font-size: 17px; transition: transform var(--transition); }
+    .arrow-link:hover::after { transform: translateX(4px); }
+
+    /* ---- hero ---- */
+    .hero {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 150px 32px 0;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(58% 42% at 50% 0%, rgba(228,101,42,0.10), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 860px; }
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px;
+    }
+    .hero-eyebrow::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(44px, 6.4vw, 82px);
+      line-height: 1.03; letter-spacing: 0.028em; text-wrap: balance;
+    }
+    .hero h1 .accent-text { color: var(--accent); }
+    .hero-sub {
+      font-size: 20px; line-height: 1.6; color: var(--ink-2);
+      max-width: 52ch; margin: 26px auto 0; text-wrap: balance;
+    }
+    .hero-cta {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap; margin-top: 38px;
+    }
+    .hero-fineprint { font-size: 13px; color: var(--ink-3); margin-top: 18px; }
+    .hero-shot {
+      position: relative; z-index: 1; margin-top: 56px;
+      width: clamp(260px, 42vw, 360px);
       border-radius: var(--radius-lg);
-      padding: 32px 34px;
-      position: relative;
-    }
-    .readout::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 34px;
-      width: 34px; height: 2px;
-      background: var(--accent);
-    }
-    .readout-label {
-      font-family: var(--font-display);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 14px;
-    }
-    .readout-number {
-      font-family: var(--font-display);
-      font-size: 78px;
-      font-weight: 300;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .readout-unit { font-family: var(--font-display); font-size: 22px; font-weight: 300; color: var(--ink-2); margin-left: 8px; }
-    .readout-delta { font-size: 14px; color: var(--ink-2); margin-top: 12px; }
-    .readout-conf {
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      font-size: 13px;
-      color: var(--ink-3);
+      box-shadow: 0 40px 90px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
 
-    /* Domain table */
-    .domains {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      margin-top: 40px;
+    /* ---- domains ---- */
+    .split {
+      display: grid; grid-template-columns: 0.85fr 1.15fr;
+      gap: 44px; align-items: center; margin-top: 40px;
     }
-    .domain {
-      display: grid;
-      grid-template-columns: 64px 1fr;
-      gap: 22px;
-      padding: 26px 26px;
-      background: var(--surface);
-      align-items: start;
+    .split-shot {
+      width: 100%; border-radius: var(--radius-lg);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
-    .domain + .domain { border-top: 1px solid var(--border); }
-    .domain-weight {
-      font-family: var(--font-display);
-      font-size: 26px;
-      font-weight: 300;
-      color: var(--accent);
-      line-height: 1;
-      padding-top: 2px;
+    .split-text p { font-size: 16px; line-height: 1.7; color: var(--ink-2); }
+    .split-text p + p { margin-top: 14px; }
+
+    .domain-list { margin-top: 44px; }
+    .domain-row {
+      display: grid; grid-template-columns: 210px 1fr;
+      gap: 32px; padding: 30px 0; border-top: 1px solid var(--border);
     }
-    .domain-name {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 400;
-      margin-bottom: 8px;
+    .domain-row:last-child { border-bottom: 1px solid var(--border); }
+    .domain-k {
+      font-family: var(--font-display); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
+      margin-bottom: 6px;
     }
-    .domain-desc { font-size: 14.5px; color: var(--ink-2); line-height: 1.65; margin-bottom: 14px; }
-    .signals { display: flex; flex-wrap: wrap; gap: 7px; }
-    .signal {
-      font-size: 12px;
-      padding: 4px 11px;
-      border-radius: 100px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      color: var(--ink-2);
+    .domain-row h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 21px; line-height: 1.2; letter-spacing: 0.012em; color: var(--ink);
+    }
+    .domain-row > div:last-child p { font-size: 14.5px; line-height: 1.62; color: var(--ink-2); }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+    .chips span {
+      font-size: 12px; color: var(--ink-2);
+      padding: 4px 11px; border-radius: 100px; background: var(--surface);
     }
 
-    /* Method steps */
-    .method {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 40px;
+    /* ---- two-shot ---- */
+    .twoshot { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 40px; }
+    .twoshot figure { flex: 1; min-width: 240px; margin: 0; }
+    .twoshot img {
+      width: 100%; border-radius: var(--radius-md);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
-    .method-step {
-      padding: 28px 26px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-    }
-    .method-num {
+    .twoshot figcaption {
       font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 14px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-3); text-align: center; margin-top: 14px;
     }
-    .method-step h3 {
-      font-family: var(--font-display);
-      font-size: 19px;
-      font-weight: 400;
-      margin-bottom: 10px;
-      line-height: 1.25;
-    }
-    .method-step p { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
 
-    /* Confidence table */
-    .conf-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 26px;
-      font-size: 14.5px;
+    /* ---- method ---- */
+    .steps { margin-top: 44px; display: grid; gap: 0; }
+    .step { padding: 24px 0; border-top: 1px solid var(--border); }
+    .step:last-child { border-bottom: 1px solid var(--border); }
+    .step-k {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3);
     }
+    .step h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 19px; margin: 8px 0 6px; color: var(--ink); letter-spacing: 0.012em;
+    }
+    .step p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); max-width: 62ch; }
+
+    /* ---- confidence table ---- */
+    .conf-table { width: 100%; border-collapse: collapse; margin-top: 40px; font-size: 14.5px; }
     .conf-table th {
-      text-align: left;
-      font-family: var(--font-display);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      padding: 0 16px 12px 0;
-      border-bottom: 1px solid var(--border);
+      text-align: left; font-family: var(--font-display);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-3); padding: 0 18px 12px 0; border-bottom: 1px solid var(--border);
     }
     .conf-table td {
-      padding: 14px 16px 14px 0;
-      border-bottom: 1px solid var(--border);
-      color: var(--ink-2);
-      vertical-align: top;
+      padding: 15px 18px 15px 0; border-bottom: 1px solid var(--border);
+      color: var(--ink-2); vertical-align: top;
     }
     .conf-table td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
     .conf-table td.range { color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
-    /* Honesty panel */
-    .limits {
-      margin-top: 40px;
-      padding: 30px 32px;
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--accent);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      background: var(--surface);
+    /* ---- what this is not ---- */
+    .not-list { margin-top: 44px; display: grid; gap: 0; max-width: 72ch; }
+    .not-row { padding: 24px 0; border-top: 1px solid var(--border); }
+    .not-row:last-child { border-bottom: 1px solid var(--border); }
+    .not-row h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 18px; color: var(--ink); margin-bottom: 6px; letter-spacing: 0.012em;
     }
-    .limits h3 {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 400;
-      margin-bottom: 14px;
-    }
-    .limits ul { padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
-    .limits li { font-size: 14.5px; color: var(--ink-2); line-height: 1.65; }
-    .limits li::marker { color: var(--accent); }
+    .not-row p { font-size: 14.5px; line-height: 1.62; color: var(--ink-2); }
 
-    .prose { font-size: 16px; color: var(--ink-2); line-height: 1.8; max-width: 66ch; }
-    .prose + .prose { margin-top: 16px; }
+    /* ---- waitlist ---- */
+    .wl { text-align: center; position: relative; overflow: hidden; }
+    .wl::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(50% 60% at 50% 50%, rgba(228,101,42,0.09), transparent 70%);
+    }
+    .wl-inner { position: relative; z-index: 1; }
+    .wl h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(32px, 4.6vw, 56px);
+      line-height: 1.08; letter-spacing: 0.028em; margin-bottom: 16px;
+    }
+    .wl p { font-size: 17px; color: var(--ink-2); margin-bottom: 32px; }
+    .wl .waitlist-form { margin: 0 auto; }
+    .wl .fineprint { font-size: 13px; color: var(--ink-3); margin-top: 16px; }
+
+    [data-reveal] { opacity: 0; transform: translateY(18px); }
+    .revealed { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 
     @media (max-width: 900px) {
-      .feat-hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .method { grid-template-columns: 1fr; }
-      .domain { grid-template-columns: 1fr; gap: 10px; }
+      .beat { padding: 76px 24px; }
+      .split { grid-template-columns: 1fr; gap: 32px; }
+      .domain-row { grid-template-columns: 1fr; gap: 10px; }
+      .step p { max-width: none; }
+      .hero { padding-top: 156px; }
+      .conf-table thead { display: none; }
+      .conf-table, .conf-table tbody, .conf-table tr, .conf-table td { display: block; width: 100%; }
+      .conf-table td { border: 0; padding: 2px 0; }
+      .conf-table tr { border-bottom: 1px solid var(--border); padding: 16px 0; }
+      .conf-table td:first-child { font-size: 16px; margin-bottom: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -230,7 +223,6 @@
   </symbol>
 </svg>
 
-<!-- NAV -->
 <nav>
   <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="nav-links">
@@ -243,226 +235,239 @@
   <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
 </nav>
 
-<!-- HERO -->
-<section class="feat-hero">
-  <div class="container">
-    <div class="glow feat-glow"></div>
-    <div class="feat-hero-inner">
-      <div>
-        <span class="section-label">Signature Feature</span>
-        <h1>The number that<br />outranks your birthday.</h1>
-        <p class="feat-lede">
-          Your chronological age is a fact about the calendar. Your biological age is a fact about your body, and unlike the first one, it moves. Enva builds it from five weighted domains of your own data, and tells you how much to trust the answer.
-        </p>
-        <hr class="rule" />
-      </div>
-      <div class="readout">
-        <p class="readout-label">Biological Age</p>
-        <div>
-          <span class="readout-number">34.2</span><span class="readout-unit">years</span>
+<main>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Biological Age</p>
+      <h1>The number that<br /><span class="accent-text">outranks your birthday.</span></h1>
+      <p class="hero-sub">Your chronological age is a fact about the calendar. Your biological age is a fact about your body, and unlike the first one, it moves. Enva builds it from five weighted domains of your own data, and tells you how much to trust the answer.</p>
+      <div class="hero-cta">
+        <div class="waitlist-form">
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+          <input type="email" id="hero-email" placeholder="your@email.com" />
+          <button class="btn-primary" onclick="handleWaitlist('hero-email','hero-success')">Join Waitlist</button>
         </div>
-        <p class="readout-delta">4.8 years younger than your chronological age of 39.</p>
-        <p class="readout-conf">High confidence. 5 of 5 domains reporting.</p>
+        <a href="#domains" class="arrow-link">See the domains</a>
+      </div>
+      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll be in touch before launch.</p>
+      <p class="hero-fineprint">Coming soon to iPhone.</p>
+    </div>
+    <img class="hero-shot" src="screens/ba-score.png" alt="The Biological Age screen: a biological age of 40 against a chronological age of 46, with a 90-day trend of the signals behind it" />
+  </header>
+
+  <!-- DOMAINS -->
+  <section class="beat" id="domains">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">What goes in</p>
+        <h2 class="h-section">Five domains, weighted by how much they actually predict.</h2>
+      </div>
+
+      <div class="split">
+        <img class="split-shot" src="screens/ba-domains.png" alt="Biological Age domain breakdown: Cardiovascular Fitness, Recovery Capacity and Activity Profile, each with its own age and the signals feeding it" data-reveal />
+        <div class="split-text" data-reveal>
+          <p>Not every signal deserves an equal vote. Cardiovascular fitness carries the heaviest weight because it is the single strongest modifiable predictor of all-cause mortality in the literature.</p>
+          <p>Body composition and blood work matter, but they move slower and explain less on their own, so they weigh less. Every domain shows its own age and the exact signals behind it.</p>
+        </div>
+      </div>
+
+      <div class="domain-list">
+        <div class="domain-row" data-reveal>
+          <div>
+            <p class="domain-k">30% weight</p>
+            <h3>Cardiovascular Fitness</h3>
+          </div>
+          <div>
+            <p>How efficiently your heart and lungs move oxygen, and how quickly your autonomic system recovers. The heaviest-weighted domain because it is the one most responsive to training.</p>
+            <div class="chips">
+              <span>VO&#8322; Max</span><span>Resting heart rate</span><span>HRV, 60-day baseline</span>
+            </div>
+          </div>
+        </div>
+        <div class="domain-row" data-reveal>
+          <div>
+            <p class="domain-k">20% weight</p>
+            <h3>Recovery Capacity</h3>
+          </div>
+          <div>
+            <p>Whether your body actually repairs between sessions. Sleep architecture matters more here than duration alone, so deep and REM percentages carry their own weight.</p>
+            <div class="chips">
+              <span>HR recovery, 2-min drop</span><span>Deep sleep %</span><span>REM sleep %</span><span>Sleep duration</span><span>Sleep consistency</span>
+            </div>
+          </div>
+        </div>
+        <div class="domain-row" data-reveal>
+          <div>
+            <p class="domain-k">20% weight</p>
+            <h3>Activity Profile</h3>
+          </div>
+          <div>
+            <p>Not just how much you move, but the shape of it. Zone distribution, resistance work and variety are scored separately, because an athlete who only ever goes hard is not aging the way the volume suggests.</p>
+            <div class="chips">
+              <span>Zone 2&#8211;3 min/week</span><span>Zone 4&#8211;5 min/week</span><span>Cardio sessions/week</span><span>Resistance sessions/week</span><span>Training variety</span><span>Active weeks</span><span>Daily steps</span>
+            </div>
+          </div>
+        </div>
+        <div class="domain-row" data-reveal>
+          <div>
+            <p class="domain-k">15% weight</p>
+            <h3>Body Composition</h3>
+          </div>
+          <div>
+            <p>Lean mass is the part that predicts. Muscle index is scored against ethnicity-specific reference ranges, because a single universal cutoff misreads a large share of the population.</p>
+            <div class="chips">
+              <span>Body fat %</span><span>Lean body mass</span><span>Muscle index, RSMI</span>
+            </div>
+          </div>
+        </div>
+        <div class="domain-row" data-reveal>
+          <div>
+            <p class="domain-k">15% weight</p>
+            <h3>Biomarker Health</h3>
+          </div>
+          <div>
+            <p>Your labs, read as a system instead of a PDF. Pulled straight from MyChart and scored against clinical reference ranges, then folded into the same number as your training.</p>
+            <div class="chips">
+              <span>ApoB</span><span>LDL</span><span>HDL</span><span>Triglycerides</span><span>HbA1c</span><span>Fasting glucose</span><span>hsCRP</span><span>eGFR</span><span>Lp(a)</span><span>ALT</span><span>Testosterone</span><span>TSH</span><span>Vitamin D</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- DOMAINS -->
-<section>
-  <div class="container">
-    <span class="section-label">What Goes In</span>
-    <h2 class="display-l" style="max-width:640px;margin-bottom:18px;">Five domains, weighted by how much they actually predict.</h2>
-    <p class="prose">
-      Not every signal deserves an equal vote. Cardiovascular fitness carries the heaviest weight because it is the single strongest modifiable predictor of all-cause mortality in the literature. Body composition and blood work matter, but they move slower and explain less on their own.
-    </p>
-
-    <div class="domains">
-
-      <div class="domain">
-        <div class="domain-weight">30%</div>
-        <div>
-          <div class="domain-name">Cardiovascular Fitness</div>
-          <p class="domain-desc">How efficiently your heart and lungs move oxygen, and how quickly your autonomic system recovers. The heaviest-weighted domain because it is the one most responsive to training.</p>
-          <div class="signals">
-            <span class="signal">VO₂ Max</span>
-            <span class="signal">Resting heart rate</span>
-            <span class="signal">HRV, 60-day baseline</span>
-          </div>
-        </div>
+  <!-- DOWN TO THE MARKER -->
+  <section class="beat">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">Down to the marker</p>
+        <h2 class="h-section">It reads your labs, not just lists them.</h2>
+        <p class="lede">Every marker opens into what it actually tells you and the levers that move it, in the same language as your training. Body composition is scored against reference ranges for your age, not a single universal cutoff.</p>
       </div>
-
-      <div class="domain">
-        <div class="domain-weight">20%</div>
-        <div>
-          <div class="domain-name">Recovery Capacity</div>
-          <p class="domain-desc">Whether your body actually repairs between sessions. Sleep architecture matters more here than sleep duration alone. Deep and REM percentages carry their own weight.</p>
-          <div class="signals">
-            <span class="signal">HR recovery, 2-min drop</span>
-            <span class="signal">Deep sleep %</span>
-            <span class="signal">REM sleep %</span>
-            <span class="signal">Sleep duration</span>
-            <span class="signal">Sleep consistency</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="domain">
-        <div class="domain-weight">20%</div>
-        <div>
-          <div class="domain-name">Activity Profile</div>
-          <p class="domain-desc">Not just how much you move, but the shape of it. Zone distribution, resistance work and variety are scored separately, because an athlete who only ever goes hard is not aging the way the volume suggests.</p>
-          <div class="signals">
-            <span class="signal">Zone 2–3 min/week</span>
-            <span class="signal">Zone 4–5 min/week</span>
-            <span class="signal">Cardio sessions/week</span>
-            <span class="signal">Resistance sessions/week</span>
-            <span class="signal">Training variety</span>
-            <span class="signal">Active weeks</span>
-            <span class="signal">Daily steps</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="domain">
-        <div class="domain-weight">15%</div>
-        <div>
-          <div class="domain-name">Body Composition</div>
-          <p class="domain-desc">Lean mass is the part that predicts. Muscle index is scored against ethnicity-specific reference ranges, because a single universal cutoff misreads a large share of the population.</p>
-          <div class="signals">
-            <span class="signal">Body fat %</span>
-            <span class="signal">Lean body mass</span>
-            <span class="signal">Muscle index (RSMI)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="domain">
-        <div class="domain-weight">15%</div>
-        <div>
-          <div class="domain-name">Biomarker Health</div>
-          <p class="domain-desc">Your labs, read as a system instead of a PDF. Pulled straight from MyChart and scored against clinical reference ranges, then folded into the same number as your training.</p>
-          <div class="signals">
-            <span class="signal">ApoB</span>
-            <span class="signal">LDL</span>
-            <span class="signal">HDL</span>
-            <span class="signal">Triglycerides</span>
-            <span class="signal">HbA1c</span>
-            <span class="signal">Fasting glucose</span>
-            <span class="signal">hsCRP</span>
-            <span class="signal">eGFR</span>
-            <span class="signal">Lp(a)</span>
-            <span class="signal">ALT</span>
-            <span class="signal">Testosterone</span>
-            <span class="signal">TSH</span>
-            <span class="signal">Vitamin D</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- METHOD -->
-<section>
-  <div class="container">
-    <span class="section-label">How It Is Built</span>
-    <h2 class="display-l" style="max-width:660px;margin-bottom:18px;">A model that admits what it doesn't know.</h2>
-    <p class="prose">
-      Most biological age numbers present a single figure to one decimal place regardless of how much data sits behind it. That is false precision, and it is the easiest way to make a model look more certain than it is. Enva does the opposite.
-    </p>
-
-    <div class="method">
-      <div class="method-step">
-        <div class="method-num">01</div>
-        <h3>Score each domain</h3>
-        <p>Every domain produces its own age estimate from its own signals, benchmarked against population norms for your age and sex. A domain with no data produces nothing rather than a guess.</p>
-      </div>
-      <div class="method-step">
-        <div class="method-num">02</div>
-        <h3>Reweight to what is present</h3>
-        <p>Weights renormalize across the domains that actually reported. If you have never uploaded labs, the remaining four are rescaled to sum to one. You are never penalized for data you don't have yet.</p>
-      </div>
-      <div class="method-step">
-        <div class="method-num">03</div>
-        <h3>Attach a confidence range</h3>
-        <p>The fewer domains reporting, the wider the band around the estimate. Connect more sources and the range tightens. The number never pretends to a precision the inputs cannot support.</p>
+      <div class="twoshot" data-reveal>
+        <figure>
+          <img src="screens/ba-bloodwork.jpg" alt="An HDL Cholesterol detail: what it tells you, and what moves the number through exercise and diet" />
+          <figcaption>Every biomarker</figcaption>
+        </figure>
+        <figure>
+          <img src="screens/ba-body.jpg" alt="The Body screen: weight, body fat, lean mass and an energy-balance analysis" />
+          <figcaption>Body composition, in context</figcaption>
+        </figure>
       </div>
     </div>
+  </section>
 
-    <table class="conf-table">
-      <thead>
-        <tr>
-          <th>Confidence</th>
-          <th>Domains reporting</th>
-          <th>Range shown</th>
-          <th>What it means</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>High</td>
-          <td>4 or 5</td>
-          <td class="range">Point estimate</td>
-          <td>Enough coverage to state a single figure.</td>
-        </tr>
-        <tr>
-          <td>Medium</td>
-          <td>2 to 3</td>
-          <td class="range">± 1.5 years</td>
-          <td>Directionally sound, but a gap is widening the band.</td>
-        </tr>
-        <tr>
-          <td>Low</td>
-          <td>1</td>
-          <td class="range">± 3.0 years</td>
-          <td>One domain is carrying the whole estimate. Treat as a first read.</td>
-        </tr>
-        <tr>
-          <td>Insufficient</td>
-          <td>0</td>
-          <td class="range">No estimate</td>
-          <td>Enva shows nothing rather than a number it cannot stand behind.</td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- METHOD -->
+  <section class="beat">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">How it's built</p>
+        <h2 class="h-section">A model that admits what it doesn't know.</h2>
+        <p class="lede">Most biological age numbers show a single figure to one decimal place no matter how much data sits behind it. That is false precision. Enva does the opposite.</p>
+      </div>
 
-    <div class="limits">
-      <h3>What this is not</h3>
-      <ul>
-        <li><strong>Not an epigenetic clock.</strong> Enva does not measure DNA methylation. This is a functional model built from physiology, training and blood chemistry: a different and more actionable thing, but not the same measurement.</li>
-        <li><strong>Not a diagnosis.</strong> Nothing here is medical advice. A biomarker outside its reference range is a reason to talk to a clinician, not a conclusion.</li>
-        <li><strong>Not a score to game.</strong> The domains are weighted by predictive value, not by how easy they are to move. Chasing the number by optimizing one input is how you end up with a better number and the same body.</li>
-      </ul>
+      <div class="split" style="grid-template-columns:1.15fr 0.85fr;align-items:start;">
+        <div class="steps" data-reveal style="margin-top:0;">
+          <div class="step">
+            <p class="step-k">01</p>
+            <h3>Score each domain</h3>
+            <p>Every domain produces its own age estimate from its own signals, benchmarked against population norms for your age and sex. A domain with no data produces nothing, not a guess.</p>
+          </div>
+          <div class="step">
+            <p class="step-k">02</p>
+            <h3>Reweight to what is present</h3>
+            <p>Weights renormalize across the domains that actually reported. If you have never uploaded labs, the remaining four are rescaled to sum to one. You are never penalized for data you don't have yet.</p>
+          </div>
+          <div class="step">
+            <p class="step-k">03</p>
+            <h3>Attach a confidence range</h3>
+            <p>The fewer domains reporting, the wider the band around the estimate. Connect more sources and the range tightens. The number never claims a precision the inputs cannot support.</p>
+          </div>
+        </div>
+        <img class="split-shot" src="screens/ba-markers.png" alt="The Biomarker Health domain reporting an age from the markers it has, with unavailable markers clearly shown as no data" data-reveal />
+      </div>
+
+      <table class="conf-table" data-reveal>
+        <thead>
+          <tr>
+            <th>Confidence</th>
+            <th>Domains reporting</th>
+            <th>Range shown</th>
+            <th>What it means</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>High</td>
+            <td>4 or 5</td>
+            <td class="range">Point estimate</td>
+            <td>Enough coverage to state a single figure.</td>
+          </tr>
+          <tr>
+            <td>Medium</td>
+            <td>2 to 3</td>
+            <td class="range">&#177; 1.5 years</td>
+            <td>Directionally sound, but a gap is widening the band.</td>
+          </tr>
+          <tr>
+            <td>Low</td>
+            <td>1</td>
+            <td class="range">&#177; 3.0 years</td>
+            <td>One domain is carrying the whole estimate. Treat it as a first read.</td>
+          </tr>
+          <tr>
+            <td>Insufficient</td>
+            <td>0</td>
+            <td class="range">No estimate</td>
+            <td>Enva shows nothing rather than a number it cannot stand behind.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
+  <!-- WHAT THIS IS NOT -->
+  <section class="beat">
+    <div class="beat-inner" data-reveal>
+      <p class="kicker">What this is not</p>
+      <h2 class="h-section">A functional model, not a lab test.</h2>
+      <div class="not-list">
+        <div class="not-row">
+          <h3>Not an epigenetic clock</h3>
+          <p>Enva does not measure DNA methylation. This is a functional model built from physiology, training and blood chemistry: a different and more actionable thing, but not the same measurement.</p>
+        </div>
+        <div class="not-row">
+          <h3>Not a diagnosis</h3>
+          <p>Nothing here is medical advice. A biomarker outside its reference range is a reason to talk to a clinician, not a conclusion.</p>
+        </div>
+        <div class="not-row">
+          <h3>Not a score to game</h3>
+          <p>The domains are weighted by predictive value, not by how easy they are to move. Chasing the number by optimizing one input is how you end up with a better number and the same body.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- CTA -->
-<section style="text-align:center;">
-  <div class="container">
-    <span class="section-label">Early Access</span>
-    <h2 class="display-l" style="margin-bottom:18px;">See where you actually stand.</h2>
-    <p style="color:var(--ink-2);margin-bottom:34px;font-size:16px;">Join the waitlist and be first in line when Enva launches.</p>
-    <div style="display:flex;justify-content:center;">
+  <!-- WAITLIST -->
+  <section class="beat wl" id="waitlist">
+    <div class="wl-inner beat-inner" data-reveal>
+      <p class="kicker" style="color:var(--accent);">Early Access</p>
+      <h2>See where you actually stand.</h2>
+      <p>Join the waitlist and be first in line when Enva launches.</p>
       <div class="waitlist-form">
-            <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <input type="email" id="bio-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('bio-email','bio-success')">Join Waitlist</button>
       </div>
+      <p id="bio-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
+      <p class="fineprint">Coming soon to iPhone.</p>
     </div>
-    <p id="bio-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">✓ You're on the list.</p>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
   <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
@@ -478,9 +483,24 @@
     <li><a href="privacy">Privacy Policy</a></li>
     <li><a href="terms">Terms of Service</a></li>
   </ul>
-  <p class="footer-copy">© 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+  <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
 </footer>
 
 <script src="waitlist.js" defer></script>
+<script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if ((window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || !('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('revealed'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('revealed'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>
