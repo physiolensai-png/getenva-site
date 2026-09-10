@@ -2,416 +2,205 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Copyright © 2026 Olympus Hills Ventures LLC. All rights reserved. Confidential and proprietary. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hyrox Training · Enva</title>
-  <meta name="description" content="Track your pace station by station on Apple Watch Ultra. Build custom workouts from the equipment you have. Set a goal that makes everything Enva reads point at the same finish line." />
+  <title>Hyrox Training &#183; Enva</title>
+  <meta name="description" content="Set a Hyrox finish time and every signal Enva reads reorganises around it: a projected time, the ranked limiters, a plan by phase, AI-built sessions, and per-segment pacing on Apple Watch." />
   <link rel="canonical" href="https://getenva.ai/hyrox" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
   <meta name="theme-color" content="#121212" />
-  <meta property="og:title" content="Hyrox Training · Enva" />
-  <meta property="og:description" content="Race-day pacing. Custom workouts. One goal." />
+  <meta property="og:title" content="Hyrox Training &#183; Enva" />
+  <meta property="og:description" content="One finish time. Everything reads through it, right down to per-segment pacing on your wrist." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://getenva.ai/hyrox" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* ============================================================
+       Hyrox — 2026 rebuild. Same system as the rest of the site.
+       ============================================================ */
 
-    /* ── Hero ──────────────────────────────────────
-       Goal: both devices visible above the fold.
-       Copy is tight; visuals do the talking.
-    ─────────────────────────────────────────────── */
+    .beat { padding: 92px 32px; position: relative; }
+    .beat-inner { max-width: 1040px; margin: 0 auto; }
+
+    .kicker {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 22px;
+    }
+    .h-section {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(30px, 4.4vw, 52px);
+      line-height: 1.1; letter-spacing: 0.022em; max-width: 22ch;
+    }
+    .lede {
+      font-size: 19px; line-height: 1.65;
+      color: var(--ink-2); max-width: 58ch; margin-top: 18px;
+    }
+    .arrow-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 15px; font-weight: 600; color: var(--accent);
+    }
+    .arrow-link::after { content: "\203A"; font-size: 17px; transition: transform var(--transition); }
+    .arrow-link:hover::after { transform: translateX(4px); }
+
+    /* ---- hero ---- */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 92px;
-      padding-bottom: 32px;
-      position: relative;
-      overflow: hidden;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 150px 32px 0;
+      position: relative; overflow: hidden;
     }
-    .hero-glow {
-      width: 700px; height: 700px;
-      background: rgba(228,101,42,0.08);
-      top: -200px; right: -260px;
-    }
-    .hero-inner {
-      position: relative; z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    /* Left: copy */
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-family: var(--font-display);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent-line);
-      padding: 7px 15px; border-radius: 100px;
-      margin-bottom: 28px;
-    }
-    .hero-eyebrow span {
-      width: 5px; height: 5px; background: var(--accent);
-      border-radius: 50%; display: inline-block;
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(38px, 5vw, 66px);
-      font-weight: 300;
-      line-height: 1.05; letter-spacing: 0;
-      margin-bottom: 22px;
-    }
-
-    /* Three value lines — scannable, not a paragraph */
-    .hero-values { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 11px; }
-    .hero-values li {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 15px; color: var(--ink-2); line-height: 1.45;
-    }
-    .hv-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent); flex-shrink: 0; margin-top: 6px;
-    }
-
-    .hero-cta { display: flex; flex-direction: column; gap: 14px; }
-    .hero-note { font-size: 13px; color: var(--ink-3); }
-
-    /* ── Right: devices ─────────────────────────── */
-    .devices-wrap {
-      position: relative;
-      height: 560px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-    /* Shared ambient glow behind both devices */
-    .devices-wrap::before {
-      content: "";
-      position: absolute;
-      width: 420px; height: 420px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(228,101,42,0.10) 0%, transparent 65%);
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(58% 42% at 50% 0%, rgba(228,101,42,0.10), transparent 70%);
       pointer-events: none;
     }
-
-    /* ─── iPhone (workout generator) ─── */
-    .iphone {
-      position: absolute;
-      left: 0; bottom: 0;
-      width: 230px;
-      height: 490px;
-      border-radius: 40px;
-      background: var(--ground-2);
-      border: 1px solid var(--border-light);
-      overflow: hidden;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
-      z-index: 1;
-    }
-    /* Dynamic Island */
-    .iphone-island {
-      position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
-      width: 80px; height: 22px;
-      background: #000; border-radius: 100px;
-      z-index: 3;
-    }
-    .iphone-screen {
-      position: absolute; inset: 0;
-      padding: 48px 14px 18px;
-      display: flex; flex-direction: column;
-      background: var(--ground);
-      overflow: hidden;
-    }
-    /* App nav bar */
-    .app-nav {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 16px;
-    }
-    .app-nav-title {
+    .hero-content { position: relative; z-index: 1; max-width: 860px; }
+    .hero-eyebrow {
       font-family: var(--font-display);
-      font-size: 16px; font-weight: 400; color: var(--ink);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px;
     }
-    .app-nav-plus {
-      width: 26px; height: 26px; border-radius: 50%;
-      background: var(--surface-2);
+    .hero-eyebrow::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(42px, 6.2vw, 80px);
+      line-height: 1.04; letter-spacing: 0.028em; text-wrap: balance;
+    }
+    .hero h1 .accent-text { color: var(--accent); }
+    .hero-sub {
+      font-size: 20px; line-height: 1.6; color: var(--ink-2);
+      max-width: 52ch; margin: 26px auto 0; text-wrap: balance;
+    }
+    .hero-cta {
       display: flex; align-items: center; justify-content: center;
-      font-size: 16px; color: var(--accent); line-height: 1;
+      gap: 28px; flex-wrap: wrap; margin-top: 38px;
     }
-    /* Section eyebrow inside app */
-    .app-eyebrow {
-      font-family: var(--font-display);
-      font-size: 8px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 10px;
-    }
-    .app-section-lbl {
-      font-size: 10px; color: var(--ink-3); margin-bottom: 5px; margin-top: 2px;
-    }
-    .app-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
-    .ap {
-      padding: 4px 8px; border-radius: 100px;
-      font-size: 10px; border: 1px solid var(--border);
-      color: var(--ink-3); background: var(--surface-2);
-    }
-    .ap.on {
-      border-color: var(--accent-line); color: var(--ink);
-      background: var(--accent-tint);
-    }
-    .app-sep { height: 1px; background: var(--border); margin: 10px 0 8px; }
-    .app-session-row {
-      display: flex; justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    .app-session-name {
-      font-family: var(--font-display);
-      font-size: 11px; color: var(--ink);
-    }
-    .app-session-dur { font-size: 10px; color: var(--ink-3); }
-    .app-blocks { display: flex; flex-direction: column; gap: 5px; flex: 1; }
-    .ab {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 7px 10px;
-      background: var(--surface);
-      border-radius: 8px;
-      font-size: 10px;
-    }
-    .ab-name { color: var(--ink); }
-    .ab-spec { color: var(--accent); font-variant-numeric: tabular-nums; }
-
-    /* ─── Apple Watch Ultra ─── */
-    .watch-ultra {
-      position: absolute;
-      right: 0; top: 0;
-      width: 186px; height: 224px;
-      border-radius: 44px;
-      /* Titanium — brushed gradient */
-      background: linear-gradient(155deg, #8A8A8A 0%, #686868 45%, #565656 100%);
-      padding: 11px;
-      z-index: 2;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.18),
-        inset 0 -1px 0 rgba(0,0,0,0.3),
-        0 0 0 1px rgba(255,255,255,0.07),
-        0 28px 72px rgba(0,0,0,0.82),
-        0 0 52px rgba(228,101,42,0.08);
-    }
-    /* Orange Action Button — left side (Ultra's defining hardware detail) */
-    .watch-ultra::before {
-      content: "";
-      position: absolute;
-      left: -5px; top: 48px;
-      width: 5px; height: 42px;
-      background: linear-gradient(to bottom, #FF7A00, #D96200);
-      border-radius: 3px 0 0 3px;
-      box-shadow: -2px 0 8px rgba(255,122,0,0.5);
-    }
-    /* Digital Crown — right, upper */
-    .watch-crown {
-      position: absolute; right: -5px; top: 40px;
-      width: 5px; height: 28px;
-      background: linear-gradient(to bottom, #929292, #6C6C6C);
-      border-radius: 0 3px 3px 0;
-      box-shadow: 2px 0 3px rgba(0,0,0,0.35);
-    }
-    /* Side Button — right, lower */
-    .watch-side {
-      position: absolute; right: -4px; top: 78px;
-      width: 4px; height: 20px;
-      background: linear-gradient(to bottom, #808080, #606060);
-      border-radius: 0 2px 2px 0;
-    }
-    .watch-screen {
-      width: 100%; height: 100%;
-      border-radius: 34px;
-      background: #000;
-      overflow: hidden;
-      padding: 14px 13px 11px;
-      display: flex; flex-direction: column;
-      font-variant-numeric: tabular-nums;
-    }
-    .ws-seg {
-      font-family: var(--font-display);
-      font-size: 8px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
-      color: #E4652A; margin-bottom: 3px;
-    }
-    .ws-elapsed { font-size: 9px; color: rgba(242,239,233,0.36); margin-bottom: 4px; }
-    .ws-pace {
-      font-family: var(--font-display);
-      font-size: 36px; font-weight: 300; color: #F2EFE9;
-      line-height: 1.0; letter-spacing: -0.02em;
-    }
-    .ws-unit { font-size: 9px; color: rgba(242,239,233,0.4); margin-top: 1px; margin-bottom: 10px; }
-    .ws-stats { display: flex; gap: 14px; }
-    .ws-stat { display: flex; flex-direction: column; }
-    .ws-stat-val { font-size: 14px; font-weight: 600; color: #F2EFE9; line-height: 1.1; }
-    .ws-stat-lbl { font-size: 8px; color: rgba(242,239,233,0.35); }
-    .ws-div { height: 1px; background: rgba(255,255,255,0.07); margin: 10px 0 8px; }
-    .ws-next-lbl { font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,239,233,0.28); margin-bottom: 2px; }
-    .ws-next-name { font-size: 10px; color: rgba(242,239,233,0.58); }
-    .ws-progress { display: flex; gap: 2px; margin-top: 10px; }
-    .ws-dot { flex: 1; height: 2px; border-radius: 2px; background: rgba(242,239,233,0.1); }
-    .ws-dot.done { background: rgba(228,101,42,0.5); }
-    .ws-dot.now { background: #E4652A; }
-
-    /* ── Feature sections (below fold) ──────────── */
-    .feature-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: center;
-    }
-    .feature-copy h2 {
-      font-family: var(--font-display);
-      font-size: clamp(26px, 3.4vw, 42px);
-      font-weight: 300;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .feature-copy > p {
-      font-size: 15px; color: var(--ink-2); line-height: 1.8;
-      max-width: 48ch;
-    }
-    .feature-tag {
-      display: inline-block;
-      font-family: var(--font-display);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 16px;
-    }
-    .feature-pills {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;
-    }
-    .fp {
-      font-size: 12px; padding: 5px 12px; border-radius: 100px;
-      background: var(--surface-2); border: 1px solid var(--border); color: var(--ink-2);
-    }
-
-    /* Feature card visual areas */
-    .feature-visual {
-      background: var(--surface);
-      border: 1px solid var(--border);
+    .hero-fineprint { font-size: 13px; color: var(--ink-3); margin-top: 18px; }
+    .hero-shot {
+      position: relative; z-index: 1; margin-top: 56px;
+      width: clamp(260px, 42vw, 360px);
       border-radius: var(--radius-lg);
-      overflow: hidden;
+      box-shadow: 0 40px 90px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
 
-    /* Goal card */
-    .goal-card {
-      padding: 28px 30px;
-      position: relative;
+    /* ---- split ---- */
+    .split {
+      display: grid; grid-template-columns: 0.85fr 1.15fr;
+      gap: 44px; align-items: center; margin-top: 40px;
     }
-    .goal-card::before {
-      content: ""; position: absolute; top: 0; left: 30px;
-      width: 34px; height: 2px; background: var(--accent);
+    .split.flip { grid-template-columns: 1.15fr 0.85fr; }
+    .split-shot {
+      width: 100%; border-radius: var(--radius-lg);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
-    .goal-eyebrow {
+    .split-text p { font-size: 16px; line-height: 1.7; color: var(--ink-2); }
+    .split-text p + p { margin-top: 14px; }
+
+    /* ---- two-shot ---- */
+    .twoshot { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 40px; }
+    .twoshot figure { flex: 1; min-width: 240px; margin: 0; }
+    .twoshot img {
+      width: 100%; border-radius: var(--radius-md);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
+    }
+    .twoshot figcaption {
       font-family: var(--font-display);
-      font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-3); margin-bottom: 12px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-3); text-align: center; margin-top: 14px;
     }
-    .goal-target {
+
+    /* ---- builder flow (3-up) ---- */
+    .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 44px; }
+    .flow figure { margin: 0; }
+    .flow img {
+      width: 100%; display: block;
+      aspect-ratio: 1 / 1.42;
+      object-fit: contain; object-position: top center;
+      background: #f0ede6;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
+    }
+    .flow figcaption { display: flex; align-items: baseline; gap: 9px; margin-top: 16px; }
+    .flow .fc-step {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; color: var(--accent);
+    }
+    .flow .fc-label {
+      font-family: var(--font-display); font-size: 14px; font-weight: 400;
+      color: var(--ink); letter-spacing: 0.012em;
+    }
+    .flow-note { margin-top: 34px; font-size: 15px; line-height: 1.7; color: var(--ink-2); max-width: 62ch; }
+
+    /* ---- watch row ---- */
+    .watch { background: #0d0c0b; }
+    .watch-row {
+      display: flex; flex-wrap: wrap; gap: 26px 20px;
+      justify-content: center; margin-top: 48px;
+    }
+    .watch-row figure { margin: 0; width: 186px; }
+    .watch-row img {
+      width: 100%; display: block; border-radius: 22px;
+      box-shadow: 0 22px 44px rgba(0,0,0,0.6);
+    }
+    .watch-row figcaption {
       font-family: var(--font-display);
-      font-size: 38px; font-weight: 300; color: var(--ink);
-      line-height: 1.05; margin-bottom: 4px;
-      font-variant-numeric: tabular-nums;
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-3); text-align: center; margin-top: 12px;
     }
-    .goal-target em { color: var(--accent); font-style: normal; }
-    .goal-meta { font-size: 13px; color: var(--ink-2); margin-bottom: 18px; }
-    .goal-rows {
-      border-top: 1px solid var(--border);
-      padding-top: 16px;
-      display: flex; flex-direction: column; gap: 0;
-    }
-    .goal-row {
-      display: flex; justify-content: space-between; align-items: baseline;
-      padding: 8px 0; font-size: 14px; color: var(--ink-2);
-      border-bottom: 1px solid rgba(242,239,233,0.04);
-    }
-    .goal-row:last-child { border-bottom: none; }
-    .goal-row strong { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
-    .goal-row .lag { color: var(--accent); font-weight: 600; }
-    .goal-row .good { color: #5CB87A; font-weight: 600; }
 
-    /* Input table */
-    .inputs {
-      display: flex; flex-direction: column;
-      border: 1px solid var(--border); border-radius: var(--radius-md);
-      overflow: hidden; margin-top: 32px;
+    /* ---- signal list ---- */
+    .sig-list { margin-top: 44px; }
+    .sig-row {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 32px; padding: 26px 0; border-top: 1px solid var(--border);
     }
-    .input-row {
-      display: grid; grid-template-columns: 180px 1fr;
-      gap: 20px; padding: 18px 22px; background: var(--surface);
-      align-items: baseline;
+    .sig-row:last-child { border-bottom: 1px solid var(--border); }
+    .sig-row h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 19px; line-height: 1.25; letter-spacing: 0.012em; color: var(--ink);
     }
-    .input-row + .input-row { border-top: 1px solid var(--border); }
-    .input-name {
-      font-family: var(--font-display); font-size: 16px; font-weight: 400; color: var(--ink);
-    }
-    .input-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+    .sig-row p { font-size: 14.5px; line-height: 1.62; color: var(--ink-2); }
 
-    /* Integrations */
-    .integrations {
-      padding: 52px 48px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    /* ---- waitlist ---- */
+    .wl { text-align: center; position: relative; overflow: hidden; }
+    .wl::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(50% 60% at 50% 50%, rgba(228,101,42,0.09), transparent 70%);
     }
-    .integrations-label {
-      text-align: center;
-      font-family: var(--font-display);
-      font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-3); margin-bottom: 24px;
+    .wl-inner { position: relative; z-index: 1; }
+    .wl h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(32px, 4.6vw, 56px);
+      line-height: 1.08; letter-spacing: 0.028em; margin-bottom: 16px;
     }
-    .integration-pills {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-    }
-    .pill {
-      padding: 9px 18px; border-radius: 100px;
-      border: 1px solid var(--border-light);
-      font-size: 13px; font-weight: 500; color: var(--ink-2);
-      transition: border-color var(--transition), color var(--transition);
-    }
-    .pill:hover { border-color: var(--accent); color: var(--ink); }
-    .pill.coming { color: var(--ink-3); border-color: var(--border); }
+    .wl h2 .accent-text { color: var(--accent); }
+    .wl p { font-size: 17px; color: var(--ink-2); margin-bottom: 32px; }
+    .wl .waitlist-form { margin: 0 auto; }
+    .wl .fineprint { font-size: 13px; color: var(--ink-3); margin-top: 16px; }
 
-    /* Waitlist */
-    .waitlist-section {
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .waitlist-glow {
-      width: 720px; height: 420px;
-      background: rgba(228,101,42,0.09);
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-    }
-    .waitlist-inner { position: relative; z-index: 1; }
-    .waitlist-section h2 {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 4.6vw, 62px);
-      font-weight: 300; letter-spacing: 0;
-      margin-bottom: 18px; line-height: 1.08;
-    }
-    .waitlist-section > .waitlist-inner > p {
-      font-size: 16px; color: var(--ink-2); margin-bottom: 36px;
-    }
-    .waitlist-form-wrap { display: flex; justify-content: center; }
-    .success-msg { display: none; font-size: 15px; color: var(--accent); margin-top: 16px; }
+    [data-reveal] { opacity: 0; transform: translateY(18px); }
+    .revealed { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 
-    .prose { font-size: 16px; color: var(--ink-2); line-height: 1.82; max-width: 60ch; }
-
-    /* ── Responsive ─────────────────────────────── */
-    @media (max-width: 960px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .devices-wrap { display: none; }
-      .feature-split { grid-template-columns: 1fr; gap: 40px; }
-      .input-row { grid-template-columns: 1fr; gap: 6px; }
-      .integrations { padding: 44px 22px; }
+    @media (max-width: 900px) {
+      .beat { padding: 76px 24px; }
+      .split, .split.flip { grid-template-columns: 1fr; gap: 32px; }
+      .sig-row { grid-template-columns: 1fr; gap: 8px; }
+      .hero { padding-top: 156px; }
     }
-    @media (max-width: 768px) {
-      .hero { padding-top: 96px; }
+    @media (max-width: 560px) {
+      .twoshot figure { min-width: 100%; }
+      .flow { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; gap: 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -437,272 +226,155 @@
   <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
 </nav>
 
-<!-- ═══════════════════════════════════════════════
-     HERO — everything the user needs above the fold
-     Left: headline + 3 value lines + CTA
-     Right: iPhone (workout builder) + Watch Ultra (race tracking)
-════════════════════════════════════════════════ -->
-<section class="hero">
-  <div class="glow hero-glow"></div>
-  <div class="container">
-    <div class="hero-inner">
+<main>
 
-      <!-- Copy -->
-      <div>
-        <div class="hero-eyebrow"><span></span> Hyrox Training</div>
-        <h1>Race day tools,<br /><span class="accent-text">finally in one place.</span></h1>
-        <ul class="hero-values">
-          <li><span class="hv-dot"></span>Apple Watch Ultra paces every run and station in real time</li>
-          <li><span class="hv-dot"></span>On-demand workouts built from the equipment you actually have</li>
-          <li><span class="hv-dot"></span>Set a finish time. Enva tells you exactly what is holding it back</li>
-        </ul>
-        <div class="hero-cta">
-          <div class="waitlist-form">
-            <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
-            <input type="email" id="hero-email" placeholder="your@email.com" />
-            <button class="btn-primary" onclick="handleWaitlist('hero-email','hero-success')">Get Early Access</button>
-          </div>
-          <p class="hero-note" id="hero-success" style="display:none;color:var(--accent);">✓ You're on the list. We'll be in touch.</p>
-          <p class="hero-note">Coming to iPhone and Apple Watch. Join the waitlist.</p>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Hyrox Training</p>
+      <h1>Everything Enva reads,<br /><span class="accent-text">pointed at one finish line.</span></h1>
+      <p class="hero-sub">Set a target time and a race date. From that moment your training, recovery, sleep and nutrition stop being numbers and start being an answer to one question: closer, or further away?</p>
+      <div class="hero-cta">
+        <div class="waitlist-form">
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+          <input type="email" id="hero-email" placeholder="your@email.com" />
+          <button class="btn-primary" onclick="handleWaitlist('hero-email','hero-success')">Get Early Access</button>
         </div>
+        <a href="#target" class="arrow-link">Set a finish time</a>
       </div>
+      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll be in touch before launch.</p>
+      <p class="hero-fineprint">Coming soon to iPhone and Apple Watch.</p>
+    </div>
+    <img class="hero-shot" src="screens/hy-goal.jpg" alt="A Hyrox Solo goal set to 1:40:00, a projection note, and a ranked list of what's holding the time back" />
+  </header>
 
-      <!-- Devices: iPhone + Watch Ultra -->
-      <div class="devices-wrap">
-
-        <!-- iPhone — workout generator screen -->
-        <div class="iphone" role="img" aria-label="Enva app on iPhone showing the workout generator">
-          <div class="iphone-island" aria-hidden="true"></div>
-          <div class="iphone-screen">
-            <div class="app-nav">
-              <span class="app-nav-title">Workouts</span>
-              <div class="app-nav-plus" aria-hidden="true">+</div>
-            </div>
-            <div class="app-eyebrow">Build a Session</div>
-            <div class="app-section-lbl">Equipment available</div>
-            <div class="app-pills">
-              <span class="ap on">SkiErg</span>
-              <span class="ap on">RowErg</span>
-              <span class="ap">Sled</span>
-              <span class="ap on">Wall Balls</span>
-              <span class="ap">Sandbag</span>
-              <span class="ap on">Box</span>
-            </div>
-            <div class="app-section-lbl">Focus</div>
-            <div class="app-pills">
-              <span class="ap on">Station work</span>
-              <span class="ap">Compromised run</span>
-              <span class="ap">Zone 2</span>
-            </div>
-            <div class="app-sep"></div>
-            <div class="app-session-row">
-              <span class="app-session-name">Station Prep</span>
-              <span class="app-session-dur">52 min</span>
-            </div>
-            <div class="app-blocks">
-              <div class="ab">
-                <span class="ab-name">SkiErg intervals</span>
-                <span class="ab-spec">3 × 250m</span>
-              </div>
-              <div class="ab">
-                <span class="ab-name">Wall Balls</span>
-                <span class="ab-spec">5 × 20 reps</span>
-              </div>
-              <div class="ab">
-                <span class="ab-name">400m run + RowErg</span>
-                <span class="ab-spec">4 rounds</span>
-              </div>
-              <div class="ab">
-                <span class="ab-name">Burpee Broad Jumps</span>
-                <span class="ab-spec">3 × 10m</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Apple Watch Ultra — race tracking screen -->
-        <div class="watch-ultra" role="img" aria-label="Enva watch app on Apple Watch Ultra showing race tracking">
-          <div class="watch-crown" aria-hidden="true"></div>
-          <div class="watch-side" aria-hidden="true"></div>
-          <div class="watch-screen">
-            <div class="ws-seg">Run 3 of 8</div>
-            <div class="ws-elapsed">28:14 elapsed</div>
-            <div class="ws-pace">5:42</div>
-            <div class="ws-unit">/ km · on target</div>
-            <div class="ws-stats">
-              <div class="ws-stat">
-                <span class="ws-stat-val">164</span>
-                <span class="ws-stat-lbl">bpm</span>
-              </div>
-              <div class="ws-stat">
-                <span class="ws-stat-val">2.1</span>
-                <span class="ws-stat-lbl">km done</span>
-              </div>
-            </div>
-            <div class="ws-div"></div>
-            <div class="ws-next-lbl">Next</div>
-            <div class="ws-next-name">Sled Push &#183; 50m</div>
-            <div class="ws-progress" aria-hidden="true">
-              <div class="ws-dot done"></div>
-              <div class="ws-dot done"></div>
-              <div class="ws-dot done"></div>
-              <div class="ws-dot done"></div>
-              <div class="ws-dot now"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-              <div class="ws-dot"></div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /devices-wrap -->
-    </div><!-- /hero-inner -->
-  </div>
-</section>
-
-<!-- ── INTEGRATIONS ──────────────────────────────── -->
-<div class="integrations">
-  <p class="integrations-label">Connects with your training ecosystem</p>
-  <div class="integration-pills">
-    <span class="pill">Apple Watch Ultra</span>
-    <span class="pill">Orangetheory</span>
-    <span class="pill">Peloton</span>
-    <span class="pill">MyChart</span>
-    <span class="pill coming">Oura Ring &#183; soon</span>
-    <span class="pill coming">Whoop &#183; soon</span>
-    <span class="pill coming">Garmin &#183; soon</span>
-  </div>
-</div>
-
-<!-- ── FEATURE: WATCH APP ────────────────────────── -->
-<section>
-  <div class="container">
-    <div class="feature-split">
-      <div class="feature-copy">
-        <span class="feature-tag">Watch App</span>
-        <h2>Every split, right on your wrist.</h2>
-        <p>Eight runs and eight stations. The race is decided by how well you run each segment after the last one. Enva paces all 16 segments based on your actual training data, not a bracket lookup. Go out too fast on run one and you see it immediately.</p>
-        <div class="feature-pills">
-          <span class="fp">Per-segment pacing</span>
-          <span class="fp">HR zone feedback</span>
-          <span class="fp">Station previews</span>
-          <span class="fp">Race and training mode</span>
-        </div>
-      </div>
-      <div class="feature-visual">
-        <div style="padding:28px 26px;display:flex;flex-direction:column;gap:0;border:none;">
-          <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px;">Race snapshot &#183; Run 3 of 8</div>
-          <div style="display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;">
-            <div style="display:flex;justify-content:space-between;padding:13px 16px;background:var(--surface-2);font-size:14px;border-bottom:1px solid var(--border);"><span style="color:var(--ink-2);">Current pace</span><span style="font-family:var(--font-display);font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums;">5:42 / km</span></div>
-            <div style="display:flex;justify-content:space-between;padding:13px 16px;background:var(--surface-2);font-size:14px;border-bottom:1px solid var(--border);"><span style="color:var(--ink-2);">vs target pace</span><span style="color:#5CB87A;font-weight:600;">On target</span></div>
-            <div style="display:flex;justify-content:space-between;padding:13px 16px;background:var(--surface-2);font-size:14px;border-bottom:1px solid var(--border);"><span style="color:var(--ink-2);">Heart rate</span><span style="font-family:var(--font-display);font-size:17px;color:var(--ink);">164 bpm</span></div>
-            <div style="display:flex;justify-content:space-between;padding:13px 16px;background:var(--surface-2);font-size:14px;border-bottom:1px solid var(--border);"><span style="color:var(--ink-2);">Elapsed</span><span style="font-family:var(--font-display);font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums;">28:14</span></div>
-            <div style="display:flex;justify-content:space-between;padding:13px 16px;background:var(--surface-2);font-size:14px;"><span style="color:var(--ink-2);">Next station</span><span style="color:var(--ink);">Sled Push 50m</span></div>
-          </div>
-        </div>
+  <!-- SET THE TARGET -->
+  <section class="beat" id="target">
+    <div class="beat-inner">
+      <div class="beat-inner story" style="max-width:640px;margin:0;" data-reveal>
+        <p class="kicker">The target</p>
+        <h2 class="h-section">One finish time. Everything reads through it.</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin-top:18px;">Enter your goal and the date. Enva models a projected time from your actual training, shown honestly as a wide-range projection rather than a prediction. No bracket lookups: it comes from your zone distribution, your run volume, your station work and how you have been recovering.</p>
+        <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin-top:14px;">Then it names the single biggest limiter this week, not a list of ten things to fix. Under-fueling by 649 kcal a day. Sleeping 0.4 hours short. Protein at 125 g against a 183 g target. Each one ranked against your own recent baseline.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- ── FEATURE: GOAL SETTING ─────────────────────── -->
-<section>
-  <div class="container">
-    <div class="feature-split">
-      <div class="feature-visual">
-        <div class="goal-card">
-          <p class="goal-eyebrow">Your Goal</p>
-          <p class="goal-target">1:29:00 &#183; <em>Solo</em></p>
-          <p class="goal-meta">14 December 2026 · 68 days out</p>
-          <div class="goal-rows">
-            <div class="goal-row"><span>Projected at current rate</span><strong>1:32:40</strong></div>
-            <div class="goal-row"><span>Gap to target</span><span class="lag">3:40 behind</span></div>
-            <div class="goal-row"><span>Limiter this week</span><span class="lag">Zone 2 volume</span></div>
-            <div class="goal-row"><span>Recovery trend</span><span class="good">On track</span></div>
-          </div>
-        </div>
+  <!-- TRAIN FOR IT -->
+  <section class="beat">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">The plan</p>
+        <h2 class="h-section">What to work on, and when.</h2>
+        <p class="lede">Hyrox is 8 km of running split across eight stations. Enva keeps the focus where the time actually is, and moves the emphasis as the race gets closer.</p>
       </div>
-      <div class="feature-copy">
-        <span class="feature-tag">Goal Setting</span>
-        <h2>One finish time. Everything reads through it.</h2>
-        <p>Enter your target and the date. From that point every metric (zone distribution, HRV trend, nutrition balance) stops being a number and becomes an answer to one question: is this moving you closer or further away. Enva names the single biggest limiter, not a list of ten things to fix.</p>
-        <div class="feature-pills">
-          <span class="fp">Works backwards from target</span>
-          <span class="fp">Weekly limiter, not a to-do list</span>
-          <span class="fp">Solo, Doubles, Mixed, Pro</span>
+      <div class="twoshot" data-reveal>
+        <figure>
+          <img src="screens/hy-focus.jpg" alt="What to focus on: running capacity as the largest time lever, station-specific work under fatigue, pacing strategy, and sleep and recovery" />
+          <figcaption>The levers</figcaption>
+        </figure>
+        <figure>
+          <img src="screens/hy-phases.jpg" alt="Training approach by phase: Build 8-plus weeks out, Race prep 4 to 8 weeks, Peak 2 to 4 weeks, Taper 0 to 2 weeks" />
+          <figcaption>The phases</figcaption>
+        </figure>
+      </div>
+      <p class="flow-note">Build, race prep, peak, taper. Enva knows which phase you're in from your race date and adjusts what it asks of you, right down to reducing volume 40 to 50% in the final two weeks.</p>
+    </div>
+  </section>
+
+  <!-- BUILD THE SESSIONS -->
+  <section class="beat">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">The sessions</p>
+        <h2 class="h-section">Build the workout, or have it built.</h2>
+        <p class="lede">Start from a template, build your own, or hand Enva Intelligence the equipment you have, the time you have and the station you need to fix. It writes the session.</p>
+      </div>
+      <div class="flow" data-reveal>
+        <figure>
+          <img src="screens/fi-build-1.jpg" alt="Selecting available equipment for a generated session" />
+          <figcaption><span class="fc-step">01</span><span class="fc-label">Your equipment</span></figcaption>
+        </figure>
+        <figure>
+          <img src="screens/fi-build-2.jpg" alt="Entering a goal: focus on the wall ball station for an upcoming Hyrox race" />
+          <figcaption><span class="fc-step">02</span><span class="fc-label">The station to fix</span></figcaption>
+        </figure>
+        <figure>
+          <img src="screens/fi-build-3.jpg" alt="A generated 30-minute Hyrox wall-ball session, three rounds, six exercises" />
+          <figcaption><span class="fc-step">03</span><span class="fc-label">The session</span></figcaption>
+        </figure>
+      </div>
+      <div class="split flip" data-reveal>
+        <div class="split-text">
+          <p>The strength inside those sessions is logged set by set, weight and reps per movement, with a progression view so you can see the numbers moving week to week.</p>
+          <p>And every workout you build runs on your Apple Watch, so you can do it and record it from your wrist.</p>
         </div>
+        <img class="split-shot" src="screens/hy-strength.jpg" alt="The Log Strength screen: goblet squat, squat jump and overhead press, each with per-set weight and reps and a progression link" data-reveal />
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- ── WHAT FEEDS THE GOAL ───────────────────────── -->
-<section>
-  <div class="container">
-    <span class="section-label">What feeds your goal</span>
-    <h2 class="display-l" style="max-width:22ch;margin-bottom:16px;">Every signal, one question.</h2>
-    <p class="prose">Once the goal is set, Enva stops reporting numbers and starts answering one thing: what is holding this back right now.</p>
-    <div class="inputs">
-      <div class="input-row">
-        <div class="input-name">Zone distribution</div>
-        <div class="input-desc">Whether your easy work is genuinely easy. Hyrox punishes an aerobic base built entirely at threshold. Most people training for it live in the wrong zone.</div>
-      </div>
-      <div class="input-row">
-        <div class="input-name">Recovery</div>
-        <div class="input-desc">HRV, resting heart rate, and post-effort drop, read against your own baseline, not a population chart.</div>
-      </div>
-      <div class="input-row">
-        <div class="input-name">Sleep</div>
-        <div class="input-desc">Duration, consistency, and the deep and REM split. The part that decides whether last week's training became fitness or just fatigue.</div>
-      </div>
-      <div class="input-row">
-        <div class="input-name">Nutrition</div>
-        <div class="input-desc">Calories against real expenditure, and whether protein is supporting the strength side while you hold a deficit.</div>
-      </div>
-      <div class="input-row">
-        <div class="input-name">Load balance</div>
-        <div class="input-desc">Running against stations against everything else. Progressive overload only works when the progression is visible across both.</div>
-      </div>
-      <div class="input-row">
-        <div class="input-name">Labs</div>
-        <div class="input-desc">Ferritin, vitamin D, thyroid, inflammatory markers. When the training is right and the times are not moving, this is usually where the answer sits.</div>
+  <!-- RACE IT -->
+  <section class="beat watch">
+    <div class="beat-inner" data-reveal>
+      <p class="kicker">Race day</p>
+      <h2 class="h-section">Sixteen segments, paced on your wrist.</h2>
+      <p class="lede">Eight runs and eight stations. The race is decided by how well you run each segment after the last one. Enva paces all sixteen from your training data, shows the next station before you reach it, and hands you the splits at the finish.</p>
+      <div class="watch-row" data-reveal>
+        <figure>
+          <img src="screens/hy-watch-007.png" alt="Apple Watch: Hyrox race, 16 segments, Start Race" />
+          <figcaption>Start</figcaption>
+        </figure>
+        <figure>
+          <img src="screens/hy-watch-008.png" alt="Apple Watch: Run 1 of 8, segment timer, heart rate" />
+          <figcaption>Run 1 of 8</figcaption>
+        </figure>
+        <figure>
+          <img src="screens/hy-watch-005.png" alt="Apple Watch: Station 1 of 8, SkiErg, segment timer, Next" />
+          <figcaption>Station 1 of 8</figcaption>
+        </figure>
+        <figure>
+          <img src="screens/hy-watch-006.png" alt="Apple Watch: finished, total time and a split for every segment" />
+          <figcaption>The splits</figcaption>
+        </figure>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
+  <!-- WHAT FEEDS THE GOAL -->
+  <section class="beat">
+    <div class="beat-inner" data-reveal>
+      <p class="kicker">What feeds your goal</p>
+      <h2 class="h-section">Every signal, one question.</h2>
+      <p class="lede">Once the goal is set, Enva stops reporting numbers and starts answering one thing: what is holding this back right now.</p>
+      <div class="sig-list">
+        <div class="sig-row"><h3>Zone distribution</h3><p>Whether your easy work is genuinely easy. Hyrox punishes an aerobic base built entirely at threshold, and most people training for it live in the wrong zone.</p></div>
+        <div class="sig-row"><h3>Recovery</h3><p>HRV, resting heart rate and post-effort drop, read against your own baseline, not a population chart.</p></div>
+        <div class="sig-row"><h3>Sleep</h3><p>Duration, consistency, and the deep and REM split. The part that decides whether last week's training became fitness or just fatigue.</p></div>
+        <div class="sig-row"><h3>Nutrition</h3><p>Calories against real expenditure, and whether protein is supporting the strength side while you hold a deficit.</p></div>
+        <div class="sig-row"><h3>Load balance</h3><p>Running against stations against everything else. Progressive overload only works when the progression is visible across both.</p></div>
+        <div class="sig-row"><h3>Labs</h3><p>Ferritin, vitamin D, thyroid, inflammatory markers. When the training is right and the times are not moving, this is usually where the answer sits.</p></div>
+      </div>
+    </div>
+  </section>
 
-<!-- ── WAITLIST ───────────────────────────────────── -->
-<section class="waitlist-section" id="waitlist">
-  <div class="glow waitlist-glow"></div>
-  <div class="container waitlist-inner">
-    <span class="section-label">Early Access</span>
-    <h2>Put a number<br /><span class="accent-text">on it.</span></h2>
-    <p>Enva is in development. Join the waitlist and start your first goal on day one.</p>
-    <div class="waitlist-form-wrap">
+  <!-- WAITLIST -->
+  <section class="beat wl" id="waitlist">
+    <div class="wl-inner beat-inner" data-reveal>
+      <p class="kicker" style="color:var(--accent);">Early Access</p>
+      <h2>Put a number <span class="accent-text">on it.</span></h2>
+      <p>Join the waitlist and start your first goal on day one.</p>
       <div class="waitlist-form">
         <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <input type="email" id="waitlist-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('waitlist-email','waitlist-success')">Join Waitlist</button>
       </div>
+      <p id="waitlist-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
+      <p class="fineprint">Coming soon to iPhone and Apple Watch.</p>
     </div>
-    <p class="success-msg" id="waitlist-success">✓ You're on the list. We'll reach out before launch.</p>
-    <p style="font-size:13px;color:var(--ink-3);margin-top:16px;">No spam. Just a heads-up when Enva is ready.</p>
-  </div>
-</section>
+  </section>
+
+</main>
 
 <footer>
   <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
@@ -719,9 +391,24 @@
     <li><a href="privacy">Privacy Policy</a></li>
     <li><a href="terms">Terms of Service</a></li>
   </ul>
-  <p class="footer-copy">© 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+  <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
 </footer>
 
 <script src="waitlist.js" defer></script>
+<script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if ((window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || !('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('revealed'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('revealed'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>
