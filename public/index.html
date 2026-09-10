@@ -19,383 +19,295 @@
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── Hero ── */
-    .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      padding-top: 120px;
-      padding-bottom: 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-glow-1 {
-      width: 620px; height: 620px;
-      background: rgba(228,101,42,0.10);
-      top: -140px; left: -220px;
-    }
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent-line);
-      padding: 7px 15px;
-      border-radius: 100px;
-      margin-bottom: 30px;
-    }
-    .hero-eyebrow span { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; display: inline-block; }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(42px, 5.6vw, 74px);
-      font-weight: 300;
-      line-height: 1.05;
-      letter-spacing: 0;
-      margin-bottom: 24px;
-      text-wrap: balance;
-    }
-    .hero-sub {
-      font-size: 17px;
-      color: var(--ink-2);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      max-width: 480px;
-    }
-    .hero-actions { display: flex; flex-direction: column; gap: 16px; }
-    .hero-note { font-size: 13px; color: var(--ink-3); }
+    /* ============================================================
+       Home — 2026 rebuild
+       Dark warm system kept. Apple discipline applied:
+       one idea per beat, strict rhythm, no card chrome,
+       media enlarged, accent held back to CTAs + links.
+       ============================================================ */
 
-    /* ── Device cluster (placeholder previews) ── */
-    .devices {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 20px;
-      position: relative;
-    }
-    .device-phone {
-      width: 236px;
-      aspect-ratio: 9 / 19.5;
-      border-radius: 42px;
-      background: var(--ground-2);
-      border: 1px solid var(--border-light);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.55);
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .device-phone::before {
-      content: "";
-      position: absolute; top: 14px; left: 50%;
-      transform: translateX(-50%);
-      width: 84px; height: 22px;
-      background: var(--ground); border-radius: 100px;
-      z-index: 3;
-    }
-    /* Full-screen iPhone screenshot goes here: public/screens/home-hero-iphone.png
-       Portrait, the app home / Today view, native device resolution. */
-    .d-shot {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: 2; border: 0;
-    }
-    .device-glow {
-      position: absolute;
-      width: 220px; height: 220px;
-      background: rgba(228,101,42,0.18);
-      border-radius: 50%;
-      filter: blur(70px);
-      top: 12%; left: 50%; transform: translateX(-50%);
-      pointer-events: none;
-    }
-    .d-screen {
-      position: absolute; inset: 0;
-      z-index: 1;
-      padding: 52px 20px 22px;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 6px;
-      text-align: center;
-    }
-    .d-label {
-      font-family: var(--font-display);
-      font-size: 9px; font-weight: 700;
-      letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--ink-3);
-    }
-    .d-score {
-      font-family: var(--font-display);
-      font-size: 62px; font-weight: 300;
-      color: var(--accent); line-height: 1;
-    }
-    .d-zone { font-size: 12px; color: var(--ink-2); }
-    .d-rule { width: 100%; height: 1px; background: var(--border); margin: 12px 0 8px; }
-    .d-row {
-      display: flex; justify-content: space-between;
-      width: 100%; font-size: 11.5px;
-      color: var(--ink-2); padding: 4px 0;
-    }
-    .d-row strong { color: var(--ink); font-weight: 600; }
-    .d-foot { margin-top: auto; font-size: 10.5px; color: var(--ink-3); }
+    /* ---- rhythm ---- */
+    .beat { padding: 120px 32px; position: relative; }
+    .beat-inner { max-width: 1040px; margin: 0 auto; }
+    .beat-inner.wide { max-width: 1220px; }
 
-    .device-watch {
-      width: 104px;
-      aspect-ratio: 1 / 1.22;
-      border-radius: 30px;
-      background: var(--ground-2);
-      border: 1px solid var(--border-light);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
-      flex-shrink: 0;
-      position: relative;
-      overflow: hidden;
-    }
-    /* Full-screen Apple Watch screenshot goes here: public/screens/home-hero-watch.png */
-    .w-shot {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: 2; border: 0;
-    }
-    .watch-ring {
-      width: 70px; height: 70px;
-      border-radius: 50%;
-      background:
-        radial-gradient(closest-side, var(--ground-2) 72%, transparent 73%),
-        conic-gradient(var(--accent) 0 82%, rgba(242,239,233,0.12) 82% 100%);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .watch-ring span {
+    .kicker {
       font-family: var(--font-display);
-      font-size: 21px; font-weight: 400; color: var(--ink);
-    }
-    .devices-caption {
-      text-align: center;
-      font-size: 11px; color: var(--ink-3);
-      letter-spacing: 0.04em;
-      margin-top: 18px;
-    }
-
-    /* ── Overview: the six dimensions ── */
-    .io-band { display: flex; flex-direction: column; align-items: center; gap: 0; margin-top: 44px; }
-    .io-group { width: 100%; }
-    .io-group-label {
-      font-family: var(--font-display);
-      font-size: 10px; font-weight: 700;
+      font-size: 12px; font-weight: 700;
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--ink-3);
-      margin-bottom: 16px;
-      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 22px;
     }
-    .io-group-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-    .dim-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); }
-    .dim-card {
-      display: block;
-      padding: 22px 22px 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      transition: border-color var(--transition), transform var(--transition);
-    }
-    .dim-card:hover { border-color: var(--accent-line); transform: translateY(-3px); }
-    /* Screenshot slot. Drop a file at the path named in .dim-shot-desc into
-       public/screens/ and it replaces the placeholder automatically. Target
-       art is a tight crop of the relevant app UI, 16:10 landscape, 1200x750. */
-    .dim-shot {
-      position: relative;
-      aspect-ratio: 16 / 10;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      background: linear-gradient(160deg, var(--surface-2), var(--ground-2));
-      border: 1px dashed var(--border-light);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      gap: 5px;
-      padding: 14px;
-      margin-bottom: 16px;
-    }
-    .dim-shot > img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border: 0;
-    }
-    .dim-shot:has(> img) { border-style: solid; }
-    .dim-shot-label {
+    .h-section {
       font-family: var(--font-display);
-      font-size: 9px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-3);
+      font-weight: 300;
+      font-size: clamp(30px, 4.4vw, 52px);
+      line-height: 1.1; letter-spacing: 0.022em;
+      max-width: 20ch;
     }
-    .dim-shot-desc { font-size: 12px; color: var(--ink-2); line-height: 1.5; max-width: 22ch; }
-    .dim-name {
-      font-family: var(--font-display);
-      font-size: 19px; font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 7px;
-    }
-    .dim-q { font-size: 13.5px; color: var(--ink-2); line-height: 1.6; margin-bottom: 16px; }
-    .dim-signals { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
-    .dim-signal {
-      font-size: 11.5px;
-      padding: 4px 10px;
-      border-radius: 100px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
+    .lede {
+      font-size: 19px; line-height: 1.65;
       color: var(--ink-2);
+      max-width: 58ch;
+      margin-top: 22px;
     }
-    .dim-link {
-      font-size: 13px; font-weight: 600;
-      color: var(--accent);
+
+    /* text link with a moving chevron — the one place besides
+       the CTA where terracotta is allowed */
+    .arrow-link {
       display: inline-flex; align-items: center; gap: 7px;
-      transition: gap var(--transition);
-    }
-    .dim-link::after { content: "\2192"; }
-    .dim-card:hover .dim-link { gap: 11px; }
-
-    .io-arrow {
-      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      font-size: 15px; font-weight: 600;
       color: var(--accent);
-      padding: 18px 0;
     }
-    .io-arrow span {
-      font-family: var(--font-display);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-3);
-    }
+    .arrow-link::after { content: "\203A"; font-size: 17px; transition: transform var(--transition); }
+    .arrow-link:hover::after { transform: translateX(4px); }
 
-    /* ── Disagreement table ── */
-    .signal-table {
-      width: 100%; border-collapse: collapse;
-      margin-top: 36px; font-size: 14.5px;
+    /* ---- hero ---- */
+    .hero {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+      padding: 188px 32px 0;
+      position: relative; overflow: hidden;
     }
-    .signal-table th {
-      text-align: left;
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(58% 42% at 50% 0%, rgba(228,101,42,0.10), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+    .hero-eyebrow {
       font-family: var(--font-display);
-      font-size: 10px; font-weight: 700;
+      font-size: 12px; font-weight: 700;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-3);
-      padding: 0 16px 14px 0;
-      border-bottom: 1px solid var(--border);
+      color: var(--accent);
+      display: inline-flex; align-items: center; gap: 9px;
+      margin-bottom: 28px;
     }
-    .signal-table td {
-      padding: 16px 16px 16px 0;
-      border-bottom: 1px solid var(--border);
+    .hero-eyebrow::before {
+      content: ""; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); display: inline-block;
+    }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(46px, 7.2vw, 96px);
+      line-height: 1.02; letter-spacing: 0.028em;
+      text-wrap: balance;
+    }
+    .hero h1 .accent-text { color: var(--accent); }
+    .hero-sub {
+      font-size: 20px; line-height: 1.6;
       color: var(--ink-2);
-      vertical-align: top;
+      max-width: 44ch; margin: 26px auto 0;
+      text-wrap: balance;
     }
-    .signal-table td:first-child, .signal-table td:nth-child(2) {
-      color: var(--ink); font-weight: 600; white-space: nowrap;
+    .hero-cta {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap;
+      margin-top: 38px;
     }
-    .sig-up { color: #5BB585; }
-    .sig-down { color: var(--accent); }
+    .hero-fineprint { font-size: 13px; color: var(--ink-3); margin-top: 18px; }
 
-    /* ── Problem ── */
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 44px;
+    .hero-devices {
+      position: relative; z-index: 1;
+      margin-top: 88px;
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 6px;
     }
-    .problem-card {
-      padding: 30px 28px;
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-      border: 1px solid var(--border);
+    .hero-devices .shot-phone { width: clamp(220px, 30vw, 300px); height: auto; filter: drop-shadow(0 50px 90px rgba(0,0,0,0.6)); }
+    .hero-devices .shot-watch { width: clamp(140px, 20vw, 190px); height: auto; margin-bottom: 3%; filter: drop-shadow(0 30px 55px rgba(0,0,0,0.55)); }
+
+    /* ---- single-line statement ---- */
+    .statement { background: var(--ground-2); text-align: center; }
+    .statement p {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(25px, 3.6vw, 42px);
+      line-height: 1.3; letter-spacing: 0.03em;
+      max-width: 30ch; margin: 0 auto;
+      color: var(--ink);
+      text-wrap: balance;
     }
-    .problem-card .icon-line { margin-bottom: 20px; }
-    .problem-card h3 {
+    .statement br { display: none; }
+    @media (min-width: 620px) { .statement br { display: inline; } }
+
+    /* ---- the six dimensions ---- */
+    .dims-head { text-align: center; }
+    .dims-head .h-section, .dims-head .lede { margin-left: auto; margin-right: auto; }
+    .dims-head .lede { text-align: center; }
+
+    .io-label {
       font-family: var(--font-display);
-      font-size: 19px; font-weight: 400;
-      margin-bottom: 10px; line-height: 1.25;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--ink-3);
+      display: flex; align-items: center; gap: 14px;
+      margin: 84px 0 40px;
     }
-    .problem-card p { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+    .io-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
-    /* ── Connections + privacy ── */
-    .split { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 44px; }
-    .split-card {
-      padding: 34px;
+    .dim-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 40px 36px;
+    }
+    .dim { display: block; }
+    .dim-figure {
+      aspect-ratio: 1 / 1.6;
       border-radius: var(--radius-lg);
-      background: var(--surface);
-      border: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--surface-2);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(242,239,233,0.06);
+      transition: transform var(--transition);
     }
-    .split-card h3 { font-family: var(--font-display); font-size: 22px; font-weight: 400; margin-bottom: 12px; }
-    .split-card p { font-size: 14.5px; color: var(--ink-2); line-height: 1.7; }
-    .split-card .dim-signals { margin-top: 18px; margin-bottom: 0; }
+    .dim-figure img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+    }
+    .dim:hover .dim-figure { transform: translateY(-4px); }
+    .dim h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 22px; line-height: 1.25; letter-spacing: 0.018em;
+      margin: 26px 0 8px;
+      color: var(--ink);
+    }
+    .dim p { font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+    .dim .arrow-link { margin-top: 14px; font-size: 14px; }
 
-    /* ── Integrations ── */
-    .integrations {
-      padding: 52px 48px;
+    /* ---- Enva Intelligence (deepest ground) ---- */
+    .intel { background: #0d0c0b; }
+    .intel .kicker { color: var(--accent); }
+    .intel-lede { max-width: 62ch; }
+
+    .points {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0 64px;
+      margin-top: 72px;
+    }
+    .point {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+    }
+    .point:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .point .p-tag {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .point h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 20px; line-height: 1.3; letter-spacing: 0.018em;
+      margin: 10px 0 8px; color: var(--ink);
+    }
+    .point p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+
+    .intel-answer {
+      margin-top: 84px;
+      max-width: 60ch;
+    }
+    .intel-answer h3 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.2; letter-spacing: 0.022em;
+      color: var(--ink);
+    }
+    .intel-answer p { font-size: 16px; line-height: 1.7; color: var(--ink-2); margin-top: 16px; }
+
+    .intel-shots {
+      margin-top: 56px;
+      display: flex; gap: 28px; flex-wrap: wrap;
+    }
+    .intel-shots figure { margin: 0; flex: 1; min-width: 240px; }
+    .intel-shots img {
+      width: 100%; height: auto; display: block;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
+    }
+    .intel-shots figcaption {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-3);
+      text-align: center; margin-top: 14px;
+    }
+
+    /* ---- what makes it work ---- */
+    .value-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      margin-top: 64px;
+    }
+    .value-block h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 21px; margin-bottom: 12px; color: var(--ink);
+    }
+    .value-block p { font-size: 15px; line-height: 1.7; color: var(--ink-2); }
+    .value-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .value-chips span {
+      font-size: 12px; color: var(--ink-2);
+      padding: 5px 12px; border-radius: 100px;
+      background: var(--surface);
+    }
+
+    /* ---- integrations ---- */
+    .integrations-strip {
+      text-align: center;
+      padding: 96px 32px;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
-    .integrations-label {
-      text-align: center;
-      font-family: var(--font-display);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 26px;
+    .integrations-strip .kicker { margin-bottom: 24px; }
+    .integrations-strip .row {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 10px 12px; max-width: 720px; margin: 0 auto;
     }
-    .integration-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .pill {
-      padding: 9px 18px;
-      border-radius: 100px;
-      border: 1px solid var(--border-light);
-      font-size: 13px; font-weight: 500;
-      color: var(--ink-2);
-      transition: border-color var(--transition), color var(--transition);
+    .integrations-strip .row span {
+      font-size: 14px; color: var(--ink-2);
+      padding: 8px 16px; border-radius: 100px;
+      background: var(--surface);
     }
-    .pill:hover { border-color: var(--accent); color: var(--ink); }
-    .pill.coming { color: var(--ink-3); border-color: var(--border); }
+    .integrations-strip .row span.soon { color: var(--ink-3); background: transparent; box-shadow: inset 0 0 0 1px var(--border); }
 
-    /* ── Waitlist ── */
-    .waitlist-section { text-align: center; position: relative; overflow: hidden; }
-    .waitlist-glow {
-      width: 720px; height: 420px;
-      background: rgba(228,101,42,0.09);
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    /* ---- waitlist ---- */
+    .waitlist { text-align: center; position: relative; overflow: hidden; }
+    .waitlist::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(50% 60% at 50% 50%, rgba(228,101,42,0.09), transparent 70%);
     }
     .waitlist-inner { position: relative; z-index: 1; }
-    .waitlist-section h2 {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 4.6vw, 62px);
-      font-weight: 300; letter-spacing: 0;
-      margin-bottom: 18px; line-height: 1.08;
+    .waitlist h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.08; letter-spacing: 0.028em;
+      margin-bottom: 18px;
     }
-    .waitlist-section p { font-size: 16px; color: var(--ink-2); margin-bottom: 36px; }
-    .waitlist-form-wrap { display: flex; justify-content: center; }
-    .success-msg { display: none; font-size: 15px; color: var(--accent); margin-top: 16px; }
+    .waitlist h2 .accent-text { color: var(--accent); }
+    .waitlist p { font-size: 17px; color: var(--ink-2); margin-bottom: 34px; }
+    .waitlist .waitlist-form { margin: 0 auto; }
+    .waitlist .success-msg { color: var(--accent); }
+    .waitlist .fineprint { font-size: 13px; color: var(--ink-3); margin-top: 16px; }
 
-    .prose { font-size: 16px; color: var(--ink-2); line-height: 1.8; max-width: 64ch; }
+    /* ---- reveal ---- */
+    [data-reveal] { opacity: 0; transform: translateY(18px); }
+    .revealed { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 
+    /* ---- responsive ---- */
     @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .devices { display: none; }
-      .dim-grid { grid-template-columns: 1fr; }
-      .problem-grid { grid-template-columns: 1fr; }
-      .split { grid-template-columns: 1fr; }
-      .integrations { padding: 44px 22px; }
-      .signal-table, .signal-table thead, .signal-table tbody, .signal-table tr, .signal-table td { display: block; width: 100%; }
-      .signal-table thead { display: none; }
-      .signal-table td { border: 0; padding: 4px 0; }
-      .signal-table tr { border-bottom: 1px solid var(--border); padding: 14px 0; }
+      .beat { padding: 104px 24px; }
+      .dim-row { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+      .points { grid-template-columns: 1fr; }
+      .point { padding: 22px 0; }
+      .point:nth-last-child(-n+2) { border-bottom: 0; }
+      .point:last-child { border-bottom: 1px solid var(--border); }
+      .value-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding-top: 160px; min-height: 0; }
+      .hero-devices { margin-top: 68px; }
+    }
+    @media (max-width: 560px) {
+      .dim-row { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+      .intel-shots { gap: 18px; }
+      .intel-shots figure { min-width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -422,302 +334,202 @@
   <a href="#waitlist" class="nav-cta">Join Waitlist</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="glow hero-glow-1"></div>
-  <div class="container">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-eyebrow"><span></span> Coming soon to iPhone &amp; Apple Watch</div>
-        <h1>Optimize the outputs.<br /><span class="accent-text">Start with the inputs.</span></h1>
-        <p class="hero-sub">
-          Nutrition, training, and the recovery actions you take are what you control. Sleep and recovery, your Enva Health Score, your Biological Age: those are what they produce. Enva connects all of it in one place, so you can see which inputs are moving which outputs.
-        </p>
-        <div class="hero-actions">
-          <div class="waitlist-form">
-            <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
-            <input type="email" id="hero-email" placeholder="your@email.com" />
-            <button class="btn-primary" onclick="handleWaitlist('hero-email', 'hero-success')">Join Waitlist</button>
+<main>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Coming soon for iPhone and Apple Watch</p>
+      <h1>Optimize the outputs.<br /><span class="accent-text">Start with the inputs.</span></h1>
+      <p class="hero-sub">Your training, food and recovery, and the sleep, Health Score and Biological Age they produce. One system, so you can see which input is moving which output.</p>
+      <div class="hero-cta">
+        <div class="waitlist-form">
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+          <input type="email" id="hero-email" placeholder="your@email.com" />
+          <button class="btn-primary" onclick="handleWaitlist('hero-email', 'hero-success')">Join Waitlist</button>
+        </div>
+        <a href="envahealthscore" class="arrow-link">See how it works</a>
+      </div>
+      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll be in touch before launch.</p>
+      <p class="hero-fineprint">Be first to know when Enva launches.</p>
+    </div>
+
+    <div class="hero-devices" data-reveal>
+      <img class="shot-phone" src="screens/home-hero-iphone.png" alt="Enva home screen on iPhone" />
+      <img class="shot-watch" src="screens/home-hero-watch.png" alt="Enva workout screen on Apple Watch" />
+    </div>
+  </header>
+
+  <!-- STATEMENT -->
+  <section class="beat statement">
+    <div class="beat-inner" data-reveal>
+      <p>Every health app holds one piece.<br />Enva reads across all of them.</p>
+    </div>
+  </section>
+
+  <!-- SIX DIMENSIONS -->
+  <section class="beat">
+    <div class="beat-inner wide">
+      <div class="dims-head" data-reveal>
+        <p class="kicker">The whole picture</p>
+        <h2 class="h-section">Six dimensions. One system.</h2>
+        <p class="lede">Most tools track one dimension and hand you a chart. Enva treats your health as inputs and outputs, the things you do and the results they produce, in a single model where a change in one shows up everywhere it should.</p>
+      </div>
+
+      <p class="io-label" data-reveal>Inputs &#183; what you control</p>
+      <div class="dim-row">
+        <a href="nutrition" class="dim" data-reveal>
+          <div class="dim-figure"><img src="screens/home-nutrition.png" alt="Enva nutrition screen" /></div>
+          <h3>Nutrition</h3>
+          <p>What you're actually fueling with, measured against targets from your own metabolism.</p>
+          <span class="arrow-link">Explore Nutrition</span>
+        </a>
+        <a href="fitness" class="dim" data-reveal>
+          <div class="dim-figure"><img src="screens/home-fitness.png" alt="Enva fitness screen" /></div>
+          <h3>Fitness</h3>
+          <p>Every session enriched with the detail Apple Health flattens away.</p>
+          <span class="arrow-link">Explore Fitness</span>
+        </a>
+        <a href="recovery-actions" class="dim" data-reveal>
+          <div class="dim-figure"><img src="screens/home-recovery-actions.png" alt="Enva recovery actions screen" /></div>
+          <h3>Recovery Actions</h3>
+          <p>You can't control your recovery score. You can control what you do about it today.</p>
+          <span class="arrow-link">Explore Recovery Actions</span>
+        </a>
+      </div>
+
+      <p class="io-label" data-reveal>Outputs &#183; what they produce</p>
+      <div class="dim-row">
+        <a href="sleep-recovery" class="dim" data-reveal>
+          <div class="dim-figure"><img src="screens/home-sleep-recovery.png" alt="Enva sleep and recovery screen" /></div>
+          <h3>Sleep &amp; Recovery</h3>
+          <p>How last night went, and whether you're ready to push today.</p>
+          <span class="arrow-link">Explore Sleep &amp; Recovery</span>
+        </a>
+        <a href="envahealthscore" class="dim" data-reveal>
+          <div class="dim-figure"><img src="screens/home-health-score.png" alt="Enva Health Score screen" /></div>
+          <h3>Enva Health Score</h3>
+          <p>One number for how your week is actually going, across three weighted pillars.</p>
+          <span class="arrow-link">Explore the Health Score</span>
+        </a>
+        <a href="biological-age" class="dim" data-reveal>
+          <div class="dim-figure"><img src="screens/home-biological-age.png" alt="Enva Biological Age screen" /></div>
+          <h3>Biological Age</h3>
+          <p>What all of it adds up to over months and years.</p>
+          <span class="arrow-link">Explore Biological Age</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENVA INTELLIGENCE -->
+  <section class="beat intel">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">Enva Intelligence</p>
+        <h2 class="h-section">Four services. Four answers. None of them talking.</h2>
+        <p class="lede intel-lede">Every service you pay for holds one piece of the picture and stops at its own edge. Enva Intelligence is the layer that reads across all of them, understands the goal you're training toward, and turns it into an answer you can act on today.</p>
+      </div>
+
+      <div class="points" data-reveal>
+        <div class="point">
+          <p class="p-tag">Your apps</p>
+          <h3>Every app has one piece of the puzzle</h3>
+          <p>The sleep app knows your sleep. The training app knows your workouts. Neither shows how one is moving the other.</p>
+        </div>
+        <div class="point">
+          <p class="p-tag">Your labs</p>
+          <h3>Blood work is disconnected from everything</h3>
+          <p>Your panel never meets your fitness, your nutrition or your sleep, where the numbers would actually mean something.</p>
+        </div>
+        <div class="point">
+          <p class="p-tag">Your gym</p>
+          <h3>Your workout subscription doesn't know your goal</h3>
+          <p>Peloton, Orangetheory and the rest program for the class in front of you, not the race or target you're working toward.</p>
+        </div>
+        <div class="point">
+          <p class="p-tag">Your plate</p>
+          <h3>Nutrition never reaches your doctor</h3>
+          <p>What you eat and what your labs say sit in different apps that never compare notes.</p>
+        </div>
+      </div>
+
+      <div class="intel-answer" data-reveal>
+        <h3>One system that pulls it together.</h3>
+        <p>Enva Intelligence weighs every source against each other and against where you're headed, then gives you one specific, actionable answer. The same intelligence runs through the whole app, so it always knows where you are in your fitness journey: on your Health Score, on every workout you finish, on your next session.</p>
+      </div>
+
+      <div class="intel-shots" data-reveal>
+        <figure>
+          <img src="screens/home-intelligence-chat.png" alt="Enva Intelligence answering a training question with data from across the app" />
+          <figcaption>Ask anything</figcaption>
+        </figure>
+        <figure>
+          <img src="screens/home-intelligence-workout.png" alt="Enva Intelligence session analysis on a completed HIIT workout" />
+          <figcaption>On every workout</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES IT WORK -->
+  <section class="beat">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">What makes it work</p>
+        <h2 class="h-section">Better inputs in. Better outputs out.</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-block" data-reveal>
+          <h3>Direct device connections</h3>
+          <p>Apple Health flattens your data to a generic "workout." Enva connects to each ecosystem directly and keeps what they actually capture: Peloton output and leaderboard rank, Orangetheory splat points, rower splits and tread pace.</p>
+          <div class="value-chips">
+            <span>Apple Watch</span><span>Peloton</span><span>Orangetheory</span><span>MyChart labs</span>
           </div>
-          <p class="hero-note" id="hero-success" style="display:none; color: var(--accent);">You're on the list. We'll be in touch before launch.</p>
-          <p class="hero-note">Be first to know when Enva launches.</p>
         </div>
-      </div>
-      <div>
-        <!-- Device previews. Each <img> auto-replaces the CSS mock the moment a
-             matching file lands in public/screens/ (onerror removes a missing
-             img so the mock shows through). See public/screens/README.md. -->
-        <div class="devices">
-          <div class="device-phone">
-            <div class="device-glow"></div>
-            <img class="d-shot" src="screens/home-hero-iphone.png" alt="Enva app home screen on iPhone" onerror="this.remove()" />
-            <div class="d-screen">
-              <p class="d-label">Today</p>
-              <div class="d-score">82</div>
-              <p class="d-zone">Health Score &#183; Excellent</p>
-              <div class="d-rule"></div>
-              <div class="d-row"><span>Readiness</span><strong>84</strong></div>
-              <div class="d-row"><span>Training Load</span><strong>71</strong></div>
-              <div class="d-row"><span>Trajectory</span><strong>88</strong></div>
-              <div class="d-rule"></div>
-              <div class="d-row"><span>Recovery</span><strong>High</strong></div>
-              <div class="d-row"><span>HRV trend</span><strong>&#8593; 12%</strong></div>
-              <div class="d-row"><span>VO&#8322; Max</span><strong>52.4</strong></div>
-              <div class="d-row"><span>Biological Age</span><strong>34.2 yrs</strong></div>
-              <p class="d-foot">iPhone preview</p>
-            </div>
-          </div>
-          <div class="device-watch">
-            <img class="w-shot" src="screens/home-hero-watch.png" alt="Enva on Apple Watch" onerror="this.remove()" />
-            <div class="watch-ring"><span>82</span></div>
+        <div class="value-block" data-reveal>
+          <h3>Your data stays yours</h3>
+          <p>Summaries and scores are computed on your device. When deeper analysis has to go off-device it uses an enterprise-secure model, never trained on, never sold. Export everything, delete everything.</p>
+          <div class="value-chips">
+            <span>On-device scoring</span><span>No model training</span><span>Full export</span>
           </div>
         </div>
-        <p class="devices-caption">Illustrative preview</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- THE OVERVIEW -->
-<section>
-  <div class="container">
-    <span class="section-label">The whole picture</span>
-    <h2 class="display-l" style="max-width:20ch;margin-bottom:18px;">Six dimensions. One system.</h2>
-    <p class="prose">
-      Most tools track one dimension and hand you a chart. Enva treats your health as inputs and outputs: the things you do, and the results they produce. Everything lives in the same model, so a change in one shows up everywhere it should.
-    </p>
-
-    <div class="io-band">
-      <div class="io-group">
-        <p class="io-group-label">Inputs &#183; what you control</p>
-        <div class="dim-grid">
-          <a href="nutrition" class="dim-card">
-            <div class="dim-shot" aria-hidden="true">
-              <img src="screens/home-nutrition.png" alt="" onerror="this.remove()" />
-              <span class="dim-shot-label">screens/home-nutrition.png</span>
-              <span class="dim-shot-desc">Today's log &#183; calorie ring and macro split</span>
-            </div>
-            <p class="dim-name">Nutrition</p>
-            <p class="dim-q">What you're actually fueling with, measured against targets from your own metabolism.</p>
-            <span class="dim-link">Explore Nutrition</span>
-          </a>
-          <a href="fitness" class="dim-card">
-            <div class="dim-shot" aria-hidden="true">
-              <img src="screens/home-fitness.png" alt="" onerror="this.remove()" />
-              <span class="dim-shot-label">screens/home-fitness.png</span>
-              <span class="dim-shot-desc">Zone breakdown with heart rate recovery</span>
-            </div>
-            <p class="dim-name">Fitness</p>
-            <p class="dim-q">Every session enriched with the detail Apple Health flattens away.</p>
-            <span class="dim-link">Explore Fitness</span>
-          </a>
-          <a href="recovery-actions" class="dim-card">
-            <div class="dim-shot" aria-hidden="true">
-              <img src="screens/home-recovery-actions.png" alt="" onerror="this.remove()" />
-              <span class="dim-shot-label">screens/home-recovery-actions.png</span>
-              <span class="dim-shot-desc">Today's recovery checklist</span>
-            </div>
-            <p class="dim-name">Recovery Actions</p>
-            <p class="dim-q">You can't control your recovery score. You can control what you do about it today.</p>
-            <span class="dim-link">Explore Recovery Actions</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="io-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M12 20l-6-6M12 20l6-6"/></svg>
-        <span>Produce</span>
-      </div>
-
-      <div class="io-group">
-        <p class="io-group-label">Outputs &#183; what they produce</p>
-        <div class="dim-grid">
-          <a href="sleep-recovery" class="dim-card">
-            <div class="dim-shot" aria-hidden="true">
-              <img src="screens/home-sleep-recovery.png" alt="" onerror="this.remove()" />
-              <span class="dim-shot-label">screens/home-sleep-recovery.png</span>
-              <span class="dim-shot-desc">Sleep stages and Recovery gauge</span>
-            </div>
-            <p class="dim-name">Sleep &amp; Recovery</p>
-            <p class="dim-q">How last night went, and whether you're ready to push today.</p>
-            <span class="dim-link">Explore Sleep &amp; Recovery</span>
-          </a>
-          <a href="envahealthscore" class="dim-card">
-            <div class="dim-shot" aria-hidden="true">
-              <img src="screens/home-health-score.png" alt="" onerror="this.remove()" />
-              <span class="dim-shot-label">screens/home-health-score.png</span>
-              <span class="dim-shot-desc">Pillar breakdown &#183; Readiness, Load, Trajectory</span>
-            </div>
-            <p class="dim-name">Enva Health Score</p>
-            <p class="dim-q">One number for how this week is actually going, across three weighted pillars.</p>
-            <span class="dim-link">Explore the Health Score</span>
-          </a>
-          <a href="biological-age" class="dim-card">
-            <div class="dim-shot" aria-hidden="true">
-              <img src="screens/home-biological-age.png" alt="" onerror="this.remove()" />
-              <span class="dim-shot-label">screens/home-biological-age.png</span>
-              <span class="dim-shot-desc">Domain confidence breakdown</span>
-            </div>
-            <p class="dim-name">Biological Age</p>
-            <p class="dim-q">What all of it is adding up to over months and years.</p>
-            <span class="dim-link">Explore Biological Age</span>
-          </a>
-        </div>
-      </div>
+  <!-- INTEGRATIONS -->
+  <div class="integrations-strip" data-reveal>
+    <p class="kicker">Connects with your ecosystem</p>
+    <div class="row">
+      <span>Apple Watch</span>
+      <span>Peloton</span>
+      <span>Orangetheory</span>
+      <span>MyChart</span>
+      <span class="soon">Oura Ring &#183; soon</span>
+      <span class="soon">Whoop &#183; soon</span>
+      <span class="soon">Garmin &#183; soon</span>
+      <span class="soon">Fitbit &#183; soon</span>
     </div>
   </div>
-</section>
 
-<div class="divider"></div>
-
-<!-- WHEN OUTPUTS DISAGREE -->
-<section>
-  <div class="container">
-    <span class="section-label">Reading the system</span>
-    <h2 class="display-l" style="max-width:24ch;margin-bottom:18px;">When the outputs disagree, that is the signal.</h2>
-    <p class="prose">
-      Every readout pointing the same way is confirmation. Readouts pointing different ways is information, and it tells you which input to look at. That is only possible when they all sit in one system.
-    </p>
-
-    <table class="signal-table">
-      <thead>
-        <tr>
-          <th>Recovery</th>
-          <th>Health Score</th>
-          <th>What it means</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="sig-up">High</span></td>
-          <td><span class="sig-down">Low</span></td>
-          <td>Well-rested, but the week's training was not productive. Look at zone balance and training consistency.</td>
-        </tr>
-        <tr>
-          <td><span class="sig-down">Low</span></td>
-          <td><span class="sig-up">High</span></td>
-          <td>A hard block is accumulating. Normal during productive overreach. Match today's effort to Recovery, not to how the week is trending.</td>
-        </tr>
-        <tr>
-          <td><span class="sig-up">Sleep fine</span></td>
-          <td><span class="sig-down">Recovery low</span></td>
-          <td>Stages look good but HRV is below baseline. A stressor, such as travel, illness onset, or accumulated load, is showing up in the autonomic signal first.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PROBLEM -->
-<section>
-  <div class="container">
-    <span class="section-label">Why this is hard today</span>
-    <h2 class="display-l" style="max-width:640px;margin-bottom:18px;">
-      Today, your data lives in many apps.
-    </h2>
-    <p class="prose">
-      A sleep app knows your sleep. A training app knows your workouts. A nutrition app knows your meals. Your lab portal knows your blood work. None of them talk to each other. Enva brings them together in one place, so your inputs can actually produce outputs, instead of you screenshotting everything into a chatbot to get one coherent read.
-    </p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="2.75" y="2.75" width="8" height="8" rx="2"/>
-          <rect x="13.25" y="2.75" width="8" height="8" rx="2"/>
-          <rect x="2.75" y="13.25" width="8" height="8" rx="2"/>
-          <rect x="13.25" y="13.25" width="8" height="8" rx="2" opacity="0.4"/>
-        </svg>
-        <h3>Each app sees one slice</h3>
-        <p>Every platform reads its own data and stops there. None can tell you how your training is affecting your sleep, or how your nutrition is affecting your recovery.</p>
-      </div>
-      <div class="problem-card">
-        <svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2.75c0 0-6.25 7-6.25 11.1a6.25 6.25 0 0 0 12.5 0C18.25 9.75 12 2.75 12 2.75z"/>
-          <path d="M6.4 16.2h11.2"/>
-        </svg>
-        <h3>Labs sit in a silo</h3>
-        <p>Blood work arrives as a PDF nobody explains. It never connects to your sleep, training load, or recovery patterns, where it would actually mean something.</p>
-      </div>
-      <div class="problem-card">
-        <svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="8.75" y="8.75" width="12.5" height="12.5" rx="2.5"/>
-          <path d="M16 5.75V5A2.25 2.25 0 0 0 13.75 2.75h-9A2.25 2.25 0 0 0 2.5 5v9A2.25 2.25 0 0 0 4.75 16.25h.75"/>
-        </svg>
-        <h3>You do the integration by hand</h3>
-        <p>Copy-pasting numbers between apps to assemble a picture is work the software should be doing. Enva does it, and keeps doing it every day.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CONNECTIONS + PRIVACY -->
-<section>
-  <div class="container">
-    <span class="section-label">What makes it work</span>
-    <h2 class="display-l" style="max-width:22ch;margin-bottom:18px;">Better inputs in. Better outputs out.</h2>
-
-    <div class="split">
-      <div class="split-card">
-        <h3>Direct device connections</h3>
-        <p>Apple Health flattens your data to a generic "workout." Enva connects directly to each ecosystem and keeps what they actually capture: Peloton output and leaderboard rank, Orangetheory splat points, rower splits and tread pace, not just a label and a duration.</p>
-        <div class="dim-signals">
-          <span class="dim-signal">Apple Watch</span>
-          <span class="dim-signal">Peloton</span>
-          <span class="dim-signal">Orangetheory</span>
-          <span class="dim-signal">MyChart labs</span>
-        </div>
-      </div>
-      <div class="split-card">
-        <h3>Your data stays yours</h3>
-        <p>Summaries and scores are computed on your device. When deeper AI analysis has to go off-device, it goes to an enterprise-secure model, never used to train anything, never sold. You can export everything, and delete everything.</p>
-        <div class="dim-signals">
-          <span class="dim-signal">On-device scoring</span>
-          <span class="dim-signal">No model training</span>
-          <span class="dim-signal">Full export</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INTEGRATIONS -->
-<div class="integrations">
-  <p class="integrations-label">Connects with your ecosystem</p>
-  <div class="integration-pills">
-    <span class="pill">Apple Watch</span>
-    <span class="pill">Peloton</span>
-    <span class="pill">Orangetheory</span>
-    <span class="pill">MyChart</span>
-    <span class="pill coming">Oura Ring &#183; soon</span>
-    <span class="pill coming">Whoop &#183; soon</span>
-    <span class="pill coming">Garmin &#183; soon</span>
-    <span class="pill coming">Fitbit &#183; soon</span>
-  </div>
-</div>
-
-<!-- WAITLIST -->
-<section class="waitlist-section" id="waitlist">
-  <div class="glow waitlist-glow"></div>
-  <div class="container waitlist-inner">
-    <span class="section-label">Early Access</span>
-    <h2>Be the first to<br /><span class="accent-text">see the full picture.</span></h2>
-    <p>Enva is in development. Join the waitlist and be first in line when we launch.</p>
-    <div class="waitlist-form-wrap">
+  <!-- WAITLIST -->
+  <section class="beat waitlist" id="waitlist">
+    <div class="waitlist-inner beat-inner" data-reveal>
+      <p class="kicker" style="color:var(--accent);">Early Access</p>
+      <h2>Be the first to<br /><span class="accent-text">see the full picture.</span></h2>
+      <p>Enva is in development. Join the waitlist and we'll reach out before launch.</p>
       <div class="waitlist-form">
         <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <input type="email" id="waitlist-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('waitlist-email', 'waitlist-success')">Join Waitlist</button>
       </div>
+      <p class="success-msg" id="waitlist-success">You're on the list. We'll reach out before launch.</p>
+      <p class="fineprint">No spam. Just a heads-up when Enva is ready.</p>
     </div>
-    <p class="success-msg" id="waitlist-success">You're on the list. We'll reach out before launch.</p>
-    <p style="font-size:13px;color:var(--ink-3);margin-top:16px;">No spam. Just a heads-up when Enva is ready.</p>
-  </div>
-</section>
+  </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -739,5 +551,24 @@
 </footer>
 
 <script src="waitlist.js" defer></script>
+<script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (e) { e.classList.add('revealed'); });
+      return;
+    }
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('revealed'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('revealed'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>
