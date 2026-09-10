@@ -130,6 +130,29 @@
     }
     .log-note { margin-top: 40px; font-size: 15px; line-height: 1.7; color: var(--ink-2); max-width: 62ch; }
 
+    /* ---- setup flow (3-up) ---- */
+    .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 44px; }
+    .flow figure { margin: 0; }
+    .flow img {
+      width: 100%; display: block;
+      aspect-ratio: 1 / 1.42; object-fit: cover; object-position: top center;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
+    }
+    .flow figcaption {
+      display: flex; align-items: baseline; gap: 9px;
+      margin-top: 16px;
+    }
+    .flow .fc-step {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; color: var(--accent);
+    }
+    .flow .fc-label {
+      font-family: var(--font-display); font-size: 14px; font-weight: 400;
+      color: var(--ink); letter-spacing: 0.012em;
+    }
+    .flow-note { margin-top: 34px; font-size: 15px; line-height: 1.7; color: var(--ink-2); max-width: 62ch; }
+
     /* ---- connects ---- */
     .points { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; margin-top: 44px; }
     .point { padding: 26px 0; border-top: 1px solid var(--border); }
@@ -172,6 +195,7 @@
     }
     @media (max-width: 560px) {
       .twoshot figure { min-width: 100%; }
+      .flow { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; gap: 32px; }
     }
     @media (prefers-reduced-motion: reduce) {
       [data-reveal] { opacity: 1; transform: none; }
@@ -221,6 +245,32 @@
     </div>
     <img class="hero-shot" src="screens/nu-plan.jpg" alt="The Nutrition screen: a fat-loss plan with TDEE and target, protein / carb / fat rings, and a 7-day energy-balance chart" />
   </header>
+
+  <!-- YOUR BASELINE -->
+  <section class="beat">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">Your baseline</p>
+        <h2 class="h-section">A calorie target built from your metabolism.</h2>
+        <p class="lede">Setup takes a minute. Enva computes your resting burn from the Mifflin-St Jeor formula, scales it by how much you have actually trained over the last four weeks, then turns that into daily calorie and macro targets for the goal you pick.</p>
+      </div>
+      <div class="flow" data-reveal>
+        <figure>
+          <img src="screens/nu-bmr.png" alt="Your Metabolic Rate: 1,807 kcal per day at rest, calculated from weight, height, age and sex" />
+          <figcaption><span class="fc-step">01</span><span class="fc-label">Resting burn</span></figcaption>
+        </figure>
+        <figure>
+          <img src="screens/nu-tdee.png" alt="Daily Energy Needs: 2,801 kcal TDEE, computed as BMR times an activity factor from your last 4 weeks of training" />
+          <figcaption><span class="fc-step">02</span><span class="fc-label">Activity-adjusted</span></figcaption>
+        </figure>
+        <figure>
+          <img src="screens/nu-plan-review.png" alt="Your Plan: a 2,301 kcal fat-loss target with protein, carb and fat goals and workout recommendations" />
+          <figcaption><span class="fc-step">03</span><span class="fc-label">Your targets</span></figcaption>
+        </figure>
+      </div>
+      <p class="flow-note">Train more and your energy need rises with it, automatically. You can still override the activity level or the macros by hand at any point.</p>
+    </div>
+  </section>
 
   <!-- WHAT ENVA TRACKS -->
   <section class="beat" id="tracks">
