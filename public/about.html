@@ -112,6 +112,21 @@
 
     .changed-band { background: var(--ground-2); }
 
+    /* ---- data export / delete pair ---- */
+    .data-pair { display: grid; gap: 18px; margin: 34px 0 10px; }
+    .data-pair figure { margin: 0; }
+    .data-pair img {
+      width: 100%; display: block;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(242,239,233,0.08);
+    }
+    .data-pair figcaption {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-3); margin-top: 11px;
+    }
+
     /* ---- founder ---- */
     .founder { border-left: 2px solid var(--accent); padding-left: 26px; }
     .founder .greeting {
@@ -229,7 +244,18 @@
     <div class="beat-inner story" data-reveal>
       <p class="kicker">The promise</p>
       <h2 class="h-section">You own your data.</h2>
-      <p>Health data is too often mined, aggregated and sold. Enva rejects that model. Summaries and scores are computed on your device. When deeper analysis has to leave your phone, it goes to an enterprise-secure model, never used to train anything, never sold. You can export everything, and delete everything.</p>
+      <p>Health data is too often mined, aggregated and sold. Enva rejects that model. Summaries and scores are computed on your device. When deeper analysis has to leave your phone, it goes to an enterprise-secure model, never used to train anything, never sold.</p>
+      <p>And it's yours to take or to erase. Export the whole thing as a spreadsheet, one sheet per dataset, or wipe every session, account and setting off the device for good.</p>
+      <div class="data-pair">
+        <figure>
+          <img src="screens/data-export.jpg" alt="An Export All Data control that produces a single .xlsx file with one sheet per dataset: sessions, cardio blocks, strength, body composition, sleep, blood work and supplements" onerror="this.closest('figure').remove()" />
+          <figcaption>Export everything</figcaption>
+        </figure>
+        <figure>
+          <img src="screens/data-delete.jpg" alt="A Delete All Data control that permanently removes all health data, sessions, connected accounts and settings from the device" onerror="this.closest('figure').remove()" />
+          <figcaption>Or delete everything</figcaption>
+        </figure>
+      </div>
       <p><a href="privacy" class="arrow-link">Read the full Privacy Policy</a></p>
     </div>
   </section>
