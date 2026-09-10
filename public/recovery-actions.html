@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recovery Actions &#183; Enva</title>
-  <meta name="description" content="You can't control your recovery score. You can control what you do about it today. Enva surfaces a short list of daily recovery actions, tracks the ones it can see, and rewards you for completing them." />
+  <meta name="description" content="Your Recovery score is a readout. Recovery Actions is the input: a short daily plan drawn from your own numbers, most of it checked off automatically, that only ever adds to your Health Score." />
   <link rel="canonical" href="https://getenva.ai/recovery-actions" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -12,103 +12,173 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
   <meta name="theme-color" content="#121212" />
   <meta property="og:title" content="Recovery Actions &#183; Enva" />
-  <meta property="og:description" content="You can't control your recovery score. You can control what you do about it today." />
+  <meta property="og:description" content="A short daily plan from your own numbers. Only ever adds to your Health Score." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://getenva.ai/recovery-actions" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .feat-hero { padding-top: 170px; padding-bottom: 76px; position: relative; overflow: hidden; }
-    .feat-glow { width: 560px; height: 560px; background: rgba(228,101,42,0.10); top: -120px; right: -160px; }
-    .feat-hero-inner {
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1.15fr 0.85fr;
-      gap: 56px; align-items: center;
-    }
-    .feat-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(42px, 5.4vw, 68px);
-      font-weight: 300; letter-spacing: 0; line-height: 1.05;
-      margin-bottom: 22px; text-wrap: balance;
-    }
-    .feat-lede { font-size: 18px; color: var(--ink-2); line-height: 1.7; max-width: 520px; }
+    /* ============================================================
+       Recovery Actions — 2026 rebuild. Same system as the other pages.
+       ============================================================ */
 
-    .readout {
-      background: var(--surface);
-      border: 1px solid var(--accent-line);
-      border-radius: var(--radius-lg);
-      padding: 30px 32px; position: relative;
-    }
-    .readout::before { content: ""; position: absolute; top: 0; left: 32px; width: 32px; height: 2px; background: var(--accent); }
-    .readout-label {
+    .beat { padding: 92px 32px; position: relative; }
+    .beat-inner { max-width: 1040px; margin: 0 auto; }
+
+    .kicker {
       font-family: var(--font-display);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-3); margin-bottom: 16px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 22px;
     }
-    .checklist { display: flex; flex-direction: column; gap: 13px; }
-    .check-item {
-      display: flex; align-items: flex-start; gap: 11px;
-      font-size: 13.5px; color: var(--ink-2);
+    .h-section {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(30px, 4.4vw, 52px);
+      line-height: 1.1; letter-spacing: 0.022em; max-width: 24ch;
     }
-    .check-box {
-      flex-shrink: 0; width: 19px; height: 19px;
-      border-radius: 6px; margin-top: 1px;
-      border: 1px solid var(--border-light);
+    .lede {
+      font-size: 19px; line-height: 1.65;
+      color: var(--ink-2); max-width: 58ch; margin-top: 18px;
+    }
+    .arrow-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 15px; font-weight: 600; color: var(--accent);
+    }
+    .arrow-link::after { content: "\203A"; font-size: 17px; transition: transform var(--transition); }
+    .arrow-link:hover::after { transform: translateX(4px); }
+
+    /* ---- hero ---- */
+    .hero {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 150px 32px 0;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(58% 42% at 50% 0%, rgba(228,101,42,0.10), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 840px; }
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px;
+    }
+    .hero-eyebrow::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(42px, 6.2vw, 80px);
+      line-height: 1.04; letter-spacing: 0.028em; text-wrap: balance;
+    }
+    .hero h1 .accent-text { color: var(--accent); }
+    .hero-sub {
+      font-size: 20px; line-height: 1.6; color: var(--ink-2);
+      max-width: 52ch; margin: 26px auto 0; text-wrap: balance;
+    }
+    .hero-cta {
       display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap; margin-top: 38px;
     }
-    .check-item.done .check-box { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .check-item.done span.check-label { color: var(--ink); text-decoration: line-through; text-decoration-color: var(--ink-3); }
-    .readout-bonus {
-      margin-top: 18px; padding-top: 16px;
-      border-top: 1px solid var(--border);
-      font-size: 13px; color: var(--accent);
+    .hero-fineprint { font-size: 13px; color: var(--ink-3); margin-top: 18px; }
+    .hero-shot {
+      position: relative; z-index: 1; margin-top: 56px;
+      width: clamp(260px, 42vw, 360px);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 40px 90px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
 
-    .rows {
-      display: flex; flex-direction: column;
-      border: 1px solid var(--border); border-radius: var(--radius-md);
-      overflow: hidden; margin-top: 40px;
+    /* ---- split ---- */
+    .split {
+      display: grid; grid-template-columns: 0.85fr 1.15fr;
+      gap: 44px; align-items: center; margin-top: 40px;
     }
-    .row {
-      display: grid; grid-template-columns: 190px 1fr;
-      gap: 24px; padding: 26px 26px;
-      background: var(--surface); align-items: start;
+    .split-shot {
+      width: 100%; border-radius: var(--radius-lg);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
-    .row + .row { border-top: 1px solid var(--border); }
-    .row-name { font-family: var(--font-display); font-size: 18px; font-weight: 400; color: var(--ink); }
-    .row-desc { font-size: 14.5px; color: var(--ink-2); line-height: 1.65; }
+    .split-text p { font-size: 16px; line-height: 1.7; color: var(--ink-2); }
+    .split-text p + p { margin-top: 14px; }
 
+    /* ---- grouped list ---- */
+    .group-label {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3);
+      margin: 44px 0 4px;
+    }
+    .act-row {
+      display: grid; grid-template-columns: 220px 1fr;
+      gap: 32px; padding: 26px 0; border-top: 1px solid var(--border);
+    }
+    .act-row.last { border-bottom: 1px solid var(--border); }
+    .act-row h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 19px; line-height: 1.25; letter-spacing: 0.012em; color: var(--ink);
+    }
+    .act-row p { font-size: 14.5px; line-height: 1.62; color: var(--ink-2); }
+
+    /* ---- scoring callout ---- */
     .callout {
       margin-top: 40px;
-      padding: 30px 32px;
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--accent);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      background: var(--surface);
+      border-left: 2px solid var(--accent); padding-left: 24px;
     }
-    .callout h3 { font-family: var(--font-display); font-size: 20px; font-weight: 400; margin-bottom: 12px; }
-    .callout p { font-size: 14.5px; color: var(--ink-2); line-height: 1.7; }
-    .callout p + p { margin-top: 10px; }
+    .callout h3 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(21px, 2.6vw, 28px); line-height: 1.35;
+      letter-spacing: 0.012em; color: var(--ink);
+    }
+    .callout p { font-size: 15px; line-height: 1.7; color: var(--ink-2); margin-top: 14px; max-width: 58ch; }
 
-    .connects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
-    .connect-card { padding: 26px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
-    .connect-to { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .connect-card p { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+    /* ---- connects ---- */
+    .points { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; margin-top: 44px; }
+    .point { padding: 26px 0; border-top: 1px solid var(--border); }
+    .point:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .point .p-tag {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+    }
+    .point p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); margin-top: 10px; }
+    .points-note { margin-top: 32px; font-size: 15px; color: var(--ink-2); }
+    .points-note a { color: var(--accent); }
 
-    .prose { font-size: 16px; color: var(--ink-2); line-height: 1.8; max-width: 64ch; }
-    .prose + .prose { margin-top: 16px; }
+    /* ---- waitlist ---- */
+    .wl { text-align: center; position: relative; overflow: hidden; }
+    .wl::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(50% 60% at 50% 50%, rgba(228,101,42,0.09), transparent 70%);
+    }
+    .wl-inner { position: relative; z-index: 1; }
+    .wl h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(32px, 4.6vw, 56px);
+      line-height: 1.08; letter-spacing: 0.028em; margin-bottom: 16px;
+    }
+    .wl p { font-size: 17px; color: var(--ink-2); margin-bottom: 32px; }
+    .wl .waitlist-form { margin: 0 auto; }
+    .wl .fineprint { font-size: 13px; color: var(--ink-3); margin-top: 16px; }
+
+    [data-reveal] { opacity: 0; transform: translateY(18px); }
+    .revealed { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 
     @media (max-width: 900px) {
-      .feat-hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .row { grid-template-columns: 1fr; gap: 8px; }
-      .connects { grid-template-columns: 1fr; }
+      .beat { padding: 76px 24px; }
+      .split { grid-template-columns: 1fr; gap: 32px; }
+      .act-row { grid-template-columns: 1fr; gap: 8px; }
+      .points { grid-template-columns: 1fr; }
+      .point:nth-last-child(-n+2) { border-bottom: 0; }
+      .point:last-child { border-bottom: 1px solid var(--border); }
+      .hero { padding-top: 156px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body data-page="recovery-actions">
 
+<!-- Enva wordmark — approved production pass. Path data is byte-identical to
+     Brand/logo/svg (sha256 672d64021d776879). Do not regenerate or re-trace. -->
 <svg class="wordmark-sprite" aria-hidden="true" focusable="false">
   <symbol id="enva-wordmark" viewBox="0 -30 2349 802">
     <path fill-rule="nonzero" d="M 266 30 C 142.91667 30 40 130.22222 40 254 L 40 486 C 40 609.77778 142.91667 710 266 710 L 600 710 A 50 50 0 0 0 650 660 A 50 50 0 0 0 600 610 L 266 610 C 197.08333 610 140 554.22222 140 486 L 140 390 L 540 390 A 50 50 0 0 0 590 340 A 50 50 0 0 0 540 290 L 140 290 L 140 254 C 140 185.77778 197.08333 130 266 130 L 600 130 A 50 50 0 0 0 650 80 A 50 50 0 0 0 600 30 L 266 30 z M 950 207 C 885.81481 207 826.53288 226.28198 781.33203 261.38477 C 736.13118 296.48755 705 349.83333 705 410 L 705 660 A 50 50 0 0 0 755 710 A 50 50 0 0 0 805 660 L 805 410 C 805 383.16667 817.36882 360.01245 842.66797 340.36523 C 867.96712 320.71802 906.18519 307 950 307 C 993.81481 307 1032.0329 320.71802 1057.332 340.36523 C 1082.6312 360.01245 1095 383.16667 1095 410 L 1095 660 A 50 50 0 0 0 1145 710 A 50 50 0 0 0 1195 660 L 1195 410 C 1195 349.83333 1163.8688 296.48755 1118.668 261.38477 C 1073.4671 226.28198 1014.1852 207 950 207 z M 1930 207 A 50 50 0 0 0 1880 257 A 50 50 0 0 0 1930 307 L 2080 307 C 2126.9203 307 2157.3736 320.8766 2177.6973 341.2832 C 2188.167 351.7957 2196.3722 364.67443 2201.916 380 L 2035 380 C 1985.3704 380 1937.9103 385.64963 1896.6465 408.97266 C 1855.3827 432.29569 1825 480.41667 1825 535 C 1825 634.44444 1907.9167 713 2010 713 L 2075 713 C 2141.6304 713 2200.8507 694.47511 2243.7891 656.41992 C 2286.7274 618.36473 2310 561.66667 2310 500 L 2310 430 C 2310 369.16667 2289.4791 311.8102 2248.5527 270.7168 C 2207.6264 229.6234 2148.0797 207 2080 207 L 1930 207 z M 1285.291 207.22266 A 50 50 0 0 0 1266.6016 212.8125 A 50 50 0 0 0 1245.8125 280.39844 L 1460.8125 686.39844 A 50.005 50.005 0 0 0 1549.1875 686.39844 L 1764.1875 280.39844 A 50 50 0 0 0 1743.3984 212.8125 A 50 50 0 0 0 1675.8125 233.60156 L 1505 556.1582 L 1334.1875 233.60156 A 50 50 0 0 0 1285.291 207.22266 z M 2035 480 L 2210 480 L 2210 500 C 2210 538.33333 2198.2726 563.13527 2177.4609 581.58008 C 2156.6493 600.02489 2123.3696 613 2075 613 L 2010 613 C 1952.0833 613 1925 585.55556 1925 535 C 1925 509.58333 1929.6173 505.20431 1945.8535 496.02734 C 1962.0897 486.85037 1994.6296 480 2035 480 z "/>
@@ -127,124 +197,134 @@
   <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
 </nav>
 
-<!-- HERO -->
-<section class="feat-hero">
-  <div class="container">
-    <div class="glow feat-glow"></div>
-    <div class="feat-hero-inner">
-      <div>
-        <span class="section-label">Recovery Actions &#183; Input</span>
-        <h1>You can't control recovery.<br />You can control today.</h1>
-        <p class="feat-lede">
-          Your Recovery score is a readout, not a dial you can turn directly. Recovery Actions is the input side of the same idea: a short daily list of things that actually move it, surfaced by Enva and tracked automatically where your data allows.
-        </p>
-        <hr class="rule" />
-      </div>
-      <div class="readout">
-        <p class="readout-label">Today &#183; sample</p>
-        <div class="checklist">
-          <div class="check-item done"><div class="check-box">&#10003;</div><span class="check-label">Hydration target reached</span></div>
-          <div class="check-item done"><div class="check-box">&#10003;</div><span class="check-label">Caffeine cutoff observed</span></div>
-          <div class="check-item"><div class="check-box"></div><span class="check-label">Wind-down window started on time</span></div>
-          <div class="check-item done"><div class="check-box">&#10003;</div><span class="check-label">Consistent wake time</span></div>
+<main>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Recovery Actions</p>
+      <h1>You can't control recovery.<br /><span class="accent-text">You can control today.</span></h1>
+      <p class="hero-sub">Your Recovery score is a readout, not a dial. Recovery Actions is the input side: a short daily plan drawn from your own morning numbers.</p>
+      <div class="hero-cta">
+        <div class="waitlist-form">
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+          <input type="email" id="hero-email" placeholder="your@email.com" />
+          <button class="btn-primary" onclick="handleWaitlist('hero-email','hero-success')">Join Waitlist</button>
         </div>
-        <p class="readout-bonus">3 of 4 complete. Small Health Score bonus applied.</p>
+        <a href="#plan" class="arrow-link">See today's plan</a>
+      </div>
+      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll be in touch before launch.</p>
+      <p class="hero-fineprint">Coming soon to iPhone.</p>
+    </div>
+    <img class="hero-shot" src="screens/rc-plan.png" alt="The Recovery screen: a 58 percent recovered score, a plain-language read of what it means, and a ranked action plan" />
+  </header>
+
+  <!-- TODAY'S PLAN -->
+  <section class="beat" id="plan">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">Today's plan</p>
+        <h2 class="h-section">A read on the day, then a short list.</h2>
+      </div>
+      <div class="split">
+        <img class="split-shot" src="screens/rc-list.png" alt="The action plan: a ranked list of auto-calculated guidance and a set of habits to log yourself" data-reveal />
+        <div class="split-text" data-reveal>
+          <p>Every morning Enva reads your HRV, sleep stages, resting heart rate and yesterday's load, and turns them into one plain sentence: how hard to train today, and why.</p>
+          <p>Under it sits a ranked plan. Some items Enva calculates and checks off for you. The rest are a handful of habits you tick as you go.</p>
+        </div>
+      </div>
+
+      <p class="group-label" data-reveal>Auto-calculated</p>
+      <div class="act-row" data-reveal>
+        <h3>Sleep target</h3>
+        <p>Tonight's hours and a target bedtime, set from your typical wake time. Confirmed automatically once the night is logged.</p>
+      </div>
+      <div class="act-row" data-reveal>
+        <h3>Today's effort</h3>
+        <p>A recommended session type for your recovery level, from an easy zone 2 flush to a normal training day.</p>
+      </div>
+      <div class="act-row last" data-reveal>
+        <h3>Intensity cap</h3>
+        <p>On a low-recovery day, a ceiling on how hard to go, so a single session doesn't stack load on top of what you're still absorbing.</p>
+      </div>
+
+      <p class="group-label" data-reveal>Log it yourself</p>
+      <div class="act-row" data-reveal>
+        <h3>Morning sunlight</h3>
+        <p>20-plus minutes of daylight early anchors your circadian rhythm and shows up in tonight's sleep depth.</p>
+      </div>
+      <div class="act-row" data-reveal>
+        <h3>Caffeine cutoff</h3>
+        <p>No caffeine after your set time. A reminder fires as the cutoff approaches; caffeine intake is read from HealthKit.</p>
+      </div>
+      <div class="act-row" data-reveal>
+        <h3>Hydration target</h3>
+        <p>A water goal for the day, scaled to your body weight and today's training load. Logged as you log intake.</p>
+      </div>
+      <div class="act-row last" data-reveal>
+        <h3>Wind-down &amp; consistent wake time</h3>
+        <p>Ease off screens on schedule, and hold your wake time in a tight band. Both feed directly into tomorrow's Recovery score.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- WHAT'S ON THE LIST -->
-<section>
-  <div class="container">
-    <span class="section-label">What's on the list</span>
-    <h2 class="display-l" style="max-width:22ch;margin-bottom:18px;">A short list, pulled from your own patterns.</h2>
-    <p class="prose">
-      Recovery Actions are not a generic wellness checklist. Each one is drawn from a signal Enva already reads, and most are checked off automatically once the data confirms them, so the list reflects what actually happened, not what you remembered to log.
-    </p>
-
-    <div class="rows">
-      <div class="row">
-        <div class="row-name">Caffeine cutoff</div>
-        <p class="row-desc">Stop caffeine a set window before bed. Tracked automatically from HealthKit; a notification reminds you as the cutoff approaches.</p>
-      </div>
-      <div class="row">
-        <div class="row-name">Hydration target</div>
-        <p class="row-desc">Reach your day's water target, adjusted for training load and heat. Logged as you log intake through the day.</p>
-      </div>
-      <div class="row">
-        <div class="row-name">Wind-down window</div>
-        <p class="row-desc">Start easing off screens and stimulation on a consistent schedule, so sleep onset has a chance to work with you instead of against you.</p>
-      </div>
-      <div class="row">
-        <div class="row-name">Consistent sleep and wake time</div>
-        <p class="row-desc">Hold your bed and wake times within a tight band. Confirmed automatically once the night is logged.</p>
-      </div>
-      <div class="row">
-        <div class="row-name">Post-workout protein window</div>
-        <p class="row-desc">Log protein within the window after a session that calls for it. Shown only on days it actually applies.</p>
+  <!-- SCORING -->
+  <section class="beat">
+    <div class="beat-inner" data-reveal>
+      <p class="kicker">How it's scored</p>
+      <h2 class="h-section">A bonus for showing up. Never a penalty for a missed day.</h2>
+      <div class="callout">
+        <h3>Completing an action adds a small bonus to your Enva Health Score, on top of your actual Recovery score.</h3>
+        <p>It rewards the behaviour that produces good recovery, not just the outcome. Skipping an action never subtracts anything. Your Health Score is never worse for a day you didn't tick a box. The list is there to help, not to be one more thing you can fail at.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- HOW IT AFFECTS THE HEALTH SCORE -->
-<section>
-  <div class="container">
-    <span class="section-label">Where it connects</span>
-    <h2 class="display-l" style="max-width:24ch;margin-bottom:18px;">A bonus for showing up. Never a penalty for missing a day.</h2>
-
-    <div class="callout">
-      <h3>How completion is scored</h3>
-      <p>Completing a Recovery Action adds a small bonus to your Enva Health Score, on top of your actual Recovery score. This rewards the behavior that produces good recovery, not just the outcome.</p>
-      <p>Skipping an action never subtracts anything. Your Health Score is never worse for a day you didn't check a box. The list is there to help, not to be one more thing you can fail at.</p>
+  <!-- WHERE IT CONNECTS -->
+  <section class="beat">
+    <div class="beat-inner" data-reveal>
+      <p class="kicker">Where it connects</p>
+      <h2 class="h-section">The input that moves the readout.</h2>
+      <div class="points">
+        <div class="point">
+          <p class="p-tag">Health Score</p>
+          <p>Completed actions add a small bonus alongside the Readiness pillar. The underlying Recovery score is unaffected either way.</p>
+        </div>
+        <div class="point">
+          <p class="p-tag">Sleep &amp; Recovery</p>
+          <p>Most actions target exactly what drives tomorrow's Recovery: caffeine timing, wind-down consistency and a steady sleep schedule.</p>
+        </div>
+        <div class="point">
+          <p class="p-tag">Nutrition</p>
+          <p>Hydration and protein-timing actions are logged through the same entries that power your Nutrition tracking.</p>
+        </div>
+        <div class="point">
+          <p class="p-tag">Training</p>
+          <p>The effort and intensity guidance is read against your goals and your recent load, not a fixed rule.</p>
+        </div>
+      </div>
+      <p class="points-note">See how the Health Score pillars are weighted on the <a href="envahealthscore">How It Works</a> page.</p>
     </div>
+  </section>
 
-    <div class="connects">
-      <div class="connect-card">
-        <p class="connect-to">Health Score</p>
-        <p>Completed actions add a small bonus alongside the Readiness pillar. The underlying Recovery score is unaffected either way.</p>
-      </div>
-      <div class="connect-card">
-        <p class="connect-to">Sleep &amp; Recovery</p>
-        <p>Most actions are aimed directly at what drives tomorrow's Recovery score: caffeine timing, wind-down consistency, and sleep schedule regularity.</p>
-      </div>
-      <div class="connect-card">
-        <p class="connect-to">Nutrition</p>
-        <p>Hydration and protein-timing actions are logged through the same entries that power your Nutrition tracking.</p>
-      </div>
-    </div>
-
-    <p class="prose" style="margin-top:34px;">
-      See how the Health Score pillars are weighted on the <a href="envahealthscore" style="color:var(--accent);">How It Works</a> page.
-    </p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CTA -->
-<section style="text-align:center;">
-  <div class="container">
-    <span class="section-label">Early Access</span>
-    <h2 class="display-l" style="margin-bottom:18px;">Small actions. No downside.</h2>
-    <p style="color:var(--ink-2);margin-bottom:34px;font-size:16px;">Join the waitlist and be first in line when Enva launches.</p>
-    <div style="display:flex;justify-content:center;">
+  <!-- WAITLIST -->
+  <section class="beat wl" id="waitlist">
+    <div class="wl-inner beat-inner" data-reveal>
+      <p class="kicker" style="color:var(--accent);">Early Access</p>
+      <h2>Small actions. No downside.</h2>
+      <p>Join the waitlist and be first in line when Enva launches.</p>
       <div class="waitlist-form">
         <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <input type="email" id="recovery-actions-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('recovery-actions-email','recovery-actions-success')">Join Waitlist</button>
       </div>
+      <p id="recovery-actions-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
+      <p class="fineprint">Coming soon to iPhone.</p>
     </div>
-    <p id="recovery-actions-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
   <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
@@ -264,5 +344,20 @@
 </footer>
 
 <script src="waitlist.js" defer></script>
+<script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if ((window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || !('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('revealed'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('revealed'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>
