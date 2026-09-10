@@ -3,89 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nutrition · Enva</title>
-  <meta name="description" content="How Enva tracks nutrition: energy balance, macros, micronutrients, hydration, and timing, measured against targets built from your own BMR and TDEE." />
+  <title>Nutrition &#183; Enva</title>
+  <meta name="description" content="How Enva tracks nutrition: energy balance, macros, micronutrients, hydration and timing, measured against targets built from your own BMR and TDEE." />
   <link rel="canonical" href="https://getenva.ai/nutrition" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
   <meta name="theme-color" content="#121212" />
-  <meta property="og:title" content="Nutrition · Enva" />
-  <meta property="og:description" content="Energy balance, macros, micronutrients, hydration, timing, measured against targets built from your own metabolism." />
+  <meta property="og:title" content="Nutrition &#183; Enva" />
+  <meta property="og:description" content="Energy balance, macros, micronutrients, hydration and timing, against targets built from your own metabolism." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://getenva.ai/nutrition" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .feat-hero { padding-top: 170px; padding-bottom: 76px; position: relative; overflow: hidden; }
-    .feat-glow { width: 560px; height: 560px; background: rgba(228,101,42,0.10); top: -120px; right: -160px; }
-    .feat-hero-inner {
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1.15fr 0.85fr;
-      gap: 56px; align-items: center;
-    }
-    .feat-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(42px, 5.4vw, 70px);
-      font-weight: 300; letter-spacing: 0; line-height: 1.05;
-      margin-bottom: 22px; text-wrap: balance;
-    }
-    .feat-lede { font-size: 18px; color: var(--ink-2); line-height: 1.7; max-width: 520px; }
+    /* ============================================================
+       Nutrition — 2026 rebuild. Same system as the homepage,
+       Health Score and Biological Age pages.
+       ============================================================ */
 
-    .readout {
-      background: var(--surface);
-      border: 1px solid var(--accent-line);
+    .beat { padding: 92px 32px; position: relative; }
+    .beat-inner { max-width: 1040px; margin: 0 auto; }
+
+    .kicker {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 22px;
+    }
+    .h-section {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(30px, 4.4vw, 52px);
+      line-height: 1.1; letter-spacing: 0.022em; max-width: 22ch;
+    }
+    .lede {
+      font-size: 19px; line-height: 1.65;
+      color: var(--ink-2); max-width: 58ch; margin-top: 18px;
+    }
+    .arrow-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 15px; font-weight: 600; color: var(--accent);
+    }
+    .arrow-link::after { content: "\203A"; font-size: 17px; transition: transform var(--transition); }
+    .arrow-link:hover::after { transform: translateX(4px); }
+
+    /* ---- hero ---- */
+    .hero {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 150px 32px 0;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(58% 42% at 50% 0%, rgba(228,101,42,0.10), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 840px; }
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px;
+    }
+    .hero-eyebrow::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(44px, 6.6vw, 84px);
+      line-height: 1.03; letter-spacing: 0.028em; text-wrap: balance;
+    }
+    .hero h1 .accent-text { color: var(--accent); }
+    .hero-sub {
+      font-size: 20px; line-height: 1.6; color: var(--ink-2);
+      max-width: 50ch; margin: 26px auto 0; text-wrap: balance;
+    }
+    .hero-cta {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap; margin-top: 38px;
+    }
+    .hero-fineprint { font-size: 13px; color: var(--ink-3); margin-top: 18px; }
+    .hero-shot {
+      position: relative; z-index: 1; margin-top: 56px;
+      width: clamp(260px, 42vw, 360px);
       border-radius: var(--radius-lg);
-      padding: 30px 32px; position: relative;
+      box-shadow: 0 40px 90px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
-    .readout::before { content: ""; position: absolute; top: 0; left: 32px; width: 32px; height: 2px; background: var(--accent); }
-    .readout-label {
+
+    /* ---- split ---- */
+    .split {
+      display: grid; grid-template-columns: 0.85fr 1.15fr;
+      gap: 44px; align-items: center; margin-top: 40px;
+    }
+    .split-shot {
+      width: 100%; border-radius: var(--radius-lg);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
+    }
+    .split-text p { font-size: 16px; line-height: 1.7; color: var(--ink-2); }
+    .split-text p + p { margin-top: 14px; }
+
+    /* ---- tracked list ---- */
+    .track-list { margin-top: 44px; }
+    .track-row {
+      display: grid; grid-template-columns: 210px 1fr;
+      gap: 32px; padding: 28px 0; border-top: 1px solid var(--border);
+    }
+    .track-row:last-child { border-bottom: 1px solid var(--border); }
+    .track-row h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 20px; line-height: 1.2; letter-spacing: 0.012em; color: var(--ink);
+    }
+    .track-row p { font-size: 14.5px; line-height: 1.62; color: var(--ink-2); }
+
+    /* ---- two-shot ---- */
+    .twoshot { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 40px; }
+    .twoshot figure { flex: 1; min-width: 240px; margin: 0; }
+    .twoshot img {
+      width: 100%; border-radius: var(--radius-md);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
+    }
+    .twoshot figcaption {
       font-family: var(--font-display);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-3); margin-bottom: 14px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-3); text-align: center; margin-top: 14px;
     }
-    .readout-number { font-family: var(--font-display); font-size: 54px; font-weight: 300; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; }
-    .readout-number span { font-size: 20px; color: var(--ink-3); }
-    .readout-delta { font-size: 13px; color: var(--accent); margin-top: 10px; }
-    .readout-rows { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 9px; }
-    .readout-row { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--ink-2); }
-    .readout-row strong { color: var(--ink); font-weight: 600; }
+    .log-note { margin-top: 40px; font-size: 15px; line-height: 1.7; color: var(--ink-2); max-width: 62ch; }
 
-    .rows {
-      display: flex; flex-direction: column;
-      border: 1px solid var(--border); border-radius: var(--radius-md);
-      overflow: hidden; margin-top: 40px;
+    /* ---- connects ---- */
+    .points { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; margin-top: 44px; }
+    .point { padding: 26px 0; border-top: 1px solid var(--border); }
+    .point:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .point .p-tag {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
     }
-    .row {
-      display: grid; grid-template-columns: 190px 1fr;
-      gap: 24px; padding: 26px 26px;
-      background: var(--surface); align-items: start;
+    .point p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); margin-top: 10px; }
+    .points-note { margin-top: 32px; font-size: 15px; color: var(--ink-2); }
+    .points-note a { color: var(--accent); }
+
+    /* ---- waitlist ---- */
+    .wl { text-align: center; position: relative; overflow: hidden; }
+    .wl::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(50% 60% at 50% 50%, rgba(228,101,42,0.09), transparent 70%);
     }
-    .row + .row { border-top: 1px solid var(--border); }
-    .row-name { font-family: var(--font-display); font-size: 18px; font-weight: 400; color: var(--ink); }
-    .row-desc { font-size: 14.5px; color: var(--ink-2); line-height: 1.65; }
-    .row-desc .sig { color: var(--ink); }
+    .wl-inner { position: relative; z-index: 1; }
+    .wl h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(32px, 4.6vw, 56px);
+      line-height: 1.08; letter-spacing: 0.028em; margin-bottom: 16px;
+    }
+    .wl p { font-size: 17px; color: var(--ink-2); margin-bottom: 32px; }
+    .wl .waitlist-form { margin: 0 auto; }
+    .wl .fineprint { font-size: 13px; color: var(--ink-3); margin-top: 16px; }
 
-    .connects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
-    .connect-card { padding: 26px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
-    .connect-to { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .connect-card p { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
-
-    .prose { font-size: 16px; color: var(--ink-2); line-height: 1.8; max-width: 64ch; }
-    .prose + .prose { margin-top: 16px; }
+    [data-reveal] { opacity: 0; transform: translateY(18px); }
+    .revealed { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 
     @media (max-width: 900px) {
-      .feat-hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .row { grid-template-columns: 1fr; gap: 8px; }
-      .connects { grid-template-columns: 1fr; }
+      .beat { padding: 76px 24px; }
+      .split { grid-template-columns: 1fr; gap: 32px; }
+      .track-row { grid-template-columns: 1fr; gap: 8px; }
+      .points { grid-template-columns: 1fr; }
+      .point:nth-last-child(-n+2) { border-bottom: 0; }
+      .point:last-child { border-bottom: 1px solid var(--border); }
+      .hero { padding-top: 156px; }
+    }
+    @media (max-width: 560px) {
+      .twoshot figure { min-width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body data-page="nutrition">
 
+<!-- Enva wordmark — approved production pass. Path data is byte-identical to
+     Brand/logo/svg (sha256 672d64021d776879). Do not regenerate or re-trace. -->
 <svg class="wordmark-sprite" aria-hidden="true" focusable="false">
   <symbol id="enva-wordmark" viewBox="0 -30 2349 802">
     <path fill-rule="nonzero" d="M 266 30 C 142.91667 30 40 130.22222 40 254 L 40 486 C 40 609.77778 142.91667 710 266 710 L 600 710 A 50 50 0 0 0 650 660 A 50 50 0 0 0 600 610 L 266 610 C 197.08333 610 140 554.22222 140 486 L 140 390 L 540 390 A 50 50 0 0 0 590 340 A 50 50 0 0 0 540 290 L 140 290 L 140 254 C 140 185.77778 197.08333 130 266 130 L 600 130 A 50 50 0 0 0 650 80 A 50 50 0 0 0 600 30 L 266 30 z M 950 207 C 885.81481 207 826.53288 226.28198 781.33203 261.38477 C 736.13118 296.48755 705 349.83333 705 410 L 705 660 A 50 50 0 0 0 755 710 A 50 50 0 0 0 805 660 L 805 410 C 805 383.16667 817.36882 360.01245 842.66797 340.36523 C 867.96712 320.71802 906.18519 307 950 307 C 993.81481 307 1032.0329 320.71802 1057.332 340.36523 C 1082.6312 360.01245 1095 383.16667 1095 410 L 1095 660 A 50 50 0 0 0 1145 710 A 50 50 0 0 0 1195 660 L 1195 410 C 1195 349.83333 1163.8688 296.48755 1118.668 261.38477 C 1073.4671 226.28198 1014.1852 207 950 207 z M 1930 207 A 50 50 0 0 0 1880 257 A 50 50 0 0 0 1930 307 L 2080 307 C 2126.9203 307 2157.3736 320.8766 2177.6973 341.2832 C 2188.167 351.7957 2196.3722 364.67443 2201.916 380 L 2035 380 C 1985.3704 380 1937.9103 385.64963 1896.6465 408.97266 C 1855.3827 432.29569 1825 480.41667 1825 535 C 1825 634.44444 1907.9167 713 2010 713 L 2075 713 C 2141.6304 713 2200.8507 694.47511 2243.7891 656.41992 C 2286.7274 618.36473 2310 561.66667 2310 500 L 2310 430 C 2310 369.16667 2289.4791 311.8102 2248.5527 270.7168 C 2207.6264 229.6234 2148.0797 207 2080 207 L 1930 207 z M 1285.291 207.22266 A 50 50 0 0 0 1266.6016 212.8125 A 50 50 0 0 0 1245.8125 280.39844 L 1460.8125 686.39844 A 50.005 50.005 0 0 0 1549.1875 686.39844 L 1764.1875 280.39844 A 50 50 0 0 0 1743.3984 212.8125 A 50 50 0 0 0 1675.8125 233.60156 L 1505 556.1582 L 1334.1875 233.60156 A 50 50 0 0 0 1285.291 207.22266 z M 2035 480 L 2210 480 L 2210 500 C 2210 538.33333 2198.2726 563.13527 2177.4609 581.58008 C 2156.6493 600.02489 2123.3696 613 2075 613 L 2010 613 C 1952.0833 613 1925 585.55556 1925 535 C 1925 509.58333 1929.6173 505.20431 1945.8535 496.02734 C 1962.0897 486.85037 1994.6296 480 2035 480 z "/>
@@ -104,123 +200,140 @@
   <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
 </nav>
 
-<!-- HERO -->
-<section class="feat-hero">
-  <div class="container">
-    <div class="glow feat-glow"></div>
-    <div class="feat-hero-inner">
-      <div>
-        <span class="section-label">Nutrition &#183; Input</span>
-        <h1>Fuel is an input<br />you control.</h1>
-        <p class="feat-lede">
-          Enva tracks what you eat against targets built from your own metabolism, not a generic calorie chart. Log by photo, barcode, or from bundled restaurant and alcohol catalogs. The result feeds every score downstream.
-        </p>
-        <hr class="rule" />
+<main>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Nutrition</p>
+      <h1>Fuel is an input<br /><span class="accent-text">you control.</span></h1>
+      <p class="hero-sub">Enva tracks what you eat against targets built from your own metabolism, not a generic calorie chart. What you fuel with feeds every score downstream.</p>
+      <div class="hero-cta">
+        <div class="waitlist-form">
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+          <input type="email" id="hero-email" placeholder="your@email.com" />
+          <button class="btn-primary" onclick="handleWaitlist('hero-email','hero-success')">Join Waitlist</button>
+        </div>
+        <a href="#tracks" class="arrow-link">What Enva tracks</a>
       </div>
-      <div class="readout">
-        <p class="readout-label">Today &#183; sample</p>
-        <div class="readout-number">2,180<span> / 2,400 kcal</span></div>
-        <p class="readout-delta">On target for a slight deficit.</p>
-        <div class="readout-rows">
-          <div class="readout-row"><span>Protein</span><strong>165 g</strong></div>
-          <div class="readout-row"><span>Carbs</span><strong>210 g</strong></div>
-          <div class="readout-row"><span>Fat</span><strong>72 g</strong></div>
-          <div class="readout-row"><span>Hydration</span><strong>2.4 L</strong></div>
+      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll be in touch before launch.</p>
+      <p class="hero-fineprint">Coming soon to iPhone.</p>
+    </div>
+    <img class="hero-shot" src="screens/nu-plan.jpg" alt="The Nutrition screen: a fat-loss plan with TDEE and target, protein / carb / fat rings, and a 7-day energy-balance chart" />
+  </header>
+
+  <!-- WHAT ENVA TRACKS -->
+  <section class="beat" id="tracks">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">What Enva tracks</p>
+        <h2 class="h-section">Six things, not just a calorie count.</h2>
+      </div>
+
+      <div class="split">
+        <img class="split-shot" src="screens/nu-trends.jpg" alt="Macro Trends and Micro Trends charts: protein, carbs and fat over 7 days, plus fiber against its RDA" data-reveal />
+        <div class="split-text" data-reveal>
+          <p>Calories in versus out is the start, not the whole story. Two days at the same total can leave you recovering very differently.</p>
+          <p>So Enva scores the composition and the timing too, and every target is set from your own BMR and TDEE, adjusted for the day's actual training load.</p>
+        </div>
+      </div>
+
+      <div class="track-list">
+        <div class="track-row" data-reveal>
+          <h3>Energy balance</h3>
+          <p>Intake against your BMR and TDEE, adjusted for the day's actual training load rather than a fixed activity multiplier.</p>
+        </div>
+        <div class="track-row" data-reveal>
+          <h3>Macronutrients</h3>
+          <p>Protein, carbohydrate and fat against targets set for your goal: fat loss, muscle gain, or an event build. Protein is tracked per kilogram of body weight.</p>
+        </div>
+        <div class="track-row" data-reveal>
+          <h3>Micronutrients</h3>
+          <p>Iron, magnesium, vitamin D, B12 and the rest of the panel that shows up in labs and recovery long before you feel it.</p>
+        </div>
+        <div class="track-row" data-reveal>
+          <h3>Hydration</h3>
+          <p>Water and electrolyte intake, with caffeine tracked read-only from HealthKit so it can inform your recovery cutoff.</p>
+        </div>
+        <div class="track-row" data-reveal>
+          <h3>Timing &amp; consistency</h3>
+          <p>When you eat relative to training and sleep, and how steady your intake is week to week.</p>
+        </div>
+        <div class="track-row" data-reveal>
+          <h3>Alcohol</h3>
+          <p>Logged as ethanol grams and standard drinks, so its effect on sleep and recovery is measured rather than guessed.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- WHAT ENVA TRACKS -->
-<section>
-  <div class="container">
-    <span class="section-label">What Enva tracks</span>
-    <h2 class="display-l" style="max-width:22ch;margin-bottom:18px;">Six things, not just a calorie count.</h2>
-    <p class="prose">
-      Calories in versus out is the start, not the whole story. Enva scores the composition and timing of what you eat, because two days at the same calorie total can produce very different recovery.
-    </p>
-
-    <div class="rows">
-      <div class="row">
-        <div class="row-name">Energy balance</div>
-        <p class="row-desc">Intake against your BMR and TDEE, adjusted for the day's actual training load rather than a fixed activity multiplier.</p>
+  <!-- LOGGING -->
+  <section class="beat">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">Getting it in</p>
+        <h2 class="h-section">Log it however it comes.</h2>
+        <p class="lede">Your day, itemized by meal with macros on every entry. For the food without a label, Enva estimates it from a photo, a pasted description, or a restaurant's own figures, then shows you the numbers to check before saving.</p>
       </div>
-      <div class="row">
-        <div class="row-name">Macronutrients</div>
-        <p class="row-desc">Protein, carbohydrate, and fat against targets set for your goal: fat loss, muscle gain, or an event build. Protein is tracked per kilogram of body weight.</p>
+      <div class="twoshot" data-reveal>
+        <figure>
+          <img src="screens/nu-log.png" alt="A day's food log, grouped by meal, with calories and macros on every item" />
+          <figcaption>Your day, itemized</figcaption>
+        </figure>
+        <figure>
+          <img src="screens/nu-estimate.jpg" alt="An estimated restaurant meal: name, cafe, serving size and per-serving calories and macros, ready to check and save" />
+          <figcaption>Restaurant meals, estimated</figcaption>
+        </figure>
       </div>
-      <div class="row">
-        <div class="row-name">Micronutrients</div>
-        <p class="row-desc">Iron, magnesium, vitamin D, B12, and the rest of the panel that shows up in labs and recovery long before you feel it.</p>
-      </div>
-      <div class="row">
-        <div class="row-name">Hydration</div>
-        <p class="row-desc">Water and electrolyte intake, with caffeine tracked read-only from HealthKit so it can inform your recovery cutoff.</p>
-      </div>
-      <div class="row">
-        <div class="row-name">Timing &amp; consistency</div>
-        <p class="row-desc">When you eat relative to training and sleep, and how steady your intake is week to week.</p>
-      </div>
-      <div class="row">
-        <div class="row-name">Alcohol</div>
-        <p class="row-desc">Logged as ethanol grams and standard drinks, so its effect on sleep and recovery is measured rather than guessed.</p>
-      </div>
+      <p class="log-note">Barcode scan, bundled restaurant and alcohol catalogs, saved recipes and copy-a-day all feed the same log, so the number that reaches your scores is the one you actually ate.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="divider"></div>
-
-<!-- WHERE IT CONNECTS -->
-<section>
-  <div class="container">
-    <span class="section-label">Where it connects</span>
-    <h2 class="display-l" style="max-width:24ch;margin-bottom:18px;">An input that moves the outputs.</h2>
-
-    <div class="connects">
-      <div class="connect-card">
-        <p class="connect-to">Health Score</p>
-        <p>Under-fueling a hard week shows up as suppressed recovery inside the Readiness pillar before you notice it yourself.</p>
+  <!-- WHERE IT CONNECTS -->
+  <section class="beat">
+    <div class="beat-inner" data-reveal>
+      <p class="kicker">Where it connects</p>
+      <h2 class="h-section">An input that moves the outputs.</h2>
+      <div class="points">
+        <div class="point">
+          <p class="p-tag">Health Score</p>
+          <p>Under-fueling a hard week shows up as suppressed recovery inside the Readiness pillar before you notice it yourself.</p>
+        </div>
+        <div class="point">
+          <p class="p-tag">Sleep &amp; Recovery</p>
+          <p>Late meals, alcohol and low carbohydrate availability all register in the next morning's Recovery score.</p>
+        </div>
+        <div class="point">
+          <p class="p-tag">Biological Age</p>
+          <p>Protein intake and body composition feed the Body Composition domain; metabolic markers feed Biomarker Health.</p>
+        </div>
+        <div class="point">
+          <p class="p-tag">Your targets</p>
+          <p>Change your goal and every macro and calorie target recomputes from your metabolism, not a preset.</p>
+        </div>
       </div>
-      <div class="connect-card">
-        <p class="connect-to">Sleep &amp; Recovery</p>
-        <p>Late meals, alcohol, and low carbohydrate availability all register in the next morning's Recovery score.</p>
-      </div>
-      <div class="connect-card">
-        <p class="connect-to">Biological Age</p>
-        <p>Protein intake and body composition feed the Body Composition domain; metabolic markers feed Biomarker Health.</p>
-      </div>
+      <p class="points-note">See how the pillars are weighted on the <a href="envahealthscore">How It Works</a> page.</p>
     </div>
+  </section>
 
-    <p class="prose" style="margin-top:34px;">
-      See how the pillars are weighted on the <a href="envahealthscore" style="color:var(--accent);">How It Works</a> page.
-    </p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CTA -->
-<section style="text-align:center;">
-  <div class="container">
-    <span class="section-label">Early Access</span>
-    <h2 class="display-l" style="margin-bottom:18px;">Start with better inputs.</h2>
-    <p style="color:var(--ink-2);margin-bottom:34px;font-size:16px;">Join the waitlist and be first in line when Enva launches.</p>
-    <div style="display:flex;justify-content:center;">
+  <!-- WAITLIST -->
+  <section class="beat wl" id="waitlist">
+    <div class="wl-inner beat-inner" data-reveal>
+      <p class="kicker" style="color:var(--accent);">Early Access</p>
+      <h2>Start with better inputs.</h2>
+      <p>Join the waitlist and be first in line when Enva launches.</p>
       <div class="waitlist-form">
         <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <input type="email" id="nutrition-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('nutrition-email','nutrition-success')">Join Waitlist</button>
       </div>
+      <p id="nutrition-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
+      <p class="fineprint">Coming soon to iPhone.</p>
     </div>
-    <p id="nutrition-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
   <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
@@ -240,5 +353,20 @@
 </footer>
 
 <script src="waitlist.js" defer></script>
+<script>
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if ((window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || !('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('revealed'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('revealed'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>
