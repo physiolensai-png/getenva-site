@@ -88,7 +88,12 @@
     });
   };
 
-  // Support page contact form.
+  var CONTACT_ENDPOINT = '/api/contact';
+
+  // Support page contact form. POSTs to our own serverless function, which
+  // emails the message to CONTACT_EMAIL and only reports success once that
+  // delivery is confirmed. Falls back to mailto if the request itself fails,
+  // so a down API doesn't strand the visitor with no way to reach us.
   window.handleContactForm = function () {
     var name = document.getElementById('form-name');
     var email = document.getElementById('form-email');
@@ -103,16 +108,43 @@
       return;
     }
 
-    // No ticketing backend yet, so this hands off to the mail client rather
-    // than pretending to file something. Honest beats seamless here.
-    var subject = 'Enva support' + (topic && topic.value ? ' — ' + topic.value : '');
-    var body = name.value.trim() + ' <' + email.value.trim() + '>\n\n' + message.value.trim();
-    window.location.href = 'mailto:' + CONTACT_EMAIL +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(body);
+    var button = document.querySelector('#contact-form .btn-primary');
+    var label = button ? button.textContent : null;
+    if (button) { button.disabled = true; button.textContent = 'Sending...'; }
 
-    show(success, 'Opening your email app. If nothing happens, write to ' +
-      '<a href="mailto:' + CONTACT_EMAIL + '" style="color:var(--accent)">' +
-      CONTACT_EMAIL + '</a>.', false);
+    var payload = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      topic: topic ? topic.value : '',
+      message: message.value.trim(),
+      company: ''
+    };
+
+    fetch(CONTACT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (!res.ok) throw new Error('http ' + res.status);
+      return res.json();
+    }).then(function (data) {
+      if (!data || data.ok !== true) throw new Error('rejected');
+      name.value = '';
+      email.value = '';
+      message.value = '';
+      if (topic) topic.value = '';
+      if (button) { button.disabled = false; button.textContent = label; }
+      show(success, 'Thanks — we will get back to you within one business day.', false);
+    }).catch(function () {
+      if (button) { button.disabled = false; button.textContent = label; }
+      var subject = 'Enva support' + (topic && topic.value ? ' — ' + topic.value : '');
+      var body = payload.name + ' <' + payload.email + '>\n\n' + payload.message;
+      window.location.href = 'mailto:' + CONTACT_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+      show(success, 'We could not reach the server, so we opened your email app instead. If nothing happens, write to ' +
+        '<a href="mailto:' + CONTACT_EMAIL + '" style="color:var(--accent)">' +
+        CONTACT_EMAIL + '</a>.', true);
+    });
   };
 })();
