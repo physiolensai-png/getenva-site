@@ -1,0 +1,45 @@
+{
+  "hosting": {
+    "public": "public",
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+
+    "headers": [
+      {
+        "source": "/.well-known/apple-app-site-association",
+        "headers": [
+          { "key": "Content-Type", "value": "application/json" }
+        ]
+      }
+    ],
+
+    "redirects": [
+      { "source": "/metrics", "destination": "/envahealthscore", "type": 301 },
+      { "source": "/health-score", "destination": "/envahealthscore", "type": 301 },
+      { "source": "/Hyrox", "destination": "/hyrox", "type": 301 },
+      { "source": "/HYROX", "destination": "/hyrox", "type": 301 },
+      { "source": "/Otf", "destination": "/otf", "type": 301 },
+      { "source": "/OTF", "destination": "/otf", "type": 301 },
+      { "source": "/Peloton", "destination": "/peloton", "type": 301 },
+      { "source": "/PELOTON", "destination": "/peloton", "type": 301 }
+    ],
+
+    "rewrites": [
+      {
+        "source": "/api/contact",
+        "function": {
+          "functionId": "sendContactEmail",
+          "region": "us-central1"
+        }
+      }
+    ]
+  },
+
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default"
+    }
+  ]
+}

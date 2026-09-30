@@ -5,7 +5,7 @@ Proprietary and Confidential — see [LICENSE](LICENSE) for terms.
 
 ---
 
-Marketing and landing site for Enva, deployed at [getenva.ai](https://getenva.ai) via Vercel.
+Marketing and landing site for Enva, deployed at [getenva.ai](https://getenva.ai) via Firebase Hosting.
 Also serves the Apple App Site Association (AASA) file required for Universal Links.
 
 ## Repository
