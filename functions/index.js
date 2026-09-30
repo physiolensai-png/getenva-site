@@ -7,6 +7,12 @@
 // it. Firebase Hosting rewrites /api/contact to this function (see
 // firebase.json), so the front end never needs to know it moved off Vercel.
 //
+// Deployed as "contactForm" deliberately — a function by that name already
+// existed in this project but its Cloud Run image reference was broken
+// (pointed at the join_waitlist image), so it never actually ran. Deploying
+// this file under the same name replaces it with a working implementation
+// instead of leaving an orphaned, undeployable function behind.
+//
 // Requires the RESEND_API_KEY secret (firebase functions:secrets:set
 // RESEND_API_KEY). Optional env overrides: CONTACT_TO_EMAIL,
 // CONTACT_FROM_EMAIL (use a verified sender on your own domain in
@@ -19,7 +25,7 @@ const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'hello@getenva.ai';
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Enva Contact Form <onboarding@resend.dev>';
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-exports.sendContactEmail = onRequest(
+exports.contactForm = onRequest(
   { region: 'us-central1', cors: true, secrets: ['RESEND_API_KEY'] },
   async (req, res) => {
     if (req.method !== 'POST') {
@@ -47,7 +53,7 @@ exports.sendContactEmail = onRequest(
 
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
-      console.error('sendContactEmail: RESEND_API_KEY is not configured');
+      console.error('contactForm: RESEND_API_KEY is not configured');
       res.status(500).json({ ok: false, error: 'not configured' });
       return;
     }
@@ -69,14 +75,14 @@ exports.sendContactEmail = onRequest(
       });
 
       if (!resendRes.ok) {
-        console.error('sendContactEmail: Resend rejected the email', resendRes.status, await resendRes.text());
+        console.error('contactForm: Resend rejected the email', resendRes.status, await resendRes.text());
         res.status(502).json({ ok: false, error: 'delivery failed' });
         return;
       }
 
       res.status(200).json({ ok: true });
     } catch (err) {
-      console.error('sendContactEmail: failed to send email', err);
+      console.error('contactForm: failed to send email', err);
       res.status(502).json({ ok: false, error: 'delivery failed' });
     }
   }

@@ -29,7 +29,7 @@
       {
         "source": "/api/contact",
         "function": {
-          "functionId": "sendContactEmail",
+          "functionId": "contactForm",
           "region": "us-central1"
         }
       }
