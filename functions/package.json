@@ -4,6 +4,6 @@
   "engines": { "node": "20" },
   "main": "index.js",
   "dependencies": {
-    "firebase-functions": "^6.4.0"
+    "firebase-functions": "^7.4.0"
   }
 }
