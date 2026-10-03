@@ -35,6 +35,7 @@ exports.contactForm = onRequest(
     }
 
     const body = req.body || {};
+    console.log('contactForm: debug content-type=' + req.headers['content-type'] + ' body=' + JSON.stringify(body));
     const name = typeof body.name === 'string' ? body.name.trim() : '';
     const email = typeof body.email === 'string' ? body.email.trim() : '';
     const topic = typeof body.topic === 'string' ? body.topic.trim() : '';
