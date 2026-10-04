@@ -15,14 +15,13 @@
 //
 // Requires the RESEND_API_KEY secret (firebase functions:secrets:set
 // RESEND_API_KEY). Optional env overrides: CONTACT_TO_EMAIL,
-// CONTACT_FROM_EMAIL (use a verified sender on your own domain in
-// production — the default onboarding@resend.dev address only delivers to
-// the email the Resend account was signed up with).
+// CONTACT_FROM_EMAIL. getenva.ai is verified in Resend, so the default
+// sender below works for any recipient.
 
 const { onRequest } = require('firebase-functions/v2/https');
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'hello@getenva.ai';
-const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Enva Contact Form <onboarding@resend.dev>';
+const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Enva Contact Form <contact@getenva.ai>';
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 exports.contactForm = onRequest(
@@ -35,7 +34,6 @@ exports.contactForm = onRequest(
     }
 
     const body = req.body || {};
-    console.log('contactForm: debug content-type=' + req.headers['content-type'] + ' body=' + JSON.stringify(body));
     const name = typeof body.name === 'string' ? body.name.trim() : '';
     const email = typeof body.email === 'string' ? body.email.trim() : '';
     const topic = typeof body.topic === 'string' ? body.topic.trim() : '';
