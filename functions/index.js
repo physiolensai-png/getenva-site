@@ -17,12 +17,44 @@
 // RESEND_API_KEY). Optional env overrides: CONTACT_TO_EMAIL,
 // CONTACT_FROM_EMAIL. getenva.ai is verified in Resend, so the default
 // sender below works for any recipient.
+//
+// notifyWaitlistSignup, below, is a second, independent function: it fires
+// whenever joinWaitlist (an existing function this repo doesn't own) writes
+// a new document to the "waitlist" Firestore collection, and emails a
+// notification to TO_EMAIL. It never touches joinWaitlist itself.
 
 const { onRequest } = require('firebase-functions/v2/https');
+const { onDocumentCreated } = require('firebase-functions/v2/firestore');
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'hello@getenva.ai';
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Enva Contact Form <contact@getenva.ai>';
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+async function sendEmail({ subject, text, replyTo }) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error('RESEND_API_KEY is not configured');
+  }
+
+  const resendRes = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: 'Bearer ' + apiKey,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      from: FROM_EMAIL,
+      to: [TO_EMAIL],
+      reply_to: replyTo,
+      subject,
+      text
+    })
+  });
+
+  if (!resendRes.ok) {
+    throw new Error('Resend rejected the email: ' + resendRes.status + ' ' + (await resendRes.text()));
+  }
+}
 
 exports.contactForm = onRequest(
   { region: 'us-central1', cors: true, secrets: ['RESEND_API_KEY'] },
@@ -50,39 +82,38 @@ exports.contactForm = onRequest(
       return;
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      console.error('contactForm: RESEND_API_KEY is not configured');
-      res.status(500).json({ ok: false, error: 'not configured' });
-      return;
-    }
-
     try {
-      const resendRes = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          Authorization: 'Bearer ' + apiKey,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          from: FROM_EMAIL,
-          to: [TO_EMAIL],
-          reply_to: email,
-          subject: 'Enva support' + (topic ? ' — ' + topic.slice(0, 80) : ''),
-          text: name + ' <' + email + '>\n\n' + message
-        })
+      await sendEmail({
+        subject: 'Enva support' + (topic ? ' — ' + topic.slice(0, 80) : ''),
+        text: name + ' <' + email + '>\n\n' + message,
+        replyTo: email
       });
-
-      if (!resendRes.ok) {
-        console.error('contactForm: Resend rejected the email', resendRes.status, await resendRes.text());
-        res.status(502).json({ ok: false, error: 'delivery failed' });
-        return;
-      }
-
       res.status(200).json({ ok: true });
     } catch (err) {
       console.error('contactForm: failed to send email', err);
       res.status(502).json({ ok: false, error: 'delivery failed' });
+    }
+  }
+);
+
+// Fires whenever joinWaitlist writes a new signup to Firestore. Document ID
+// is the subscriber's email (joinWaitlist uses it as the key), so a repeat
+// signup overwrites the same doc rather than creating a new one — meaning
+// this only fires once per distinct email, not once per submission.
+exports.notifyWaitlistSignup = onDocumentCreated(
+  { document: 'waitlist/{docId}', region: 'us-central1', secrets: ['RESEND_API_KEY'] },
+  async (event) => {
+    const data = event.data ? event.data.data() : {};
+    const email = data.email || event.params.docId;
+    const source = data.source || 'unknown';
+
+    try {
+      await sendEmail({
+        subject: 'New waitlist signup: ' + email,
+        text: 'Email: ' + email + '\nSource: ' + source
+      });
+    } catch (err) {
+      console.error('notifyWaitlistSignup: failed to send email', err);
     }
   }
 );
