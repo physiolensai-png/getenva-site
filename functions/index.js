@@ -29,7 +29,7 @@ const { onDocumentCreated } = require('firebase-functions/v2/firestore');
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'support@getenva.ai';
 const WAITLIST_NOTIFY_EMAIL = process.env.WAITLIST_NOTIFY_EMAIL || 'hello@getenva.ai';
-const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Enva Contact Form <contact@getenva.ai>';
+const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Enva <hello@getenva.ai>';
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 async function sendEmail({ to, subject, text, replyTo }) {
