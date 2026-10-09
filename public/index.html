@@ -270,6 +270,8 @@
       padding: 8px 16px; border-radius: 100px;
       background: var(--surface);
     }
+    .integrations-strip .int-group { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin: 28px 0 14px; }
+    .integrations-strip .kicker + .int-group { margin-top: 0; }
     .integrations-strip .row span.soon { color: var(--ink-3); background: transparent; box-shadow: inset 0 0 0 1px var(--border); }
 
     /* ---- waitlist ---- */
@@ -503,7 +505,7 @@
           <h3>Direct device connections</h3>
           <p>Apple Health flattens your data to a generic "workout." Enva connects to each ecosystem directly and keeps what they actually capture: Peloton output and leaderboard rank, Orangetheory splat points, rower splits and tread pace.</p>
           <div class="value-chips">
-            <span>Apple Watch</span><span>Peloton</span><span>Orangetheory</span><span>MyChart labs</span>
+            <span>Apple Watch</span><span>Peloton</span><span>Orangetheory</span>
           </div>
         </div>
         <div class="value-block" data-reveal>
@@ -520,16 +522,20 @@
   <!-- INTEGRATIONS -->
   <div class="integrations-strip" data-reveal>
     <p class="kicker">Connects with your ecosystem</p>
+    <p class="int-group">At launch</p>
     <div class="row">
       <span>Apple Watch</span>
       <span>Peloton</span>
       <span>Orangetheory</span>
-      <span>MyChart</span>
-      <span class="soon">Oura Ring &#183; soon</span>
-      <span class="soon">Whoop &#183; soon</span>
-      <span class="soon">Garmin &#183; soon</span>
-      <span class="soon">Fitbit &#183; soon</span>
     </div>
+    <p class="int-group">Coming soon</p>
+    <div class="row">
+      <span class="soon">Oura Ring</span>
+      <span class="soon">Whoop</span>
+      <span class="soon">Garmin</span>
+      <span class="soon">Fitbit</span>
+    </div>
+  </div>
   </div>
 
   <!-- WAITLIST -->
