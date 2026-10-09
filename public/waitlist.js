@@ -81,7 +81,7 @@
       input.value = '';
       input.style.display = 'none';
       if (button) button.style.display = 'none';
-      show(success, 'You are on the list. We will be in touch before launch.', false);
+      show(success, "You're on the list. We'll email you before launch.", false);
     }).catch(function () {
       if (button) { button.disabled = false; button.textContent = label; }
       show(success, mailtoFallback(email), true);
