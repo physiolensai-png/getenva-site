@@ -228,7 +228,7 @@
           <p><strong>D. AI-generated inferences</strong></p>
           <p>When you use AI features, Enva computes inferences from your health data — such as a recovery score, a training load estimate, or a wellness insight — entirely on your device. These inferences may be included in the computed summary sent to our AI service (see §3), but the underlying raw health records are not transmitted.</p>
           <p><strong>E. AI chat feedback</strong></p>
-          <p>If you give a thumbs-down to an AI response in chat, we store a snippet of your question (up to 200 characters), the response index, and an anonymous session ID. This is retained for up to 12 months and used to improve response quality. A thumbs-up records only an anonymous count — no content is stored.</p>
+          <p>When you tap a thumbs-up or thumbs-down on an AI response, we record which AI feature it was in, the rating, and an anonymous ID. We do not record your question or the AI's answer. If you give a thumbs-down, the app offers to open a support ticket. That is optional: if you do, we receive what you type, the reason you pick, and basic device information, and any screenshots you attach are emailed to our support team and are not stored on our servers. If you do not open a ticket, nothing beyond the rating is sent.</p>
         </div>
 
         <div class="policy-section" id="data-sources">
@@ -291,7 +291,8 @@
           <ul>
             <li><strong>Health data on-device:</strong> Stored in an encrypted SwiftData database protected by iOS file protection. You control retention — when you delete the Enva app, your local data is permanently deleted.</li>
             <li><strong>Bug reports:</strong> Retained for up to 12 months and then deleted.</li>
-            <li><strong>AI chat feedback (thumbs-down):</strong> The prompt snippet (≤200 characters) is retained for up to 12 months and then deleted.</li>
+            <li><strong>AI feedback ratings:</strong> Retained for up to 90 days and then deleted. They contain no question or answer text.</li>
+            <li><strong>Support tickets from AI feedback:</strong> Retained for up to 12 months and then deleted. Attached screenshots are emailed to support and not stored on our servers.</li>
             <li><strong>PostHog analytics:</strong> Retained in anonymized, aggregated form. No health data is included.</li>
             <li><strong>Crash reports (MetricKit):</strong> Retained for up to 12 months and then deleted.</li>
             <li><strong>Subscription and contact data:</strong> Retained as long as your account is active or as required by law.</li>
