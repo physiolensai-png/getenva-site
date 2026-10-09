@@ -89,7 +89,7 @@ up with, which silently breaks delivery to `hello@getenva.ai`.
 
 - **`contactForm`** (HTTP, rewritten from `/api/contact` by Firebase
   Hosting) — receives the support page's contact form submission, emails it
-  to `hello@getenva.ai`. Replaces a function of the same name that existed
+  to `support@getenva.ai`. Replaces a function of the same name that existed
   in this project but was permanently broken (its Cloud Run image pointed
   at a different function's build artifact).
 

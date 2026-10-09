@@ -14,23 +14,25 @@
 // instead of leaving an orphaned, undeployable function behind.
 //
 // Requires the RESEND_API_KEY secret (firebase functions:secrets:set
-// RESEND_API_KEY). Optional env overrides: CONTACT_TO_EMAIL,
+// RESEND_API_KEY). Optional env overrides: CONTACT_TO_EMAIL (support@),
+// WAITLIST_NOTIFY_EMAIL (hello@),
 // CONTACT_FROM_EMAIL. getenva.ai is verified in Resend, so the default
 // sender below works for any recipient.
 //
 // notifyWaitlistSignup, below, is a second, independent function: it fires
 // whenever joinWaitlist (an existing function this repo doesn't own) writes
 // a new document to the "waitlist" Firestore collection, and emails a
-// notification to TO_EMAIL. It never touches joinWaitlist itself.
+// notification to WAITLIST_NOTIFY_EMAIL (hello@getenva.ai). It never touches joinWaitlist itself.
 
 const { onRequest } = require('firebase-functions/v2/https');
 const { onDocumentCreated } = require('firebase-functions/v2/firestore');
 
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'hello@getenva.ai';
+const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'support@getenva.ai';
+const WAITLIST_NOTIFY_EMAIL = process.env.WAITLIST_NOTIFY_EMAIL || 'hello@getenva.ai';
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Enva Contact Form <contact@getenva.ai>';
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-async function sendEmail({ subject, text, replyTo }) {
+async function sendEmail({ to, subject, text, replyTo }) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     throw new Error('RESEND_API_KEY is not configured');
@@ -44,7 +46,7 @@ async function sendEmail({ subject, text, replyTo }) {
     },
     body: JSON.stringify({
       from: FROM_EMAIL,
-      to: [TO_EMAIL],
+      to: [to],
       reply_to: replyTo,
       subject,
       text
@@ -84,6 +86,7 @@ exports.contactForm = onRequest(
 
     try {
       await sendEmail({
+        to: TO_EMAIL,
         subject: 'Enva support' + (topic ? ' — ' + topic.slice(0, 80) : ''),
         text: name + ' <' + email + '>\n\n' + message,
         replyTo: email
@@ -109,6 +112,7 @@ exports.notifyWaitlistSignup = onDocumentCreated(
 
     try {
       await sendEmail({
+        to: WAITLIST_NOTIFY_EMAIL,
         subject: 'New waitlist signup: ' + email,
         text: 'Email: ' + email + '\nSource: ' + source
       });
