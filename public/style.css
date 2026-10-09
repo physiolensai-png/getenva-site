@@ -449,6 +449,7 @@ main .data-pair img {
   margin-left: auto;
   margin-right: auto;
 }
+main .intel-shots img { width: 70%; }
 main .pillar-figure,
 main .dim-figure {
   width: 85%;
