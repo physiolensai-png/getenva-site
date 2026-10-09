@@ -277,7 +277,7 @@
             <li><strong>App analytics (opt-in).</strong> If you consent during onboarding, we collect anonymized usage data through PostHog — things like which features you use and session frequency. No health data is included. You can change this preference in Settings at any time.</li>
             <li><strong>AI processing (opt-in).</strong> If you enable Enva Intelligence, Enva computes aggregate metrics from your on-device data and sends that computed summary to our AI service provider to generate your response. What is sent is a structured summary — not your raw health records — and is not personally identifiable. Our AI service provider processes it to generate your response and does not retain it afterward. For a full breakdown of what each AI feature sends, see our <a href="privacy">Privacy Policy §3</a>.</li>
             <li><strong>Bug reports.</strong> If you submit a bug report through Settings → Report a Bug, we collect your written description, up to 30 recent in-app events, device information, and an optional screenshot you choose to attach.</li>
-            <li><strong>Crash diagnostics.</strong> If the app crashes, Apple's MetricKit sends an anonymized crash summary (no health data) to Firebase Crashlytics.</li>
+            <li><strong>Crash diagnostics.</strong> If the app crashes or hangs, Apple's MetricKit produces a diagnostic report (no health data) that the app forwards to our backend on Google Cloud.</li>
             <li><strong>AI chat feedback.</strong> A thumbs-down on an AI response stores a snippet of your question (up to 200 characters) and an anonymous session ID for up to 12 months.</li>
             <li><strong>Workout screenshot import.</strong> If you import a workout using the screenshot feature, the image is sent directly from your phone to our AI service for data extraction. It is not stored on our backend after extraction is complete.</li>
           </ul>
@@ -372,14 +372,14 @@
         <div class="policy-section" id="disputes">
           <h2>12. Disputes — Let's Talk First</h2>
           <h3>Step 1: Reach out</h3>
-          <p>If something goes wrong, email us at <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>. Most problems are resolvable, and we'd rather fix them directly than go through a formal process.</p>
+          <p>If something goes wrong, email us at <a href="mailto:support@getenva.ai">support@getenva.ai</a>. Most problems are resolvable, and we'd rather fix them directly than go through a formal process.</p>
           <h3>Step 2: Arbitration, if needed</h3>
           <p>Any dispute we can't resolve informally will be settled by binding arbitration administered by the American Arbitration Association (AAA) under its Consumer Arbitration Rules. Arbitration is faster and less expensive than court, for both of us.</p>
           <div class="notice">
             <p class="notice-title">Class action and jury trial waiver</p>
             <p><strong>No class actions.</strong> You and Olympus Hills Ventures LLC agree that claims must be brought individually. You may not participate in class action lawsuits or representative proceedings against us.</p>
             <p><strong>No jury trial.</strong> By agreeing to arbitration, both parties waive the right to a jury trial.</p>
-            <p><strong>Opt-out.</strong> You have the right to opt out of this arbitration agreement. If you do not wish to be bound by arbitration, you must notify us in writing within 30 days of completing onboarding and accepting these Terms by emailing <a href="mailto:hello@getenva.ai?subject=Arbitration%20Opt-Out">hello@getenva.ai</a> with the subject line "Arbitration Opt-Out." If you opt out, all other parts of these Terms will still apply.</p>
+            <p><strong>Opt-out.</strong> You have the right to opt out of this arbitration agreement. If you do not wish to be bound by arbitration, you must notify us in writing within 30 days of completing onboarding and accepting these Terms by emailing <a href="mailto:support@getenva.ai?subject=Arbitration%20Opt-Out">support@getenva.ai</a> with the subject line "Arbitration Opt-Out." If you opt out, all other parts of these Terms will still apply.</p>
           </div>
         </div>
 
@@ -401,7 +401,8 @@
             <strong>Olympus Hills Ventures LLC</strong><br />
             7533 S Center View Ct # R<br />
             West Jordan, Utah 84084<br />
-            Email: <a href="mailto:hello@getenva.ai">hello@getenva.ai</a><br />
+            Support: <a href="mailto:support@getenva.ai">support@getenva.ai</a><br />
+            Privacy requests: <a href="mailto:privacy@getenva.ai">privacy@getenva.ai</a><br />
             Website: <a href="https://getenva.ai">getenva.ai</a>
           </p>
           <p class="signoff">By using Enva, you agree to these Terms. Thanks for being here.</p>
@@ -428,6 +429,8 @@
     <li><a href="terms">Terms of Service</a></li>
   </ul>
   <p class="footer-copy">© 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+  <p class="footer-legal">Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</p>
+  <p class="footer-legal">Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</p>
 </footer>
 
 <script src="nav.js" defer></script>

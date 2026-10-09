@@ -14,6 +14,7 @@
 
   var ENDPOINT = 'https://us-central1-enva-ai-6afde.cloudfunctions.net/joinWaitlist';
   var CONTACT_EMAIL = 'hello@getenva.ai';
+  var SUPPORT_EMAIL = 'support@getenva.ai';
 
   // Deliberately permissive — rejects typos and junk, not unusual-but-valid
   // addresses. Anything stricter starts refusing real people.
@@ -139,12 +140,12 @@
       if (button) { button.disabled = false; button.textContent = label; }
       var subject = 'Enva support' + (topic && topic.value ? ' — ' + topic.value : '');
       var body = payload.name + ' <' + payload.email + '>\n\n' + payload.message;
-      window.location.href = 'mailto:' + CONTACT_EMAIL +
+      window.location.href = 'mailto:' + SUPPORT_EMAIL +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(body);
       show(success, 'We could not reach the server, so we opened your email app instead. If nothing happens, write to ' +
-        '<a href="mailto:' + CONTACT_EMAIL + '" style="color:var(--accent)">' +
-        CONTACT_EMAIL + '</a>.', true);
+        '<a href="mailto:' + SUPPORT_EMAIL + '" style="color:var(--accent)">' +
+        SUPPORT_EMAIL + '</a>.', true);
     });
   };
 })();

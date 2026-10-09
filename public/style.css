@@ -401,6 +401,24 @@ footer {
   width: 100%;
 }
 
+.footer-legal {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-3);
+  width: 100%;
+  max-width: 78ch;
+  margin-top: -12px;
+}
+.form-note { font-size: 13px; color: var(--ink-3); margin-top: 14px; }
+.form-note a { color: var(--accent); }
+
+/* ─── Sources / references ─── */
+.sources-list { margin: 18px 0 0 20px; padding: 0; max-width: 78ch; }
+.sources-list li { font-size: 14px; line-height: 1.6; color: var(--ink-2); margin-bottom: 10px; }
+.sources-list a { color: var(--accent); }
+sup.ref { font-size: 0.7em; line-height: 0; margin-left: 1px; }
+sup.ref a { color: var(--accent); }
+
 /* ─── Divider ─── */
 .divider {
   height: 1px;
