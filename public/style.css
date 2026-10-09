@@ -439,6 +439,21 @@ footer {
   border-radius: 2px;
 }
 
+/* ─── App screenshots: shown 15% smaller than their column (not the homepage hero devices or watch screens) ─── */
+main .twoshot img,
+main .intel-shots img,
+main .figure img,
+main .data-pair img {
+  width: 85%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+main .pillar-figure,
+main .dim-figure {
+  width: 85%;
+}
+
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   nav { padding: 10px 22px; gap: 12px; }
