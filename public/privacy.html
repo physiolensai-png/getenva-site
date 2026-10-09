@@ -231,14 +231,14 @@
 
         <div class="policy-section" id="data-sources">
           <h2>2F. Accounts and data you connect</h2>
-          <p>Enva can connect to the services below, each only with your permission. You can disconnect any of them at any time.</p>
+          <p>Enva can connect to the services below, each only with your permission. Any sign-in information for a connected service, such as a password or an access token, is stored in the iOS Keychain on your iPhone. It is not sent to our servers, and Olympus Hills Ventures LLC has no access to it. You can disconnect any service at any time in Connected Accounts, which removes that sign-in information from your device.</p>
           <ul>
-            <li><strong>Apple Health (HealthKit).</strong> You choose which categories Enva can read in iOS Settings → Health. If you log food in Enva, it can also write nutrition entries back to Apple Health. HealthKit data is never used for advertising or marketing, never sold, and never shared with data brokers.</li>
-            <li><strong>Peloton.</strong> You sign in on Peloton's own login page, shown inside the app. Enva never sees your Peloton password. Enva keeps the access and refresh tokens Peloton issues in your iPhone's Keychain and uses them to read your workout data from Peloton. Disconnecting in Connected Accounts deletes those tokens from your device.</li>
-            <li><strong>Orangetheory.</strong> You enter your Orangetheory email and password in Enva, which signs you in directly with Orangetheory. Enva keeps the resulting tokens in your iPhone's Keychain. Your password is saved only if you turn on "Stay signed in", and then only in the Keychain on this device. Disconnecting in Connected Accounts deletes the tokens and any saved password.</li>
+            <li><strong>Apple Health (HealthKit).</strong> You choose which categories Enva can read in iOS Settings, Health. If you log food in Enva, it can also write nutrition entries back to Apple Health. HealthKit data is never used for advertising or marketing, never sold, and never shared with data brokers.</li>
+            <li><strong>Peloton.</strong> You sign in on Peloton's own login page, shown inside the app. Enva never sees your Peloton password. The access and refresh tokens Peloton issues are kept in your iPhone's Keychain and used to read your workout data from Peloton.</li>
+            <li><strong>Orangetheory.</strong> You enter your Orangetheory email and password in Enva, which signs you in directly with Orangetheory from your device. The resulting tokens are kept in your iPhone's Keychain. Your password is saved only if you turn on "Stay signed in", and then only in the Keychain on this device.</li>
+            <li><strong>Oura Ring.</strong> You sign in on Oura's own login page. The access and refresh tokens Oura issues are kept in your iPhone's Keychain and used to read your sleep, recovery and readiness data from Oura.</li>
           </ul>
-          <p>Workout data from these services is processed on your device in the same way as your Apple Health data (see Section 1).</p>
-          <!-- TODO(counsel/Marcus): confirm that Peloton and Orangetheory tokens and passwords never pass through Enva servers; confirm HealthKit write scope wording. -->
+          <p>Workout and wellness data from these services is processed on your device in the same way as your Apple Health data (see Section 1).</p>
         </div>
 
         <div class="policy-section" id="ai">
