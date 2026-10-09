@@ -25,6 +25,12 @@
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
   <style>
+    .glossary { margin-top: 36px; max-width: 720px; display: grid; gap: 0; border-top: 1px solid var(--border); }
+    .glossary > div { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .glossary dt { font-weight: 500; color: var(--ink); font-size: 15px; }
+    .glossary dd { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 1.6; }
+    abbr[title] { text-decoration: underline dotted var(--ink-3); text-underline-offset: 3px; cursor: help; }
+    @media (max-width: 640px) { .glossary > div { grid-template-columns: 1fr; gap: 4px; } }
     /* ============================================================
        Enva Health Score — 2026 rebuild
        Same system as the homepage: dark warm ground, Enva Sans
@@ -297,7 +303,7 @@
   <header class="hero">
     <div class="hero-content">
       <p class="hero-eyebrow">Enva Health Score</p>
-      <h1>Forty signals.<br /><span class="accent-text">One number.</span></h1>
+      <h1>Every signal.<br /><span class="accent-text">One number.</span></h1>
       <p class="hero-sub">Apple Health shows your resting heart rate, HRV, sleep and VO&#8322; Max each on its own. The Enva Health Score reads them together and gives you one number for how this week is actually going.</p>
       <div class="hero-cta">
         <div class="waitlist-form">
@@ -354,7 +360,7 @@
     <div class="beat-inner" data-reveal>
       <p class="kicker">Reading the number</p>
       <h2 class="h-section">Where your score sits, and what it means.</h2>
-      <p class="range-context">Most active people land between 60 and 80. Above 78, your recovery, training load and long-term trend are all working together.</p>
+      <p class="range-context">Most active people land between 60 and 77. At 78 and above, your recovery, training load and long-term trend are all working together.</p>
 
       <div class="score-range" aria-label="Score ranges">
         <div class="range-labels">
@@ -442,17 +448,22 @@
       <div class="formula">
         <div class="formula-row">
           <div class="formula-w">Readiness<span>40% of the score</span></div>
-          <p>Average recovery score across 7 days, weighted by sleep quality and effort delta.</p>
+          <p>Average recovery score across 7 days, weighted by sleep quality and prior-day training load.</p>
         </div>
         <div class="formula-row">
           <div class="formula-w">Load Quality<span>35% of the score</span></div>
-          <p>Weekly TRIMPexp against your 42-day Chronic Training Load.</p>
+          <p>Weekly <abbr title="Exponential training impulse: a heart-rate-based measure of how hard a workout was">TRIMPexp</abbr> against your 42-day Chronic Training Load (<abbr title="Chronic Training Load: your average training load over the past 42 days">CTL</abbr>).</p>
         </div>
         <div class="formula-row">
           <div class="formula-w">Trajectory<span>25% of the score</span></div>
-          <p>Linear trend in VO&#8322; Max, HRV and CTL over 6 weeks. VO&#8322; Max is normalised per measurement method; build, taper and illness windows are read in context.</p>
+          <p>Linear trend in VO&#8322; Max, HRV and <abbr title="Chronic Training Load: your average training load over the past 42 days">CTL</abbr> over 6 weeks. VO&#8322; Max is normalised per measurement method; build, taper and illness windows are read in context.</p>
         </div>
       </div>
+      <dl class="glossary">
+        <div><dt>Prior-day training load</dt><dd>How much yesterday's training asked of your body, based on how long and how hard your heart worked.</dd></div>
+        <div><dt>TRIMPexp</dt><dd>A heart-rate-based way to measure how hard a workout was. Time at a higher heart rate counts for more than time at a lower one.</dd></div>
+        <div><dt>Chronic Training Load (CTL)</dt><dd>Your average training load over the last 42 days: the amount of training your body is used to. Your weekly load is compared against it.</dd></div>
+      </dl>
       <p class="formula-foot">The score updates each time you open Insights, and needs at least three nights of recent sleep data to show.</p>
     </div>
   </section>
