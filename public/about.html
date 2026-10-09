@@ -15,6 +15,12 @@
   <meta property="og:description" content="We're all stuck being our own data scientists. Enva is what one of us built to end that." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://getenva.ai/about" />
+  <meta property="og:site_name" content="Enva" />
+  <meta property="og:image" content="https://getenva.ai/og/enva-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Enva. The full picture of your health." />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
@@ -184,15 +190,28 @@
 </svg>
 
 <nav>
-  <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
-  <ul class="nav-links">
-    <li><a href="index">Home</a></li>
+  <a href="/" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
     <li><a href="envahealthscore">How It Works</a></li>
-    <li><a href="biological-age">Biological Age</a></li>
-    <li><a href="about" class="active">About</a></li>
+    <li class="has-sub">
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="nav-features">Features</button>
+      <ul class="sub" id="nav-features">
+        <li><a href="nutrition">Nutrition</a></li>
+        <li><a href="fitness">Fitness</a></li>
+        <li><a href="recovery-actions">Recovery Actions</a></li>
+        <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
+        <li><a href="biological-age">Biological Age</a></li>
+      </ul>
+    </li>
+    <li><a href="hyrox">Hyrox</a></li>
+    <li><a href="about" class="active" aria-current="page">About</a></li>
     <li><a href="support">Support</a></li>
   </ul>
-  <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
+  <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path class="nt-open" d="M4 7h16M4 12h16M4 17h16"/><path class="nt-close" d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
 </nav>
 
 <main>
@@ -253,12 +272,12 @@
     <div class="beat-inner story" data-reveal>
       <p class="kicker">The promise</p>
       <h2 class="h-section">You own your data.</h2>
-      <p>Health data is too often mined, aggregated and sold. Enva rejects that model. Summaries and scores are computed on your device. When deeper analysis has to leave your phone, it goes to an enterprise-secure model, never used to train anything, never sold.</p>
-      <p>And it's yours to take or to erase. Export the whole thing as a spreadsheet, one sheet per dataset, or wipe every session, account and setting off the device for good.</p>
+      <p>Health data is too often mined, aggregated and sold. Enva rejects that model. Scores are computed on your phone. If you turn on Enva Intelligence, Enva sends computed summaries, not raw sensor data, to a third-party AI provider to answer your questions. It is never used to train AI models and never sold. <a href="/privacy#enva-intelligence">See exactly what is sent.</a></p>
+      <p>And it's yours to take or to erase. On the annual plan, once your free trial has ended, export the whole thing as a spreadsheet, one sheet per dataset. On any plan, wipe every session, account and setting off the device for good.</p>
       <div class="data-pair">
         <figure>
           <img src="screens/data-export.jpg" alt="An Export All Data control that produces a single .xlsx file with one sheet per dataset: sessions, cardio blocks, strength, body composition, sleep, blood work and supplements" onerror="this.closest('figure').remove()" />
-          <figcaption>Export everything</figcaption>
+          <figcaption>Export everything (annual plan)</figcaption>
         </figure>
         <figure>
           <img src="screens/data-delete.jpg" alt="A Delete All Data control that permanently removes all health data, sessions, connected accounts and settings from the device" onerror="this.closest('figure').remove()" />
@@ -297,15 +316,15 @@
         <input type="email" id="about-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('about-email','about-success')">Join Waitlist</button>
       </div>
-      <p id="about-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
-      <p class="fineprint">Coming soon to iPhone.</p>
+      <p id="about-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list. We'll email you before launch.</p>
+      <p class="fineprint">Coming soon to iPhone and Apple Watch.</p>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <a href="/" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
     <li><a href="envahealthscore">How It Works</a></li>
     <li><a href="nutrition">Nutrition</a></li>
@@ -320,6 +339,8 @@
     <li><a href="terms">Terms of Service</a></li>
   </ul>
   <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+  <p class="footer-legal">Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</p>
+  <p class="footer-legal">Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</p>
 </footer>
 
 <script src="waitlist.js" defer></script>
@@ -338,6 +359,7 @@
     els.forEach(function (e) { io.observe(e); });
   })();
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
+<script src="nav.js" defer></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c42a2cff212c4ed688aab488f2b11733"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

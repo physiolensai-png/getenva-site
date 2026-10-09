@@ -11,6 +11,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
   <meta name="theme-color" content="#121212" />
+  <meta name="description" content="How Enva handles your data: what we collect, how it's used, and the choices you have." />
+  <meta property="og:title" content="Privacy Policy — Enva" />
+  <meta property="og:description" content="How Enva handles your data: what we collect, how it's used, and the choices you have." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getenva.ai/privacy" />
+  <meta property="og:site_name" content="Enva" />
+  <meta property="og:image" content="https://getenva.ai/og/enva-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Enva. The full picture of your health." />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
@@ -119,14 +130,28 @@
 </svg>
 
 <nav>
-  <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
-  <ul class="nav-links">
-    <li><a href="index">Home</a></li>
-    <li><a href="biological-age">Biological Age</a></li>
+  <a href="/" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="envahealthscore">How It Works</a></li>
+    <li class="has-sub">
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="nav-features">Features</button>
+      <ul class="sub" id="nav-features">
+        <li><a href="nutrition">Nutrition</a></li>
+        <li><a href="fitness">Fitness</a></li>
+        <li><a href="recovery-actions">Recovery Actions</a></li>
+        <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
+        <li><a href="biological-age">Biological Age</a></li>
+      </ul>
+    </li>
+    <li><a href="hyrox">Hyrox</a></li>
     <li><a href="about">About</a></li>
     <li><a href="support">Support</a></li>
   </ul>
-  <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
+  <a href="/#waitlist" class="nav-cta">Join Waitlist</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path class="nt-open" d="M4 7h16M4 12h16M4 17h16"/><path class="nt-close" d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
 </nav>
 
 <section class="policy-hero">
@@ -148,6 +173,7 @@
         <ul>
           <li><a href="#golden-rule">The Golden Rule</a></li>
           <li><a href="#collect">What We Collect</a></li>
+          <li><a href="#data-sources">Accounts You Connect</a></li>
           <li><a href="#ai">Enva Intelligence</a></li>
           <li><a href="#sharing">How We Share It</a></li>
           <li><a href="#security">Security and Retention</a></li>
@@ -196,7 +222,7 @@
           </ul>
           <p><strong>C. Bug reports and crash diagnostics</strong></p>
           <ul>
-            <li><strong>MetricKit:</strong> If the app crashes, Apple's MetricKit framework sends an anonymized crash summary (crash type, app version, OS version, device model) to us. No health data is included.</li>
+            <li><strong>MetricKit:</strong> If the app crashes or hangs, Apple's MetricKit framework produces a diagnostic report (crash or hang type, technical stack traces, app version, OS version, device model). The app forwards that report to our backend on Google Cloud. No health data is included.</li>
             <li><strong>Report a Bug:</strong> If you submit a bug report through Settings → Report a Bug, we collect your written description, up to 30 recent in-app events (a breadcrumb log of actions, not health records), your device model and OS version, and optionally a screenshot you choose to attach. This is sent to our backend and retained for up to 12 months for debugging purposes.</li>
           </ul>
           <p><strong>D. AI-generated inferences</strong></p>
@@ -205,7 +231,20 @@
           <p>If you give a thumbs-down to an AI response in chat, we store a snippet of your question (up to 200 characters), the response index, and an anonymous session ID. This is retained for up to 12 months and used to improve response quality. A thumbs-up records only an anonymous count — no content is stored.</p>
         </div>
 
+        <div class="policy-section" id="data-sources">
+          <h2>2F. Accounts and data you connect</h2>
+          <p>Enva can connect to the services below, each only with your permission. You can disconnect any of them at any time.</p>
+          <ul>
+            <li><strong>Apple Health (HealthKit).</strong> You choose which categories Enva can read in iOS Settings → Health. If you log food in Enva, it can also write nutrition entries back to Apple Health. HealthKit data is never used for advertising or marketing, never sold, and never shared with data brokers.</li>
+            <li><strong>Peloton.</strong> You sign in on Peloton's own login page, shown inside the app. Enva never sees your Peloton password. Enva keeps the access and refresh tokens Peloton issues in your iPhone's Keychain and uses them to read your workout data from Peloton. Disconnecting in Connected Accounts deletes those tokens from your device.</li>
+            <li><strong>Orangetheory.</strong> You enter your Orangetheory email and password in Enva, which signs you in directly with Orangetheory. Enva keeps the resulting tokens in your iPhone's Keychain. Your password is saved only if you turn on "Stay signed in", and then only in the Keychain on this device. Disconnecting in Connected Accounts deletes the tokens and any saved password.</li>
+          </ul>
+          <p>Workout data from these services is processed on your device in the same way as your Apple Health data (see Section 1).</p>
+          <!-- TODO(counsel/Marcus): confirm that Peloton and Orangetheory tokens and passwords never pass through Enva servers; confirm HealthKit write scope wording. -->
+        </div>
+
         <div class="policy-section" id="ai">
+          <span id="enva-intelligence"></span>
           <h2>3. Enva Intelligence — How AI Features Work</h2>
           <p>Enva Intelligence is opt-in. If you choose not to enable it during onboarding, no health data ever leaves your device for AI processing. You can also disable it at any time after onboarding by going to <strong>Settings → Enva Intelligence</strong> in the app. Disabling the feature stops all future AI transmissions; it does not delete insights already generated or your local conversation history. If you do enable it, here is exactly what happens:</p>
           <p><strong>What is sent — tiered by feature:</strong></p>
@@ -261,10 +300,11 @@
 
         <div class="policy-section" id="children">
           <h2>6. Children's Privacy</h2>
-          <p>Enva is intended for users who are <strong>18 years of age or older</strong>. You must be at least 18 to create an account and use the Services. We do not knowingly collect personal information from anyone under 18. If we learn that a user under 18 has accessed the Services, we will terminate that account and delete any associated data promptly. If you believe a minor has used Enva, please contact us at <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>.</p>
+          <p>Enva is intended for users who are <strong>18 years of age or older</strong>. You must be at least 18 to create an account and use the Services. We do not knowingly collect personal information from anyone under 18. If we learn that a user under 18 has accessed the Services, we will terminate that account and delete any associated data promptly. If you believe a minor has used Enva, please contact us at <a href="mailto:privacy@getenva.ai">privacy@getenva.ai</a>.</p>
         </div>
 
         <div class="policy-section" id="state-rights">
+          <span id="your-rights"></span>
           <h2>7. U.S. State Privacy Rights</h2>
           <p>Many U.S. states have enacted comprehensive consumer privacy laws. If you are a resident of California, Utah, Colorado, Virginia, Texas, Washington, or another state with applicable privacy legislation, you have specific rights regarding your personal data.</p>
           <p>Because we do not store your raw health data on our servers, these rights primarily apply to the data we do hold: your email address, support correspondence, analytics profile, and any bug report or feedback data.</p>
@@ -276,7 +316,9 @@
             <li><strong>Right to data portability:</strong> You can request a copy of your data in a portable format.</li>
           </ul>
           <p><strong>Washington My Health MY Data Act (MHMDA) and similar state health data laws.</strong> Enva processes certain health data as defined under state-level health privacy statutes, including biometric and fitness data. We collect and process this data only with your authorization, use it only to provide the Services, and do not sell it. To the extent state law grants additional rights with respect to health data, we honor those rights. Requests can be submitted to <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>.</p>
-          <p>To exercise any of these rights, email us at <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>. We will respond within 45 days. We will not discriminate against you for exercising your privacy rights.</p>
+          <p>To exercise any of these rights, email us at <a href="mailto:privacy@getenva.ai">privacy@getenva.ai</a>. We will respond within 45 days. We will not discriminate against you for exercising your privacy rights.</p>
+          <p><strong>Website analytics.</strong> To understand how many people visit getenva.ai and which pages they read, we use Cloudflare Web Analytics. It does not use cookies and does not track you across other websites. It collects page-view information such as the page visited, referring site, country and browser type. It is not used in the Enva mobile app.</p>
+          <!-- TODO(counsel): confirm wording against Cloudflare Web Analytics data-processing terms. -->
           <p><strong>"Do Not Track" and Global Privacy Control.</strong> We do not track users across third-party websites. We honor Global Privacy Control (GPC) signals for website analytics.</p>
         </div>
 
@@ -288,7 +330,7 @@
             <li><strong>Your rights:</strong> You have the right to access, rectify, erase, restrict processing, object to processing, and request data portability.</li>
             <li><strong>Data transfers:</strong> Your data is processed in the United States. By using Enva, you consent to this transfer.</li>
           </ul>
-          <p>To exercise your GDPR rights, contact us at <a href="mailto:hello@getenva.ai">hello@getenva.ai</a>. You also have the right to lodge a complaint with your local data protection authority.</p>
+          <p>To exercise your GDPR rights, contact us at <a href="mailto:privacy@getenva.ai">privacy@getenva.ai</a>. You also have the right to lodge a complaint with your local data protection authority.</p>
         </div>
 
         <div class="policy-section" id="links">
@@ -308,7 +350,8 @@
             <strong>Olympus Hills Ventures LLC</strong><br />
             7533 S Center View Ct # R<br />
             West Jordan, Utah 84084<br />
-            Email: <a href="mailto:hello@getenva.ai">hello@getenva.ai</a><br />
+            Privacy requests: <a href="mailto:privacy@getenva.ai">privacy@getenva.ai</a><br />
+            Everything else: <a href="mailto:support@getenva.ai">support@getenva.ai</a><br />
             Website: <a href="https://getenva.ai">getenva.ai</a>
           </p>
         </div>
@@ -319,7 +362,7 @@
 </section>
 
 <footer>
-  <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <a href="/" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
     <li><a href="envahealthscore">How It Works</a></li>
     <li><a href="nutrition">Nutrition</a></li>
@@ -334,8 +377,11 @@
     <li><a href="terms">Terms of Service</a></li>
   </ul>
   <p class="footer-copy">© 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+  <p class="footer-legal">Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</p>
+  <p class="footer-legal">Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</p>
 </footer>
 
-<script defer src="/_vercel/insights/script.js"></script>
+<script src="nav.js" defer></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c42a2cff212c4ed688aab488f2b11733"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

@@ -15,6 +15,12 @@
   <meta property="og:description" content="Every health input in one system. Outputs you can act on." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://getenva.ai/" />
+  <meta property="og:site_name" content="Enva" />
+  <meta property="og:image" content="https://getenva.ai/og/enva-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Enva. The full picture of your health." />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
@@ -247,24 +253,43 @@
       background: var(--surface);
     }
 
-    /* ---- integrations ---- */
-    .integrations-strip {
-      text-align: center;
-      padding: 96px 32px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    /* ---- what you get + pricing ---- */
+    .feat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; margin-top: 56px; }
+    .feat { padding: 22px 0; border-top: 1px solid var(--border); }
+    .feat:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .feat h3 { font-family: var(--font-display); font-weight: 400; font-size: 19px; line-height: 1.3; color: var(--ink); margin-bottom: 6px; }
+    .feat p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+    .get-all {
+      margin-top: 40px; text-align: center;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(20px, 2.6vw, 28px); letter-spacing: 0.02em; color: var(--ink);
     }
-    .integrations-strip .kicker { margin-bottom: 24px; }
-    .integrations-strip .row {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 10px 12px; max-width: 720px; margin: 0 auto;
+    .get-all span { color: var(--accent); }
+
+    .plans-wrap { max-width: 760px; margin: 72px auto 0; }
+    .plans-title { font-family: var(--font-display); font-weight: 400; font-size: 21px; text-align: center; color: var(--ink); margin-bottom: 24px; }
+    .plans { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; }
+    .plans th, .plans td { padding: 18px 20px; border-bottom: 1px solid var(--border); font-size: 15px; line-height: 1.4; vertical-align: middle; }
+    .plans thead th { font-family: var(--font-display); font-weight: 400; font-size: 18px; color: var(--ink); vertical-align: bottom; }
+    .plans tbody th { font-weight: 400; color: var(--ink-2); }
+    .plans td { color: var(--ink); }
+    .plans .col-annual { background: rgba(228,101,42,0.07); }
+    .plans thead .col-annual { border-top-left-radius: var(--radius-md); border-top-right-radius: var(--radius-md); box-shadow: inset 0 2px 0 var(--accent); }
+    .plans tbody tr:last-child .col-annual { border-bottom-left-radius: var(--radius-md); border-bottom-right-radius: var(--radius-md); }
+    .plans .badge { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .plans .price { font-family: var(--font-display); font-size: 22px; }
+    .plans .sub-price { display: block; font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+    .plans .yes { color: var(--accent); font-weight: 600; }
+    .plans .no { color: var(--ink-3); }
+    .plans-note { text-align: center; font-size: 14px; color: var(--ink-3); margin-top: 22px; }
+    .plans-note a { color: var(--accent); }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    @media (max-width: 760px) { .feat-list { grid-template-columns: 1fr; } .feat:nth-last-child(2) { border-bottom: 0; } }
+    @media (max-width: 520px) {
+      .plans th, .plans td { padding: 14px 10px; font-size: 14px; }
+      .plans thead th { font-size: 16px; }
+      .plans .price { font-size: 18px; }
     }
-    .integrations-strip .row span {
-      font-size: 14px; color: var(--ink-2);
-      padding: 8px 16px; border-radius: 100px;
-      background: var(--surface);
-    }
-    .integrations-strip .row span.soon { color: var(--ink-3); background: transparent; box-shadow: inset 0 0 0 1px var(--border); }
 
     /* ---- waitlist ---- */
     .waitlist { text-align: center; position: relative; overflow: hidden; }
@@ -323,15 +348,28 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
-  <ul class="nav-links">
-    <li><a href="index" class="active">Home</a></li>
+  <a href="/" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/" class="active" aria-current="page">Home</a></li>
     <li><a href="envahealthscore">How It Works</a></li>
-    <li><a href="biological-age">Biological Age</a></li>
+    <li class="has-sub">
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="nav-features">Features</button>
+      <ul class="sub" id="nav-features">
+        <li><a href="nutrition">Nutrition</a></li>
+        <li><a href="fitness">Fitness</a></li>
+        <li><a href="recovery-actions">Recovery Actions</a></li>
+        <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
+        <li><a href="biological-age">Biological Age</a></li>
+      </ul>
+    </li>
+    <li><a href="hyrox">Hyrox</a></li>
     <li><a href="about">About</a></li>
     <li><a href="support">Support</a></li>
   </ul>
   <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path class="nt-open" d="M4 7h16M4 12h16M4 17h16"/><path class="nt-close" d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
 </nav>
 
 <main>
@@ -339,7 +377,7 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">Coming soon for iPhone and Apple Watch</p>
+      <p class="hero-eyebrow">Coming soon to iPhone and Apple Watch</p>
       <h1>Optimize the outputs.<br /><span class="accent-text">Start with the inputs.</span></h1>
       <p class="hero-sub">Your training, food and recovery, and the sleep, Health Score and Biological Age they produce. One system, so you can see which input is moving which output.</p>
       <div class="hero-cta">
@@ -350,7 +388,7 @@
         </div>
         <a href="envahealthscore" class="arrow-link">See how it works</a>
       </div>
-      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll be in touch before launch.</p>
+      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll email you before launch.</p>
       <p class="hero-fineprint">Be first to know when Enva launches.</p>
     </div>
 
@@ -484,47 +522,122 @@
           <h3>Direct device connections</h3>
           <p>Apple Health flattens your data to a generic "workout." Enva connects to each ecosystem directly and keeps what they actually capture: Peloton output and leaderboard rank, Orangetheory splat points, rower splits and tread pace.</p>
           <div class="value-chips">
-            <span>Apple Watch</span><span>Peloton</span><span>Orangetheory</span><span>MyChart labs</span>
+            <span>Apple Watch</span><span>Peloton</span><span>Orangetheory</span>
           </div>
         </div>
         <div class="value-block" data-reveal>
           <h3>Your data stays yours</h3>
-          <p>Summaries and scores are computed on your device. When deeper analysis has to go off-device it uses an enterprise-secure model, never trained on, never sold. Export everything, delete everything.</p>
+          <p>Scores are computed on your phone. If you turn on Enva Intelligence, Enva sends computed summaries, not raw sensor data, to a third-party AI provider to answer your questions. It is never used to train AI models and never sold (<a href="/privacy#enva-intelligence">how it works</a>). Delete everything any time, and export it all to a spreadsheet on the annual plan.</p>
           <div class="value-chips">
-            <span>On-device scoring</span><span>No model training</span><span>Full export</span>
+            <span>On-device scoring</span><span>No model training</span><span>Annual: full export</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- INTEGRATIONS -->
-  <div class="integrations-strip" data-reveal>
-    <p class="kicker">Connects with your ecosystem</p>
-    <div class="row">
-      <span>Apple Watch</span>
-      <span>Peloton</span>
-      <span>Orangetheory</span>
-      <span>MyChart</span>
-      <span class="soon">Oura Ring &#183; soon</span>
-      <span class="soon">Whoop &#183; soon</span>
-      <span class="soon">Garmin &#183; soon</span>
-      <span class="soon">Fitbit &#183; soon</span>
+  <!-- WHAT YOU GET + PRICING -->
+  <section class="beat" id="plans">
+    <div class="beat-inner">
+      <div data-reveal>
+        <p class="kicker">What you get</p>
+        <h2 class="h-section">One subscription. Everything in Enva.</h2>
+      </div>
+      <div class="feat-list" data-reveal>
+        <div class="feat">
+          <h3>Nutrition</h3>
+          <p>Barcode scanning &#183; Recipe tracking &#183; AI food logging</p>
+        </div>
+        <div class="feat">
+          <h3>Strength</h3>
+          <p>Workout logging &#183; Track weight progress &#183; Create workouts based on your available equipment</p>
+        </div>
+        <div class="feat">
+          <h3>Biomarkers</h3>
+          <p>Load blood work directly or from Apple Health &#183; Blood pressure &#183; Blood sugar tracking</p>
+        </div>
+        <div class="feat">
+          <h3>Supplement tracking</h3>
+          <p>Log what you take and see it next to everything else</p>
+        </div>
+        <div class="feat">
+          <h3>Personalized recovery plans</h3>
+          <p>A daily plan drawn from your own numbers</p>
+        </div>
+        <div class="feat">
+          <h3>Workout data</h3>
+          <p>Peloton and Orangetheory data, in full detail</p>
+        </div>
+        <div class="feat">
+          <h3>Enva Intelligence coach</h3>
+          <p>Chat with a coach that reads all of your available data</p>
+        </div>
+        <div class="feat">
+          <h3>Goal tracking</h3>
+          <p>Training for a race, HYROX, Dri-Tri or an Orangetheory benchmark</p>
+        </div>
+        <div class="feat">
+          <h3>Apple Watch app</h3>
+          <p>Record and follow your workouts from your wrist</p>
+        </div>
+        <div class="feat">
+          <h3>Phone widgets</h3>
+          <p>Your numbers at a glance on your home screen</p>
+        </div>
+      </div>
+      <p class="get-all" data-reveal>All of your health data <span>in one place.</span></p>
+
+      <div class="plans-wrap" data-reveal>
+        <h3 class="plans-title">Pick a plan. Every new subscriber starts with a 7-day free trial.</h3>
+        <table class="plans">
+          <caption class="sr-only">Monthly and annual plan comparison</caption>
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col">Monthly</th>
+              <th scope="col" class="col-annual"><span class="badge">Best value</span>Annual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Price</th>
+              <td><span class="price">$12.99</span><span class="sub-price">per month</span></td>
+              <td class="col-annual"><span class="price">$89.99</span><span class="sub-price">per year, about $7.50 a month</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Every feature listed above</th>
+              <td class="yes"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
+              <td class="yes col-annual"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
+            </tr>
+            <tr>
+              <th scope="row">7-day free trial</th>
+              <td class="yes"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
+              <td class="yes col-annual"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Export all your data to a spreadsheet</th>
+              <td class="no"><span aria-hidden="true">&#8212;</span><span class="sr-only">Not included</span></td>
+              <td class="yes col-annual"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="plans-note">One free trial per customer. Spreadsheet export begins with your first paid annual term, so it is not part of the free trial. Questions? Read the <a href="/support#pricing">pricing FAQ</a>.</p>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- WAITLIST -->
   <section class="beat waitlist" id="waitlist">
     <div class="waitlist-inner beat-inner" data-reveal>
       <p class="kicker" style="color:var(--accent);">Early Access</p>
       <h2>Be the first to<br /><span class="accent-text">see the full picture.</span></h2>
-      <p>Enva is in development. Join the waitlist and we'll reach out before launch.</p>
+      <p>Coming soon to iPhone and Apple Watch. Join the waitlist and we'll email you before launch.</p>
       <div class="waitlist-form">
         <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <input type="email" id="waitlist-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('waitlist-email', 'waitlist-success')">Join Waitlist</button>
       </div>
-      <p class="success-msg" id="waitlist-success">You're on the list. We'll reach out before launch.</p>
+      <p class="success-msg" id="waitlist-success">You're on the list. We'll email you before launch.</p>
       <p class="fineprint">No spam. Just a heads-up when Enva is ready.</p>
     </div>
   </section>
@@ -533,7 +646,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <a href="/" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
     <li><a href="envahealthscore">How It Works</a></li>
     <li><a href="nutrition">Nutrition</a></li>
@@ -548,6 +661,8 @@
     <li><a href="terms">Terms of Service</a></li>
   </ul>
   <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+  <p class="footer-legal">Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</p>
+  <p class="footer-legal">Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</p>
 </footer>
 
 <script src="waitlist.js" defer></script>
@@ -570,6 +685,7 @@
     els.forEach(function (e) { io.observe(e); });
   })();
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
+<script src="nav.js" defer></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c42a2cff212c4ed688aab488f2b11733"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

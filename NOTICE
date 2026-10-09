@@ -11,6 +11,6 @@ publicly disclosed as open source. All contents are maintained as
 confidential proprietary material of Olympus Hills Ventures LLC.
 
 DEPLOYED PRODUCT
-The compiled website is served at https://getenva.ai via Vercel.
+The compiled website is served at https://getenva.ai via Firebase Hosting.
 Deployment does not constitute a license or waiver of any intellectual
 property rights held by Olympus Hills Ventures LLC.

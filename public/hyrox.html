@@ -15,6 +15,12 @@
   <meta property="og:description" content="One finish time. Everything reads through it, right down to per-segment pacing on your wrist." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://getenva.ai/hyrox" />
+  <meta property="og:site_name" content="Enva" />
+  <meta property="og:image" content="https://getenva.ai/og/enva-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Enva. The full picture of your health." />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
@@ -84,7 +90,7 @@
     .hero-fineprint { font-size: 13px; color: var(--ink-3); margin-top: 18px; }
     .hero-shot {
       position: relative; z-index: 1; margin-top: 56px;
-      width: clamp(260px, 42vw, 360px);
+      width: clamp(221px, 35.7vw, 306px);
       border-radius: var(--radius-lg);
       box-shadow: 0 40px 90px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
@@ -96,7 +102,7 @@
     }
     .split.flip { grid-template-columns: 1.15fr 0.85fr; }
     .split-shot {
-      width: 100%; border-radius: var(--radius-lg);
+      width: 85%; display: block; margin-left: auto; margin-right: auto; border-radius: var(--radius-lg);
       box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
     .split-text p { font-size: 16px; line-height: 1.7; color: var(--ink-2); }
@@ -231,15 +237,28 @@
 </svg>
 
 <nav>
-  <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
-  <ul class="nav-links">
-    <li><a href="index">Home</a></li>
+  <a href="/" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
     <li><a href="envahealthscore">How It Works</a></li>
-    <li><a href="biological-age">Biological Age</a></li>
+    <li class="has-sub">
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="nav-features">Features</button>
+      <ul class="sub" id="nav-features">
+        <li><a href="nutrition">Nutrition</a></li>
+        <li><a href="fitness">Fitness</a></li>
+        <li><a href="recovery-actions">Recovery Actions</a></li>
+        <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
+        <li><a href="biological-age">Biological Age</a></li>
+      </ul>
+    </li>
+    <li><a href="hyrox" class="active" aria-current="page">Hyrox</a></li>
     <li><a href="about">About</a></li>
     <li><a href="support">Support</a></li>
   </ul>
-  <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
+  <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path class="nt-open" d="M4 7h16M4 12h16M4 17h16"/><path class="nt-close" d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
 </nav>
 
 <main>
@@ -247,21 +266,21 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">Hyrox Training</p>
-      <h1>Built by a Hyrox athlete,<br /><span class="accent-text">to help you train for one.</span></h1>
-      <p class="hero-sub">Built to pull in workouts specifically to train for any station you face at Hyrox, on demand, from the equipment in front of you.</p>
+      <p class="hero-eyebrow">HYROX Training</p>
+      <h1>Built by a HYROX athlete,<br /><span class="accent-text">to help you train for one.</span></h1>
+      <p class="hero-sub">Built to pull in workouts specifically to train for any station you face at HYROX, on demand, from the equipment in front of you.</p>
       <div class="hero-cta">
         <div class="waitlist-form">
           <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
           <input type="email" id="hero-email" placeholder="your@email.com" />
-          <button class="btn-primary" onclick="handleWaitlist('hero-email','hero-success')">Get Early Access</button>
+          <button class="btn-primary" onclick="handleWaitlist('hero-email','hero-success')">Join Waitlist</button>
         </div>
         <a href="#build" class="arrow-link">Build a session</a>
       </div>
-      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll be in touch before launch.</p>
+      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll email you before launch.</p>
       <p class="hero-fineprint">Coming soon to iPhone and Apple Watch.</p>
     </div>
-    <img class="hero-shot" src="screens/fi-build-3.jpg" alt="A generated 30-minute Hyrox wall-ball session: three rounds, six exercises" />
+    <img class="hero-shot" src="screens/fi-build-3.jpg" alt="A generated 30-minute HYROX wall-ball session: three rounds, six exercises" />
   </header>
 
   <!-- BUILD THE SESSIONS -->
@@ -278,11 +297,11 @@
           <figcaption><span class="fc-step">01</span><span class="fc-label">Your equipment</span></figcaption>
         </figure>
         <figure>
-          <img src="screens/fi-build-2.jpg" alt="Entering a goal: focus on the wall ball station for an upcoming Hyrox race" />
+          <img src="screens/fi-build-2.jpg" alt="Entering a goal: focus on the wall ball station for an upcoming HYROX race" />
           <figcaption><span class="fc-step">02</span><span class="fc-label">The station to fix</span></figcaption>
         </figure>
         <figure>
-          <img src="screens/fi-build-3.jpg" alt="A generated 30-minute Hyrox wall-ball session, three rounds, six exercises" />
+          <img src="screens/fi-build-3.jpg" alt="A generated 30-minute HYROX wall-ball session, three rounds, six exercises" />
           <figcaption><span class="fc-step">03</span><span class="fc-label">The session</span></figcaption>
         </figure>
       </div>
@@ -338,7 +357,7 @@
       <p class="lede">Eight runs and eight stations. The race is decided by how well you run each segment after the last one. Enva paces all sixteen from your training data, shows the next station before you reach it, and hands you the splits at the finish.</p>
       <div class="watch-row" data-reveal>
         <figure>
-          <img src="screens/hy-watch-007.png" alt="Apple Watch: Hyrox race, 16 segments, Start Race" />
+          <img src="screens/hy-watch-007.png" alt="Apple Watch: HYROX race, 16 segments, Start Race" />
           <figcaption>Start</figcaption>
         </figure>
         <figure>
@@ -367,7 +386,7 @@
           <p>Every session you log and every race you run updates the picture. The goal screen shows a projected finish time built from your actual training, labeled honestly as a wide-range projection rather than a prediction.</p>
           <p>And it names the single biggest thing holding that time back this week, ranked against your own recent baseline, not a generic list of ten fixes.</p>
         </div>
-        <img class="split-shot" src="screens/hy-goal.jpg" alt="A Hyrox Solo goal set to 1:40:00, a projection note, and a ranked list of what's holding the time back: under-fueling, sleep duration, protein" />
+        <img class="split-shot" src="screens/hy-goal.jpg" alt="A HYROX Solo goal set to 1:40:00, a projection note, and a ranked list of what's holding the time back: under-fueling, sleep duration, protein" />
       </div>
     </div>
   </section>
@@ -379,7 +398,7 @@
       <h2 class="h-section">Every signal, one question.</h2>
       <p class="lede">Once the goal is set, Enva stops reporting numbers and starts answering one thing: what is holding this back right now.</p>
       <div class="sig-list">
-        <div class="sig-row"><h3>Zone distribution</h3><p>Whether your easy work is genuinely easy. Hyrox punishes an aerobic base built entirely at threshold, and most people training for it live in the wrong zone.</p></div>
+        <div class="sig-row"><h3>Zone distribution</h3><p>Whether your easy work is genuinely easy. HYROX punishes an aerobic base built entirely at threshold, and most people training for it live in the wrong zone.</p></div>
         <div class="sig-row"><h3>Recovery</h3><p>HRV, resting heart rate and post-effort drop, read against your own baseline, not a population chart.</p></div>
         <div class="sig-row"><h3>Sleep</h3><p>Duration, consistency, and the deep and REM split. The part that decides whether last week's training became fitness or just fatigue.</p></div>
         <div class="sig-row"><h3>Nutrition</h3><p>Calories against real expenditure, and whether protein is supporting the strength side while you hold a deficit.</p></div>
@@ -392,9 +411,9 @@
   <!-- NOT JUST HYROX -->
   <section class="beat">
     <div class="beat-inner" data-reveal>
-      <p class="kicker">Not just Hyrox</p>
-      <h2 class="h-section">Hyrox is one example. The same system reads any goal.</h2>
-      <p class="lede">Set a target for a HYROX race, a DEKA event, a Dri-Tri, an Orangetheory benchmark, or any goal with a date and a number attached, and Enva reorganizes the same way: a projection, the single ranked limiter, a plan by phase, and sessions built around it. This page is written around Hyrox because that's the race Marcus is training for right now. The system underneath isn't specific to it.</p>
+      <p class="kicker">Not just HYROX</p>
+      <h2 class="h-section">HYROX is one example. The same system reads any goal.</h2>
+      <p class="lede">Set a target for a HYROX race, a DEKA event, a Dri-Tri, an Orangetheory benchmark, or any goal with a date and a number attached, and Enva reorganizes the same way: a projection, the single ranked limiter, a plan by phase, and sessions built around it. This page is written around HYROX because that's the race Marcus is training for right now. The system underneath isn't specific to it.</p>
       <div class="event-chips">
         <span>HYROX</span><span>DEKA</span><span>Dri-Tri</span><span>Orangetheory benchmarks</span><span>Any goal with a finish line</span>
       </div>
@@ -412,7 +431,7 @@
         <input type="email" id="waitlist-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('waitlist-email','waitlist-success')">Join Waitlist</button>
       </div>
-      <p id="waitlist-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
+      <p id="waitlist-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list. We'll email you before launch.</p>
       <p class="fineprint">Coming soon to iPhone and Apple Watch.</p>
     </div>
   </section>
@@ -425,7 +444,7 @@
 </main>
 
 <footer>
-  <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <a href="/" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
     <li><a href="envahealthscore">How It Works</a></li>
     <li><a href="nutrition">Nutrition</a></li>
@@ -440,6 +459,8 @@
     <li><a href="terms">Terms of Service</a></li>
   </ul>
   <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+  <p class="footer-legal">Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</p>
+  <p class="footer-legal">Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</p>
 </footer>
 
 <script src="waitlist.js" defer></script>
@@ -458,6 +479,7 @@
     els.forEach(function (e) { io.observe(e); });
   })();
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
+<script src="nav.js" defer></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c42a2cff212c4ed688aab488f2b11733"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

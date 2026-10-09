@@ -15,6 +15,12 @@
   <meta property="og:description" content="Energy balance, macros, micronutrients, hydration and timing, against targets built from your own metabolism." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://getenva.ai/nutrition" />
+  <meta property="og:site_name" content="Enva" />
+  <meta property="og:image" content="https://getenva.ai/og/enva-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Enva. The full picture of your health." />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
@@ -85,7 +91,7 @@
     .hero-fineprint { font-size: 13px; color: var(--ink-3); margin-top: 18px; }
     .hero-shot {
       position: relative; z-index: 1; margin-top: 56px;
-      width: clamp(260px, 42vw, 360px);
+      width: clamp(221px, 35.7vw, 306px);
       border-radius: var(--radius-lg);
       box-shadow: 0 40px 90px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
@@ -96,7 +102,7 @@
       gap: 44px; align-items: center; margin-top: 40px;
     }
     .split-shot {
-      width: 100%; border-radius: var(--radius-lg);
+      width: 85%; display: block; margin-left: auto; margin-right: auto; border-radius: var(--radius-lg);
       box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
     }
     .split-text p { font-size: 16px; line-height: 1.7; color: var(--ink-2); }
@@ -215,15 +221,28 @@
 </svg>
 
 <nav>
-  <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
-  <ul class="nav-links">
-    <li><a href="index">Home</a></li>
+  <a href="/" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
     <li><a href="envahealthscore">How It Works</a></li>
-    <li><a href="biological-age">Biological Age</a></li>
+    <li class="has-sub">
+      <button class="sub-toggle active" type="button" aria-expanded="false" aria-controls="nav-features">Features</button>
+      <ul class="sub" id="nav-features">
+        <li><a href="nutrition" class="active" aria-current="page">Nutrition</a></li>
+        <li><a href="fitness">Fitness</a></li>
+        <li><a href="recovery-actions">Recovery Actions</a></li>
+        <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
+        <li><a href="biological-age">Biological Age</a></li>
+      </ul>
+    </li>
+    <li><a href="hyrox">Hyrox</a></li>
     <li><a href="about">About</a></li>
     <li><a href="support">Support</a></li>
   </ul>
-  <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
+  <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path class="nt-open" d="M4 7h16M4 12h16M4 17h16"/><path class="nt-close" d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
 </nav>
 
 <main>
@@ -242,8 +261,8 @@
         </div>
         <a href="#tracks" class="arrow-link">What Enva tracks</a>
       </div>
-      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll be in touch before launch.</p>
-      <p class="hero-fineprint">Coming soon to iPhone.</p>
+      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll email you before launch.</p>
+      <p class="hero-fineprint">Coming soon to iPhone and Apple Watch.</p>
     </div>
     <img class="hero-shot" src="screens/nu-plan.jpg" alt="The Nutrition screen: a fat-loss plan with TDEE and target, protein / carb / fat rings, and a 7-day energy-balance chart" />
   </header>
@@ -305,7 +324,7 @@
         </div>
         <div class="track-row" data-reveal>
           <h3>Hydration</h3>
-          <p>Water and electrolyte intake, with caffeine tracked read-only from HealthKit so it can inform your recovery cutoff.</p>
+          <p>Water and electrolyte intake, with caffeine read from and written to Apple Health so it can inform your recovery cutoff.</p>
         </div>
         <div class="track-row" data-reveal>
           <h3>Timing &amp; consistency</h3>
@@ -379,15 +398,15 @@
         <input type="email" id="nutrition-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('nutrition-email','nutrition-success')">Join Waitlist</button>
       </div>
-      <p id="nutrition-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list.</p>
-      <p class="fineprint">Coming soon to iPhone.</p>
+      <p id="nutrition-success" style="display:none;color:var(--accent);margin-top:16px;font-size:14px;">You're on the list. We'll email you before launch.</p>
+      <p class="fineprint">Coming soon to iPhone and Apple Watch.</p>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <a href="/" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
   <ul class="footer-links">
     <li><a href="envahealthscore">How It Works</a></li>
     <li><a href="nutrition">Nutrition</a></li>
@@ -402,6 +421,8 @@
     <li><a href="terms">Terms of Service</a></li>
   </ul>
   <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+  <p class="footer-legal">Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</p>
+  <p class="footer-legal">Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</p>
 </footer>
 
 <script src="waitlist.js" defer></script>
@@ -420,6 +441,7 @@
     els.forEach(function (e) { io.observe(e); });
   })();
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
+<script src="nav.js" defer></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c42a2cff212c4ed688aab488f2b11733"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
