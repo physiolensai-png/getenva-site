@@ -253,43 +253,14 @@
       background: var(--surface);
     }
 
-    /* ---- integrations ---- */
-    .integrations-strip {
-      text-align: center;
-      padding: 96px 32px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .integrations-strip .kicker { margin-bottom: 24px; }
-    .integrations-strip .row {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 10px 12px; max-width: 720px; margin: 0 auto;
-    }
-    .integrations-strip .row span {
-      font-size: 14px; color: var(--ink-2);
-      padding: 8px 16px; border-radius: 100px;
-      background: var(--surface);
-    }
-    .integrations-strip .int-group { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin: 28px 0 14px; }
-    .integrations-strip .kicker + .int-group { margin-top: 0; }
-    .integrations-strip .row span.soon { color: var(--ink-3); background: transparent; box-shadow: inset 0 0 0 1px var(--border); }
-
     /* ---- what you get + pricing ---- */
-    .get-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 20px; margin-top: 56px;
-    }
-    .get-tile {
-      padding: 28px 24px;
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-      box-shadow: inset 0 0 0 1px var(--border);
-    }
-    .get-tile svg { width: 32px; height: 32px; fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-    .get-tile h3 { font-family: var(--font-display); font-weight: 400; font-size: 19px; line-height: 1.25; margin: 18px 0 8px; color: var(--ink); }
-    .get-tile p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+    .feat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; margin-top: 56px; }
+    .feat { padding: 22px 0; border-top: 1px solid var(--border); }
+    .feat:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .feat h3 { font-family: var(--font-display); font-weight: 400; font-size: 19px; line-height: 1.3; color: var(--ink); margin-bottom: 6px; }
+    .feat p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
     .get-all {
-      margin-top: 28px; text-align: center;
+      margin-top: 40px; text-align: center;
       font-family: var(--font-display); font-weight: 300;
       font-size: clamp(20px, 2.6vw, 28px); letter-spacing: 0.02em; color: var(--ink);
     }
@@ -313,9 +284,8 @@
     .plans-note { text-align: center; font-size: 14px; color: var(--ink-3); margin-top: 22px; }
     .plans-note a { color: var(--accent); }
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-    @media (max-width: 900px) { .get-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 760px) { .feat-list { grid-template-columns: 1fr; } .feat:nth-last-child(2) { border-bottom: 0; } }
     @media (max-width: 520px) {
-      .get-grid { grid-template-columns: 1fr; }
       .plans th, .plans td { padding: 14px 10px; font-size: 14px; }
       .plans thead th { font-size: 16px; }
       .plans .price { font-size: 18px; }
@@ -566,24 +536,6 @@
     </div>
   </section>
 
-  <!-- INTEGRATIONS -->
-  <div class="integrations-strip" data-reveal>
-    <p class="kicker">Connects with your ecosystem</p>
-    <p class="int-group">At launch</p>
-    <div class="row">
-      <span>Apple Watch</span>
-      <span>Peloton</span>
-      <span>Orangetheory</span>
-    </div>
-    <p class="int-group">Coming soon</p>
-    <div class="row">
-      <span class="soon">Oura Ring</span>
-      <span class="soon">Whoop</span>
-      <span class="soon">Garmin</span>
-      <span class="soon">Fitbit</span>
-    </div>
-  </div>
-
   <!-- WHAT YOU GET + PRICING -->
   <section class="beat" id="plans">
     <div class="beat-inner">
@@ -591,26 +543,46 @@
         <p class="kicker">What you get</p>
         <h2 class="h-section">One subscription. Everything in Enva.</h2>
       </div>
-      <div class="get-grid" data-reveal>
-        <div class="get-tile">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7c-1.5-1.8-4.5-2-6 .5-1.8 3 .2 8.5 3 10.5 1 .7 2 .5 3 0 1 .5 2 .7 3 0 2.8-2 4.8-7.5 3-10.5-1.500-2.500-4.500-2.300-6-.5z"/><path d="M12 7c0-2 1-3.500 3-4"/></svg>
+      <div class="feat-list" data-reveal>
+        <div class="feat">
           <h3>Nutrition</h3>
-          <p>Meals, macros and targets built from your own body, scored against your day.</p>
+          <p>Barcode scanning &#183; Recipe tracking &#183; AI food logging</p>
         </div>
-        <div class="get-tile">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg>
-          <h3>Workout tracking and creation</h3>
-          <p>Every session in one place, plus a builder that also runs on Apple Watch.</p>
+        <div class="feat">
+          <h3>Strength</h3>
+          <p>Workout logging &#183; Track weight progress &#183; Create workouts based on your available equipment</p>
         </div>
-        <div class="get-tile">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l1.800 5.200L19 10l-5.200 1.800L12 17l-1.800-5.200L5 10l5.200-1.800z"/><path d="M19 16l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></svg>
-          <h3>Enva Intelligence</h3>
-          <p>Ask questions about your own data and get one specific answer.</p>
+        <div class="feat">
+          <h3>Biomarkers</h3>
+          <p>Load blood work directly or from Apple Health &#183; Blood pressure &#183; Blood sugar tracking</p>
         </div>
-        <div class="get-tile">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 14a4 4 0 005.700 0l3-3a4 4 0 00-5.700-5.700l-1 1"/><path d="M14 10a4 4 0 00-5.700 0l-3 3a4 4 0 005.700 5.700l1-1"/></svg>
-          <h3>Orangetheory and Peloton data</h3>
-          <p>Your classes arrive with the detail each platform actually captured.</p>
+        <div class="feat">
+          <h3>Supplement tracking</h3>
+          <p>Log what you take and see it next to everything else</p>
+        </div>
+        <div class="feat">
+          <h3>Personalized recovery plans</h3>
+          <p>A daily plan drawn from your own numbers</p>
+        </div>
+        <div class="feat">
+          <h3>Workout data</h3>
+          <p>Peloton and Orangetheory data, in full detail</p>
+        </div>
+        <div class="feat">
+          <h3>Enva Intelligence coach</h3>
+          <p>Chat with a coach that reads all of your available data</p>
+        </div>
+        <div class="feat">
+          <h3>Goal tracking</h3>
+          <p>Training for a race, HYROX, Dri-Tri or an Orangetheory benchmark</p>
+        </div>
+        <div class="feat">
+          <h3>Apple Watch app</h3>
+          <p>Record and follow your workouts from your wrist</p>
+        </div>
+        <div class="feat">
+          <h3>Phone widgets</h3>
+          <p>Your numbers at a glance on your home screen</p>
         </div>
       </div>
       <p class="get-all" data-reveal>All of your health data <span>in one place.</span></p>
@@ -633,7 +605,7 @@
               <td class="col-annual"><span class="price">$89.99</span><span class="sub-price">per year, about $7.50 a month</span></td>
             </tr>
             <tr>
-              <th scope="row">Nutrition, workouts, Enva Intelligence and integrations</th>
+              <th scope="row">Every feature listed above</th>
               <td class="yes"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
               <td class="yes col-annual"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
             </tr>
