@@ -527,9 +527,9 @@
         </div>
         <div class="value-block" data-reveal>
           <h3>Your data stays yours</h3>
-          <p>Scores are computed on your phone. If you turn on Enva Intelligence, Enva sends computed summaries, not raw sensor data, to a third-party AI provider to answer your questions. It is never used to train AI models and never sold (<a href="/privacy#enva-intelligence">how it works</a>). Delete everything any time, and export it all to a spreadsheet on the annual plan.</p>
+          <p>Scores are computed on your phone. If you turn on Enva Intelligence, Enva sends computed summaries, not raw sensor data, to a third-party AI provider to answer your questions. It is never used to train AI models and never sold (<a href="/privacy#enva-intelligence">how it works</a>). Delete everything any time.</p>
           <div class="value-chips">
-            <span>On-device scoring</span><span>No model training</span><span>Annual: full export</span>
+            <span>On-device scoring</span><span>No model training</span><span>Delete anytime</span>
           </div>
         </div>
       </div>
@@ -588,7 +588,7 @@
       <p class="get-all" data-reveal>All of your health data <span>in one place.</span></p>
 
       <div class="plans-wrap" data-reveal>
-        <h3 class="plans-title">Pick a plan. Every new subscriber starts with a 7-day free trial.</h3>
+        <h3 class="plans-title">Same Enva, two ways to pay. Every new subscriber starts with a 7-day free trial.</h3>
         <table class="plans">
           <caption class="sr-only">Monthly and annual plan comparison</caption>
           <thead>
@@ -600,9 +600,19 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">Price</th>
+              <th scope="row">Billed</th>
+              <td><span class="price">$12.99</span><span class="sub-price">every month</span></td>
+              <td class="col-annual"><span class="price">$89.99</span><span class="sub-price">once a year</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Works out to</th>
               <td><span class="price">$12.99</span><span class="sub-price">per month</span></td>
-              <td class="col-annual"><span class="price">$89.99</span><span class="sub-price">per year, about $7.50 a month</span></td>
+              <td class="col-annual"><span class="price">$7.50</span><span class="sub-price">per month</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Over a year</th>
+              <td><span class="price">$155.88</span></td>
+              <td class="col-annual"><span class="price">$89.99</span><span class="sub-price">you save $65.89 (42%)</span></td>
             </tr>
             <tr>
               <th scope="row">Every feature listed above</th>
@@ -614,14 +624,9 @@
               <td class="yes"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
               <td class="yes col-annual"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
             </tr>
-            <tr>
-              <th scope="row">Export all your data to a spreadsheet</th>
-              <td class="no"><span aria-hidden="true">&#8212;</span><span class="sr-only">Not included</span></td>
-              <td class="yes col-annual"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
-            </tr>
           </tbody>
         </table>
-        <p class="plans-note">One free trial per customer. Spreadsheet export begins with your first paid annual term, so it is not part of the free trial. Questions? Read the <a href="/support#pricing">pricing FAQ</a>.</p>
+        <p class="plans-note">One free trial per customer. Questions? Read the <a href="/support#pricing">pricing FAQ</a>.</p>
       </div>
     </div>
   </section>
@@ -637,7 +642,7 @@
         <input type="email" id="waitlist-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist('waitlist-email', 'waitlist-success')">Join Waitlist</button>
       </div>
-      <p class="success-msg" id="waitlist-success">You're on the list. We'll email you before launch.</p>
+      <p class="success-msg" id="waitlist-success" style="display:none;">You're on the list. We'll email you before launch.</p>
       <p class="fineprint">No spam. Just a heads-up when Enva is ready.</p>
     </div>
   </section>
