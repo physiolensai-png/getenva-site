@@ -45,11 +45,48 @@
       '" style="color:var(--accent)">' + CONTACT_EMAIL + '</a> and we will add you by hand.';
   }
 
+  // First-touch attribution, kept for the browser session only (sessionStorage,
+  // gone when the tab closes, never a cookie). A visitor usually lands on one
+  // page and signs up on another, so the landing referrer and campaign tags
+  // are saved on arrival and sent with the signup. Coarse on purpose: the
+  // referring site's hostname only (no path or query) and three campaign tags.
+  var ATTR_KEY = 'enva_attr';
+
+  function clean(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9._~ -]/g, '').trim().slice(0, 64);
+  }
+
+  function captureAttribution() {
+    try {
+      if (sessionStorage.getItem(ATTR_KEY)) return;
+      var params = new URLSearchParams(window.location.search);
+      var referrer = '';
+      if (document.referrer) {
+        var host = new URL(document.referrer).hostname.replace(/^www\./, '');
+        var own = window.location.hostname.replace(/^www\./, '');
+        if (host && host !== own) referrer = host;
+      }
+      sessionStorage.setItem(ATTR_KEY, JSON.stringify({
+        referrer: clean(referrer),
+        utm_source: clean(params.get('utm_source')),
+        utm_medium: clean(params.get('utm_medium')),
+        utm_campaign: clean(params.get('utm_campaign')),
+        landing: clean(document.body.getAttribute('data-page'))
+      }));
+    } catch (e) { /* storage blocked or bad referrer: signups just go unattributed */ }
+  }
+
+  function readAttribution() {
+    try { return JSON.parse(sessionStorage.getItem(ATTR_KEY)) || {}; } catch (e) { return {}; }
+  }
+
+  captureAttribution();
+
   function submit(email, source) {
     return fetch(ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, source: source, company: '' })
+      body: JSON.stringify({ email: email, source: source, attribution: readAttribution(), company: '' })
     }).then(function (res) {
       if (!res.ok) throw new Error('http ' + res.status);
       return res.json();

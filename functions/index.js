@@ -114,7 +114,10 @@ exports.notifyWaitlistSignup = onDocumentCreated(
       await sendEmail({
         to: WAITLIST_NOTIFY_EMAIL,
         subject: 'New waitlist signup: ' + email,
-        text: 'Email: ' + email + '\nSource: ' + source
+        text: 'Email: ' + email + '\nSource: ' + source +
+          '\nLanding page: ' + (data.landing || 'unknown') +
+          '\nReferrer: ' + (data.referrer || 'direct or unknown') +
+          '\nCampaign: ' + [data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(' / ')
       });
     } catch (err) {
       console.error('notifyWaitlistSignup: failed to send email', err);
