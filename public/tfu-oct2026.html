@@ -51,6 +51,39 @@
     .step .see strong { color: var(--ink-2); }
     .step-shot { width: 100%; height: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5)); }
 
+
+    .phase { list-style: none; margin-top: 18px; }
+    .phase span { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
+    .phase p { color: var(--ink-3); font-size: 14px; margin-top: 6px; }
+    .step h3 .tag { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--border-light); border-radius: 999px; padding: 3px 9px; margin-left: 10px; vertical-align: middle; }
+    .mini { list-style: none; display: grid; gap: 12px; margin-top: 14px; }
+    .mini li { color: var(--ink-2); line-height: 1.6; font-size: 15px; padding-left: 16px; position: relative; }
+    .mini li::before { content: ""; position: absolute; left: 0; top: 0.75em; width: 6px; height: 2px; background: var(--accent); }
+    .mini strong { color: var(--ink); }
+    .step-shot.placeholder { aspect-ratio: 9 / 19.5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; padding: 24px;
+      border: 1.5px dashed var(--accent-line); border-radius: 28px; background: var(--accent-tint); filter: none; }
+    .step-shot.placeholder span { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+    .step-shot.placeholder em { font-style: normal; font-size: 13px; line-height: 1.5; color: var(--ink-2); }
+
+
+    .where { margin-top: 10px; font-size: 14px; color: var(--ink-2); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+    .where > span { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+    .where b { color: var(--ink); font-weight: 600; }
+    b.plus { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: #121212; font-size: 15px; line-height: 1; font-weight: 700; vertical-align: -2px; }
+    .plus-hub { margin-top: 48px; display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: center; background: var(--surface); border: 1px solid var(--accent-line); border-radius: var(--radius-lg); padding: 36px 40px; }
+    .plus-hub h3 { font-family: var(--font-display); font-weight: 400; font-size: 28px; letter-spacing: 0.02em; margin-top: 4px; }
+    .plus-hub p { color: var(--ink-2); line-height: 1.65; margin-top: 14px; }
+    .plus-hub .hub-note { font-size: 14px; color: var(--ink-3); }
+    .plus-hub-ui { background: var(--ground); border: 1px solid var(--border-light); border-radius: 20px; padding: 18px; }
+    .hub-bar { display: flex; gap: 8px; margin-bottom: 14px; }
+    .hub-btn { width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--border-light); display: inline-flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 16px; }
+    .hub-btn.on { background: var(--accent); border-color: var(--accent); color: #121212; font-weight: 700; font-size: 20px; }
+    .hub-menu { list-style: none; background: var(--surface-2); border-radius: 14px; padding: 6px 0; }
+    .hub-menu li { padding: 10px 16px; font-size: 14px; color: var(--ink); display: flex; gap: 12px; align-items: center; }
+    .hub-menu li i { font-style: normal; width: 18px; text-align: center; opacity: 0.85; }
+    .hub-menu li.sep { padding: 0; height: 1px; margin: 4px 0; background: var(--border-light); }
+    @media (max-width: 760px) { .plus-hub { grid-template-columns: 1fr; padding: 28px 22px; gap: 28px; } }
+
     .goals { margin-top: 44px; border-top: 1px solid var(--border); }
     .goals details { border-bottom: 1px solid var(--border); }
     .goals summary { cursor: pointer; list-style: none; padding: 24px 4px; display: flex; justify-content: space-between; align-items: center;
@@ -114,7 +147,7 @@
 <header class="hero">
   <span class="section-label">TestFlight guide</span>
   <h1 class="display-xl">Welcome to the<br /><span class="accent-text">Enva beta</span></h1>
-  <p class="lede center">Enva does a lot. You do not need to learn all of it today. Start with the six steps below, which take about ten minutes, then explore the rest whenever you are curious.</p>
+  <p class="lede center">Enva does a lot. You do not need to learn all of it today. Start with the eight steps below, which take about ten minutes, then explore the rest whenever you are curious.</p>
   <div class="hero-actions">
     <a href="#start" class="btn-primary">Start here</a>
     <a href="#explore" class="btn-ghost">Browse by goal</a>
@@ -126,41 +159,77 @@
 <section class="beat" id="start">
   <div class="beat-inner">
     <span class="section-label">Quick start</span>
-    <h2 class="h-section">Six steps to a useful first day</h2>
-    <p class="lede">Do these in order. Each one unlocks something the next step builds on.</p>
+    <h2 class="h-section">Eight steps to a useful first day</h2>
+    <p class="lede">Set up first, then try the rest in any order.</p>
+
+
+    <div class="plus-hub">
+      <div class="plus-hub-copy">
+        <span class="section-label">Start here</span>
+        <h3>Almost everything starts at the plus</h3>
+        <p>On Home, look at the top left. Three buttons sit side by side: the menu, the plus, and the fork and knife. Tap the <b class="plus">+</b> to add anything that is not a meal.</p>
+        <p class="hub-note">The same menu is on every tab, so you never have to hunt for it.</p>
+      </div>
+      <div class="plus-hub-ui" aria-label="The plus menu">
+        <div class="hub-bar"><span class="hub-btn">&#8801;</span><span class="hub-btn on">+</span><span class="hub-btn">&#127860;</span></div>
+        <ul class="hub-menu">
+          <li><i>&#9678;</i>Set a Goal</li>
+          <li class="sep"></li>
+          <li><i>&#127947;</i>Add Strength Workout</li>
+          <li><i>&#128167;</i>Add Bloodwork</li>
+          <li><i>&#129489;</i>Add Body Test</li>
+          <li><i>&#128138;</i>Add Supplements</li>
+          <li class="sep"></li>
+          <li><i>&#128279;</i>Add Connection</li>
+        </ul>
+      </div>
+    </div>
 
     <ol class="steps">
+      <li class="phase"><span>Set up</span><p>A few minutes. Everything after this builds on it.</p></li>
       <li class="step">
         <div class="step-copy">
           <span class="step-num">1</span>
-          <h3>Connect Apple Health</h3>
-          <p>Tap <strong>Allow All</strong> when Health asks. Enva reads sleep, heart rate, HRV, workouts and steps from it. The first sync pulls your last 90 days, and older history keeps filling in quietly in the background.</p>
-          <p class="see"><strong>What you should see:</strong> a sync sheet that you can dismiss. Your Health Score appears on Home once there is enough data.</p>
+          <h3>Bring your data with you</h3>
+          <p class="where"><span>Where</span> Top left of Home: <b class="plus">+</b>, then <b>Add Connection</b>. Apple Health permission is asked on first launch.</p>
+          <p>Connect what you already use. Pick whatever applies. Skipping one is fine.</p>
+          <ul class="mini">
+            <li><strong>Apple Health, Oura Ring, or both.</strong> Tap <strong>Allow All</strong> when Health asks. Enva reads sleep, heart rate, HRV, workouts and steps. The first sync pulls your last 90 days, and older history fills in quietly in the background.</li>
+            <li><strong>Peloton or Orangetheory.</strong> Bring in your class workouts with their full detail. Your login stays on your phone.</li>
+          </ul>
+          <p class="see"><strong>What you should see:</strong> a sync sheet you can dismiss, and connected sources listed in Settings.</p>
         </div>
-        <img class="step-shot" src="screens/home-hero-iphone.png" alt="Enva Home tab with Health Score" loading="lazy" />
+        <div class="step-shot placeholder" role="img" aria-label="Screenshot placeholder"><span>Screenshot needed</span><em>Connect screen: Apple Health, Oura Ring, Peloton, Orangetheory</em></div>
       </li>
       <li class="step">
         <div class="step-copy">
           <span class="step-num">2</span>
-          <h3>Read your Health Score</h3>
-          <p>Tap the score on Home. It combines Readiness, Load and Trajectory, and shows how confident it is. A lower confidence label just means Enva has seen less of your data so far. It rises as the days go on.</p>
-          <p class="see"><strong>What you should see:</strong> three pillar bars and a plain-language reason for each.</p>
-        </div>
-        <img class="step-shot" src="screens/hs-score.png" alt="Health Score detail with pillars" loading="lazy" />
-      </li>
-      <li class="step">
-        <div class="step-copy">
-          <span class="step-num">3</span>
           <h3>Set one goal</h3>
-          <p>Open Goals and pick a type: body, event, or individual. Event goals such as Hyrox shape your training phases and your daily fueling advice, so they are the best way to see Enva adapt.</p>
+          <p class="where"><span>Where</span> Top left of Home: <b class="plus">+</b>, then <b>Set a Goal</b>.</p>
+          <p>Open Goals and pick a type: body, event, or individual. Event goals such as Hyrox shape your training phases and your daily fueling advice, so they are the quickest way to see Enva adapt.</p>
           <p class="see"><strong>What you should see:</strong> a phase plan and a goal card on Home.</p>
         </div>
         <img class="step-shot" src="screens/hy-goal.jpg" alt="Setting a goal" loading="lazy" />
       </li>
       <li class="step">
         <div class="step-copy">
+          <span class="step-num">3</span>
+          <h3>Add Enva to your wrist and Home Screen</h3>
+          <p class="where"><span>Where</span> Outside Enva: the Watch app on your iPhone, and your Home Screen editor.</p>
+          <ul class="mini">
+            <li><strong>Apple Watch app.</strong> On your iPhone, open the Watch app, scroll to Enva and tap <strong>Install</strong>. If you do not see it, check that your watch is paired and on watchOS 10 or later. On the watch you get a glance with your activity score, and you can start and log workouts from your wrist.</li>
+            <li><strong>Widgets.</strong> Press and hold an empty spot on your Home Screen, tap the plus, search for Enva, and pick one. Health Score is a good first choice. The Hydration widget lets you log a glass of water without opening the app. <a class="arrow-link" href="tfu-oct2026-widgets">See every widget</a></li>
+          </ul>
+          <p class="see"><strong>What you should see:</strong> Enva on your watch, and a live widget on your Home Screen that matches what the app shows.</p>
+        </div>
+        <div class="step-shot placeholder" role="img" aria-label="Screenshot placeholder"><span>Screenshot needed</span><em>Home Screen with Enva widgets (Health Score, Hydration) beside the Apple Watch glance</em></div>
+      </li>
+      <li class="phase"><span>Try it</span><p>Do these in any order once you are set up.</p></li>
+      <li class="step">
+        <div class="step-copy">
           <span class="step-num">4</span>
-          <h3>Log one meal</h3>
+          <h3>Log a meal</h3>
+          <p class="where"><span>Where</span> Top left of Home: the fork and knife button next to the <b class="plus">+</b>.</p>
           <p>Go to Nutrition and log a meal by search, barcode, or <strong>Estimate with Enva Intelligence</strong> when you only know roughly what you ate. Totals update straight away on Home.</p>
           <p class="see"><strong>What you should see:</strong> calorie and macro rings that move after you save.</p>
         </div>
@@ -169,9 +238,10 @@
       <li class="step">
         <div class="step-copy">
           <span class="step-num">5</span>
-          <h3>Do one workout</h3>
-          <p>Record it on your Apple Watch or phone, or just do your normal session and let it sync. Open it from Training to see heart rate zones, load and recovery.</p>
-          <p class="see"><strong>What you should see:</strong> zone breakdown and a summary for the session.</p>
+          <h3>Log a workout or build one</h3>
+          <p class="where"><span>Where</span> Top left of Home: <b class="plus">+</b>, then <b>Add Strength Workout</b>. Templates are in the Training tab, top right.</p>
+          <p>Finish a normal session and let it sync, then open it from Training to see zones, load and recovery. Or build one in the workout builder from 13 curated templates, or let the AI wizard design it for you.</p>
+          <p class="see"><strong>What you should see:</strong> a zone breakdown and summary for a logged session, or a saved template you can start.</p>
         </div>
         <img class="step-shot" src="screens/fi-summary.jpg" alt="Workout summary" loading="lazy" />
       </li>
@@ -179,10 +249,31 @@
         <div class="step-copy">
           <span class="step-num">6</span>
           <h3>Ask Enva Intelligence</h3>
-          <p>Tap any insight card, or open the chat from Home, and ask something real: "Why is my recovery low today?" or "What should I eat after this workout?" It sees your scores, sleep, training and nutrition.</p>
-          <p class="see"><strong>What you should see:</strong> an answer that cites your own numbers. The daily message limit shows in the chat.</p>
+          <p class="where"><span>Where</span> The sparkle button on any screen.</p>
+          <p>Enva Intelligence is off until you turn it on: tap the sparkle button, then enable it, or go to Settings, then AI. Once it is on, ask something real: "Why is my recovery low today?" or "What should I eat after this workout?" It sees your scores, sleep, training and nutrition.</p>
+          <p class="see"><strong>What you should see:</strong> insight cards unlock across the app, and the chat answers with your own numbers. Your daily message limit shows in the chat.</p>
         </div>
         <img class="step-shot" src="screens/home-intelligence-chat.png" alt="Enva Intelligence chat" loading="lazy" />
+      </li>
+      <li class="step">
+        <div class="step-copy">
+          <span class="step-num">7</span>
+          <h3>View your Enva Health Score</h3>
+          <p class="where"><span>Where</span> Home tab, then tap the score.</p>
+          <p>Tap the score on Home. It combines Readiness, Load and Trajectory, and shows how confident it is. Confidence is low in the first few days because Enva has seen little of your data. That is expected, not a bug, and it rises as the days go on.</p>
+          <p class="see"><strong>What you should see:</strong> three pillar bars with a plain-language reason for each.</p>
+        </div>
+        <img class="step-shot" src="screens/hs-score.png" alt="Health Score detail" loading="lazy" />
+      </li>
+      <li class="step">
+        <div class="step-copy">
+          <span class="step-num">8</span>
+          <h3>View your Biological Age <span class="tag">Optional</span></h3>
+          <p class="where"><span>Where</span> Insights tab, Biological Age card. For labs: <b class="plus">+</b>, then <b>Add Bloodwork</b>.</p>
+          <p>Open Biological Age from Home or Insights. It is built from your wearable data, and it gets sharper if you add lab results by importing from Apple Health Records, uploading a PDF, or entering values by hand.</p>
+          <p class="see"><strong>What you should see:</strong> an age estimate with domain scores, and the markers that moved it.</p>
+        </div>
+        <img class="step-shot" src="screens/ba-score.png" alt="Biological Age score" loading="lazy" />
       </li>
     </ol>
   </div>
