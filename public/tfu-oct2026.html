@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TestFlight Guide Oct 2026 &#183; Enva</title>
+  <meta name="description" content="A short guide for Enva beta testers: what to do first, where features live, and how to send feedback." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://getenva.ai/tfu-oct2026" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
+  <meta name="theme-color" content="#121212" />
+  <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .beat { padding: 92px 32px; position: relative; }
+    .beat.alt { background: var(--ground-2); }
+    .beat-inner { max-width: 1040px; margin: 0 auto; }
+    .beat-inner.narrow { max-width: 760px; }
+    .h-section {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(30px, 4.4vw, 48px);
+      line-height: 1.1; letter-spacing: 0.022em; max-width: 22ch;
+    }
+    .lede { font-size: 18px; line-height: 1.65; color: var(--ink-2); max-width: 58ch; margin-top: 18px; }
+    .lede.center { margin-left: auto; margin-right: auto; text-align: center; }
+    .arrow-link { display: inline-flex; align-items: center; gap: 7px; font-size: 15px; font-weight: 600; color: var(--accent); }
+    .arrow-link::after { content: "\203A"; font-size: 17px; transition: transform var(--transition); }
+    .arrow-link:hover::after { transform: translateX(4px); }
+
+    .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 160px 32px 72px; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(58% 42% at 50% 0%, rgba(228,101,42,0.10), transparent 70%); pointer-events: none; }
+    .hero > * { position: relative; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 34px; }
+    .hero-note { margin-top: 26px; font-size: 13px; color: var(--ink-3); }
+
+    .steps { list-style: none; margin-top: 56px; display: grid; gap: 28px; }
+    .step { display: grid; grid-template-columns: 1fr 220px; gap: 40px; align-items: center;
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 40px; }
+    .step:nth-child(even) { grid-template-columns: 220px 1fr; }
+    .step:nth-child(even) .step-shot { order: -1; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%;
+                border: 1px solid var(--accent-line); background: var(--accent-tint); color: var(--accent);
+                font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 16px; }
+    .step h3 { font-family: var(--font-display); font-weight: 400; font-size: 26px; letter-spacing: 0.02em; }
+    .step p { color: var(--ink-2); line-height: 1.65; margin-top: 12px; font-size: 16px; }
+    .step .see { font-size: 14px; color: var(--ink-3); border-left: 2px solid var(--accent-line); padding-left: 14px; }
+    .step .see strong { color: var(--ink-2); }
+    .step-shot { width: 100%; height: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5)); }
+
+    .goals { margin-top: 44px; border-top: 1px solid var(--border); }
+    .goals details { border-bottom: 1px solid var(--border); }
+    .goals summary { cursor: pointer; list-style: none; padding: 24px 4px; display: flex; justify-content: space-between; align-items: center;
+                     font-family: var(--font-display); font-size: 21px; letter-spacing: 0.02em; }
+    .goals summary::-webkit-details-marker { display: none; }
+    .goals summary::after { content: "+"; color: var(--accent); font-size: 26px; transition: transform var(--transition); }
+    .goals details[open] summary::after { transform: rotate(45deg); }
+    .goals summary:hover { color: var(--accent); }
+    .goal-body { padding: 0 4px 28px; }
+    .goal-body ul { list-style: none; display: grid; gap: 12px; margin-bottom: 18px; }
+    .goal-body li { color: var(--ink-2); line-height: 1.6; padding-left: 18px; position: relative; }
+    .goal-body li::before { content: ""; position: absolute; left: 0; top: 0.75em; width: 6px; height: 2px; background: var(--accent); }
+    .goal-body strong { color: var(--ink); }
+
+    .checks { list-style: none; margin-top: 32px; display: grid; gap: 14px; }
+    .checks li { display: flex; gap: 14px; line-height: 1.6; color: var(--ink-2); padding: 18px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md, 14px); }
+    .checks li::before { content: ""; flex: none; width: 18px; height: 18px; margin-top: 3px; border: 1.5px solid var(--accent-line); border-radius: 5px; }
+    .checks.plain li::before { border-radius: 50%; width: 6px; height: 6px; background: var(--accent); border: 0; margin-top: 10px; }
+    .checks strong { color: var(--ink); }
+
+    .fb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
+    .fb-grid .glass-card { padding: 28px; }
+    .fb-grid h3 { font-family: var(--font-display); font-weight: 400; font-size: 21px; margin-bottom: 10px; }
+    .fb-grid p { color: var(--ink-2); line-height: 1.6; font-size: 15px; }
+
+    .log { margin-top: 28px; border-top: 1px solid var(--border); }
+    .log > div { display: grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .log dt { font-family: var(--font-display); font-weight: 700; color: var(--accent); }
+    .log dd { color: var(--ink-2); line-height: 1.6; }
+
+    @media (max-width: 760px) {
+      .beat { padding: 64px 20px; }
+      .hero { padding: 130px 20px 56px; }
+      .step, .step:nth-child(even) { grid-template-columns: 1fr; padding: 28px 22px; gap: 24px; }
+      .step:nth-child(even) .step-shot { order: 0; }
+      .step-shot { max-width: 240px; margin: 0 auto; }
+      .fb-grid { grid-template-columns: 1fr; }
+      .log > div { grid-template-columns: 64px 1fr; }
+    }
+  </style>
+</head>
+<body data-page="testflight">
+
+<svg class="wordmark-sprite" aria-hidden="true" focusable="false">
+  <symbol id="enva-wordmark" viewBox="0 -30 2349 802">
+    <path fill-rule="nonzero" d="M 266 30 C 142.91667 30 40 130.22222 40 254 L 40 486 C 40 609.77778 142.91667 710 266 710 L 600 710 A 50 50 0 0 0 650 660 A 50 50 0 0 0 600 610 L 266 610 C 197.08333 610 140 554.22222 140 486 L 140 390 L 540 390 A 50 50 0 0 0 590 340 A 50 50 0 0 0 540 290 L 140 290 L 140 254 C 140 185.77778 197.08333 130 266 130 L 600 130 A 50 50 0 0 0 650 80 A 50 50 0 0 0 600 30 L 266 30 z M 950 207 C 885.81481 207 826.53288 226.28198 781.33203 261.38477 C 736.13118 296.48755 705 349.83333 705 410 L 705 660 A 50 50 0 0 0 755 710 A 50 50 0 0 0 805 660 L 805 410 C 805 383.16667 817.36882 360.01245 842.66797 340.36523 C 867.96712 320.71802 906.18519 307 950 307 C 993.81481 307 1032.0329 320.71802 1057.332 340.36523 C 1082.6312 360.01245 1095 383.16667 1095 410 L 1095 660 A 50 50 0 0 0 1145 710 A 50 50 0 0 0 1195 660 L 1195 410 C 1195 349.83333 1163.8688 296.48755 1118.668 261.38477 C 1073.4671 226.28198 1014.1852 207 950 207 z M 1930 207 A 50 50 0 0 0 1880 257 A 50 50 0 0 0 1930 307 L 2080 307 C 2126.9203 307 2157.3736 320.8766 2177.6973 341.2832 C 2188.167 351.7957 2196.3722 364.67443 2201.916 380 L 2035 380 C 1985.3704 380 1937.9103 385.64963 1896.6465 408.97266 C 1855.3827 432.29569 1825 480.41667 1825 535 C 1825 634.44444 1907.9167 713 2010 713 L 2075 713 C 2141.6304 713 2200.8507 694.47511 2243.7891 656.41992 C 2286.7274 618.36473 2310 561.66667 2310 500 L 2310 430 C 2310 369.16667 2289.4791 311.8102 2248.5527 270.7168 C 2207.6264 229.6234 2148.0797 207 2080 207 L 1930 207 z M 1285.291 207.22266 A 50 50 0 0 0 1266.6016 212.8125 A 50 50 0 0 0 1245.8125 280.39844 L 1460.8125 686.39844 A 50.005 50.005 0 0 0 1549.1875 686.39844 L 1764.1875 280.39844 A 50 50 0 0 0 1743.3984 212.8125 A 50 50 0 0 0 1675.8125 233.60156 L 1505 556.1582 L 1334.1875 233.60156 A 50 50 0 0 0 1285.291 207.22266 z M 2035 480 L 2210 480 L 2210 500 C 2210 538.33333 2198.2726 563.13527 2177.4609 581.58008 C 2156.6493 600.02489 2123.3696 613 2075 613 L 2010 613 C 1952.0833 613 1925 585.55556 1925 535 C 1925 509.58333 1929.6173 505.20431 1945.8535 496.02734 C 1962.0897 486.85037 1994.6296 480 2035 480 z "/>
+  </symbol>
+</svg>
+<nav>
+  <a href="index" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="index">Home</a></li>
+    <li><a href="envahealthscore">How It Works</a></li>
+    <li><a href="biological-age">Biological Age</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="support">Support</a></li>
+  </ul>
+  <a href="index#waitlist" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<header class="hero">
+  <span class="section-label">TestFlight guide</span>
+  <h1 class="display-xl">Welcome to the<br /><span class="accent-text">Enva beta</span></h1>
+  <p class="lede center">Enva does a lot. You do not need to learn all of it today. Start with the six steps below, which take about ten minutes, then explore the rest whenever you are curious.</p>
+  <div class="hero-actions">
+    <a href="#start" class="btn-primary">Start here</a>
+    <a href="#explore" class="btn-ghost">Browse by goal</a>
+  </div>
+  <p class="hero-note">Build 1.0 beta &#8226; Updated October 22, 2026</p>
+</header>
+
+<!-- ============ QUICK START ============ -->
+<section class="beat" id="start">
+  <div class="beat-inner">
+    <span class="section-label">Quick start</span>
+    <h2 class="h-section">Six steps to a useful first day</h2>
+    <p class="lede">Do these in order. Each one unlocks something the next step builds on.</p>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-copy">
+          <span class="step-num">1</span>
+          <h3>Connect Apple Health</h3>
+          <p>Tap <strong>Allow All</strong> when Health asks. Enva reads sleep, heart rate, HRV, workouts and steps from it. The first sync pulls your last 90 days, and older history keeps filling in quietly in the background.</p>
+          <p class="see"><strong>What you should see:</strong> a sync sheet that you can dismiss. Your Health Score appears on Home once there is enough data.</p>
+        </div>
+        <img class="step-shot" src="screens/home-hero-iphone.png" alt="Enva Home tab with Health Score" loading="lazy" />
+      </li>
+      <li class="step">
+        <div class="step-copy">
+          <span class="step-num">2</span>
+          <h3>Read your Health Score</h3>
+          <p>Tap the score on Home. It combines Readiness, Load and Trajectory, and shows how confident it is. A lower confidence label just means Enva has seen less of your data so far. It rises as the days go on.</p>
+          <p class="see"><strong>What you should see:</strong> three pillar bars and a plain-language reason for each.</p>
+        </div>
+        <img class="step-shot" src="screens/hs-score.png" alt="Health Score detail with pillars" loading="lazy" />
+      </li>
+      <li class="step">
+        <div class="step-copy">
+          <span class="step-num">3</span>
+          <h3>Set one goal</h3>
+          <p>Open Goals and pick a type: body, event, or individual. Event goals such as Hyrox shape your training phases and your daily fueling advice, so they are the best way to see Enva adapt.</p>
+          <p class="see"><strong>What you should see:</strong> a phase plan and a goal card on Home.</p>
+        </div>
+        <img class="step-shot" src="screens/hy-goal.jpg" alt="Setting a goal" loading="lazy" />
+      </li>
+      <li class="step">
+        <div class="step-copy">
+          <span class="step-num">4</span>
+          <h3>Log one meal</h3>
+          <p>Go to Nutrition and log a meal by search, barcode, or <strong>Estimate with Enva Intelligence</strong> when you only know roughly what you ate. Totals update straight away on Home.</p>
+          <p class="see"><strong>What you should see:</strong> calorie and macro rings that move after you save.</p>
+        </div>
+        <img class="step-shot" src="screens/nu-log.png" alt="Nutrition logging screen" loading="lazy" />
+      </li>
+      <li class="step">
+        <div class="step-copy">
+          <span class="step-num">5</span>
+          <h3>Do one workout</h3>
+          <p>Record it on your Apple Watch or phone, or just do your normal session and let it sync. Open it from Training to see heart rate zones, load and recovery.</p>
+          <p class="see"><strong>What you should see:</strong> zone breakdown and a summary for the session.</p>
+        </div>
+        <img class="step-shot" src="screens/fi-summary.jpg" alt="Workout summary" loading="lazy" />
+      </li>
+      <li class="step">
+        <div class="step-copy">
+          <span class="step-num">6</span>
+          <h3>Ask Enva Intelligence</h3>
+          <p>Tap any insight card, or open the chat from Home, and ask something real: "Why is my recovery low today?" or "What should I eat after this workout?" It sees your scores, sleep, training and nutrition.</p>
+          <p class="see"><strong>What you should see:</strong> an answer that cites your own numbers. The daily message limit shows in the chat.</p>
+        </div>
+        <img class="step-shot" src="screens/home-intelligence-chat.png" alt="Enva Intelligence chat" loading="lazy" />
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ EXPLORE ============ -->
+<section class="beat alt" id="explore">
+  <div class="beat-inner narrow">
+    <span class="section-label">Explore</span>
+    <h2 class="h-section">Find features by what you want to do</h2>
+    <p class="lede">Open a section. Each one lists what is there and where to find it.</p>
+
+    <div class="goals">
+      <details>
+        <summary><span>I want to understand my recovery</span></summary>
+        <div class="goal-body">
+          <ul>
+            <li><strong>Sleep and Recovery:</strong> stages, trends, and a recovery gauge. No wearable? Log sleep by hand for a lower-confidence score.</li>
+            <li><strong>Recovery actions:</strong> a daily checklist on Home. Check things off as you do them.</li>
+            <li><strong>Battery and Stress:</strong> energy through the day and a three-signal stress index.</li>
+          </ul>
+          <a class="arrow-link" href="sleep-recovery">Learn how it works</a>
+        </div>
+      </details>
+      <details>
+        <summary><span>I want to track nutrition</span></summary>
+        <div class="goal-body">
+          <ul>
+            <li><strong>Logging:</strong> search, barcode, restaurant menus, alcohol, supplements by label scan, and recipes you reuse.</li>
+            <li><strong>Targets:</strong> a three-step wizard sets your calories, macros and micronutrients from your body and goal.</li>
+            <li><strong>Trends:</strong> TDEE, macro and micronutrient charts. Drag across any chart to read a day.</li>
+          </ul>
+          <a class="arrow-link" href="nutrition">Learn how it works</a>
+        </div>
+      </details>
+      <details>
+        <summary><span>I want to train smarter</span></summary>
+        <div class="goal-body">
+          <ul>
+            <li><strong>Training tab:</strong> every workout grouped by month, with load against recovery.</li>
+            <li><strong>Workout builder:</strong> a four-step wizard and 13 curated templates. The AI wizard can build your own.</li>
+            <li><strong>Strength logging:</strong> sets, reps and weight, left and right sides, and screenshot import of a plan.</li>
+          </ul>
+          <a class="arrow-link" href="fitness">Learn how it works</a>
+        </div>
+      </details>
+      <details>
+        <summary><span>I am training for an event</span></summary>
+        <div class="goal-body">
+          <ul>
+            <li><strong>Event goals:</strong> Hyrox, Dri-Tri, Deka and class-based formats get phases and fueling guidance.</li>
+            <li><strong>Apple Watch:</strong> start the workout from your wrist. Hyrox mode tracks stations and saves the race to Health.</li>
+          </ul>
+          <a class="arrow-link" href="hyrox">Learn how it works</a>
+        </div>
+      </details>
+      <details>
+        <summary><span>I want the long view</span></summary>
+        <div class="goal-body">
+          <ul>
+            <li><strong>Biological Age:</strong> built from your wearable data and, if you add them, lab results.</li>
+            <li><strong>Labs:</strong> import from Apple Health Records, upload a PDF, or enter values by hand.</li>
+            <li><strong>Activity score:</strong> a 0 to 100 daily index with a scrubber back through history.</li>
+          </ul>
+          <a class="arrow-link" href="biological-age">Learn how it works</a>
+        </div>
+      </details>
+      <details>
+        <summary><span>I want control of my data</span></summary>
+        <div class="goal-body">
+          <ul>
+            <li><strong>Export and delete:</strong> both live in Settings. Export before you delete anything.</li>
+            <li><strong>Data sources:</strong> if you wear more than one device, choose which one wins for each metric.</li>
+            <li><strong>Reminders:</strong> water, caffeine cutoff and recovery nudges, in the app or as system notifications.</li>
+          </ul>
+          <a class="arrow-link" href="privacy">Read the privacy policy</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLEASE TEST ============ -->
+<section class="beat" id="test">
+  <div class="beat-inner narrow">
+    <span class="section-label">What to test</span>
+    <h2 class="h-section">Where your eyes help most</h2>
+    <p class="lede">These are the newest or least-tested parts of this build. If one works, you do not need to say so. If one feels wrong, report it.</p>
+    <ul class="checks">
+      <li><strong>Apple Watch workouts.</strong> Finish one and confirm the summary appears and the workout shows in the Health app.</li>
+      <li><strong>Lab import from Health Records.</strong> Only if you have records linked in Apple Health.</li>
+      <li><strong>Oura Ring connection.</strong> Only if you own one. Check heart rate, steps and sleep.</li>
+      <li><strong>Strength plan import.</strong> Screenshot a plan and check that the numbers match what you sent.</li>
+      <li><strong>Estimate with Enva Intelligence.</strong> Compare an estimate against a meal you know.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ FEEDBACK ============ -->
+<section class="beat alt" id="feedback">
+  <div class="beat-inner narrow">
+    <span class="section-label">Feedback</span>
+    <h2 class="h-section">Two ways to report what happened</h2>
+    <div class="fb-grid">
+      <div class="glass-card">
+        <h3>On an AI answer</h3>
+        <p>Tap the thumbs up or down under any Enva Intelligence response. After a thumbs down you can open a support ticket in one tap and attach screenshots.</p>
+      </div>
+      <div class="glass-card">
+        <h3>Anything else</h3>
+        <p>Take a screenshot in TestFlight (Share, then Send Beta Feedback), or use <strong>Report a bug</strong> in Settings. Either one includes your build and device automatically.</p>
+      </div>
+    </div>
+    <p class="lede">A good report says what you tapped, what you expected, and what happened instead. One sentence each is plenty.</p>
+  </div>
+</section>
+
+<!-- ============ ROUGH EDGES + CHANGELOG ============ -->
+<section class="beat" id="notes">
+  <div class="beat-inner narrow">
+    <span class="section-label">Known issues</span>
+    <h2 class="h-section">Known rough edges</h2>
+    <ul class="checks plain">
+      <li>The first sync can take a few minutes on a large Health history. You can dismiss the sheet and keep using the app.</li>
+      <li>Health Score confidence stays low for the first several days. That is expected.</li>
+      <li>Timed strength rows do not yet save seconds.</li>
+    </ul>
+
+    <span class="section-label" style="margin-top:72px">What is new</span>
+    <h2 class="h-section">Recent changes</h2>
+    <dl class="log">
+      <div><dt>Oct 22</dt><dd>Oura Ring connection added. Heart rate, steps and sleep now flow in.</dd></div>
+      <div><dt>Oct 8</dt><dd>Lab import from Apple Health Records. Thumbs and support tickets on AI answers.</dd></div>
+      <div><dt>Oct 6</dt><dd>Estimate with Enva Intelligence for meals you only know roughly.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <a href="index" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
+  <ul class="footer-links">
+    <li><a href="envahealthscore">How It Works</a></li>
+    <li><a href="nutrition">Nutrition</a></li>
+    <li><a href="fitness">Fitness</a></li>
+    <li><a href="support">Support</a></li>
+    <li><a href="privacy">Privacy Policy</a></li>
+    <li><a href="terms">Terms of Service</a></li>
+  </ul>
+  <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
+</footer>
+</body>
+</html>
