@@ -90,7 +90,7 @@
     .w-card.wide { grid-column: span 2; }
     .w-card h4 { font-family: var(--font-display); font-weight: 400; font-size: 20px; letter-spacing: 0.02em; margin: 8px 8px 0; }
     .w-card p { color: var(--ink-2); font-size: 14.5px; line-height: 1.6; margin: 0 8px; }
-    .w-media { background: #E4652A; border-radius: 16px; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 10px; }
+    .w-media { background: #E4652A; border-radius: var(--radius-lg); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 10px; }
     .w-card.wide .w-media { aspect-ratio: 8 / 3; }
     .w-img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
     .w-media.ph { background: var(--accent-tint); border: 1.5px dashed var(--accent-line); }
@@ -198,7 +198,7 @@
     <p class="lede">Previews use sample data. A good starter set: Health Score for the headline, Recovery Actions for the day, and Hydration so you can log water from the Home Screen.</p>
     <div class="w-grid">
         <div class="w-card">
-          <div class="w-media ph" role="img" aria-label="Screenshot placeholder"><div class="w-shot"><span>Screenshot needed</span><em>Health Score</em></div></div>
+          <div class="w-media"><img class="w-img" src="screens/widgets/health-score.jpg" alt="Health Score widget" loading="lazy" /></div>
           <h4>Health Score</h4>
           <p>Your daily Enva Health Score at a glance.</p>
         </div>
@@ -227,7 +227,7 @@
           <h4>Health Summary</h4>
           <p>HRV, resting heart rate, breathing, oxygen, wrist temperature and sleep, each against its ideal range. Tap to open the Health Monitor.</p>
         </div>
-        <div class="w-card">
+        <div class="w-card wide">
           <div class="w-media"><img class="w-img" src="screens/widgets/nutrition.jpg" alt="Nutrition widget preview" loading="lazy" /></div>
           <h4>Nutrition</h4>
           <p>Net calories, protein, carbs and fat as dials. Protein fills toward its goal. Calories, carbs and fat show when they pass their targets.</p>
@@ -273,17 +273,17 @@
           <p>Any single number you choose, as a ring or a bar. Press and hold, then Edit Widget, to change it.</p>
         </div>
         <div class="w-card">
-          <div class="w-media ph" role="img" aria-label="Screenshot placeholder"><div class="w-shot"><span>Screenshot needed</span><em>HRV (Lock Screen)</em></div></div>
+          <div class="w-media"><img class="w-img" src="screens/widgets/hrv-lock.jpg" alt="HRV (Lock Screen) widget" loading="lazy" /></div>
           <h4>HRV (Lock Screen)</h4>
-          <p>Heart rate variability against your own range.</p>
+          <p>Heart rate variability against your own range, as a number or with the label.</p>
         </div>
         <div class="w-card">
-          <div class="w-media ph" role="img" aria-label="Screenshot placeholder"><div class="w-shot"><span>Screenshot needed</span><em>Resting HR (Lock Screen)</em></div></div>
+          <div class="w-media"><img class="w-img" src="screens/widgets/resting-hr-lock.jpg" alt="Resting HR (Lock Screen) widget" loading="lazy" /></div>
           <h4>Resting HR (Lock Screen)</h4>
-          <p>Resting heart rate against your own range.</p>
+          <p>Resting heart rate against your own range, as a number or with the label.</p>
         </div>
         <div class="w-card">
-          <div class="w-media ph" role="img" aria-label="Screenshot placeholder"><div class="w-shot"><span>Screenshot needed</span><em>Protein (Lock Screen)</em></div></div>
+          <div class="w-media"><img class="w-img" src="screens/widgets/protein-lock.jpg" alt="Protein Lock Screen widget" loading="lazy" /></div>
           <h4>Protein (Lock Screen)</h4>
           <p>Today's protein, filling toward your goal.</p>
         </div>

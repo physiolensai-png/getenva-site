@@ -49,7 +49,11 @@
     .step p { color: var(--ink-2); line-height: 1.65; margin-top: 12px; font-size: 16px; }
     .step .see { font-size: 14px; color: var(--ink-3); border-left: 2px solid var(--accent-line); padding-left: 14px; }
     .step .see strong { color: var(--ink-2); }
-    .step-shot { width: 100%; height: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5)); }
+    .step-shot { width: 100%; height: auto; border-radius: var(--radius-lg); filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5)); }
+    .step.two-up { grid-template-columns: 1fr 360px; }
+    .step.two-up .step-shots { order: 0; }
+    .step-shots { display: flex; gap: 12px; align-items: flex-start; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5)); }
+    .step-shots img { width: calc(50% - 6px); height: auto; border-radius: var(--radius-lg); display: block; }
 
 
     .phase { list-style: none; margin-top: 18px; }
@@ -66,22 +70,16 @@
     .step-shot.placeholder em { font-style: normal; font-size: 13px; line-height: 1.5; color: var(--ink-2); }
 
 
-    .where { margin-top: 10px; font-size: 14px; color: var(--ink-2); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
-    .where > span { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+    .where { margin-top: 10px; font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+    .where > span { margin-right: 10px; font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
     .where b { color: var(--ink); font-weight: 600; }
     b.plus { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: #121212; font-size: 15px; line-height: 1; font-weight: 700; vertical-align: -2px; }
     .plus-hub { margin-top: 48px; display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: center; background: var(--surface); border: 1px solid var(--accent-line); border-radius: var(--radius-lg); padding: 36px 40px; }
     .plus-hub h3 { font-family: var(--font-display); font-weight: 400; font-size: 28px; letter-spacing: 0.02em; margin-top: 4px; }
     .plus-hub p { color: var(--ink-2); line-height: 1.65; margin-top: 14px; }
+    .plus-video { width: 100%; max-width: 300px; justify-self: center; border-radius: var(--radius-lg); border: 1px solid var(--border-light); }
+    .plus-hub .hub-list { font-size: 15px; color: var(--ink); }
     .plus-hub .hub-note { font-size: 14px; color: var(--ink-3); }
-    .plus-hub-ui { background: var(--ground); border: 1px solid var(--border-light); border-radius: 20px; padding: 18px; }
-    .hub-bar { display: flex; gap: 8px; margin-bottom: 14px; }
-    .hub-btn { width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--border-light); display: inline-flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 16px; }
-    .hub-btn.on { background: var(--accent); border-color: var(--accent); color: #121212; font-weight: 700; font-size: 20px; }
-    .hub-menu { list-style: none; background: var(--surface-2); border-radius: 14px; padding: 6px 0; }
-    .hub-menu li { padding: 10px 16px; font-size: 14px; color: var(--ink); display: flex; gap: 12px; align-items: center; }
-    .hub-menu li i { font-style: normal; width: 18px; text-align: center; opacity: 0.85; }
-    .hub-menu li.sep { padding: 0; height: 1px; margin: 4px 0; background: var(--border-light); }
     @media (max-width: 760px) { .plus-hub { grid-template-columns: 1fr; padding: 28px 22px; gap: 28px; } }
 
     .goals { margin-top: 44px; border-top: 1px solid var(--border); }
@@ -120,6 +118,8 @@
       .step, .step:nth-child(even) { grid-template-columns: 1fr; padding: 28px 22px; gap: 24px; }
       .step:nth-child(even) .step-shot { order: 0; }
       .step-shot { max-width: 240px; margin: 0 auto; }
+      .step.two-up { grid-template-columns: 1fr; }
+      .step-shots { max-width: 360px; margin: 0 auto; }
       .fb-grid { grid-template-columns: 1fr; }
       .log > div { grid-template-columns: 64px 1fr; }
     }
@@ -168,21 +168,10 @@
         <span class="section-label">Start here</span>
         <h3>Almost everything starts at the plus</h3>
         <p>On Home, look at the top left. Three buttons sit side by side: the menu, the plus, and the fork and knife. Tap the <b class="plus">+</b> to add anything that is not a meal.</p>
+        <p class="hub-list">Set a Goal, Add Strength Workout, Add Bloodwork, Add Body Test, Add Supplements, Add Connection.</p>
         <p class="hub-note">The same menu is on every tab, so you never have to hunt for it.</p>
       </div>
-      <div class="plus-hub-ui" aria-label="The plus menu">
-        <div class="hub-bar"><span class="hub-btn">&#8801;</span><span class="hub-btn on">+</span><span class="hub-btn">&#127860;</span></div>
-        <ul class="hub-menu">
-          <li><i>&#9678;</i>Set a Goal</li>
-          <li class="sep"></li>
-          <li><i>&#127947;</i>Add Strength Workout</li>
-          <li><i>&#128167;</i>Add Bloodwork</li>
-          <li><i>&#129489;</i>Add Body Test</li>
-          <li><i>&#128138;</i>Add Supplements</li>
-          <li class="sep"></li>
-          <li><i>&#128279;</i>Add Connection</li>
-        </ul>
-      </div>
+      <video class="plus-video" src="screens/tfu-plus.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Tapping the plus at the top left of Home opens the Add menu"></video>
     </div>
 
     <ol class="steps">
@@ -199,7 +188,7 @@
           </ul>
           <p class="see"><strong>What you should see:</strong> a sync sheet you can dismiss, and connected sources listed in Settings.</p>
         </div>
-        <div class="step-shot placeholder" role="img" aria-label="Screenshot placeholder"><span>Screenshot needed</span><em>Connect screen: Apple Health, Oura Ring, Peloton, Orangetheory</em></div>
+        <img class="step-shot" src="screens/tfu-connected-accounts.png" alt="Connected Accounts screen showing Apple Health, Oura Ring, Peloton and Orangetheory" loading="lazy" />
       </li>
       <li class="step">
         <div class="step-copy">
@@ -211,7 +200,7 @@
         </div>
         <img class="step-shot" src="screens/hy-goal.jpg" alt="Setting a goal" loading="lazy" />
       </li>
-      <li class="step">
+      <li class="step two-up">
         <div class="step-copy">
           <span class="step-num">3</span>
           <h3>Add Enva to your wrist and Home Screen</h3>
@@ -222,7 +211,7 @@
           </ul>
           <p class="see"><strong>What you should see:</strong> Enva on your watch, and a live widget on your Home Screen that matches what the app shows.</p>
         </div>
-        <div class="step-shot placeholder" role="img" aria-label="Screenshot placeholder"><span>Screenshot needed</span><em>Home Screen with Enva widgets (Health Score, Hydration) beside the Apple Watch glance</em></div>
+        <div class="step-shots"><img src="screens/tfu-step3-widgets.jpg" alt="Enva widgets on an iPhone Home Screen" loading="lazy" /><img src="screens/tfu-step3-watch.jpg" alt="The Enva app on Apple Watch during a strength workout" loading="lazy" /></div>
       </li>
       <li class="phase"><span>Try it</span><p>Do these in any order once you are set up.</p></li>
       <li class="step">
