@@ -159,7 +159,7 @@
   <div class="container">
     <span class="section-label">Legal</span>
     <h1>Privacy Policy</h1>
-    <p class="policy-meta">Last updated: August 28, 2026</p>
+    <p class="policy-meta">Last updated: November 1, 2026</p>
   </div>
 </section>
 
@@ -204,6 +204,7 @@
           <ul>
             <li><strong>Local storage.</strong> When you connect Enva to Apple Health or other third-party integrations, that health and fitness data (like your heart rate, sleep metrics, and workout history) is imported and processed <strong>locally on your device</strong>. Individual timestamped records — discrete heart rate samples, GPS tracks, raw sleep stage events — never leave your phone.</li>
             <li><strong>Computed summaries, not raw records.</strong> When AI features are enabled, Enva computes aggregate metrics from your data (like your weekly training load or your average sleep score) and sends that computed summary to our AI service to generate a response. The distinction matters: summaries are sent, raw records are not.</li>
+            <li><strong>One exception: Garmin.</strong> Garmin delivers your data by sending it to a server, not by letting your phone request it. If you connect a Garmin account, your Garmin data passes through our backend on its way to your phone. We keep it only until your phone has received it, as described in Section 2F.</li>
           </ul>
         </div>
 
@@ -236,6 +237,16 @@
           <p>Data from connected services, including Apple Health, is processed on your device in the same way as the rest of your health data (see Section 1). It is never used for advertising or marketing, never sold, and never shared with data brokers.</p>
           <p>If you log food or water in Enva, Enva can also write those entries to Apple Health, only with your permission. Delete All Data in Enva does not remove anything from Apple Health, including entries Enva wrote there. You can delete those in the Health app under Sharing, then Apps, then Enva.</p>
           <!-- TODO(Marcus/counsel): confirm the Health app menu path on a current iOS device. -->
+
+          <p id="garmin"><strong>Garmin.</strong> If you connect a Garmin account, Enva receives the Garmin Connect data you choose to share: sleep, heart rate variability, resting heart rate, stress, Body Battery, steps, and activities. Garmin sends this data to our backend on Google Cloud, which holds it only so that your phone can collect it. We delete each record from our servers once your phone has received it, and we delete anything your phone has not collected within 30 days. After that it is stored and processed on your device like the rest of your health data.</p>
+          <ul>
+            <li><strong>How we use it.</strong> Only to show you your own sleep, recovery, and training insights in Enva. We do not sell it, license it, share it with data brokers, or use it for advertising or marketing.</li>
+            <li><strong>Who handles it.</strong> Google Cloud (backend hosting and temporary storage) and, only if you have turned on Garmin data for Enva Intelligence, Anthropic (AI processing, see Section 3). No one else receives it.</li>
+            <li><strong>What you control in Garmin.</strong> Garmin Connect lets you choose which categories of data you share with Enva, and you can revoke Enva's access there at any time.</li>
+            <li><strong>Disconnect and delete.</strong> Disconnecting Garmin in Enva (Settings, Connected Accounts), or removing Enva in Garmin Connect, stops new data and deletes any Garmin data we still hold, along with your Garmin sign-in tokens on our servers. Delete All Data in Enva removes Garmin data stored on your device. To ask us to delete anything else, email <a href="mailto:privacy@getenva.ai">privacy@getenva.ai</a>.</li>
+            <li><strong>Access, correction and export.</strong> What Enva shows you is visible in the app. Your original Garmin data stays with Garmin, so ask Garmin for a copy or to correct it.</li>
+          </ul>
+          <!-- TODO(Marcus/counsel): Garmin is the one integration that stores health data on our servers, which departs from Section 1 and the Terms. Confirm the 30-day cap and delete-on-delivery are what the backend will actually do before this ships, and that the 30-day notice in Section 10 is given for this change. -->
         </div>
 
         <div class="policy-section" id="ai">
@@ -256,6 +267,7 @@
           </ul>
           <p><strong>Device identity.</strong> Your app is associated with an anonymous Firebase device ID — a stable per-install identifier used for AI quota tracking and to associate your conversation history within the app. This ID is not linked to your name, Apple ID, or email address. It is stored in your device's Keychain and survives app updates but is reset on reinstall.</p>
           <p><strong>What our AI service provider does not do.</strong> Your data is not retained by our AI service provider after your response is generated, and is not used to train AI models. For details, refer to our AI service provider's data processing terms.</p>
+          <p id="ai-transparency"><strong>AI transparency statement: Garmin data.</strong> Garmin data is included in an AI request only if you turn on <strong>Settings, Enva Intelligence, Use Garmin data</strong>, which is off by default. When it is on, computed summaries from your Garmin data (for example, your average sleep or Body Battery) can be part of the context sent to our AI service provider, Anthropic, to generate your response. Raw Garmin records are not sent. You can turn this off at any time, and it stops all future use of Garmin data in AI requests. Garmin data, and anything derived from it, is never used to train, evaluate, or improve AI models, by us or by our AI service provider.</p>
           <p><strong>Conversation history.</strong> Your AI chat history is stored locally on your device. It is not stored on our servers. If you delete the app, your conversation history is gone.</p>
           <p><strong>Reproductive health.</strong> Reproductive health data (menstrual cycle, fertility metrics) is not included in any AI context block by default. It stays on your device unless you explicitly type it into a chat message.</p>
         </div>
@@ -272,7 +284,7 @@
                 <li><strong>Google Cloud</strong> — backend infrastructure and Firebase services (anonymous device authentication and the backend that routes AI requests). Governed by Google Cloud's Data Processing Addendum.</li>
                 <li><strong>PostHog</strong> — product analytics (opt-in only; receives an anonymous session ID and event names, no health data).</li>
                 <li><strong>Apple</strong> — subscription billing via the App Store and MetricKit crash diagnostics.</li>
-                <li><strong>AI service provider(s)</strong> — process computed health summaries on our behalf to generate AI responses when you have enabled Enva Intelligence. See §3 for details.</li>
+                <li><strong>Anthropic</strong>: our AI service provider. Processes computed health summaries on our behalf to generate AI responses when you have enabled Enva Intelligence, and processes Garmin summaries only if you have also turned on Garmin data for AI. See §3 for details.</li>
               </ul>
             </li>
             <li><strong>Legal compliance:</strong> If we are legally required to do so by a valid court order, subpoena, or law enforcement request. We will notify you of any compelled disclosure to the extent permitted by law.</li>
@@ -285,6 +297,7 @@
           <p>We use commercially reasonable security measures, including AES-256 encryption at rest and TLS in transit, to protect the limited data we do hold.</p>
           <ul>
             <li><strong>Health data on-device:</strong> Stored in an encrypted SwiftData database protected by iOS file protection. You control retention — when you delete the Enva app, your local data is permanently deleted.</li>
+            <li><strong>Garmin data in transit:</strong> Held on our servers only until your phone has collected it, then deleted, and in any case deleted within 30 days.</li>
             <li><strong>Bug reports:</strong> Retained for up to 12 months and then deleted.</li>
             <li><strong>PostHog analytics:</strong> Retained in anonymized, aggregated form. No health data is included.</li>
             <li><strong>Crash reports (MetricKit):</strong> Retained for up to 12 months and then deleted.</li>
