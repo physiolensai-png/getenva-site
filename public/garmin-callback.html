@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Connecting Garmin &#183; Enva</title>
+  <meta name="description" content="Returning you to the Enva app to finish connecting Garmin." />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+  <meta name="theme-color" content="#121212" />
+  <link rel="preload" href="/fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .nf { min-height: 100vh; display: flex; align-items: center; padding: 96px 32px; }
+    .nf-inner { max-width: 640px; margin: 0 auto; width: 100%; }
+    .nf h1 { font-weight: 300; font-size: clamp(30px, 5vw, 48px); line-height: 1.1; letter-spacing: 0.02em; margin-bottom: 18px; }
+    .nf p { color: var(--ink-2); font-size: 17px; line-height: 1.6; margin-bottom: 32px; }
+    .nf .nav-cta { display: inline-block; }
+  </style>
+</head>
+<body data-page="garmin-callback">
+<main class="nf">
+  <div class="nf-inner">
+    <h1>Returning you to Enva.</h1>
+    <p>If the app does not open on its own, tap the button below on the iPhone where Enva is installed.</p>
+    <a id="open-app" class="nav-cta" href="enva://garmin-callback">Open Enva</a>
+  </div>
+</main>
+<script>
+  // Garmin redirects here with ?code=...&state=... (or ?error=...). Pass the
+  // query string through untouched to the app's custom scheme.
+  (function () {
+    var target = "enva://garmin-callback" + window.location.search;
+    document.getElementById("open-app").setAttribute("href", target);
+    window.location.replace(target);
+  })();
+</script>
+</body>
+</html>
