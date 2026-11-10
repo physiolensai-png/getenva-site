@@ -39,11 +39,6 @@
     ],
     "redirects": [
       {
-        "source": "/nutrition",
-        "destination": "/meals",
-        "type": 301
-      },
-      {
         "source": "/index",
         "destination": "/",
         "type": 301
@@ -54,43 +49,78 @@
         "type": 301
       },
       {
-        "source": "/metrics",
-        "destination": "/envahealthscore",
+        "source": "/nutrition",
+        "destination": "/",
         "type": 301
       },
       {
-        "source": "/health-score",
-        "destination": "/envahealthscore",
+        "source": "/fitness",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/hyrox",
+        "destination": "/",
         "type": 301
       },
       {
         "source": "/Hyrox",
-        "destination": "/hyrox",
+        "destination": "/",
         "type": 301
       },
       {
         "source": "/HYROX",
-        "destination": "/hyrox",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/envahealthscore",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/metrics",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/health-score",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/biological-age",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/sleep-recovery",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/recovery-actions",
+        "destination": "/",
         "type": 301
       },
       {
         "source": "/Otf",
-        "destination": "/otf",
+        "destination": "/",
         "type": 301
       },
       {
         "source": "/OTF",
-        "destination": "/otf",
+        "destination": "/",
         "type": 301
       },
       {
         "source": "/Peloton",
-        "destination": "/peloton",
+        "destination": "/",
         "type": 301
       },
       {
         "source": "/PELOTON",
-        "destination": "/peloton",
+        "destination": "/",
         "type": 301
       }
     ],
