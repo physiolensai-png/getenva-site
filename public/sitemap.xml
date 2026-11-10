@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://getenva.ai/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://getenva.ai/envahealthscore</loc>
@@ -14,15 +14,11 @@
   </url>
   <url>
     <loc>https://getenva.ai/about</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://getenva.ai/support</loc>
-    <lastmod>2026-10-08</lastmod>
-  </url>
-  <url>
-    <loc>https://getenva.ai/nutrition</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://getenva.ai/fitness</loc>
@@ -42,10 +38,18 @@
   </url>
   <url>
     <loc>https://getenva.ai/privacy</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://getenva.ai/terms</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://getenva.ai/meals</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://getenva.ai/widgets</loc>
+    <lastmod>2026-11-09</lastmod>
   </url>
 </urlset>

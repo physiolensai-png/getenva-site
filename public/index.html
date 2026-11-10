@@ -1,698 +1,387 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enva &#183; The Full Picture of Your Health</title>
-  <meta name="description" content="Enva brings every health input together: nutrition, training, recovery actions, sleep, labs. It turns them into outputs you can act on, your Enva Health Score today and your Biological Age over time." />
-  <link rel="canonical" href="https://getenva.ai/" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
-  <meta name="theme-color" content="#121212" />
-  <meta property="og:title" content="Enva &#183; The Full Picture of Your Health" />
-  <meta property="og:description" content="Every health input in one system. Outputs you can act on." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://getenva.ai/" />
-  <meta property="og:site_name" content="Enva" />
-  <meta property="og:image" content="https://getenva.ai/og/enva-og.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Enva. The full picture of your health." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ============================================================
-       Home — 2026 rebuild
-       Dark warm system kept. Apple discipline applied:
-       one idea per beat, strict rhythm, no card chrome,
-       media enlarged, accent held back to CTAs + links.
-       ============================================================ */
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enva | See how it all connects</title>
+<meta name="description" content="Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, with an assistant that answers from all of it.">
+<link rel="canonical" href="https://getenva.ai/home">
+<meta property="og:title" content="Enva | See how it all connects">
+<meta property="og:description" content="Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, with an assistant that answers from all of it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getenva.ai/home">
+<meta property="og:site_name" content="Enva">
+<meta property="og:image" content="https://getenva.ai/og/enva-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Enva. The full picture of your health.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+/*
+  HOME
+  Real media goes in screens/v2/ (see screens/v2/README.md for every filename).
+  Any slot whose file is missing shows a dashed placeholder with the filename.
+  Remove the <meta name="robots"> tag when this replaces index.html.
+*/
+:root{
+  --ground:#F4ECE2; --ground-2:#EBDFD1; --card:#FBF7F1; --line:rgba(42,37,34,.12);
+  --ink:#2A2522; --ink-2:#5E554D; --ink-3:#85796E;
+  --accent:#E4652A; --accent-deep:#C4501B;
+  --font:'Instrument Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ground);color:var(--ink);font:400 17px/1.55 var(--font);margin:0}
+h1,h2,h3{font-family:var(--font);font-weight:500;line-height:1.05;margin:0;letter-spacing:-.03em;text-wrap:balance}
+h2{font-size:clamp(32px,4.4vw,52px)}
+p{margin:0}
+a{color:inherit}
+img,video{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.band{padding-block:88px}
+.alt{background:var(--ground-2)}
+.eyebrow{font-size:14px;letter-spacing:.13em;text-transform:uppercase;color:#B1410D;font-weight:700}
+.lede{color:var(--ink-2);font-size:19px;margin-top:20px;max-width:30em}
+.btn{display:inline-block;background:var(--accent-deep);color:#fff;font:700 16px var(--font);padding:15px 28px;border-radius:999px;text-decoration:none;border:0;cursor:pointer}
+.btn:hover{background:#A94316}
+.btn:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent-deep);outline-offset:3px}
+.link{color:var(--ink-2);text-underline-offset:4px}
 
-    /* ---- rhythm ---- */
-    .beat { padding: 120px 32px; position: relative; }
-    .beat-inner { max-width: 1040px; margin: 0 auto; }
-    .beat-inner.wide { max-width: 1220px; }
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+nav img{height:34px;width:auto}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:15px;color:var(--ink-2)}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--ink)}
+.nav-links .btn{padding:10px 20px;font-size:14.5px;color:#fff}
+@media(max-width:640px){.nav-links a:not(.btn){display:none}}
 
-    .kicker {
-      font-family: var(--font-display);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 22px;
-    }
-    .h-section {
-      font-family: var(--font-display);
-      font-weight: 300;
-      font-size: clamp(30px, 4.4vw, 52px);
-      line-height: 1.1; letter-spacing: 0.022em;
-      max-width: 20ch;
-    }
-    .lede {
-      font-size: 19px; line-height: 1.65;
-      color: var(--ink-2);
-      max-width: 58ch;
-      margin-top: 22px;
-    }
+/* hero */
+.hero{background:radial-gradient(900px 520px at 78% 40%,#F9D9C0 0%,rgba(249,217,192,0) 70%),var(--ground)}
+.hero-in{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding-block:40px 80px}
+.hero h1{font-size:clamp(46px,7vw,88px);margin-top:16px}
+.cta{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:34px}
+.soon{font-size:14px;color:var(--ink-3);margin-top:16px}
+.devices{position:relative;padding-bottom:30px}
+.devices .watch{position:absolute;left:-6%;bottom:0;transform:rotate(-6deg)}
+@media(max-width:860px){.hero-in{grid-template-columns:1fr;gap:56px}.devices .watch{left:4%}}
 
-    /* text link with a moving chevron — the one place besides
-       the CTA where terracotta is allowed */
-    .arrow-link {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 15px; font-weight: 600;
-      color: var(--accent);
-    }
-    .arrow-link::after { content: "\203A"; font-size: 17px; transition: transform var(--transition); }
-    .arrow-link:hover::after { transform: translateX(4px); }
+/* works with */
+.strip{border-block:1px solid var(--line);padding-block:22px}
+.strip .wrap{display:flex;gap:12px 36px;flex-wrap:wrap;align-items:center;justify-content:center;color:var(--ink-3);font-size:15px}
+.strip b{color:var(--ink-2);font-weight:700}
+.strip .lg{display:inline-flex;align-items:center}
+.strip .lg img{height:24px;width:auto;filter:grayscale(1) opacity(.7)}
+.strip .lg img+b{display:none}
+.strip .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase}
 
-    /* ---- hero ---- */
-    .hero {
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center;
-      padding: 188px 32px 0;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(58% 42% at 50% 0%, rgba(228,101,42,0.10), transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; z-index: 1; max-width: 900px; }
-    .hero-eyebrow {
-      font-family: var(--font-display);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent);
-      display: inline-flex; align-items: center; gap: 9px;
-      margin-bottom: 28px;
-    }
-    .hero-eyebrow::before {
-      content: ""; width: 5px; height: 5px; border-radius: 50%;
-      background: var(--accent); display: inline-block;
-    }
-    .hero h1 {
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(46px, 7.2vw, 96px);
-      line-height: 1.02; letter-spacing: 0.028em;
-      text-wrap: balance;
-    }
-    .hero h1 .accent-text { color: var(--accent); }
-    .hero-sub {
-      font-size: 20px; line-height: 1.6;
-      color: var(--ink-2);
-      max-width: 44ch; margin: 26px auto 0;
-      text-wrap: balance;
-    }
-    .hero-cta {
-      display: flex; align-items: center; justify-content: center;
-      gap: 28px; flex-wrap: wrap;
-      margin-top: 38px;
-    }
-    .hero-fineprint { font-size: 13px; color: var(--ink-3); margin-top: 18px; }
+/* ---- MEDIA SLOTS ---- */
+.slot{position:relative;overflow:hidden;background:#0d0d0d;flex:none}
+.slot img,.slot video{width:100%;height:100%;object-fit:cover}
+.phone{width:min(270px,100%);aspect-ratio:9/19.5;margin-inline:auto;border-radius:40px;padding:9px;box-shadow:0 40px 70px -35px rgba(60,30,10,.55)}
+.phone>img,.phone>video{border-radius:32px;position:absolute;inset:9px;width:calc(100% - 18px);height:calc(100% - 18px)}
+.watch{width:148px;aspect-ratio:1/1.22;border-radius:44px;padding:8px;box-shadow:0 30px 50px -25px rgba(60,30,10,.6)}
+.watch>img,.watch>video{border-radius:36px;position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px)}
+/* missing file: show a labelled dashed frame instead of a broken image */
+.slot.missing{background:var(--card);box-shadow:none;border:2px dashed rgba(42,37,34,.28);display:grid;place-items:center;text-align:center;padding:16px;color:var(--ink-3);font-size:12px;line-height:1.35}
+.slot.missing>img,.slot.missing>video{display:none}
+.slot.missing::after{content:attr(data-file) "\A" attr(data-size);white-space:pre;font-weight:600;color:var(--ink-2)}
+.cap{font-size:12px;color:var(--ink-3);text-align:center;margin-top:12px}
+.when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-align:center;margin-top:12px}
 
-    .hero-devices {
-      position: relative; z-index: 1;
-      margin-top: 88px;
-      display: flex; align-items: flex-end; justify-content: center;
-      gap: 6px;
-    }
-    .hero-devices .shot-phone { width: clamp(220px, 30vw, 300px); height: auto; filter: drop-shadow(0 50px 90px rgba(0,0,0,0.6)); }
-    .hero-devices .shot-watch { width: clamp(140px, 20vw, 190px); height: auto; margin-bottom: 3%; filter: drop-shadow(0 30px 55px rgba(0,0,0,0.55)); }
+/* rows */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split.flip .copy{order:2}
+.copy p{color:var(--ink-2);margin-top:18px;max-width:30em}
+.copy ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:9px;color:var(--ink-2);font-size:16px}
+.copy li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:11px;vertical-align:middle}
+@media(max-width:860px){.split{grid-template-columns:1fr;gap:36px}.split.flip .copy{order:0}}
+.twin{display:flex;gap:20px;align-items:flex-start;justify-content:center}
+.twin .a,.twin .b{width:min(260px,47%)}
+.faces{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
-    /* ---- single-line statement ---- */
-    .statement { background: var(--ground-2); text-align: center; }
-    .statement p {
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(25px, 3.6vw, 42px);
-      line-height: 1.3; letter-spacing: 0.03em;
-      max-width: 30ch; margin: 0 auto;
-      color: var(--ink);
-      text-wrap: balance;
-    }
-    .statement br { display: none; }
-    @media (min-width: 620px) { .statement br { display: inline; } }
+/* stacked rows inside a band */
+.head{max-width:34em}
+.subrow{margin-top:72px}
+.row2{display:flex;gap:20px;justify-content:center;align-items:flex-start}
+.row2>div{width:min(250px,48%)}
+.row2 .phone{width:100%}
+.big{font-size:clamp(28px,3.6vw,42px)}
 
-    /* ---- the six dimensions ---- */
-    .dims-head { text-align: center; }
-    .dims-head .h-section, .dims-head .lede { margin-left: auto; margin-right: auto; }
-    .dims-head .lede { text-align: center; }
+/* privacy */
+.priv{display:flex;flex-wrap:wrap;gap:14px 44px;align-items:baseline;justify-content:space-between;border-block:1px solid var(--line);padding-block:34px}
+.priv h3{font-size:26px}
+.priv ul{display:flex;flex-wrap:wrap;gap:8px 28px;list-style:none;padding:0;margin:0;color:var(--ink-2);font-size:15.5px}
 
-    .io-label {
-      font-family: var(--font-display);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--ink-3);
-      display: flex; align-items: center; gap: 14px;
-      margin: 84px 0 40px;
-    }
-    .io-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+/* pricing + waitlist */
+.final{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+.plan{border:1px solid var(--line);border-radius:18px;padding:18px;background:var(--card)}
+.plan.best{border:2px solid var(--accent-deep)}
+.plan .p{font-size:32px;font-weight:500;letter-spacing:-.02em;margin-top:6px}
+.plan .p small{font-size:14px;color:var(--ink-3);font-weight:400;letter-spacing:0}
+.plan .n{font-size:13px;color:var(--ink-3);margin-top:4px}
+.tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+.form{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;display:grid;gap:14px}
+.form label{font-size:14px;color:var(--ink-2)}
+.form input{width:100%;padding:15px 16px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;margin-top:6px}
+.form .fine{font-size:13px;color:var(--ink-3)}
+.success-msg{display:none;color:var(--accent-deep);font-size:15px}
+@media(max-width:860px){.final{grid-template-columns:1fr}}
+@media(max-width:420px){.plans{grid-template-columns:1fr}}
 
-    .dim-row {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 40px 36px;
-    }
-    .dim { display: block; }
-    .dim-figure {
-      aspect-ratio: 1 / 1.6;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--surface-2);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(242,239,233,0.06);
-      transition: transform var(--transition);
-    }
-    .dim-figure img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top center;
-    }
-    .dim:hover .dim-figure { transform: translateY(-4px); }
-    .dim h3 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: 22px; line-height: 1.25; letter-spacing: 0.018em;
-      margin: 26px 0 8px;
-      color: var(--ink);
-    }
-    .dim p { font-size: 15px; line-height: 1.6; color: var(--ink-2); }
-    .dim .arrow-link { margin-top: 14px; font-size: 14px; }
 
-    /* ---- Enva Intelligence (deepest ground) ---- */
-    .intel { background: #0d0c0b; }
-    .intel .kicker { color: var(--accent); }
-    .intel-lede { max-width: 62ch; }
+/* intelligence: what it reads */
+.intro .copy p{max-width:30em}
+.intro .flow{grid-template-columns:1fr;gap:14px;margin-top:30px;max-width:none}
+.intro .flow .to{transform:rotate(90deg);justify-self:start;margin-left:14px}
+.flow{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-top:44px;max-width:860px}
+.flow .src{display:flex;flex-wrap:wrap;gap:10px}
+.flow .src span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:15px;color:var(--ink-2)}
+.flow .to{font-size:30px;color:var(--accent-deep);line-height:1}
+.flow .reply{background:var(--card);border:2px solid var(--accent-deep);border-radius:22px;padding:22px 24px}
+.flow .reply b{display:block;font-size:20px;font-weight:600;letter-spacing:-.01em}
+.flow .reply p{color:var(--ink-2);font-size:15.5px;margin-top:8px}
+.flow .reply small{display:block;margin-top:14px;font-size:12.5px;color:var(--ink-3)}
+@media(max-width:760px){.flow{grid-template-columns:1fr;gap:14px}.flow .to{transform:rotate(90deg);justify-self:start;margin-left:18px}}
 
-    .points {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 0 64px;
-      margin-top: 72px;
-    }
-    .point {
-      padding: 28px 0;
-      border-top: 1px solid var(--border);
-    }
-    .point:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
-    .point .p-tag {
-      font-family: var(--font-display);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--ink-3);
-    }
-    .point h3 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: 20px; line-height: 1.3; letter-spacing: 0.018em;
-      margin: 10px 0 8px; color: var(--ink);
-    }
-    .point p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
-
-    .intel-answer {
-      margin-top: 84px;
-      max-width: 60ch;
-    }
-    .intel-answer h3 {
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.2; letter-spacing: 0.022em;
-      color: var(--ink);
-    }
-    .intel-answer p { font-size: 16px; line-height: 1.7; color: var(--ink-2); margin-top: 16px; }
-
-    .intel-shots {
-      margin-top: 56px;
-      display: flex; gap: 28px; flex-wrap: wrap;
-    }
-    .intel-shots figure { margin: 0; flex: 1; min-width: 240px; }
-    .intel-shots img {
-      width: 100%; height: auto; display: block;
-      border-radius: var(--radius-md);
-      box-shadow: 0 20px 44px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(242,239,233,0.08);
-    }
-    .intel-shots figcaption {
-      font-family: var(--font-display);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--ink-3);
-      text-align: center; margin-top: 14px;
-    }
-
-    /* ---- what makes it work ---- */
-    .value-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      margin-top: 64px;
-    }
-    .value-block h3 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: 21px; margin-bottom: 12px; color: var(--ink);
-    }
-    .value-block p { font-size: 15px; line-height: 1.7; color: var(--ink-2); }
-    .value-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-    .value-chips span {
-      font-size: 12px; color: var(--ink-2);
-      padding: 5px 12px; border-radius: 100px;
-      background: var(--surface);
-    }
-
-    /* ---- what you get + pricing ---- */
-    .feat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; margin-top: 56px; }
-    .feat { padding: 22px 0; border-top: 1px solid var(--border); }
-    .feat:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
-    .feat h3 { font-family: var(--font-display); font-weight: 400; font-size: 19px; line-height: 1.3; color: var(--ink); margin-bottom: 6px; }
-    .feat p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
-    .get-all {
-      margin-top: 40px; text-align: center;
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(20px, 2.6vw, 28px); letter-spacing: 0.02em; color: var(--ink);
-    }
-    .get-all span { color: var(--accent); }
-
-    .plans-wrap { max-width: 760px; margin: 72px auto 0; }
-    .plans-title { font-family: var(--font-display); font-weight: 400; font-size: 21px; text-align: center; color: var(--ink); margin-bottom: 24px; }
-    .plans { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; }
-    .plans th, .plans td { padding: 18px 20px; border-bottom: 1px solid var(--border); font-size: 15px; line-height: 1.4; vertical-align: middle; }
-    .plans thead th { font-family: var(--font-display); font-weight: 400; font-size: 18px; color: var(--ink); vertical-align: bottom; }
-    .plans tbody th { font-weight: 400; color: var(--ink-2); }
-    .plans td { color: var(--ink); }
-    .plans .col-annual { background: rgba(228,101,42,0.07); }
-    .plans thead .col-annual { border-top-left-radius: var(--radius-md); border-top-right-radius: var(--radius-md); box-shadow: inset 0 2px 0 var(--accent); }
-    .plans tbody tr:last-child .col-annual { border-bottom-left-radius: var(--radius-md); border-bottom-right-radius: var(--radius-md); }
-    .plans .badge { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-    .plans .price { font-family: var(--font-display); font-size: 22px; }
-    .plans .sub-price { display: block; font-size: 13px; color: var(--ink-3); margin-top: 2px; }
-    .plans .yes { color: var(--accent); font-weight: 600; }
-    .plans .no { color: var(--ink-3); }
-    .plans-note { text-align: center; font-size: 14px; color: var(--ink-3); margin-top: 22px; }
-    .plans-note a { color: var(--accent); }
-    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-    @media (max-width: 760px) { .feat-list { grid-template-columns: 1fr; } .feat:nth-last-child(2) { border-bottom: 0; } }
-    @media (max-width: 520px) {
-      .plans th, .plans td { padding: 14px 10px; font-size: 14px; }
-      .plans thead th { font-size: 16px; }
-      .plans .price { font-size: 18px; }
-    }
-
-    /* ---- waitlist ---- */
-    .waitlist { text-align: center; position: relative; overflow: hidden; }
-    .waitlist::before {
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(50% 60% at 50% 50%, rgba(228,101,42,0.09), transparent 70%);
-    }
-    .waitlist-inner { position: relative; z-index: 1; }
-    .waitlist h2 {
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(34px, 5vw, 62px);
-      line-height: 1.08; letter-spacing: 0.028em;
-      margin-bottom: 18px;
-    }
-    .waitlist h2 .accent-text { color: var(--accent); }
-    .waitlist p { font-size: 17px; color: var(--ink-2); margin-bottom: 34px; }
-    .waitlist .waitlist-form { margin: 0 auto; }
-    .waitlist .success-msg { color: var(--accent); }
-    .waitlist .fineprint { font-size: 13px; color: var(--ink-3); margin-top: 16px; }
-
-    /* ---- reveal ---- */
-    [data-reveal] { opacity: 0; transform: translateY(18px); }
-    .revealed { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
-
-    /* ---- responsive ---- */
-    @media (max-width: 900px) {
-      .beat { padding: 104px 24px; }
-      .dim-row { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
-      .points { grid-template-columns: 1fr; }
-      .point { padding: 22px 0; }
-      .point:nth-last-child(-n+2) { border-bottom: 0; }
-      .point:last-child { border-bottom: 1px solid var(--border); }
-      .value-grid { grid-template-columns: 1fr; gap: 40px; }
-      .hero { padding-top: 160px; min-height: 0; }
-      .hero-devices { margin-top: 68px; }
-    }
-    @media (max-width: 560px) {
-      .dim-row { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
-      .intel-shots { gap: 18px; }
-      .intel-shots figure { min-width: 100%; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      [data-reveal] { opacity: 1; transform: none; }
-    }
-  </style>
+/* mobile menu */
+.menu-btn{display:none;width:44px;height:44px;padding:0;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);border-radius:50%;color:var(--ink);cursor:pointer}
+.menu-btn .bars,.menu-btn .bars::before,.menu-btn .bars::after{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+.menu-btn .bars{position:relative}
+.menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0}
+.menu-btn .bars::before{top:-6px}
+.menu-btn .bars::after{top:6px}
+.menu-btn[aria-expanded="true"] .bars{background:transparent}
+.menu-btn[aria-expanded="true"] .bars::before{top:0;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars::after{top:0;transform:rotate(-45deg)}
+@media(prefers-reduced-motion:reduce){.menu-btn .bars,.menu-btn .bars::before,.menu-btn .bars::after{transition:none}}
+.menu{display:none}
+@media(max-width:640px){
+  nav{position:relative;flex-wrap:nowrap}
+  .nav-links{margin-left:auto}
+  .menu-btn{display:inline-flex}
+  .menu:not([hidden]){display:block;position:absolute;left:0;right:0;top:calc(100% - 4px);z-index:30;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:8px;box-shadow:0 24px 50px -20px rgba(60,30,10,.35)}
+  .menu a{display:block;padding:14px 16px;border-radius:12px;text-decoration:none;font-size:18px;color:var(--ink)}
+  .menu a:hover,.menu a:focus-visible{background:var(--ground-2)}
+}
+footer{border-top:1px solid var(--line);padding-block:36px 56px;color:var(--ink-3);font-size:13.5px;display:grid;gap:14px}
+footer .links{display:flex;gap:10px 24px;flex-wrap:wrap;color:var(--ink-2);font-size:14.5px}
+footer a{text-decoration:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
 <body data-page="home">
 
-<!-- Enva wordmark — approved production pass. Path data is byte-identical to
-     Brand/logo/svg (sha256 672d64021d776879). Do not regenerate or re-trace. -->
-<svg class="wordmark-sprite" aria-hidden="true" focusable="false">
-  <symbol id="enva-wordmark" viewBox="0 -30 2349 802">
-    <path fill-rule="nonzero" d="M 266 30 C 142.91667 30 40 130.22222 40 254 L 40 486 C 40 609.77778 142.91667 710 266 710 L 600 710 A 50 50 0 0 0 650 660 A 50 50 0 0 0 600 610 L 266 610 C 197.08333 610 140 554.22222 140 486 L 140 390 L 540 390 A 50 50 0 0 0 590 340 A 50 50 0 0 0 540 290 L 140 290 L 140 254 C 140 185.77778 197.08333 130 266 130 L 600 130 A 50 50 0 0 0 650 80 A 50 50 0 0 0 600 30 L 266 30 z M 950 207 C 885.81481 207 826.53288 226.28198 781.33203 261.38477 C 736.13118 296.48755 705 349.83333 705 410 L 705 660 A 50 50 0 0 0 755 710 A 50 50 0 0 0 805 660 L 805 410 C 805 383.16667 817.36882 360.01245 842.66797 340.36523 C 867.96712 320.71802 906.18519 307 950 307 C 993.81481 307 1032.0329 320.71802 1057.332 340.36523 C 1082.6312 360.01245 1095 383.16667 1095 410 L 1095 660 A 50 50 0 0 0 1145 710 A 50 50 0 0 0 1195 660 L 1195 410 C 1195 349.83333 1163.8688 296.48755 1118.668 261.38477 C 1073.4671 226.28198 1014.1852 207 950 207 z M 1930 207 A 50 50 0 0 0 1880 257 A 50 50 0 0 0 1930 307 L 2080 307 C 2126.9203 307 2157.3736 320.8766 2177.6973 341.2832 C 2188.167 351.7957 2196.3722 364.67443 2201.916 380 L 2035 380 C 1985.3704 380 1937.9103 385.64963 1896.6465 408.97266 C 1855.3827 432.29569 1825 480.41667 1825 535 C 1825 634.44444 1907.9167 713 2010 713 L 2075 713 C 2141.6304 713 2200.8507 694.47511 2243.7891 656.41992 C 2286.7274 618.36473 2310 561.66667 2310 500 L 2310 430 C 2310 369.16667 2289.4791 311.8102 2248.5527 270.7168 C 2207.6264 229.6234 2148.0797 207 2080 207 L 1930 207 z M 1285.291 207.22266 A 50 50 0 0 0 1266.6016 212.8125 A 50 50 0 0 0 1245.8125 280.39844 L 1460.8125 686.39844 A 50.005 50.005 0 0 0 1549.1875 686.39844 L 1764.1875 280.39844 A 50 50 0 0 0 1743.3984 212.8125 A 50 50 0 0 0 1675.8125 233.60156 L 1505 556.1582 L 1334.1875 233.60156 A 50 50 0 0 0 1285.291 207.22266 z M 2035 480 L 2210 480 L 2210 500 C 2210 538.33333 2198.2726 563.13527 2177.4609 581.58008 C 2156.6493 600.02489 2123.3696 613 2075 613 L 2010 613 C 1952.0833 613 1925 585.55556 1925 535 C 1925 509.58333 1929.6173 505.20431 1945.8535 496.02734 C 1962.0897 486.85037 1994.6296 480 2035 480 z "/>
-  </symbol>
-</svg>
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a href="/" aria-label="Enva home"><img alt="Enva" src="logo/enva-wordmark-terracotta.svg"></a>
+      <div class="nav-links">
+      <a href="meals">Meals</a>
+      <a href="widgets">Widgets</a>
+      <a href="about">About</a>
+      <a href="support">Support</a>
+      <a class="btn" href="/#waitlist">Join waitlist</a>
+    </div>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><span class="bars" aria-hidden="true"></span></button>
+  <div class="menu" id="site-menu" hidden><a href="meals">Meals</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a></div>
+    </nav>
 
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="/" class="active" aria-current="page">Home</a></li>
-    <li><a href="envahealthscore">How It Works</a></li>
-    <li class="has-sub">
-      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="nav-features">Features</button>
-      <ul class="sub" id="nav-features">
-        <li><a href="nutrition">Nutrition</a></li>
-        <li><a href="fitness">Fitness</a></li>
-        <li><a href="recovery-actions">Recovery Actions</a></li>
-        <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
-        <li><a href="biological-age">Biological Age</a></li>
-        <li><a href="widgets">Widgets</a></li>
-      </ul>
-    </li>
-    <li><a href="hyrox">Hyrox</a></li>
-    <li><a href="about">About</a></li>
-    <li><a href="support">Support</a></li>
-  </ul>
-  <a href="#waitlist" class="nav-cta">Join Waitlist</a>
-  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
-    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path class="nt-open" d="M4 7h16M4 12h16M4 17h16"/><path class="nt-close" d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
-</nav>
-
-<main>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <p class="hero-eyebrow">Coming soon to iPhone and Apple Watch</p>
-      <h1>Optimize the outputs.<br /><span class="accent-text">Start with the inputs.</span></h1>
-      <p class="hero-sub">Your training, food and recovery, and the sleep, Health Score and Biological Age they produce. One system, so you can see which input is moving which output.</p>
-      <div class="hero-cta">
-        <div class="waitlist-form">
-          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
-          <input type="email" id="hero-email" placeholder="your@email.com" />
-          <button class="btn-primary" onclick="handleWaitlist('hero-email', 'hero-success')">Join Waitlist</button>
+    <div class="hero-in">
+      <div>
+        <div class="eyebrow">For iPhone and Apple Watch</div>
+        <h1>See how it all connects.</h1>
+        <p class="lede">Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, and an assistant that answers from all of it.</p>
+        <div class="cta">
+          <a class="btn" href="#waitlist">Join the waitlist</a>
+          <a class="link" href="envahealthscore">See how it works</a>
         </div>
-        <a href="envahealthscore" class="arrow-link">See how it works</a>
+        <p class="soon">7 days free when we launch. Then $12.99 a month.</p>
       </div>
-      <p class="hero-fineprint" id="hero-success" style="display:none;color:var(--accent);">You're on the list. We'll email you before launch.</p>
-      <p class="hero-fineprint">Be first to know when Enva launches.</p>
-    </div>
-
-    <div class="hero-devices" data-reveal>
-      <img class="shot-phone" src="screens/home-hero-iphone.png" alt="Enva home screen on iPhone" />
-      <img class="shot-watch" src="screens/home-hero-watch.png" alt="Enva workout screen on Apple Watch" />
-    </div>
-  </header>
-
-  <!-- STATEMENT -->
-  <section class="beat statement">
-    <div class="beat-inner" data-reveal>
-      <p>Every health app holds one piece.<br />Enva reads across all of them.</p>
-    </div>
-  </section>
-
-  <!-- SIX DIMENSIONS -->
-  <section class="beat">
-    <div class="beat-inner wide">
-      <div class="dims-head" data-reveal>
-        <p class="kicker">The whole picture</p>
-        <h2 class="h-section">Six dimensions. One system.</h2>
-        <p class="lede">Most tools track one dimension and hand you a chart. Enva treats your health as inputs and outputs, the things you do and the results they produce, in a single model where a change in one shows up everywhere it should.</p>
-      </div>
-
-      <p class="io-label" data-reveal>Inputs &#183; what you control</p>
-      <div class="dim-row">
-        <a href="nutrition" class="dim" data-reveal>
-          <div class="dim-figure"><img src="screens/home-nutrition.png" alt="Enva nutrition screen" /></div>
-          <h3>Nutrition</h3>
-          <p>What you're actually fueling with, measured against targets from your own metabolism.</p>
-          <span class="arrow-link">Explore Nutrition</span>
-        </a>
-        <a href="fitness" class="dim" data-reveal>
-          <div class="dim-figure"><img src="screens/home-fitness.png" alt="Enva fitness screen" /></div>
-          <h3>Fitness</h3>
-          <p>Every session enriched with the detail Apple Health flattens away.</p>
-          <span class="arrow-link">Explore Fitness</span>
-        </a>
-        <a href="recovery-actions" class="dim" data-reveal>
-          <div class="dim-figure"><img src="screens/home-recovery-actions.png" alt="Enva recovery actions screen" /></div>
-          <h3>Recovery Actions</h3>
-          <p>You can't control your recovery score. You can control what you do about it today.</p>
-          <span class="arrow-link">Explore Recovery Actions</span>
-        </a>
-      </div>
-
-      <p class="io-label" data-reveal>Outputs &#183; what they produce</p>
-      <div class="dim-row">
-        <a href="sleep-recovery" class="dim" data-reveal>
-          <div class="dim-figure"><img src="screens/home-sleep-recovery.png" alt="Enva sleep and recovery screen" /></div>
-          <h3>Sleep &amp; Recovery</h3>
-          <p>How last night went, and whether you're ready to push today.</p>
-          <span class="arrow-link">Explore Sleep &amp; Recovery</span>
-        </a>
-        <a href="envahealthscore" class="dim" data-reveal>
-          <div class="dim-figure"><img src="screens/home-health-score.png" alt="Enva Health Score screen" /></div>
-          <h3>Enva Health Score</h3>
-          <p>One number for how your week is actually going, across three weighted pillars.</p>
-          <span class="arrow-link">Explore the Health Score</span>
-        </a>
-        <a href="biological-age" class="dim" data-reveal>
-          <div class="dim-figure"><img src="screens/home-biological-age.png" alt="Enva Biological Age screen" /></div>
-          <h3>Biological Age</h3>
-          <p>What all of it adds up to over months and years.</p>
-          <span class="arrow-link">Explore Biological Age</span>
-        </a>
+      <div class="devices">
+        <div class="slot phone" data-file="hero-phone.jpg" data-size="1179 x 2556"><img src="screens/v2/hero-phone.jpg" width="720" height="1560" fetchpriority="high" alt="Enva Intelligence answering a question about HRV using workouts, sleep and food"></div>
+        <div class="slot watch" data-file="hero-watch.png" data-size="410 x 502"><img src="screens/v2/hero-watch.png" alt="Enva on Apple Watch showing today's Health Score"></div>
       </div>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- ENVA INTELLIGENCE -->
-  <section class="beat intel">
-    <div class="beat-inner">
-      <div data-reveal>
-        <p class="kicker">Enva Intelligence</p>
-        <h2 class="h-section">Four services. Four answers. None of them talking.</h2>
-        <p class="lede intel-lede">Every service you pay for holds one piece of the picture and stops at its own edge. Enva Intelligence is the layer that reads across all of them, understands the goal you're training toward, and turns it into an answer you can act on today.</p>
-      </div>
+<div class="strip"><div class="wrap">
+  <span class="lbl">Works with</span><span class="lg"><img src="screens/v2/logos/apple-watch.svg" alt="Apple Watch" onerror="this.remove()"><b>Apple Watch</b></span><span class="lg"><img src="screens/v2/logos/apple-health.svg" alt="Apple Health" onerror="this.remove()"><b>Apple Health</b></span><span class="lg"><img src="screens/v2/logos/apple-health-records.svg" alt="Apple Health Records" onerror="this.remove()"><b>Apple Health Records</b></span><span class="lg"><img src="screens/v2/logos/oura.svg" alt="Oura" onerror="this.remove()"><b>Oura</b></span><span class="lg"><img src="screens/v2/logos/peloton.svg" alt="Peloton" onerror="this.remove()"><b>Peloton</b></span><span class="lg"><img src="screens/v2/logos/orangetheory.svg" alt="Orangetheory" onerror="this.remove()"><b>Orangetheory</b></span></div></div>
 
-      <div class="points" data-reveal>
-        <div class="point">
-          <p class="p-tag">Your apps</p>
-          <h3>Every app has one piece of the puzzle</h3>
-          <p>The sleep app knows your sleep. The training app knows your workouts. Neither shows how one is moving the other.</p>
-        </div>
-        <div class="point">
-          <p class="p-tag">Your labs</p>
-          <h3>Blood work is disconnected from everything</h3>
-          <p>Your panel never meets your fitness, your nutrition or your sleep, where the numbers would actually mean something.</p>
-        </div>
-        <div class="point">
-          <p class="p-tag">Your gym</p>
-          <h3>Your workout subscription doesn't know your goal</h3>
-          <p>Peloton, Orangetheory and the rest program for the class in front of you, not the race or target you're working toward.</p>
-        </div>
-        <div class="point">
-          <p class="p-tag">Your plate</p>
-          <h3>Nutrition never reaches your doctor</h3>
-          <p>What you eat and what your labs say sit in different apps that never compare notes.</p>
-        </div>
-      </div>
+<!-- SCORE -->
+<section class="band"><div class="wrap">
+  <div class="split">
+    <div class="copy">
+      <div class="eyebrow">The score</div>
+      <h2 style="margin-top:14px">Your age in years. Your day in one number.</h2>
+      <p>Biological Age shows where your habits are taking you over months. The Health Score shows how today is going. Both come from the same sleep, training, nutrition and lab data, and both explain what moved them.</p>
+      <ul><li>Biological Age estimate that improves as you add labs</li><li>Daily Health Score that works with a watch alone</li><li>Scored on your phone, not on a server</li></ul>
+    </div>
+    <div class="twin">
+      <div class="a"><div class="slot phone" data-file="score-health.jpg" data-size="1179 x 2556"><img src="screens/v2/score-health.jpg" alt="Health Score screen" loading="lazy"></div><div class="when">Health Score</div></div>
+      <div class="b"><div class="slot phone" data-file="score-biological-age.jpg" data-size="1179 x 2556"><img src="screens/v2/score-biological-age.jpg" alt="Biological Age screen" loading="lazy"></div><div class="when">Biological Age</div></div>
+    </div>
+  </div>
+</div></section>
 
-      <div class="intel-answer" data-reveal>
-        <h3>One system that pulls it together.</h3>
-        <p>Enva Intelligence weighs every source against each other and against where you're headed, then gives you one specific, actionable answer. The same intelligence runs through the whole app, so it always knows where you are in your fitness journey: on your Health Score, on every workout you finish, on your next session.</p>
-      </div>
+<!-- APPLE WATCH -->
+<section class="band alt"><div class="wrap">
+  <div class="split flip">
+    <div class="copy">
+      <div class="eyebrow">Apple Watch</div>
+      <h2 style="margin-top:14px">Start the workout from your wrist.</h2>
+      <p>Pick a workout, see big readable numbers mid-effort, and get a summary the moment you finish. Everything saves to Apple Health and lands in Enva with your score already updated.</p>
+      <ul><li>Big tiles you can read in a hard interval</li><li>Summary on your wrist, confirmation on your phone</li><li>Rings, readiness and the day's score at a glance</li></ul>
+    </div>
+    <div class="faces">
+      <div class="slot watch" data-file="watch-start.png" data-size="410 x 502"><img src="screens/v2/watch-start.png" alt="Apple Watch workout picker" loading="lazy"></div>
+      <div class="slot watch" data-file="watch-live.png" data-size="410 x 502"><img src="screens/v2/watch-live.png" alt="Apple Watch live heart rate" loading="lazy"></div>
+      <div class="slot watch" data-file="watch-summary.png" data-size="410 x 502"><img src="screens/v2/watch-summary.png" alt="Apple Watch workout summary" loading="lazy"></div>
+    </div>
+  </div>
+</div></section>
 
-      <div class="intel-shots" data-reveal>
-        <figure>
-          <img src="screens/home-intelligence-chat.png" alt="Enva Intelligence answering a training question with data from across the app" />
-          <figcaption>Ask anything</figcaption>
-        </figure>
-        <figure>
-          <img src="screens/home-intelligence-workout.png" alt="Enva Intelligence session analysis on a completed HIIT workout" />
-          <figcaption>On every workout</figcaption>
-        </figure>
+<!-- WHAT GOES IN -->
+<section class="band"><div class="wrap">
+  <div class="split">
+    <div class="copy">
+      <div class="eyebrow">What goes in</div>
+      <h2 style="margin-top:14px">Log it once. It counts everywhere.</h2>
+      <p>Scan, search or describe a meal and the day's calories, macros and micronutrients update as you go. Strength sets, Orangetheory, Peloton and Watch workouts land in one history, with no double counting.</p>
+      <ul><li>Food, supplements and micronutrients</li><li>Strength sets with left and right tracking</li><li>Classes and rides from your other apps</li></ul>
+    </div>
+    <div>
+      <div class="row2">
+        <div><div class="slot phone" data-file="food.mp4" data-size="video, 1170 x 2532, under 8 MB"><video muted loop playsinline preload="none" data-lazy poster="screens/v2/food-poster.jpg" aria-label="Logging a meal in Enva"><source src="screens/v2/food.mp4" type="video/mp4"></video></div><div class="when">Food</div></div>
+        <div><div class="slot phone" data-file="training.mp4" data-size="video, 1170 x 2532, under 8 MB"><video muted loop playsinline preload="none" data-lazy poster="screens/v2/training-poster.jpg" aria-label="Logging a workout in Enva"><source src="screens/v2/training.mp4" type="video/mp4"></video></div><div class="when">Training</div></div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- WHAT MAKES IT WORK -->
-  <section class="beat">
-    <div class="beat-inner">
-      <div data-reveal>
-        <p class="kicker">What makes it work</p>
-        <h2 class="h-section">Better inputs in. Better outputs out.</h2>
-      </div>
-      <div class="value-grid">
-        <div class="value-block" data-reveal>
-          <h3>Direct device connections</h3>
-          <p>Apple Health flattens your data to a generic "workout." Enva connects to each ecosystem directly and keeps what they actually capture: Peloton output and leaderboard rank, Orangetheory splat points, rower splits and tread pace.</p>
-          <div class="value-chips">
-            <span>Apple Watch</span><span>Peloton</span><span>Orangetheory</span>
-          </div>
-        </div>
-        <div class="value-block" data-reveal>
-          <h3>Your data stays yours</h3>
-          <p>Scores are computed on your phone. If you turn on Enva Intelligence, Enva sends computed summaries, not raw sensor data, to a third-party AI provider to answer your questions. It is never used to train AI models and never sold (<a href="/privacy#enva-intelligence">how it works</a>). Delete everything any time.</p>
-          <div class="value-chips">
-            <span>On-device scoring</span><span>No model training</span><span>Delete anytime</span>
-          </div>
-        </div>
+  <div class="split flip subrow">
+    <div class="copy">
+      <div class="eyebrow">Blood work</div>
+      <h2 style="margin-top:14px">Your labs, next to your training.</h2>
+      <p>Bring in results from Apple Health Records, or upload a PDF or a photo of a lab report. Anything Enva cannot match is listed by name, never guessed.</p>
+      <ul><li>Cholesterol, glucose, hormones and more</li><li>Trends once you have two results</li><li>Delete any result at any time</li></ul>
+    </div>
+    <div><div class="slot phone" data-file="labs.mp4" data-size="video, 1170 x 2532, under 8 MB"><video muted loop playsinline preload="none" data-lazy poster="screens/v2/labs-poster.jpg" aria-label="Blood work results imported from Apple Health Records"><source src="screens/v2/labs.mp4" type="video/mp4"></video></div></div>
+  </div>
+</div></section>
+
+<!-- ENVA INTELLIGENCE -->
+<section class="band alt"><div class="wrap">
+  <div class="split intro">
+    <div class="copy">
+      <div class="eyebrow">Enva Intelligence</div>
+    <h2 style="margin-top:14px">An assistant that has read all of it.</h2>
+    <p class="lede">Ask in plain language. Enva answers from your workouts, food, sleep and labs together, using your own numbers, in plain language.</p>
+      <div class="flow" aria-label="Enva Intelligence reads your workouts, food, sleep, heart rate and blood work, then answers in one reply">
+      <div class="src"><span>Workouts</span><span>Food log</span><span>Sleep</span><span>Heart rate</span><span>Blood work</span></div>
+      <div class="to" aria-hidden="true">&rarr;</div>
+      <div class="reply"><b>One answer.</b><p>Written from all of it together, in plain language.</p><small>Built on your own numbers, not generic advice</small></div>
+    </div>
+    </div>
+    <div><div class="slot phone" data-file="ai-intro.mp4" data-size="video, 1170 x 2532, under 8 MB"><video muted loop playsinline preload="none" data-lazy poster="screens/v2/ai-intro-poster.jpg" aria-label="Asking Enva Intelligence what to focus on this week and getting one answer from training, sleep and food"><source src="screens/v2/ai-intro.mp4" type="video/mp4"></video></div></div>
+  </div>
+
+  <div class="split subrow">
+    <div class="copy">
+      <h3 class="big">Build your workout plan.</h3>
+      <p>Around your goal, your schedule and the classes you already love. Ask for a Hyrox block, a strength cycle or a lighter week.</p>
+    </div>
+    <div><div class="slot phone" data-file="ai-workout-plan.mp4" data-size="video, 1170 x 2532, under 8 MB"><video muted loop playsinline preload="none" data-lazy poster="screens/v2/ai-workout-plan-poster.jpg" aria-label="Enva Intelligence building a workout plan"><source src="screens/v2/ai-workout-plan.mp4" type="video/mp4"></video></div></div>
+  </div>
+
+  <div class="split flip subrow">
+    <div class="copy">
+      <h3 class="big">Find your next meal.</h3>
+      <p>High protein, low fat, and sized to the calories you have left today. Log it with one tap.</p>
+    </div>
+    <div><div class="slot phone" data-file="ai-meal.mp4" data-size="video, 1170 x 2532, under 8 MB"><video muted loop playsinline preload="none" data-lazy poster="screens/v2/ai-meal-poster.jpg" aria-label="Enva Intelligence suggesting a high protein, low fat meal"><source src="screens/v2/ai-meal.mp4" type="video/mp4"></video></div></div>
+  </div>
+
+  <div class="split subrow">
+    <div class="copy">
+      <h3 class="big">Connect everything.</h3>
+      <p>One answer from your watch, your food log and your lab results, together.</p>
+    </div>
+    <div><div class="slot phone" data-file="ai-connected.mp4" data-size="video, 1170 x 2532, under 8 MB"><video muted loop playsinline preload="none" data-lazy poster="screens/v2/ai-connected-poster.jpg" aria-label="Enva Intelligence answering from workouts, sleep, food and labs"><source src="screens/v2/ai-connected.mp4" type="video/mp4"></video></div></div>
+  </div>
+</div></section>
+
+<!-- PRIVACY -->
+<div class="wrap" style="padding-block:64px 0">
+  <div class="priv">
+    <h3>Your data stays yours.</h3>
+    <ul><li>Scored on your device</li><li>Never used to train models</li><li>Delete everything anytime</li></ul>
+    <a class="link" href="/privacy#enva-intelligence">Read the privacy policy</a>
+  </div>
+</div>
+
+<!-- PRICING + WAITLIST -->
+<section class="band" id="waitlist"><div class="wrap">
+  <div class="final">
+    <div>
+      <div class="eyebrow">Early access</div>
+      <h2 style="margin-top:14px">Be first in when Enva opens.</h2>
+      <p class="lede">Waitlist members get the launch invite first. Both plans start with a 7-day free trial, one per customer.</p>
+      <div class="plans">
+        <div class="plan"><div class="tag" style="color:var(--ink-3)">Monthly</div><div class="p">$12.99 <small>/ month</small></div><div class="n">Cancel anytime</div></div>
+        <div class="plan best"><div class="tag">Save 42%</div><div class="p">$89.99 <small>/ year</small></div><div class="n">About $7.50 a month</div></div>
       </div>
     </div>
-  </section>
-
-  <!-- WHAT YOU GET + PRICING -->
-  <section class="beat" id="plans">
-    <div class="beat-inner">
-      <div data-reveal>
-        <p class="kicker">What you get</p>
-        <h2 class="h-section">One subscription. Everything in Enva.</h2>
-      </div>
-      <div class="feat-list" data-reveal>
-        <div class="feat">
-          <h3>Nutrition</h3>
-          <p>Barcode scanning &#183; Recipe tracking &#183; AI food logging</p>
-        </div>
-        <div class="feat">
-          <h3>Strength</h3>
-          <p>Workout logging &#183; Track weight progress &#183; Create workouts based on your available equipment</p>
-        </div>
-        <div class="feat">
-          <h3>Biomarkers</h3>
-          <p>Load blood work directly or from Apple Health &#183; Blood pressure &#183; Blood sugar tracking</p>
-        </div>
-        <div class="feat">
-          <h3>Supplement tracking</h3>
-          <p>Log what you take and see it next to everything else</p>
-        </div>
-        <div class="feat">
-          <h3>Personalized recovery plans</h3>
-          <p>A daily plan drawn from your own numbers</p>
-        </div>
-        <div class="feat">
-          <h3>Workout data</h3>
-          <p>Peloton and Orangetheory data, in full detail</p>
-        </div>
-        <div class="feat">
-          <h3>Enva Intelligence coach</h3>
-          <p>Chat with a coach that reads all of your available data</p>
-        </div>
-        <div class="feat">
-          <h3>Goal tracking</h3>
-          <p>Training for a race, HYROX, Dri-Tri or an Orangetheory benchmark</p>
-        </div>
-        <div class="feat">
-          <h3>Apple Watch app</h3>
-          <p>Record and follow your workouts from your wrist</p>
-        </div>
-        <div class="feat">
-          <h3>Phone widgets</h3>
-          <p>Your numbers at a glance on your home screen</p>
-        </div>
-      </div>
-      <p class="get-all" data-reveal>All of your health data <span>in one place.</span></p>
-
-      <div class="plans-wrap" data-reveal>
-        <h3 class="plans-title">Same Enva, two ways to pay. Every new subscriber starts with a 7-day free trial.</h3>
-        <table class="plans">
-          <caption class="sr-only">Monthly and annual plan comparison</caption>
-          <thead>
-            <tr>
-              <td></td>
-              <th scope="col">Monthly</th>
-              <th scope="col" class="col-annual"><span class="badge">Best value</span>Annual</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Billed</th>
-              <td><span class="price">$12.99</span><span class="sub-price">every month</span></td>
-              <td class="col-annual"><span class="price">$89.99</span><span class="sub-price">once a year</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Works out to</th>
-              <td><span class="price">$12.99</span><span class="sub-price">per month</span></td>
-              <td class="col-annual"><span class="price">$7.50</span><span class="sub-price">per month</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Over a year</th>
-              <td><span class="price">$155.88</span></td>
-              <td class="col-annual"><span class="price">$89.99</span><span class="sub-price">you save $65.89 (42%)</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Every feature listed above</th>
-              <td class="yes"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
-              <td class="yes col-annual"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
-            </tr>
-            <tr>
-              <th scope="row">7-day free trial</th>
-              <td class="yes"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
-              <td class="yes col-annual"><span aria-hidden="true">&#10003;</span><span class="sr-only">Included</span></td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="plans-note">One free trial per customer. Questions? Read the <a href="/support#pricing">pricing FAQ</a>.</p>
-      </div>
+    <div class="form">
+      <label for="waitlist-email">Email</label><input id="waitlist-email" type="email" placeholder="you@example.com" autocomplete="email">
+    <button class="btn" type="button" onclick="handleWaitlist('waitlist-email', 'waitlist-success')">Join the waitlist</button>
+      <p class="success-msg" id="waitlist-success">You're on the list. We'll email you before launch.</p>
+      <p class="fine">Coming soon to iPhone and Apple Watch.</p>
     </div>
-  </section>
+  </div>
+</div></section>
 
-  <!-- WAITLIST -->
-  <section class="beat waitlist" id="waitlist">
-    <div class="waitlist-inner beat-inner" data-reveal>
-      <p class="kicker" style="color:var(--accent);">Early Access</p>
-      <h2>Be the first to<br /><span class="accent-text">see the full picture.</span></h2>
-      <p>Coming soon to iPhone and Apple Watch. Join the waitlist and we'll email you before launch.</p>
-      <div class="waitlist-form">
-        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
-        <input type="email" id="waitlist-email" placeholder="your@email.com" />
-        <button class="btn-primary" onclick="handleWaitlist('waitlist-email', 'waitlist-success')">Join Waitlist</button>
-      </div>
-      <p class="success-msg" id="waitlist-success" style="display:none;">You're on the list. We'll email you before launch.</p>
-      <p class="fineprint">No spam. Just a heads-up when Enva is ready.</p>
-    </div>
-  </section>
+<div class="wrap"><footer>
+  <div class="links"><a href="meals">Meals</a><a href="widgets">Widgets</a><a href="fitness">Fitness</a><a href="hyrox">Hyrox</a><a href="envahealthscore">Health Score</a><a href="biological-age">Biological Age</a><a href="sleep-recovery">Sleep &amp; Recovery</a><a href="recovery-actions">Recovery Actions</a><a href="about">About</a><a href="support">Support</a><a href="privacy">Privacy</a><a href="terms">Terms</a></div>
+  <div>Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</div>
+  <div>Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</div>
+  <div>&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</div>
+</footer></div>
 
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <a href="/" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
-  <ul class="footer-links">
-    <li><a href="envahealthscore">How It Works</a></li>
-    <li><a href="nutrition">Nutrition</a></li>
-    <li><a href="fitness">Fitness</a></li>
-    <li><a href="recovery-actions">Recovery Actions</a></li>
-    <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
-    <li><a href="biological-age">Biological Age</a></li>
-    <li><a href="widgets">Widgets</a></li>
-    <li><a href="hyrox">Hyrox</a></li>
-    <li><a href="about">About</a></li>
-    <li><a href="support">Support</a></li>
-    <li><a href="privacy">Privacy Policy</a></li>
-    <li><a href="terms">Terms of Service</a></li>
-  </ul>
-  <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
-  <p class="footer-legal">Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</p>
-  <p class="footer-legal">Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</p>
-</footer>
-
-<script src="waitlist.js" defer></script>
 <script>
-  (function () {
-    var els = document.querySelectorAll('[data-reveal]');
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      els.forEach(function (e) { e.classList.add('revealed'); });
-      return;
+/* Mark any slot whose image or video file is missing so it shows the labelled placeholder. */
+(function(){
+  function mark(slot){slot.classList.add('missing')}
+  document.querySelectorAll('.slot').forEach(function(slot){
+    var img=slot.querySelector('img'), vid=slot.querySelector('video');
+    if(img){
+      img.addEventListener('error',function(){mark(slot)});
+      if(img.complete&&!img.naturalWidth&&img.getAttribute('src'))mark(slot);
     }
-    if (!('IntersectionObserver' in window)) {
-      els.forEach(function (e) { e.classList.add('revealed'); });
-      return;
+    if(vid){
+      var src=vid.querySelector('source');
+      if(src)src.addEventListener('error',function(){mark(slot)});
+      vid.addEventListener('error',function(){mark(slot)});
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){vid.removeAttribute('autoplay');vid.setAttribute('controls','')}
     }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('revealed'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (e) { io.observe(e); });
-  })();
+  });
+})();
 </script>
-<script src="nav.js" defer></script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c42a2cff212c4ed688aab488f2b11733"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+/* Load and play each video only while it is near the screen, so the page does not download every clip up front. */
+(function(){var v=[].slice.call(document.querySelectorAll('video[data-lazy]'));if(!v.length)return;
+var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(rm||!('IntersectionObserver' in window)){v.forEach(function(x){x.setAttribute('controls','');x.preload='metadata'});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var x=e.target;if(e.isIntersecting){var p=x.play();if(p&&p.catch)p.catch(function(){})}else{x.pause()}})},{rootMargin:'250px 0px'});
+v.forEach(function(x){io.observe(x)})})();
+</script>
+<script src="menu.js" defer></script>
+<script src="waitlist.js" defer></script>
 </body>
 </html>

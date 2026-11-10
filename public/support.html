@@ -1,362 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Support &#183; Enva</title>
-  <meta name="description" content="Pricing, data, integrations, and how to reach us. Everything you need before or after you join the waitlist." />
-  <link rel="canonical" href="https://getenva.ai/support" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png" />
-  <meta name="theme-color" content="#121212" />
-  <meta property="og:title" content="Support &#183; Enva" />
-  <meta property="og:description" content="Pricing, data, integrations, and how to reach us." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://getenva.ai/support" />
-  <meta property="og:site_name" content="Enva" />
-  <meta property="og:image" content="https://getenva.ai/og/enva-og.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Enva. The full picture of your health." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preload" href="fonts/EnvaSans-Light.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/EnvaSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ============================================================
-       Support — 2026 rebuild. Same system as the rest of the site.
-       ============================================================ */
-
-    .beat { padding: 92px 32px; position: relative; }
-    .beat-inner { max-width: 1040px; margin: 0 auto; }
-    .beat-inner.narrow { max-width: 760px; }
-
-    .kicker {
-      font-family: var(--font-display);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--ink-3); margin-bottom: 22px;
-    }
-    .h-section {
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(30px, 4.4vw, 52px);
-      line-height: 1.1; letter-spacing: 0.022em; max-width: 22ch;
-    }
-    .lede {
-      font-size: 19px; line-height: 1.65;
-      color: var(--ink-2); max-width: 58ch; margin-top: 18px;
-    }
-    .arrow-link {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 15px; font-weight: 600; color: var(--accent);
-    }
-    .arrow-link::after { content: "\203A"; font-size: 17px; transition: transform var(--transition); }
-    .arrow-link:hover::after { transform: translateX(4px); }
-
-    /* ---- hero ---- */
-    .hero {
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; padding: 168px 32px 96px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(58% 42% at 50% 0%, rgba(228,101,42,0.10), transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; z-index: 1; max-width: 700px; }
-    .hero-eyebrow {
-      font-family: var(--font-display);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
-      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px;
-    }
-    .hero-eyebrow::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
-    .hero h1 {
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(40px, 5.6vw, 68px);
-      line-height: 1.06; letter-spacing: 0.024em; text-wrap: balance;
-    }
-    .hero h1 .accent-text { color: var(--accent); }
-    .hero-sub {
-      font-size: 19px; line-height: 1.6; color: var(--ink-2);
-      max-width: 46ch; margin: 22px auto 0; text-wrap: balance;
-    }
-
-    /* ---- contact row ---- */
-    .contact-row {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 0; margin-top: 48px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .contact-item {
-      padding: 28px 26px;
-      border-left: 1px solid var(--border);
-    }
-    .contact-item:first-child { border-left: 0; }
-    .contact-item h3 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: 18px; margin-bottom: 8px; letter-spacing: 0.012em;
-    }
-    .contact-item p { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); margin-bottom: 12px; }
-
-    /* ---- FAQ ---- */
-    .faq-list { margin-top: 44px; }
-    .faq-item { border-top: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: 1px solid var(--border); }
-    .faq-question {
-      width: 100%; background: none; border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: space-between; gap: 20px;
-      padding: 24px 0; text-align: left;
-      font-family: var(--font-display); font-size: 18px; font-weight: 400;
-      color: var(--ink); letter-spacing: 0.012em;
-      transition: color var(--transition);
-    }
-    .faq-item.open .faq-question { color: var(--accent); }
-    .faq-chevron { width: 18px; height: 18px; flex-shrink: 0; color: var(--ink-3); transition: transform var(--transition); }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--accent); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-    .faq-item.open .faq-answer { max-height: 520px; }
-    .faq-answer-inner { padding: 0 0 26px; font-size: 15px; color: var(--ink-2); line-height: 1.75; max-width: 68ch; }
-    .faq-answer-inner a { color: var(--accent); }
-    .faq-answer-inner .fineprint { display: block; margin-top: 12px; font-size: 12.5px; color: var(--ink-3); }
-
-    /* ---- contact form ---- */
-    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
-    .form-group label { font-size: 13px; font-weight: 600; color: var(--ink-2); }
-    .form-group input, .form-group select, .form-group textarea {
-      padding: 13px 16px; border-radius: var(--radius-sm);
-      background: var(--surface); border: 1px solid var(--border-light);
-      color: var(--ink); font-family: var(--font-body); font-size: 15px;
-      outline: none; transition: border-color var(--transition);
-    }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--ink-3); }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
-    .form-group select { appearance: none; cursor: pointer; }
-    .form-group textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
-    .form-success {
-      display: none; padding: 16px 20px; background: var(--accent-tint);
-      border: 1px solid var(--accent-line); border-radius: var(--radius-sm);
-      color: var(--ink); font-size: 14.5px; margin-top: 16px;
-    }
-
-    [data-reveal] { opacity: 0; transform: translateY(18px); }
-    .revealed { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
-
-    @media (max-width: 900px) {
-      .beat { padding: 76px 24px; }
-      .contact-row { grid-template-columns: 1fr; border-bottom: 0; }
-      .contact-item { border-left: 0; border-top: 1px solid var(--border); padding: 24px 0; }
-      .contact-item:first-child { border-top: 0; }
-      .hero { padding-top: 150px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      [data-reveal] { opacity: 1; transform: none; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support | Enva</title>
+<meta name="description" content="Questions about Enva, your data or an integration. Answers and a way to reach us.">
+<link rel="canonical" href="https://getenva.ai/support">
+<meta property="og:title" content="Support | Enva">
+<meta property="og:description" content="Questions about Enva, your data or an integration. Answers and a way to reach us.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getenva.ai/support">
+<meta property="og:site_name" content="Enva">
+<meta property="og:image" content="https://getenva.ai/og/enva-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Enva. The full picture of your health.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="v2.css">
 </head>
 <body data-page="support">
-
-<!-- Enva wordmark — approved production pass. Path data is byte-identical to
-     Brand/logo/svg (sha256 672d64021d776879). Do not regenerate or re-trace. -->
-<svg class="wordmark-sprite" aria-hidden="true" focusable="false">
-  <symbol id="enva-wordmark" viewBox="0 -30 2349 802">
-    <path fill-rule="nonzero" d="M 266 30 C 142.91667 30 40 130.22222 40 254 L 40 486 C 40 609.77778 142.91667 710 266 710 L 600 710 A 50 50 0 0 0 650 660 A 50 50 0 0 0 600 610 L 266 610 C 197.08333 610 140 554.22222 140 486 L 140 390 L 540 390 A 50 50 0 0 0 590 340 A 50 50 0 0 0 540 290 L 140 290 L 140 254 C 140 185.77778 197.08333 130 266 130 L 600 130 A 50 50 0 0 0 650 80 A 50 50 0 0 0 600 30 L 266 30 z M 950 207 C 885.81481 207 826.53288 226.28198 781.33203 261.38477 C 736.13118 296.48755 705 349.83333 705 410 L 705 660 A 50 50 0 0 0 755 710 A 50 50 0 0 0 805 660 L 805 410 C 805 383.16667 817.36882 360.01245 842.66797 340.36523 C 867.96712 320.71802 906.18519 307 950 307 C 993.81481 307 1032.0329 320.71802 1057.332 340.36523 C 1082.6312 360.01245 1095 383.16667 1095 410 L 1095 660 A 50 50 0 0 0 1145 710 A 50 50 0 0 0 1195 660 L 1195 410 C 1195 349.83333 1163.8688 296.48755 1118.668 261.38477 C 1073.4671 226.28198 1014.1852 207 950 207 z M 1930 207 A 50 50 0 0 0 1880 257 A 50 50 0 0 0 1930 307 L 2080 307 C 2126.9203 307 2157.3736 320.8766 2177.6973 341.2832 C 2188.167 351.7957 2196.3722 364.67443 2201.916 380 L 2035 380 C 1985.3704 380 1937.9103 385.64963 1896.6465 408.97266 C 1855.3827 432.29569 1825 480.41667 1825 535 C 1825 634.44444 1907.9167 713 2010 713 L 2075 713 C 2141.6304 713 2200.8507 694.47511 2243.7891 656.41992 C 2286.7274 618.36473 2310 561.66667 2310 500 L 2310 430 C 2310 369.16667 2289.4791 311.8102 2248.5527 270.7168 C 2207.6264 229.6234 2148.0797 207 2080 207 L 1930 207 z M 1285.291 207.22266 A 50 50 0 0 0 1266.6016 212.8125 A 50 50 0 0 0 1245.8125 280.39844 L 1460.8125 686.39844 A 50.005 50.005 0 0 0 1549.1875 686.39844 L 1764.1875 280.39844 A 50 50 0 0 0 1743.3984 212.8125 A 50 50 0 0 0 1675.8125 233.60156 L 1505 556.1582 L 1334.1875 233.60156 A 50 50 0 0 0 1285.291 207.22266 z M 2035 480 L 2210 480 L 2210 500 C 2210 538.33333 2198.2726 563.13527 2177.4609 581.58008 C 2156.6493 600.02489 2123.3696 613 2075 613 L 2010 613 C 1952.0833 613 1925 585.55556 1925 535 C 1925 509.58333 1929.6173 505.20431 1945.8535 496.02734 C 1962.0897 486.85037 1994.6296 480 2035 480 z "/>
-  </symbol>
-</svg>
-
-<nav>
-  <a href="/" class="nav-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="envahealthscore">How It Works</a></li>
-    <li class="has-sub">
-      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="nav-features">Features</button>
-      <ul class="sub" id="nav-features">
-        <li><a href="nutrition">Nutrition</a></li>
-        <li><a href="fitness">Fitness</a></li>
-        <li><a href="recovery-actions">Recovery Actions</a></li>
-        <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
-        <li><a href="biological-age">Biological Age</a></li>
-        <li><a href="widgets">Widgets</a></li>
-      </ul>
-    </li>
-    <li><a href="hyrox">Hyrox</a></li>
-    <li><a href="about">About</a></li>
-    <li><a href="support" class="active" aria-current="page">Support</a></li>
-  </ul>
-  <a href="/#waitlist" class="nav-cta">Join Waitlist</a>
-  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
-    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path class="nt-open" d="M4 7h16M4 12h16M4 17h16"/><path class="nt-close" d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
-</nav>
-
-<main>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <p class="hero-eyebrow">Support</p>
-      <h1>We're here<br /><span class="accent-text">to help.</span></h1>
-      <p class="hero-sub">Questions about Enva, your data, or an integration? Reach out and we'll get back to you quickly.</p>
+<header class="phead">
+<div class="wrap">
+  <nav>
+    <a href="/" aria-label="Enva home"><img alt="Enva" src="logo/enva-wordmark-terracotta.svg"></a>
+    <div class="nav-links">
+      <a href="meals">Meals</a>
+      <a href="widgets">Widgets</a>
+      <a href="about">About</a>
+      <a href="support">Support</a>
+      <a class="btn" href="/#waitlist">Join waitlist</a>
     </div>
-  </header>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><span class="bars" aria-hidden="true"></span></button>
+  <div class="menu" id="site-menu" hidden><a href="meals">Meals</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a></div>
+  </nav>
+  <div class="eyebrow" style="margin-top:34px">Support</div>
+  <h1>We're here to help.</h1>
+  <p class="lede">Questions about Enva, your data, or an integration? Reach out and we'll get back to you quickly.</p>
+</div>
+</header>
 
-  <!-- CONTACT OPTIONS + FAQ -->
-  <section class="beat" style="padding-top:0;">
-    <div class="beat-inner">
-      <div class="contact-row" data-reveal>
-        <div class="contact-item">
-          <h3>Email us</h3>
-          <p>For account questions, app help, or anything that needs a personal response.</p>
-          <a href="mailto:support@getenva.ai" class="arrow-link">support@getenva.ai</a>
-        </div>
-        <div class="contact-item">
-          <h3>Privacy requests</h3>
-          <p>Data access, export, deletion, or any question about how we handle your information.</p>
-          <a href="mailto:privacy@getenva.ai" class="arrow-link">privacy@getenva.ai</a>
-        </div>
-        <div class="contact-item">
-          <h3>Use the form below</h3>
-          <p>Describe your issue and we'll route it to the right person, usually within one business day.</p>
-          <a href="#contact-form" class="arrow-link">Jump to form</a>
-        </div>
-      </div>
+<section class="band" style="padding-bottom:40px"><div class="wrap"><div class="cards"><div class="card"><h3>Email us</h3><p>For account questions, app help, or anything that needs a personal response.</p><a class="arrow" href="mailto:support@getenva.ai">support@getenva.ai</a></div><div class="card"><h3>Privacy requests</h3><p>Data access, export, deletion, or any question about how we handle your information.</p><a class="arrow" href="mailto:privacy@getenva.ai">privacy@getenva.ai</a></div><div class="card"><h3>Use the form below</h3><p>Describe your issue and we'll route it to the right person, usually within one business day.</p><a class="arrow" href="#contact-form">Jump to form</a></div></div></div></section>
 
-      <div data-reveal>
-        <p class="kicker" style="margin-top:64px;">Common questions</p>
-        <h2 class="h-section">Everything, up front.</h2>
-      </div>
+<section class="band alt"><div class="wrap"><div class="story">
+  <div class="eyebrow">Common questions</div>
+  <h2>Everything, up front.</h2>
+  <div class="faq">
+<details class="qa"><summary>How much does Enva cost?</summary><div class="ans">$12.99 a month, or $89.99 a year, which works out to about $7.50 a month, about 42% less than paying monthly. Both plans include every feature. Every new subscriber gets a 7-day free trial on whichever plan they pick, so you can try the app before paying anything. One trial per customer.</div></details>
+<details class="qa"><summary>When will Enva be available?</summary><div class="ans">Enva is coming soon to iPhone and Apple Watch. Join the <a href="/#waitlist">waitlist</a> to be notified the moment we launch.</div></details>
+<details class="qa"><summary>Which devices and apps does Enva support?</summary><div class="ans">At launch, Enva connects with Apple Watch, Peloton, and Orangetheory. Oura Ring, Whoop, Garmin, and Fitbit are coming soon. We build direct connections to each ecosystem so you get the full, unflattened data, not just what Apple Health captures.</div></details>
+<details class="qa"><summary>Can Enva build my workouts for me?</summary><div class="ans">Yes. Start from a curated template, build your own from scratch, or hand Enva Intelligence the equipment you have, the time you have and the goal you're chasing, and it writes the session for you, rounds and reps included. Every workout you build also runs on Apple Watch, so you can do it and record it without going back to your phone. See the <a href="fitness">Fitness</a> page.</div></details>
+<details class="qa"><summary>Does Enva work for event training, like HYROX?</summary><div class="ans">Yes. Set a target time and a date for a HYROX&reg; race, a DEKA event, a Dri-Tri, an Orangetheory benchmark, or any goal with a finish line, and Enva reorganizes your training around it: a projection, the single biggest limiter, a plan by phase, and sessions built for exactly what you're missing. See the <a href="hyrox">HYROX Training</a> page.
+              <small class="fineprint">HYROX&reg; is a registered trademark of HYROX GmbH. Enva is not affiliated with, endorsed by, or sponsored by HYROX.</small></div></details>
+<details class="qa"><summary>Is my health data safe?</summary><div class="ans">Yes. Most of Enva's processing happens on your device: your Health Score, Biological Age, and recovery trends are all computed on your phone. When deeper AI coaching has to run off-device, it uses an enterprise-secure model that cannot use your data for training. We never sell your data. Read the full <a href="privacy">Privacy Policy</a>.</div></details>
+<details class="qa"><summary>Can I back up or delete my data?</summary><div class="ans">Yes to both, from Settings. Backup and Restore saves a backup file of everything you entered in Enva (manual workouts, strength, nutrition, supplements, blood work), and you can restore it later. Data from Apple Health and connected services is not in the file; it re-syncs when you reconnect. Delete All Data permanently removes every session, connected account, and setting from your device. It cannot be undone. It does not remove anything from Apple Health, including nutrition entries and water that Enva wrote there with your permission. To delete those, open the Health app and go to Sharing, then Apps, then Enva. See <a href="about">About</a> for what this looks like. For any other privacy request, email <a href="mailto:privacy@getenva.ai">privacy@getenva.ai</a>.</div></details>
+<details class="qa"><summary>What is Biological Age and how is it calculated?</summary><div class="ans">A weighted estimate of how your body is functioning, independent of your chronological age. Enva builds it from five domains: Cardiovascular Fitness (30%), Recovery Capacity (20%), Activity Profile (20%), Body Composition (15%), and Biomarker Health (15%). A domain you haven't connected yet is left out and the rest are reweighted to compensate, so you're never penalized for data you don't have yet. See <a href="biological-age">Biological Age</a> for the full methodology.</div></details>
+<details class="qa"><summary>Why does Enva connect directly to Peloton and Orangetheory instead of using Apple Health?</summary><div class="ans">Apple Health flattens workout data. It knows you did a "cycling" workout, but not your Peloton output, resistance, cadence, or leaderboard rank. It doesn't capture Orangetheory splat points, treadmill pace, or rower 500m averages, the metrics that actually tell you whether you're improving. Direct connections give Enva the enriched data each platform captures natively.</div></details>
+<details class="qa"><summary>Is Enva a substitute for medical advice?</summary><div class="ans">No. Enva is a functional model built from your physiology, training, and blood chemistry, not a diagnostic tool or an epigenetic clock. A biomarker outside its reference range is a reason to talk to a clinician, not a conclusion. Nothing in the app should be treated as medical advice.</div></details>
+  </div>
+</div></div></section>
 
-      <div class="faq-list" data-reveal>
-
-        <div class="faq-item" id="pricing">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            How much does Enva cost?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">$12.99 a month, or $89.99 a year, which works out to about $7.50 a month, about 42% less than paying monthly. Both plans include every feature. Every new subscriber gets a 7-day free trial on whichever plan they pick, so you can try the app before paying anything. One trial per customer.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            When will Enva be available?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Enva is coming soon to iPhone and Apple Watch. Join the <a href="/#waitlist">waitlist</a> to be notified the moment we launch.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Which devices and apps does Enva support?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">At launch, Enva connects with Apple Watch, Peloton, and Orangetheory. Oura Ring, Whoop, Garmin, and Fitbit are coming soon. We build direct connections to each ecosystem so you get the full, unflattened data, not just what Apple Health captures.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Can Enva build my workouts for me?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Yes. Start from a curated template, build your own from scratch, or hand Enva Intelligence the equipment you have, the time you have and the goal you're chasing, and it writes the session for you, rounds and reps included. Every workout you build also runs on Apple Watch, so you can do it and record it without going back to your phone. See the <a href="fitness">Fitness</a> page.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Does Enva work for event training, like HYROX?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Yes. Set a target time and a date for a HYROX&reg; race, a DEKA event, a Dri-Tri, an Orangetheory benchmark, or any goal with a finish line, and Enva reorganizes your training around it: a projection, the single biggest limiter, a plan by phase, and sessions built for exactly what you're missing. See the <a href="hyrox">HYROX Training</a> page.
-              <span class="fineprint">HYROX&reg; is a registered trademark of HYROX GmbH. Enva is not affiliated with, endorsed by, or sponsored by HYROX.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Is my health data safe?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Yes. Most of Enva's processing happens on your device: your Health Score, Biological Age, and recovery trends are all computed on your phone. When deeper AI coaching has to run off-device, it uses an enterprise-secure model that cannot use your data for training. We never sell your data. Read the full <a href="privacy">Privacy Policy</a>.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Can I back up or delete my data?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Yes to both, from Settings. Backup and Restore saves a backup file of everything you entered in Enva (manual workouts, strength, nutrition, supplements, blood work), and you can restore it later. Data from Apple Health and connected services is not in the file; it re-syncs when you reconnect. Delete All Data permanently removes every session, connected account, and setting from your device. It cannot be undone. It does not remove anything from Apple Health, including nutrition entries and water that Enva wrote there with your permission. To delete those, open the Health app and go to Sharing, then Apps, then Enva. See <a href="about">About</a> for what this looks like. For any other privacy request, email <a href="mailto:privacy@getenva.ai">privacy@getenva.ai</a>.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            What is Biological Age and how is it calculated?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 111.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">A weighted estimate of how your body is functioning, independent of your chronological age. Enva builds it from five domains: Cardiovascular Fitness (30%), Recovery Capacity (20%), Activity Profile (20%), Body Composition (15%), and Biomarker Health (15%). A domain you haven't connected yet is left out and the rest are reweighted to compensate, so you're never penalized for data you don't have yet. See <a href="biological-age">Biological Age</a> for the full methodology.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Why does Enva connect directly to Peloton and Orangetheory instead of using Apple Health?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 111.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Apple Health flattens workout data. It knows you did a "cycling" workout, but not your Peloton output, resistance, cadence, or leaderboard rank. It doesn't capture Orangetheory splat points, treadmill pace, or rower 500m averages, the metrics that actually tell you whether you're improving. Direct connections give Enva the enriched data each platform captures natively.</div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Is Enva a substitute for medical advice?
-            <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 111.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">No. Enva is a functional model built from your physiology, training, and blood chemistry, not a diagnostic tool or an epigenetic clock. A biomarker outside its reference range is a reason to talk to a clinician, not a conclusion. Nothing in the app should be treated as medical advice.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT FORM -->
-  <section class="beat" id="contact-form">
-    <div class="beat-inner narrow" data-reveal>
-      <p class="kicker">Get in touch</p>
-      <h2 class="h-section">Send us a message.</h2>
-      <div style="margin-top:36px;">
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" id="form-name" placeholder="Your name" />
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="form-email" placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label>Topic</label>
-          <select id="form-topic">
+<section class="band" id="contact-form"><div class="wrap">
+  <div class="story"><div class="eyebrow">Get in touch</div><h2>Send us a message.</h2></div>
+  <div class="form" style="max-width:44rem;margin:34px auto 0">
+    <div><label for="form-name">Name</label><input id="form-name" type="text" placeholder="Your name" autocomplete="name"></div>
+    <div><label for="form-email">Email</label><input id="form-email" type="email" placeholder="you@example.com" autocomplete="email"></div>
+    <div><label for="form-topic">Topic</label><select id="form-topic">
             <option value="">Select a topic&#8230;</option>
             <option>General question</option>
             <option>Pricing or subscription</option>
@@ -365,71 +80,21 @@
             <option>Bug report</option>
             <option>Feature request</option>
             <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea id="form-message" placeholder="Describe your question or issue&#8230;"></textarea>
-        </div>
-        <button class="btn-primary" onclick="handleContactForm()">Send Message</button>
-        <p class="form-note">We only use your email to reply. See our <a href="/privacy">Privacy Policy</a>.</p>
-        <div class="form-success" id="form-success" style="display:none;color:var(--accent);">Thanks — we'll get back to you within one business day.</div>
-      </div>
-    </div>
-  </section>
+          </select></div>
+    <div><label for="form-message">Message</label><textarea id="form-message" rows="6" placeholder="Describe your question or issue&#8230;"></textarea></div>
+    <button class="btn btn-primary" type="button" onclick="handleContactForm()">Send message</button>
+    <p class="fine">We only use your email to reply. See our <a href="/privacy">Privacy Policy</a>.</p>
+    <p class="success-msg" id="form-success"></p>
+  </div>
+</div></section>
 
-</main>
-
-<footer>
-  <a href="/" class="footer-logo" aria-label="Enva home"><svg class="wordmark" viewBox="0 -30 2349 802" aria-hidden="true" focusable="false"><use href="#enva-wordmark"/></svg></a>
-  <ul class="footer-links">
-    <li><a href="envahealthscore">How It Works</a></li>
-    <li><a href="nutrition">Nutrition</a></li>
-    <li><a href="fitness">Fitness</a></li>
-    <li><a href="recovery-actions">Recovery Actions</a></li>
-    <li><a href="sleep-recovery">Sleep &amp; Recovery</a></li>
-    <li><a href="biological-age">Biological Age</a></li>
-    <li><a href="widgets">Widgets</a></li>
-    <li><a href="hyrox">Hyrox</a></li>
-    <li><a href="about">About</a></li>
-    <li><a href="support">Support</a></li>
-    <li><a href="privacy">Privacy Policy</a></li>
-    <li><a href="terms">Terms of Service</a></li>
-  </ul>
-  <p class="footer-copy">&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</p>
-  <p class="footer-legal">Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</p>
-  <p class="footer-legal">Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</p>
-</footer>
-
+<div class="wrap"><footer>
+  <div class="links"><a href="meals">Meals</a><a href="widgets">Widgets</a><a href="fitness">Fitness</a><a href="hyrox">Hyrox</a><a href="envahealthscore">Health Score</a><a href="biological-age">Biological Age</a><a href="sleep-recovery">Sleep &amp; Recovery</a><a href="recovery-actions">Recovery Actions</a><a href="about">About</a><a href="support">Support</a><a href="privacy">Privacy</a><a href="terms">Terms</a></div>
+  <div>Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</div>
+  <div>Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</div>
+  <div>&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</div>
+</footer></div>
+<script src="menu.js" defer></script>
 <script src="waitlist.js" defer></script>
-<script>
-  function toggleFaq(btn) {
-    var item = btn.closest('.faq-item');
-    var isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
-    if (!isOpen) item.classList.add('open');
-  }
-  (function () {
-    if (location.hash === '#pricing') {
-      var item = document.getElementById('pricing');
-      if (item) item.classList.add('open');
-    }
-  })();
-  (function () {
-    var els = document.querySelectorAll('[data-reveal]');
-    if ((window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || !('IntersectionObserver' in window)) {
-      els.forEach(function (e) { e.classList.add('revealed'); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('revealed'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (e) { io.observe(e); });
-  })();
-</script>
-<script src="nav.js" defer></script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c42a2cff212c4ed688aab488f2b11733"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
