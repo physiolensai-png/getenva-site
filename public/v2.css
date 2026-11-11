@@ -154,9 +154,9 @@ footer a{text-decoration:none}
 .slot img,.slot video{object-fit:cover}
 .phone{width:min(270px,100%);aspect-ratio:9/19.5;margin-inline:auto;border-radius:40px;padding:9px;box-shadow:0 40px 70px -35px rgba(60,30,10,.55)}
 .phone>img,.phone>video{border-radius:32px;position:absolute;inset:9px;width:calc(100% - 18px);height:calc(100% - 18px)}
-.slot.missing{background:var(--card);box-shadow:none;border:2px dashed rgba(42,37,34,.28);display:grid;place-items:center;text-align:center;padding:16px;color:var(--ink-3);font-size:12px}
+.slot.missing{background:var(--card);box-shadow:none;border:2px dashed rgba(42,37,34,.28);display:grid;place-items:center;text-align:center;padding:16px;color:var(--ink-3);font-size:12.5px}
 .slot.missing>img,.slot.missing>video{display:none}
-.slot.missing::after{content:attr(data-file);white-space:pre;font-weight:600;color:var(--ink-2)}
+.slot.missing::after{content:attr(data-file) "\A\A" attr(data-size);white-space:pre-wrap;font-weight:600;color:var(--ink-2);padding:0 8px;line-height:1.4}
 
 /* meals */
 .ways{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
@@ -371,3 +371,31 @@ footer a{text-decoration:none}
 .g-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
 .g-card b{display:block;font-size:20px;font-weight:600;letter-spacing:-.015em}
 .g-card p{color:var(--ink-2);margin-top:10px;font-size:16px}
+
+/* workouts: goal diagram and placeholder rows */
+.way .phone{width:min(210px,100%);margin-top:24px}
+.pair-slots{gap:18px}
+.pair-slots>div{width:min(240px,48%)}
+.pair-slots .phone{width:100%}
+.goal-viz{display:grid;gap:14px}
+.gv-block{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 24px}
+.gv-label{font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--ink-3)}
+.gv-note{color:var(--ink-2);font-size:15px;margin-top:14px}
+.phases{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:6px;margin-top:34px;align-items:stretch}
+.ph{background:var(--ground-2);border-radius:12px;padding:12px 8px;text-align:center;font-size:14.5px;font-weight:600;color:var(--ink-2)}
+.ph.on{background:var(--accent-deep);color:#fff;position:relative}
+.ph.on::after{content:"You are here";position:absolute;left:50%;top:-22px;transform:translateX(-50%);font-size:11px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:var(--accent-deep);font-weight:700}
+.flag{align-self:center;font-size:13px;font-weight:700;color:var(--ink);padding-left:8px}
+.flag::before{content:"\2691  "}
+.proj{margin-top:18px;padding-bottom:26px}
+.proj-axis{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-3)}
+.proj-track{position:relative;height:34px;margin-top:8px;border-radius:999px;background:linear-gradient(90deg,#E9F0E4,var(--ground-2) 50%,#F3DDD0)}
+.proj-band{position:absolute;left:38%;width:34%;top:5px;bottom:5px;border-radius:999px;background:rgba(228,101,42,.28);border:1.5px solid var(--accent-deep)}
+.proj-goal{position:absolute;left:52%;top:-8px;bottom:-8px;width:2px;background:var(--ink)}
+.proj-goal b{position:absolute;top:46px;left:50%;transform:translateX(-50%);font-size:12px;white-space:nowrap}
+.chips.lim li.hot{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff;font-weight:600}
+.chips.lim li.hot em{display:block;font-style:normal;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+@media(max-width:560px){.phases{grid-template-columns:repeat(2,1fr)}.flag{grid-column:1/-1;padding:4px 0}.ph.on::after{display:none}}
+
+.row2{display:flex;gap:20px;justify-content:center;align-items:flex-start}
+.row2 .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-align:center;margin-top:12px}
