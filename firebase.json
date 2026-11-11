@@ -50,7 +50,7 @@
       },
       {
         "source": "/nutrition",
-        "destination": "/",
+        "destination": "/meals",
         "type": 301
       },
       {
@@ -120,6 +120,16 @@
       },
       {
         "source": "/PELOTON",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/tfu-oct2026",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/tfu-oct2026-widgets",
         "destination": "/",
         "type": 301
       }

@@ -359,3 +359,15 @@ footer a{text-decoration:none}
 .refs h3{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink-3)}
 .refs ol{margin:14px 0 0;padding-left:20px;color:var(--ink-3);font-size:13px;line-height:1.55;display:grid;gap:8px}
 [data-page="your-data"] .story{margin-inline:0}
+
+/* workouts page */
+.watches{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap}
+.watch{position:relative;overflow:hidden;background:#0d0d0d;border-radius:46px;padding:9px;box-shadow:0 30px 50px -25px rgba(60,30,10,.6)}
+.watch.big{width:min(230px,44%);aspect-ratio:1/1.22}
+.watch>img{position:absolute;inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);object-fit:cover;border-radius:38px}
+.watch.big+.watch.big{margin-top:36px}
+.goal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+@media(max-width:760px){.goal-grid{grid-template-columns:1fr}}
+.g-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+.g-card b{display:block;font-size:20px;font-weight:600;letter-spacing:-.015em}
+.g-card p{color:var(--ink-2);margin-top:10px;font-size:16px}
