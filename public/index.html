@@ -58,8 +58,9 @@ nav img{height:34px;width:auto}
 .nav-links{display:flex;gap:28px;align-items:center;font-size:15px;color:var(--ink-2)}
 .nav-links a{text-decoration:none}
 .nav-links a:hover{color:var(--ink)}
+.nav-links a{white-space:nowrap}
 .nav-links .btn{padding:10px 20px;font-size:14.5px;color:#fff}
-@media(max-width:640px){.nav-links a:not(.btn){display:none}}
+@media(max-width:900px){.nav-links a:not(.btn){display:none}}
 
 /* hero */
 .hero{background:radial-gradient(900px 520px at 78% 40%,#F9D9C0 0%,rgba(249,217,192,0) 70%),var(--ground)}
@@ -166,7 +167,7 @@ nav img{height:34px;width:auto}
 .menu-btn[aria-expanded="true"] .bars::after{top:0;transform:rotate(-45deg)}
 @media(prefers-reduced-motion:reduce){.menu-btn .bars,.menu-btn .bars::before,.menu-btn .bars::after{transition:none}}
 .menu{display:none}
-@media(max-width:640px){
+@media(max-width:900px){
   nav{position:relative;flex-wrap:nowrap}
   .nav-links{margin-left:auto}
   .menu-btn{display:inline-flex}
@@ -189,13 +190,14 @@ footer a{text-decoration:none}
       <div class="nav-links">
       <a href="intelligence">Enva Intelligence</a>
       <a href="meals">Meals</a>
+      <a href="your-data">Your data</a>
       <a href="widgets">Widgets</a>
       <a href="about">About</a>
       <a href="support">Support</a>
       <a class="btn" href="/#waitlist">Join waitlist</a>
     </div>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><span class="bars" aria-hidden="true"></span></button>
-  <div class="menu" id="site-menu" hidden><a href="intelligence">Enva Intelligence</a><a href="meals">Meals</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a></div>
+  <div class="menu" id="site-menu" hidden><a href="intelligence">Enva Intelligence</a><a href="meals">Meals</a><a href="your-data">Your data</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a></div>
     </nav>
 
     <div class="hero-in">
@@ -228,6 +230,7 @@ footer a{text-decoration:none}
       <h2 style="margin-top:14px">Your age in years. Your day in one number.</h2>
       <p>Biological Age shows where your habits are taking you over months. The Health Score shows how today is going. Both come from the same sleep, training, nutrition and lab data, and both explain what moved them.</p>
       <ul><li>Biological Age estimate that improves as you add labs</li><li>Daily Health Score that works with a watch alone</li><li>Scored on your phone, not on a server</li></ul>
+      <p style="margin-top:22px"><a class="link" href="your-data">See how the scores work</a></p>
     </div>
     <div class="twin">
       <div class="a"><div class="slot phone" data-file="score-health.jpg" data-size="1179 x 2556"><img src="screens/v2/score-health.jpg" alt="Health Score screen" loading="lazy"></div><div class="when">Health Score</div></div>
@@ -363,7 +366,7 @@ footer a{text-decoration:none}
 </div></section>
 
 <div class="wrap"><footer>
-  <div class="links"><a href="intelligence">Enva Intelligence</a><a href="meals">Meals</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a><a href="privacy">Privacy</a><a href="terms">Terms</a></div>
+  <div class="links"><a href="intelligence">Enva Intelligence</a><a href="meals">Meals</a><a href="your-data">Your data</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a><a href="privacy">Privacy</a><a href="terms">Terms</a></div>
   <div>Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</div>
   <div>Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</div>
   <div>&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</div>

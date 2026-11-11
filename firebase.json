@@ -75,32 +75,32 @@
       },
       {
         "source": "/envahealthscore",
-        "destination": "/",
+        "destination": "/your-data#health-score",
         "type": 301
       },
       {
         "source": "/metrics",
-        "destination": "/",
+        "destination": "/your-data#health-score",
         "type": 301
       },
       {
         "source": "/health-score",
-        "destination": "/",
+        "destination": "/your-data#health-score",
         "type": 301
       },
       {
         "source": "/biological-age",
-        "destination": "/",
+        "destination": "/your-data#biological-age",
         "type": 301
       },
       {
         "source": "/sleep-recovery",
-        "destination": "/",
+        "destination": "/your-data#sleep-recovery",
         "type": 301
       },
       {
         "source": "/recovery-actions",
-        "destination": "/",
+        "destination": "/your-data#todays-plan",
         "type": 301
       },
       {

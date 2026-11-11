@@ -3,7 +3,7 @@
 These pages were taken down when the site moved to the version 2 design. They are not deployed:
 this folder sits outside `public/`, so Firebase Hosting never uploads it.
 
-Each old URL now redirects (301) to the home page. See `redirects` in `firebase.json`.
+Each old URL redirects (301). The Health Score, Biological Age, Sleep and Recovery and Recovery Actions pages now redirect to sections of `/your-data`, which replaces them. Fitness, Hyrox and Nutrition redirect to the home page. See `redirects` in `firebase.json`.
 
 | File | Old URL |
 | --- | --- |

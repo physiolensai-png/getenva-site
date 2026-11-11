@@ -33,17 +33,18 @@
     <div class="nav-links">
       <a href="intelligence">Enva Intelligence</a>
       <a href="meals">Meals</a>
+      <a href="your-data">Your data</a>
       <a href="widgets">Widgets</a>
       <a href="about">About</a>
       <a href="support">Support</a>
       <a class="btn" href="/#waitlist">Join waitlist</a>
     </div>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><span class="bars" aria-hidden="true"></span></button>
-  <div class="menu" id="site-menu" hidden><a href="intelligence">Enva Intelligence</a><a href="meals">Meals</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a></div>
+  <div class="menu" id="site-menu" hidden><a href="intelligence">Enva Intelligence</a><a href="meals">Meals</a><a href="your-data">Your data</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a></div>
   </nav>
   <div class="eyebrow" style="margin-top:34px">Legal</div>
   <h1>Terms of Service</h1>
-  <p class="meta">Last updated: August 26, 2026</p>
+  <p class="meta">Last updated: November 10, 2026</p>
 </div>
 </header>
 <div class="wrap legal">
@@ -105,8 +106,11 @@
           <ul>
             <li><strong>App analytics (opt-in).</strong> If you consent during onboarding, we collect anonymized usage data through PostHog — things like which features you use and session frequency. No health data is included. You can change this preference in Settings at any time.</li>
             <li><strong>AI processing (opt-in).</strong> If you enable Enva Intelligence, Enva computes aggregate metrics from your on-device data and sends that computed summary to our AI service provider to generate your response. What is sent is a structured summary — not your raw health records — and is not personally identifiable. Our AI service provider processes it to generate your response and does not retain it afterward. For a full breakdown of what each AI feature sends, see our <a href="privacy">Privacy Policy §3</a>.</li>
+            <li><strong>Garmin data (only if you connect Garmin).</strong> Garmin sends your data to a server rather than letting your phone request it, so it passes through our backend on Google Cloud. We keep it only until your phone has received it, delete it then, and in any case delete it within 30 days. It is never sold, and Garmin data is never used to train AI models. It reaches our AI service provider only if you turn on Garmin data for Enva Intelligence. See <a href="privacy#garmin">Privacy Policy §2F</a>.</li>
             <li><strong>Bug reports.</strong> If you submit a bug report through Settings → Report a Bug, we collect your written description, up to 30 recent in-app events, device information, and an optional screenshot you choose to attach.</li>
             <li><strong>Crash diagnostics.</strong> If the app crashes or hangs, Apple's MetricKit produces a diagnostic report (no health data) that the app forwards to our backend on Google Cloud.</li>
+            <li><strong>Recipes, meals and documents (opt-in).</strong> If you use Enva Intelligence to estimate a meal, import or create a recipe, or read a photo or document, what you type, paste or upload is sent to our AI service provider through our backend to produce the result. It is not stored.</li>
+            <li><strong>AI feedback and support tickets.</strong> If you rate an AI response, we record which part of the app and which prompt version it came from. If you send a support ticket, we collect what you wrote and basic device information. See <a href="privacy#ai">Privacy Policy §2E</a>.</li>
           </ul>
           <p><strong>Anonymous device identity.</strong> Your app is associated with an anonymous Firebase device ID — a stable per-install identifier used for AI quota tracking. It is not linked to your name or Apple ID.</p>
           <p>By enabling AI features, you consent to the limited, anonymized processing described above and in our <a href="privacy">Privacy Policy</a>.</p>
@@ -122,6 +126,7 @@
           <p>Nothing in the Services constitutes the practice of medicine, nursing, physical therapy, mental health therapy, or any other licensed healthcare profession. We do not diagnose conditions, prescribe treatment, or replace the advice of a qualified clinician.</p>
           <p><strong>Please talk to your doctor</strong> before making meaningful changes to your physical activity, sleep, diet, or lifestyle based on anything you see in Enva. Don't ignore or delay professional medical advice because of something our app told you.</p>
           <p>Our AI-generated insights are generated automatically. They may contain errors or omissions. You assume all risk associated with relying on them.</p>
+          <p>Recipes, nutrition numbers and workouts that Enva Intelligence suggests are estimates, and no one has tested them. Check ingredients against your own allergies and dietary needs, follow safe food handling, and use judgment about any exercise you are not ready for.</p>
           <div class="emergency">
             <p>IF YOU THINK YOU ARE EXPERIENCING A MEDICAL EMERGENCY, IMMEDIATELY CALL 911 OR YOUR LOCAL EMERGENCY SERVICES.</p>
           </div>
@@ -240,7 +245,7 @@
     
 </div>
 <div class="wrap"><footer>
-  <div class="links"><a href="intelligence">Enva Intelligence</a><a href="meals">Meals</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a><a href="privacy">Privacy</a><a href="terms">Terms</a></div>
+  <div class="links"><a href="intelligence">Enva Intelligence</a><a href="meals">Meals</a><a href="your-data">Your data</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a><a href="privacy">Privacy</a><a href="terms">Terms</a></div>
   <div>Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</div>
   <div>Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</div>
   <div>&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</div>
