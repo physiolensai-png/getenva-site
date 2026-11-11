@@ -55,22 +55,22 @@
       },
       {
         "source": "/fitness",
-        "destination": "/",
+        "destination": "/workouts",
         "type": 301
       },
       {
         "source": "/hyrox",
-        "destination": "/",
+        "destination": "/workouts",
         "type": 301
       },
       {
         "source": "/Hyrox",
-        "destination": "/",
+        "destination": "/workouts",
         "type": 301
       },
       {
         "source": "/HYROX",
-        "destination": "/",
+        "destination": "/workouts",
         "type": 301
       },
       {
