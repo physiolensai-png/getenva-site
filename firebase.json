@@ -1,6 +1,10 @@
 {
   "hosting": {
     "public": "public",
+    "predeploy": [
+      "node scripts/build-sitemap.mjs",
+      "node scripts/build-llms.mjs"
+    ],
     "cleanUrls": true,
     "trailingSlash": false,
     "ignore": [
@@ -33,6 +37,41 @@
           {
             "key": "Cache-Control",
             "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "**/*.md",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/markdown; charset=utf-8"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      },
+      {
+        "source": "/llms.txt",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/plain; charset=utf-8"
+          }
+        ]
+      },
+      {
+        "source": "/llms-full.txt",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/plain; charset=utf-8"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
           }
         ]
       }

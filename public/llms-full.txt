@@ -1,0 +1,1338 @@
+# Enva
+
+> Enva is an iPhone and Apple Watch app that brings training, food, sleep, recovery and blood work into one Health Score and one Biological Age, with an AI assistant, Enva Intelligence, that answers from all of it. Built by Olympus Hills Ventures LLC. Coming soon; the waitlist is open at https://getenva.ai/#waitlist.
+
+Key facts:
+
+- Platforms: iPhone and Apple Watch. There is no Android version.
+- Connects to Apple Health, Apple Watch, Oura Ring, Peloton and Orangetheory at launch. Garmin, WHOOP and Fitbit are coming soon.
+- Scores are computed on the device and compared with the user's own baseline, not a population chart. Each score shows how confident it is.
+- Enva Intelligence (the AI assistant) is off until the user turns it on. It receives computed summaries, not raw sensor data, and user data is never used to train models.
+- Pricing: 7-day free trial, then $12.99 a month or $89.99 a year (about $7.50 a month). Every feature on both plans. Subscriptions are managed through Apple.
+- Enva is a wellness app, not a medical device. It does not diagnose, treat or give medical advice.
+- Contact: hello@getenva.ai (general), support@getenva.ai (support), privacy@getenva.ai (privacy requests).
+
+Every page below is the Markdown version of an HTML page at the same URL without the `.md` suffix. The whole site is also available as one file at https://getenva.ai/llms-full.txt.
+
+---
+
+Source: https://getenva.ai/
+
+
+
+# See how it all connects.
+
+*For iPhone and Apple Watch*
+
+Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, and an assistant that answers from all of it.
+
+7 days free when we launch. Then $12.99 a month.
+
+![Enva Intelligence answering a question about HRV using workouts, sleep and food](https://getenva.ai/screens/v2/hero-phone.jpg)
+
+![Enva on Apple Watch showing today's Health Score](https://getenva.ai/screens/v2/hero-watch.png)
+
+**Works with:** Apple Watch, Apple Health, Apple Health Records, Oura, Peloton, Orangetheory
+
+**The score**
+
+## Your age in years. Your day in one number.
+
+Biological Age shows where your habits are taking you over months. The Health Score shows how today is going. Both come from the same sleep, training, nutrition and lab data, and both explain what moved them.
+
+- Biological Age estimate that improves as you add labs
+- Daily Health Score that works with a watch alone
+- Scored on your phone, not on a server
+
+[See how the scores work](https://getenva.ai/your-data)
+
+![Health Score screen](https://getenva.ai/screens/v2/score-health.jpg)
+
+![Biological Age screen](https://getenva.ai/screens/v2/score-biological-age.jpg)
+
+**Apple Watch**
+
+## Start the workout from your wrist.
+
+Pick a workout, see big readable numbers mid-effort, and get a summary the moment you finish. Everything saves to Apple Health and lands in Enva with your score already updated.
+
+- Big tiles you can read in a hard interval
+- Summary on your wrist, confirmation on your phone
+- Rings, readiness and the day's score at a glance
+
+![Apple Watch workout picker](https://getenva.ai/screens/v2/watch-start.png)
+
+![Apple Watch live heart rate](https://getenva.ai/screens/v2/watch-live.png)
+
+![Apple Watch workout summary](https://getenva.ai/screens/v2/watch-summary.png)
+
+**What goes in**
+
+## Log it once. It counts everywhere.
+
+Scan, search or describe a meal and the day's calories, macros and micronutrients update as you go. Strength sets, Orangetheory, Peloton and Watch workouts land in one history, with no double counting.
+
+- Food, supplements and micronutrients
+- Strength sets, with your progress tracked over time
+- Orangetheory classes, including your treadmill and rower data
+- Peloton rides and Apple Watch workouts
+- Body scans, including hydrostatic testing and DEXA
+
+**Blood work**
+
+## Your labs, next to your training.
+
+Bring in results from Apple Health Records, or upload a PDF or a photo of a lab report. Anything Enva cannot match is listed by name, never guessed.
+
+- Cholesterol, glucose, hormones and more
+- Blood pressure, logged and tracked over time
+- Trends once you have two results
+- Delete any result at any time
+
+**Enva Intelligence**
+
+## An assistant that has read all of it.
+
+Ask in plain language. Enva reads your workouts, food, sleep and labs together, and answers from your own numbers.
+
+You ask what to focus on in training. Enva reads 18 sessions, 7 nights of sleep, your HRV baseline, your food log and your latest blood panel, then gives one answer.
+
+### Build your workout plan.
+
+Around your goal, your schedule and the classes you already love. Ask for a Hyrox block, a strength cycle or a lighter week.
+
+Or tell Enva what equipment you have, from a full gym to a single pair of dumbbells, and it builds the session around exactly that.
+
+### Find your next meal.
+
+High protein, low fat, and sized to the calories you have left today. Log it with one tap.
+
+Add your own recipes, or ask for new ones based on what you have on hand. Turn any recipe into a shopping list and untick what you already own. Eating out? Describe the meal and Enva estimates it for you.
+
+### Connect everything.
+
+One answer from your watch, your food log and your lab results, together.
+
+### Your data stays yours.
+
+- Scored on your device
+- Never used to train models
+- Delete everything anytime
+
+[Read the privacy policy](https://getenva.ai/privacy#enva-intelligence)
+
+**Early access**
+
+## Be first in when Enva opens.
+
+Waitlist members get the launch invite first. Both plans start with a 7-day free trial, one per customer.
+
+Monthly, $12.99 / month, Cancel anytime
+
+Save 42%, $89.99 / year, About $7.50 a month
+
+---
+
+Source: https://getenva.ai/intelligence
+
+
+
+# Ask it like you'd ask a coach.
+
+*Enva Intelligence*
+
+Type a question in plain words. Enva answers from your own workouts, sleep, food and labs, with the numbers in the reply, so you can see why it said what it said.
+
+A real reply from the app, shown in full. The colours are added here to show where each number came from.
+
+**Q:** What area should I focus on this week in my training?
+
+**A:** Your training is mostly walking right now, and that's the area to look at. Over the last 14 days, 6 of your 18 sessions were walks at an average HR around 106. Your fitness number has slipped from 42 on Oct 28 to 39. Your form is +1, so you have room to add load. Your HIIT sessions were your biggest category over 30 days, but the last one was Oct 29 (36 TRIMP), and the 86 TRIMP session on Oct 28 was the biggest in this window. Since then your hardest efforts were the Peloton on Nov 6 (69 TRIMP, avg HR 157) and the ride on Nov 8 (67).
+
+This week I'd put one HIIT session back in. Schedule it for the day after your best-slept night, and do it earlier in the day. Your recovery scored 84 and 89 on your ~7-hour nights, and 67 to 73 on nights under 5 hours. Keep the session closer to the 36 TRIMP of Oct 29 than the 86 of Oct 28. If you wake up after another short night, keep the session but lower the effort of the work intervals.
+
+**What would you ask?**
+
+## Start from the moment, not the menu.
+
+You don't need to know what the app can do. Ask what is on your mind. Replies are shown exactly as the app wrote them, using one person's real data. Any made-up example says so on the card.
+
+*From the app*
+
+**Q:** Should I train hard today?
+
+**A:** Your numbers support a hard session today. Recovery is 79 (Good), HRV at wake is 60 ms, right on your 30-day average of 60, and resting HR is 45 against a 46 average. Stress is calm at 4. Your training load is also light this week at 248 TRIMP, down from your 30-day average of 312, so you aren't carrying much fatigue into it.
+
+The one soft spot is sleep. You got 5.8 hours last night, and your 7-day average is 5.5, below your 30-day average of 6.0. Deep sleep was good at 82 minutes, above your 68-minute average, which likely helped your recovery number.
+
+My recommendation is to do the hard session, but put it earlier in the day and keep it to your normal length rather than adding extra volume. That way the short sleep doesn't stack on top of a longer workout.
+
+Not medical advice. Consult your doctor before making changes to your routine.
+
+*From the app*
+
+**Q:** Is my daily protein goal the right amount for my goals? And doesn't activity match my protein intake?
+
+**A:** Your protein target is 186 g a day. It's set from your nutrition profile goal, which is Lose Fat, and your weight of 207 lb at 0.9 g per lb. That's a calculation from your profile, not a judgment about your training. You also have no active goals saved in the goals section, so the target only reflects that profile setting. If your focus is different, such as performance or gaining muscle, the target would change.
+
+Your intake doesn't match the target yet. Over the 28 days with logged food, you averaged about 151 g, roughly 81% of 186 g. You hit or passed the target on 6 of those days, with a high of 224 g on Oct 21 and a low of 24 g on Oct 31. Several of the low days also have very low calories, like 439 on Oct 31 and 1,144 on Nov 4. Those may be incomplete logs. Today's 96 g is a partial day.
+
+On activity, your protein target doesn't move with your training. Your activity factor is Moderate, and it feeds your calorie target of 2,330 and the 2,830 TDEE. Your training has been lighter lately, with 248 TRIMP this week against a 312 weekly average over 30 days. Your form score is +5, up from -18 in late October. Your intake on harder weeks, such as Oct 21 to 29, looks similar to your intake now, so intake isn't following your load.
+
+My one suggestion is to pick the 2 or 3 days a week where your protein usually runs lowest, which look like days with light logging, and plan a protein-focused meal for each. That should close the gap to 186 g.
+
+Not medical advice. Consult your doctor before making changes to your routine.
+
+*Sample data*
+
+**Q:** What questions should I ask my provider about my results?
+
+**A:** Here are three worth bringing, based on your latest panel.
+
+1. My LDL went from 104 to 113 mg/dL between my last two panels. What could explain that, and should I re-test?
+
+2. Two of my results were flagged by the lab. Which ones matter most for me?
+
+3. I train about five days a week. Could that affect any of these numbers?
+
+These are questions for your provider, not conclusions. They are the right person to read your results.
+
+Not medical advice. Consult your doctor before making changes to your routine.
+
+*From the app*
+
+**Q:** Explain what drove my HRV and what does that mean for my goals?
+
+**A:** Your HRV has been steady. The 30-day baseline is 60 ms, and most readings sit between 54 and 74. A few things stand out in the swings.
+
+The low readings line up with load and rough nights. The dip to 42 ms on Oct 25 came the same day your form hit -18, near the top of your fatigue range (ATL 60). That night was about 5.0 hours with only 38 minutes of REM. The 48 on Oct 20 came with a resting HR of 50. The 32 on Nov 1 is the biggest outlier. It's paired with a resting HR of 55, versus your usual 44 to 46, and a second Nov 1 reading was 68. Since the two don't agree, I'd treat the 32 with caution.
+
+The high readings came as your load dropped. Your ATL fell from 60 on Oct 28 to 32 by Nov 3, and HRV reached 74 on Nov 2, your highest in the window. The next-best readings were 69 on Oct 14, after 7.65 hours of sleep, and 68 on Nov 1, after 7.1 hours.
+
+Sleep length doesn't track HRV tightly in your data. A 4.5-hour night on Nov 8 still showed 67 ms. Load looks like the clearer driver than sleep duration.
+
+For your goals, you have no active goals saved. The only goal I can see is the Lose Fat setting in your nutrition profile. Against that, steady HRV, a resting HR of 45 and a form score of +5 show your body handling the current training without strain. Your protein is the piece that's off, at about 151 g against the 186 g target. Short sleep, averaging 5.5 hours this week, is the other thing that could eventually cut into your recovery numbers.
+
+My one suggestion is to save a specific goal in the app, such as a body composition target or an event date. Then I can judge your HRV and training load against something concrete.
+
+Not medical advice. Consult your doctor before making changes to your routine.
+
+**The old way**
+
+## No more screenshots into a chatbot.
+
+Before Enva, getting one useful answer meant screenshots from six apps, a plan from a forum and weights typed into a note, all pasted into a chat window by hand.
+
+Now the data is already there. You ask, and Enva reads it.
+
+![Six screenshots from one morning's training spread out: an Apple Fitness summary, an Orangetheory workout, a typed note of strength sets, a Reddit post, a Peloton view and an Apple Health HRV graph](https://getenva.ai/screens/about-before.jpg)
+
+**It can also build**
+
+## Answers are the start.
+
+### A workout around what you have
+
+Give it your goal, your schedule and your equipment, from a full gym to one pair of dumbbells. It writes the session and sends it to your Apple Watch.
+
+### A meal that fits your day
+
+Say what is in the kitchen. Enva suggests recipes sized to what you have left, works out the nutrition and logs your portion.
+
+[See how meals work](https://getenva.ai/meals)
+
+### An estimate when you eat out
+
+Describe the dish and where it came from. You get a serving weight, macros and micronutrients, marked as an estimate.
+
+**Trust**
+
+## What it does with your data, and what it won't do.
+
+### What happens to your data
+
+- It is off until you turn it on.
+- Scores are computed on your phone.
+- When on, Enva sends computed summaries, not raw sensor data, to a third-party AI provider.
+- It is never used to train AI models, and never sold.
+- Your chat history stays on your phone.
+
+[See exactly what is sent](https://getenva.ai/privacy#enva-intelligence)
+
+### What it won't do
+
+- Diagnose anything. Enva is a wellness app, not a medical device.
+- Replace your clinician. A result outside range is a reason to ask, not a conclusion.
+- Get everything right. Answers come from AI and can be wrong, so check the numbers that matter.
+
+**Early access**
+
+## Be first in when Enva opens.
+
+Join the waitlist and be first to know when Enva launches.
+
+**7 days free**, then $12.99 a month or $89.99 a year. Every feature on both plans. Cancel anytime.
+
+---
+
+Source: https://getenva.ai/meals
+
+
+
+# Any recipe, straight into your food log.
+
+*Meals*
+
+Find a recipe anywhere, or ask Enva Intelligence to write one from what you have. Enva works out the nutrition, so you never type in a single ingredient.
+
+**The problem**
+
+## The recipe is in one place. Your tracker is in another.
+
+You find a dinner you like. Then you copy the ingredients into a tracker one line at a time, guess the portion, and stop halfway. Most people give up and log nothing, or log a rough guess.
+
+Enva puts both in the same place. The recipe and its nutrition arrive together, and logging your portion takes a moment.
+
+**Three ways in**
+
+## Start from wherever you are.
+
+### Tell Enva what you have.
+
+Say what is in the kitchen, how long you have and what you want. Mention any allergies or foods to avoid. Enva offers four ideas with time, servings and nutrition for each, and writes the full recipe for the one you tap.
+
+Cook from a checklist and steps, and send the recipe to Notes or anywhere else.
+
+**You type** Chicken thighs, rice, broccoli. 30 minutes. High protein, no dairy.
+
+### Already found a recipe?
+
+Paste the text, or pick a screenshot. Enva reads out the ingredients with weights and nutrition, the servings, and an estimated cooked weight.
+
+A screenshot is read on your phone first, so you can fix a misread quantity before anything is sent.
+
+**You get** Every ingredient with grams, calories, protein, carbs and fat, ready to review.
+
+### Ate out? Just say what it was.
+
+Describe the meal and where it came from. Enva returns a serving weight, macros and micronutrients, marked as an estimate, and you can adjust it.
+
+Keep it for next time, or log it once and move on.
+
+**You type** Chicken vindaloo and naan from the Indian place on 4th.
+
+**Then it's logged**
+
+## Log your portion, not the whole pot.
+
+Save the recipe once with its nutrition, then log what you actually ate.
+
+- One entry in your log, named after the recipe, instead of a dozen ingredient lines.
+- Log by servings, or weigh your plate and log by grams or ounces.
+- Enva estimates the cooked weight, since a pot of chili weighs less after it cooks. Swap in the number off your scale and your portions stay honest.
+- The recipes you cook most sit at the top of the list.
+- Ate the same lunch as last Friday? Copy it from that day in two taps.
+
+### Estimates, and you stay in charge.
+
+Nutrition worked out by AI is an estimate, and the screen says so. Review every recipe before it is saved, and change any number. Recipes written by Enva Intelligence are written by AI and haven't been tested in a kitchen.
+
+Enva sends what you paste or type to an AI service only after you turn on Enva Intelligence. [Read how that works](https://getenva.ai/privacy#enva-intelligence).
+
+**Early access**
+
+## Be first in when Enva opens.
+
+Join the waitlist and be first to know when Enva launches.
+
+**7 days free**, then $12.99 a month or $89.99 a year. Every feature on both plans. Cancel anytime.
+
+---
+
+Source: https://getenva.ai/workouts
+
+
+
+# A workout built for what you have.
+
+*Workouts*
+
+Tell Enva your goal, your time and the equipment in front of you, from a full gym to a single pair of dumbbells. It writes the session and runs it on your Apple Watch.
+
+**Three ways in**
+
+## Start where you are.
+
+Use a ready-made session, build your own, or let Enva write one for you. They all end up in the same place, ready to run.
+
+### Start from a template.
+
+A library of curated sessions, from strength blocks to HIIT. Open one, change what you like, and go.
+
+### Make your own.
+
+Choose your movements, sets and reps from a catalogue of exercises grouped by the equipment they need. Save it to My Templates.
+
+### Have it written for you.
+
+Give Enva three things: your equipment, your goal and your time. It writes the session, rounds and reps included.
+
+![A workout written by Enva Intelligence](https://getenva.ai/screens/v2/workouts-ai-result.png)
+
+**On your wrist**
+
+## Do it without picking up your phone.
+
+Every workout you build runs on Apple Watch. It shows the movement, the weight and the target for each set, so you can do it and record it from your wrist.
+
+- One tap to finish each set
+- Heart rate and calories in view while you work
+- A summary when you finish, saved to Apple Health
+- Tap any lift afterward to correct the sets
+
+![Apple Watch showing a set of single-arm dumbbell rows with weight, target reps and heart rate](https://getenva.ai/screens/v2/watch-live.png)
+
+![Apple Watch workout summary showing time, heart rate and saved to Health](https://getenva.ai/screens/v2/watch-summary.png)
+
+**Strength**
+
+## See your strength move.
+
+Log each set with its weight and reps, then watch the trend for that movement build over time. You see whether the numbers are going up, not a pile of notes.
+
+- Weight and reps for every set
+- A progression view for each movement
+- Orangetheory, Peloton and Apple Watch sessions in the same history, with no double counting
+
+![Strength progress for one movement over time](https://getenva.ai/screens/v2/strength-progress.png)
+
+**Training for an event**
+
+## Put a date and a number on it.
+
+Set a target time and a race date for a HYROX race, a DEKA event, a Dri-Tri, an Orangetheory benchmark, or any goal with a finish line. Enva reorganizes your training around it.
+
+Diagram: training moves through four phases to race day, a projected finish time is shown as a range around your goal, and one input is named as the weekly limiter
+
+![Race results with run and station splits](https://getenva.ai/screens/v2/hyrox-splits.png)
+
+Sessions to match: ask for a block that fixes the weakness you named, built from the equipment you have. On race day, results from your Apple Watch come back as run and station splits, so you can see where the time went.
+
+**Where it connects**
+
+## Training is the input.
+
+Your training load is one of the three pillars of the Health Score, and it decides how tomorrow's recovery reads. [See how your scores work](https://getenva.ai/your-data), or [ask Enva what to train today](https://getenva.ai/intelligence).
+
+### Suggestions, not prescriptions.
+
+Workouts that Enva writes have not been tested by a coach. Choose weights you can control, stop if something hurts, and talk to a clinician before starting hard training if you have a health concern.
+
+HYROX® is a registered trademark of HYROX GmbH. Enva and Olympus Hills Ventures LLC are independent and are not affiliated with, endorsed by, sponsored by, or otherwise associated with HYROX or HYROX GmbH. References to HYROX on this page are descriptive, to identify the event this training feature is designed for.
+
+**Early access**
+
+## Train with the full picture.
+
+Join the waitlist and be first to know when Enva launches.
+
+**7 days free**, then $12.99 a month or $89.99 a year. Every feature on both plans. Cancel anytime.
+
+---
+
+Source: https://getenva.ai/your-data
+
+
+
+# Your numbers, scored against you.
+
+*Your data*
+
+Enva compares you with your own baseline, not a population chart. It turns what your body does into a number for this week, a number for the long run, and a plan for today.
+
+**Health Score**
+
+## One number for how this week is going.
+
+Your watch shows resting heart rate, HRV, sleep and VO₂ Max each on its own. The Enva Health Score reads them together, in three pillars, each scored against your own baseline.
+
+**Readiness**
+
+How recovered you are. A 7-day average of recovery, weighted by sleep quality and the training load before it.
+
+**Load quality**
+
+Whether this week's volume fits. Your weekly training against what your body is used to over the last 42 days.
+
+**Trajectory**
+
+The direction you're heading. The 6-week trend in VO₂ Max, HRV and training load. A build or a taper is read in context, not as a decline.
+
+![Health Score screen with its pillar breakdown](https://getenva.ai/screens/v2/score-health.jpg)
+
+### Where your score sits.
+
+Score bands: Needs Work 0 to 39, Fair 40 to 59, Good 60 to 77, Excellent 78 to 100
+
+A lower score after a hard week is not a warning. It is the pillar breakdown doing its job. See which pillar is down first: load quality dropping after a big week is expected, while readiness dropping when you have not trained hard is worth a closer look. When readiness climbs back while load quality stays high, your body is adapting.
+
+Tap the score and Enva Intelligence explains what is pulling it down, what is holding it up, and the single biggest lever.
+
+**Biological Age**
+
+## A number that moves.
+
+Your chronological age is a fact about the calendar. Your biological age is an estimate of how your body is functioning, and unlike the first one, it changes with how you live.
+
+Enva builds it from five weighted domains of your own data, and tells you how much to trust the answer.
+
+![Biological Age screen with its confidence and the domains behind it](https://getenva.ai/screens/v2/score-biological-age.jpg)
+
+**Cardiovascular fitness**
+
+How efficiently your heart and lungs move oxygen. The heaviest weight, because it is one of the strongest modifiable predictors of long-term survival.[1,2]
+
+- VO₂ Max
+- Resting heart rate
+- HRV
+
+**Recovery capacity**
+
+Whether your body repairs between sessions. Sleep stages count, not just hours.
+
+- Heart rate recovery
+- Deep and REM sleep
+- Sleep duration and consistency
+
+**Activity profile**
+
+Not just how much you move, but the shape of it. An athlete who only ever goes hard is not aging the way the volume suggests.
+
+- Time in zones
+- Cardio and strength sessions
+- Variety
+- Daily steps
+
+**Body composition**
+
+Lean mass is the part that predicts. In older adults, more muscle relative to height is linked to longer survival.[3,4]
+
+- Body fat
+- Lean mass
+- Muscle index
+
+**Lab biomarkers**
+
+Your labs, read as a system instead of a PDF, folded into the same number as your training.
+
+- ApoB and LDL
+- HbA1c and glucose
+- hsCRP
+- And more
+
+### A model that admits what it doesn't know.
+
+1. **Score each domain.** Every domain makes its own age estimate from its own signals. A domain with no data makes nothing, not a guess.
+2. **Reweight to what is present.** If you have never added labs, the other four domains share the weight. You are never penalized for data you don't have yet.
+3. **Show a range.** More data means a narrower range and higher confidence. With nothing to stand on, Enva shows no estimate at all.
+
+**Not a DNA test** Enva does not read your genes. It estimates from what your body does: fitness, recovery, activity, body composition and labs.
+
+**Not a diagnosis** A biomarker outside its reference range is a reason to talk to a clinician, not a conclusion.
+
+**Not a score to game** The domains are weighted by predictive value, not by how easy they are to move.
+
+**Sleep and recovery**
+
+## Last night, and whether you're ready today.
+
+Someone whose deep sleep averages 45 minutes should not be scored against someone who averages 80. Enva scores each night against your own rolling baseline, so the model learns your biology and not a stranger's.
+
+- **Deep sleep** The most restorative stage, scored against your own rolling average.
+- **REM sleep** Memory and emotional processing, weighted alongside deep sleep.
+- **HRV** One of the most informative overnight signals of recovery.
+- **Resting heart rate** The overnight low against your baseline.
+- **Duration** Absolute hours, so stage proportions alone cannot carry a short night.
+
+Wrist temperature is confirmatory. A shift from your baseline flags physiological stress and holds back the rest-day boost, whatever the sleep stages show.
+
+### Sleep feeds recovery. Recovery sets the day.
+
+Recovery takes the same overnight signals, adds yesterday's training load, and answers a different question: is your body in a position to absorb today's work? A 7-day view shows whether a low reading is an off night or a trend.
+
+A low Recovery score is not a warning. High recovery on a rest day is exactly right, and low recovery after a hard block means the training is doing its job. A rolling 7-day average of Recovery is also the Readiness pillar of your Health Score, so one bad night does not crater it, and a run of them shows up as it should.
+
+**Today's plan**
+
+## You can't control recovery. You can control today.
+
+Your Recovery score is a readout, not a dial. Recovery Actions is the input side: a short daily checklist drawn from your own morning numbers.
+
+- Some items check themselves, like your protein goal.
+- You tick the rest: caffeine cut-off, daylight, sleep and water.
+- It sits on your Home Screen as a widget, so you can tick as you go.
+
+![A Recovery actions checklist widget next to Net energy and Hydration widgets](https://getenva.ai/screens/v2/widgets/energy-water-recovery.png)
+
+**How it fits together**
+
+## Each number feeds the next.
+
+1. **Sleep** scores the night against your own baseline.
+2. **Recovery** turns the night and yesterday's load into a read on today.
+3. **Health Score** averages recovery over 7 days as its Readiness pillar.
+4. **Biological Age** draws on heart rate recovery and sleep stages for its recovery domain.
+
+### Estimates, not diagnoses.
+
+Enva is a wellness app, not a medical device. Nothing here is medical advice, and a number outside its usual range is a reason to talk to a clinician, not a conclusion.
+
+### Sources
+
+1. Mandsager K, et al. Association of Cardiorespiratory Fitness With Long-term Mortality Among Adults Undergoing Exercise Treadmill Testing. JAMA Network Open. 2018;1(6):e183605. doi:10.1001/jamanetworkopen.2018.3605
+2. Kodama S, et al. Cardiorespiratory fitness as a quantitative predictor of all-cause mortality and cardiovascular events in healthy men and women: a meta-analysis. JAMA. 2009;301(19):2024-2035. doi:10.1001/jama.2009.681
+3. Srikanthan P, Karlamangla AS. Muscle mass index as a predictor of longevity in older adults. The American Journal of Medicine. 2014;127(6):547-553. doi:10.1016/j.amjmed.2014.02.007
+4. Cruz-Jentoft AJ, et al. Sarcopenia: revised European consensus on definition and diagnosis. Age and Ageing. 2019;48(1):16-31. doi:10.1093/ageing/afy169
+
+**Early access**
+
+## See where you actually stand.
+
+Join the waitlist and be first to know when Enva launches.
+
+**7 days free**, then $12.99 a month or $89.99 a year. Every feature on both plans. Cancel anytime.
+
+---
+
+Source: https://getenva.ai/widgets
+
+
+
+# Your day, without opening the app.
+
+*Features*
+
+14 widgets, plus Lock Screen versions, put your scores, nutrition and recovery on the Home Screen and Lock Screen. Pick the ones you check most.
+
+![Enva widgets: a Health Score ring, a Today table with recovery, sleep and output, and Nutrition dials](https://getenva.ai/screens/v2/widgets/score-today-nutrition.png)
+
+**Every widget**
+
+## Pick the numbers you check most.
+
+Shown with sample data. A good starter set: Health Score for the headline, Recovery Actions for the day, and Hydration so you can log water from the Home Screen.
+
+![Health Score widget](https://getenva.ai/screens/widgets/health-score.jpg)
+
+### Health Score
+
+Your daily Enva Health Score at a glance.
+
+![Metric widget preview](https://getenva.ai/screens/widgets/metric.jpg)
+
+### Metric
+
+Any single number you choose: a vital, steps, net calories, protein, carbs or fat. Press and hold, then Edit Widget, to change it.
+
+![HRV widget preview](https://getenva.ai/screens/widgets/hrv.jpg)
+
+### HRV
+
+Heart rate variability against your own range, with the last two weeks behind it.
+
+![Resting HR widget preview](https://getenva.ai/screens/widgets/resting-hr.jpg)
+
+### Resting HR
+
+Resting heart rate against your own range, with the last two weeks behind it.
+
+![Body Metrics widget preview](https://getenva.ai/screens/widgets/body-metrics.jpg)
+
+### Body Metrics
+
+Your vitals side by side, each against your own range. You choose which ones.
+
+![Health Summary widget preview](https://getenva.ai/screens/widgets/health-summary.jpg)
+
+### Health Summary
+
+HRV, resting heart rate, breathing, oxygen, wrist temperature and sleep, each against its ideal range. Tap to open the Health Monitor.
+
+![Nutrition widget preview](https://getenva.ai/screens/widgets/nutrition.jpg)
+
+### Nutrition
+
+Net calories, protein, carbs and fat as dials. Protein fills toward its goal. Calories, carbs and fat show when they pass their targets.
+
+![Net Energy widget preview](https://getenva.ai/screens/widgets/net-energy.jpg)
+
+### Net Energy
+
+Calories eaten minus today's workouts, against your target. The wide one adds your planned burn.
+
+![Protein widget preview](https://getenva.ai/screens/widgets/protein.jpg)
+
+### Protein
+
+Today's protein, filling toward your goal.
+
+![Today widget preview](https://getenva.ai/screens/widgets/today.jpg)
+
+### Today
+
+Steps, net calories and protein, progress you can still add to. Mix in any metric you like.
+
+![Hydration widget preview](https://getenva.ai/screens/widgets/hydration.jpg)
+
+### Hydration
+
+Today's water against your target. Tap a button to log a glass without opening the app.
+
+![Recovery Actions widget preview](https://getenva.ai/screens/widgets/recovery-actions.jpg)
+
+### Recovery Actions
+
+Today's recovery checklist. Tap a box to tick off the ones that are up to you, like caffeine cut-off, daylight, sleep and water. Items with a ring check themselves.
+
+![Recovery, Sleep and Output widget preview](https://getenva.ai/screens/widgets/recovery-sleep-output.jpg)
+
+### Recovery, Sleep and Output
+
+Recovery, sleep and output in one table, with the output to aim for today. The large one adds your workouts.
+
+![Reminder widget preview](https://getenva.ai/screens/widgets/reminder.jpg)
+
+### Reminder
+
+A friendly nudge you can check off, like drink water, get outside or stretch.
+
+![Metric (Lock Screen) widget preview](https://getenva.ai/screens/widgets/metric-lock.jpg)
+
+### Metric (Lock Screen)
+
+Any single number you choose, as a ring or a bar. Press and hold, then Edit Widget, to change it.
+
+![HRV (Lock Screen) widget](https://getenva.ai/screens/widgets/hrv-lock.jpg)
+
+### HRV (Lock Screen)
+
+Heart rate variability against your own range, as a number or with the label.
+
+![Resting HR (Lock Screen) widget](https://getenva.ai/screens/widgets/resting-hr-lock.jpg)
+
+### Resting HR (Lock Screen)
+
+Resting heart rate against your own range, as a number or with the label.
+
+![Protein Lock Screen widget](https://getenva.ai/screens/widgets/protein-lock.jpg)
+
+### Protein (Lock Screen)
+
+Today's protein, filling toward your goal.
+
+![Net energy and Hydration widgets with a plus 8 ounce glass button, and a Recovery actions checklist](https://getenva.ai/screens/v2/widgets/energy-water-recovery.png)
+
+**Tap, and it's done**
+
+## Log a glass of water from the Home Screen.
+
+The water button and the recovery checklist work right on the widget. Add 8 oz or tick off a habit without opening Enva, and your totals update everywhere.
+
+**On your Home Screen**
+
+## Light or dark, they fit your phone.
+
+![Large Enva widgets on a Home Screen in dark appearance: net energy, hydration, recovery, sleep, output, health vitals, nutrition and recovery actions](https://getenva.ai/screens/v2/widgets/home-dark.png)
+
+*Dark*
+
+![The same Enva widgets on a Home Screen in light appearance](https://getenva.ai/screens/v2/widgets/home-light.png)
+
+*Light*
+
+**On your Lock Screen**
+
+## Small glances that stay put.
+
+Circle and rectangle widgets keep one number in view, like resting heart rate, HRV or protein, before you unlock your phone.
+
+![Lock Screen widgets showing resting heart rate of 60 bpm, in range](https://getenva.ai/screens/v2/widgets/lock-resting-hr.jpg)
+
+![Lock Screen widgets showing heart rate variability of 100 ms, above range](https://getenva.ai/screens/v2/widgets/lock-hrv.jpg)
+
+![Lock Screen widgets showing 74 grams of protein with a progress bar](https://getenva.ai/screens/v2/widgets/lock-protein.jpg)
+
+**Add one**
+
+## Four taps to a widget.
+
+1. **Press and hold** an empty spot on your Home Screen until the icons wiggle. For a Lock Screen widget, press and hold the Lock Screen instead and tap **Customize**.
+2. Tap the **plus** in the top corner, then search for **Enva**.
+3. Pick a widget, swipe to the size you want, and tap **Add Widget**.
+4. Press and hold the widget, then tap **Edit Widget** to change what it shows. Only the ones tagged **Configurable** can be changed.
+
+Widgets show the data Enva last synced. If one looks empty, open Enva once and give it a moment.
+
+**Early access**
+
+## Be first in when Enva opens.
+
+Join the waitlist and be first to know when Enva launches.
+
+**7 days free**, then $12.99 a month or $89.99 a year. Every feature on both plans. Cancel anytime.
+
+---
+
+Source: https://getenva.ai/about
+
+
+
+# I was tired of being my own data scientist.
+
+*About Enva*
+
+Every morning I stitched my training, sleep, food and blood work together by hand. Enva is the tool I built so nobody has to.
+
+**Why I built it**
+
+## The data existed. The insight didn't.
+
+Every morning I took screenshots. Output from the bike. The workout from the studio. HRV from Apple Health. The strength plan was a Reddit post, and the weights I lifted were typed into a note. Then I pasted all of it into an AI chat to force the numbers to talk to each other.
+
+![Six screenshots from one morning's training, spread out: an Apple Fitness HIIT summary, an Orangetheory workout, a hand-typed note of the strength sets and weights, a Reddit post with the class format, a Peloton output view, and an Apple Health HRV graph](https://getenva.ai/screens/about-before.jpg)
+
+*One workout. Data in three apps, the plan on Reddit, the weights in a note.*
+
+The answers were useful. The process was miserable, and no single tool held all of it. Enva does that assembly for me now, and for you. [See how it works.](https://getenva.ai/intelligence)
+
+**Who it's for**
+
+## Whatever brought you here.
+
+### You know what ApoB means.
+
+You want it in the same view as your VO₂ Max trend.
+
+### You train at Orangetheory.
+
+You want more than splat points.
+
+### You are just starting.
+
+You want someone to show you where to begin.
+
+**What it stands on**
+
+## Three promises.
+
+### Your data stays yours.
+
+Scores are computed on your phone. Enva never sells your data or uses it to train AI models. If you turn on Enva Intelligence, it sends computed summaries, not raw sensor data, to a third-party AI provider to answer your questions. You can wipe everything from your device at any time. [See exactly what is sent.](https://getenva.ai/privacy#enva-intelligence)
+
+### It tells you how sure it is.
+
+A score built on less data shows lower confidence instead of guessing, so you know how much to trust it. [See how the scores work.](https://getenva.ai/your-data)
+
+### It is not medical advice.
+
+Enva is a wellness app, not a medical device. A result outside its usual range is a reason to talk to a clinician, not a conclusion.
+
+**Who is behind it**
+
+![Marcus, founder of Enva, in an Enva hoodie](https://getenva.ai/screens/v2/founder.jpg)
+
+Marcus
+
+Founder, Enva
+
+Enva is built by Olympus Hills Ventures LLC. Questions or feedback: [hello@getenva.ai](mailto:hello@getenva.ai). A person reads every message.
+
+**Early access**
+
+## Ready to see your full picture?
+
+Join the waitlist and be first to know when Enva launches.
+
+**7 days free**, then $12.99 a month or $89.99 a year. Every feature on both plans. Cancel anytime.
+
+---
+
+Source: https://getenva.ai/support
+
+
+
+# We're here to help.
+
+*Support*
+
+Questions about Enva, your data, or an integration? Reach out and we'll get back to you quickly.
+
+## Email us
+
+For account questions, app help, or anything that needs a personal response.
+
+[support@getenva.ai](mailto:support@getenva.ai)
+
+## Privacy requests
+
+Data access, export, deletion, or any question about how we handle your information.
+
+[privacy@getenva.ai](mailto:privacy@getenva.ai)
+
+## Use the form below
+
+Describe your issue and we'll route it to the right person, usually within one business day.
+
+**Common questions**
+
+## Everything, up front.
+
+### How much does Enva cost?
+
+$12.99 a month, or $89.99 a year, which works out to about $7.50 a month, about 42% less than paying monthly. Both plans include every feature. Every new subscriber gets a 7-day free trial on whichever plan they pick, so you can try the app before paying anything. One trial per customer.
+
+### When will Enva be available?
+
+Enva is coming soon to iPhone and Apple Watch. Join the [waitlist](https://getenva.ai/#waitlist) to be notified the moment we launch.
+
+### Which devices and apps does Enva support?
+
+At launch, Enva connects with Apple Watch, Oura Ring, Peloton, and Orangetheory. Garmin, Whoop, and Fitbit are coming soon. We build direct connections to each ecosystem so you get the full, unflattened data, not just what Apple Health captures.
+
+### Do I need an Apple Watch?
+
+No. Enva works with an Apple Watch, an Oura Ring, or neither. It reads your data from Apple Health and your connected services, and you can log workouts, food and sleep by hand. A score that depends on data you have not connected shows lower confidence instead of guessing. Starting a workout from your wrist does need an Apple Watch.
+
+### Can Enva build my workouts for me?
+
+Yes. Start from a curated template, build your own from scratch, or hand Enva Intelligence the equipment you have, the time you have and the goal you're chasing, and it writes the session for you, rounds and reps included. Every workout you build also runs on Apple Watch, so you can do it and record it without going back to your phone.
+
+### Does Enva work for event training, like HYROX?
+
+Yes. Set a target time and a date for a HYROX® race, a DEKA event, a Dri-Tri, an Orangetheory benchmark, or any goal with a finish line, and Enva reorganizes your training around it: a projection, the single biggest limiter, a plan by phase, and sessions built for exactly what you're missing. HYROX® is a registered trademark of HYROX GmbH. Enva is not affiliated with, endorsed by, or sponsored by HYROX.
+
+### How do I get a recipe into my food log?
+
+Find a recipe in Enva, or ask Enva Intelligence to write one. Enva works out the nutrition for the whole recipe, and you log your portion rather than the whole pot. It goes into your food log and counts toward your daily calories and macros. See [Meals](https://getenva.ai/meals) for the full walkthrough.
+
+### How does Enva work out calories and macros for food it cannot find?
+
+Search the food catalog first, which includes restaurant menu items and alcohol, with the calories from alcohol counted. If you still cannot find it, tap Estimate with Enva Intelligence and describe the food. You get an estimate of calories and macros to log, and you can edit any entry afterwards. For supplements, scan the barcode or the label.
+
+### How do I add blood work?
+
+There are three ways: import your results from Apple Health Records if your provider shares records with Apple Health, upload a lab PDF, or enter the values by hand. Not every provider supports Apple Health Records, so PDF upload and manual entry always work. Enva Intelligence only brings your labs into an answer when you ask about them.
+
+### What can I ask Enva Intelligence, and how many questions do I get?
+
+Ask about your training, food, sleep, recovery and labs, have it build a workout from the equipment you have, find a recipe, or explain what a score means. You can ask up to 20 questions a day. It answers from your own data, using the part that fits your question, and blood work is only included when you ask about it. It is not medical advice.
+
+### Is my health data safe?
+
+Yes. Most of Enva's processing happens on your device: your Health Score, Biological Age, and recovery trends are all computed on your phone. When deeper AI coaching has to run off-device, it uses an enterprise-secure model that cannot use your data for training. We never sell your data. Read the full [Privacy Policy](https://getenva.ai/privacy).
+
+### Can I back up or delete my data?
+
+Yes to both, from Settings. Backup and Restore saves a backup file of everything you entered in Enva (manual workouts, strength, nutrition, supplements, blood work), and you can restore it later. Data from Apple Health and connected services is not in the file; it re-syncs when you reconnect. Delete All Data permanently removes every session, connected account, and setting from your device. It cannot be undone. It does not remove anything from Apple Health, including nutrition entries and water that Enva wrote there with your permission. To delete those, open the Health app and go to Sharing, then Apps, then Enva. See [About](https://getenva.ai/about) for what this looks like. For any other privacy request, email [privacy@getenva.ai](mailto:privacy@getenva.ai).
+
+### What is the Enva Health Score and how is it calculated?
+
+A single score from 0 to 100 for how your week is going, read from three pillars, each scored against your own baseline: Readiness, Load quality and Trajectory. Readiness is how recovered you are, Load quality is whether this week's training fits what your body is used to, and Trajectory is the 6-week direction of VO₂ Max, HRV and training load. Scores run Needs Work (0 to 39), Fair (40 to 59), Good (60 to 77) and Excellent (78 to 100). A lower score after a hard week is not a warning. See [Your data](https://getenva.ai/your-data) for the breakdown.
+
+### What is Biological Age and how is it calculated?
+
+A weighted estimate of how your body is functioning, independent of your chronological age. Enva builds it from five domains: Cardiovascular Fitness, Recovery Capacity, Activity Profile, Body Composition, and Biomarker Health. A domain you haven't connected yet is left out and the rest are reweighted to compensate, so you're never penalized for data you don't have yet.
+
+### Why does Enva connect directly to Peloton and Orangetheory instead of using Apple Health?
+
+Apple Health flattens workout data. It knows you did a "cycling" workout, but not your Peloton output, resistance, cadence, or leaderboard rank. It doesn't capture Orangetheory splat points, treadmill pace, or rower 500m averages, the metrics that actually tell you whether you're improving. Direct connections give Enva the enriched data each platform captures natively.
+
+### How do I cancel, and what happens after the free trial?
+
+Subscriptions are managed through Apple. On your iPhone, open Settings, tap your name, then Subscriptions, choose Enva, and tap Cancel Subscription. If you cancel before the 7-day trial ends, you are not charged. Otherwise the plan you picked starts when the trial ends.
+
+### Is Enva a substitute for medical advice?
+
+No. Enva is a functional model built from your physiology, training, and blood chemistry, not a diagnostic tool or a DNA test. A biomarker outside its reference range is a reason to talk to a clinician, not a conclusion. Nothing in the app should be treated as medical advice.
+
+### Is Enva available on Android?
+
+No. Enva is built for iPhone and Apple Watch. Join the [waitlist](https://getenva.ai/#waitlist) and we will email you when it launches on iPhone.
+
+**Get in touch**
+
+## Send us a message.
+
+---
+
+Source: https://getenva.ai/privacy
+
+
+
+# Privacy Policy
+
+*Legal*
+
+Last updated: November 10, 2026
+
+Let's be straightforward with each other.
+
+Most privacy policies are written to give companies the legal cover to do whatever they want with your data. Ours is written to explain exactly how little of your data we actually touch.
+
+At Enva, we believe your health and fitness data belongs to you. This Privacy Policy explains how **Olympus Hills Ventures LLC** ("Company," "we," "our," or "us") handles information when you use [getenva.ai](https://getenva.ai/) (the "Site") and the Enva mobile application (the "Mobile App") (collectively, the "Services").
+
+By using Enva, you agree to this Privacy Policy and our [Terms of Service](https://getenva.ai/terms). If you don't agree, please do not use the Services.
+
+## 1. The Golden Rule: Your Raw Health Data Stays on Your Phone
+
+We designed Enva so that we don't have to secure your sensitive health data on our servers — because we don't collect raw records in the first place.
+
+- **Local storage.** When you connect Enva to Apple Health or other third-party integrations, that health and fitness data (like your heart rate, sleep metrics, and workout history) is imported and processed **locally on your device**. Individual timestamped records — discrete heart rate samples, GPS tracks, raw sleep stage events — never leave your phone.
+- **Computed summaries, not raw records.** When AI features are enabled, Enva computes aggregate metrics from your data (like your weekly training load or your average sleep score) and sends that computed summary to our AI service to generate a response. The distinction matters: summaries are sent, raw records are not.
+- **One exception: Garmin.** Garmin delivers your data by sending it to a server, not by letting your phone request it. If you connect a Garmin account, your Garmin data passes through our backend on its way to your phone. We keep it only until your phone has received it, as described in Section 2F.
+
+## 2. Information We Actually Collect (And Why)
+
+While your health data stays on your phone, we do collect a limited amount of information to keep the app running, offer customer support, and figure out how to improve the product.
+
+**A. Information you provide directly**
+
+- **Account and contact info:** If you create an account or email us for support, we collect your name, email address, and the contents of your message.
+- **Payment information:** We do not collect or see your credit card information. Subscriptions are handled entirely through the Apple App Store, subject to Apple's privacy policy.
+
+**B. Information collected automatically (app analytics)**
+
+- **Usage data:** We collect anonymized, non-personally identifiable data about how you use the app (for example, which screens you visit, what features you use, and session frequency). This data does not contain health information.
+- **Device data:** Basic information like your device model, iOS version, and app version — used for crash analysis and compatibility.
+- **Analytics vendor:** We use PostHog for product analytics. Analytics is opt-in: you are asked during onboarding and can change your preference in Settings. PostHog receives an anonymous rotating session ID — not your name, email, or Apple ID. No health data is included.
+
+**C. Bug reports and crash diagnostics**
+
+- **MetricKit:** If the app crashes or hangs, Apple's MetricKit framework produces a diagnostic report (crash or hang type, technical stack traces, app version, OS version, device model). The app forwards that report to our backend on Google Cloud. No health data is included.
+- **Report a Bug:** If you submit a bug report through Settings → Report a Bug, we collect your written description, up to 30 recent in-app events (a breadcrumb log of actions, not health records), your device model and OS version, and optionally a screenshot you choose to attach. This is sent to our backend and retained for up to 12 months for debugging purposes.
+
+**D. AI-generated inferences**
+
+When you use AI features, Enva computes inferences from your health data — such as a recovery score, a training load estimate, or a wellness insight — entirely on your device. These inferences may be included in the computed summary sent to our AI service (see §3), but the underlying raw health records are not transmitted.
+
+**E. AI feedback and support tickets**
+
+- **Thumbs up or down:** When you rate an AI response, Enva records which part of the app it was given in, which version of the prompt produced it, and your anonymous device ID. It does not include your question, the reply, or any health data. Ratings are kept for up to 90 days.
+- **Support tickets:** After a thumbs-down you can open a ticket. If you tap Send, we receive what you wrote, an optional reason, your device model, iOS and app version, language and time zone, and recent in-app events (a breadcrumb log of actions, not health records). The ticket is stored and emailed to support@getenva.ai, and is kept for up to 12 months. A screenshot is included only if you attach one. It is emailed to support and is not stored in our database. The app never takes one on its own.
+
+## 2F. Accounts and data you connect
+
+Enva can connect to other health and fitness services, each only with your permission. Any sign-in information for a connected service, such as a password or an access token, is stored in the iOS Keychain on your iPhone. It stays in the iOS Keychain. For a service that needs a secret the app cannot hold, such as Oura, your sign-in code passes through our backend once so that it can complete the sign-in. Our backend does not store or log it. Garmin works differently, as described below. You can disconnect any service at any time, which removes that sign-in information from your device.
+
+Data from connected services, including Apple Health, is processed on your device in the same way as the rest of your health data (see Section 1). It is never used for advertising or marketing, never sold, and never shared with data brokers.
+
+If you log food or water in Enva, Enva can also write those entries to Apple Health, only with your permission. Delete All Data in Enva does not remove anything from Apple Health, including entries Enva wrote there. You can delete those in the Health app under Sharing, then Apps, then Enva.
+
+**Garmin.** If you connect a Garmin account, Enva receives the Garmin Connect data you choose to share: sleep, heart rate variability, resting heart rate, stress, Body Battery, steps, and activities. Garmin sends this data to our backend on Google Cloud, which holds it only so that your phone can collect it. We delete each record from our servers once your phone has received it, and we delete anything your phone has not collected within 30 days. After that it is stored and processed on your device like the rest of your health data.
+
+- **How we use it.** Only to show you your own sleep, recovery, and training insights in Enva. We do not sell it, license it, share it with data brokers, or use it for advertising or marketing.
+- **Who handles it.** Google Cloud (backend hosting and temporary storage) and, only if you have turned on Garmin data for Enva Intelligence, Anthropic (AI processing, see Section 3). No one else receives it.
+- **What you control in Garmin.** Garmin Connect lets you choose which categories of data you share with Enva, and you can revoke Enva's access there at any time.
+- **Disconnect and delete.** Disconnecting Garmin in Enva (Settings, Connected Accounts), or removing Enva in Garmin Connect, stops new data and deletes any Garmin data we still hold, along with your Garmin sign-in tokens on our servers. Delete All Data in Enva removes Garmin data stored on your device. To ask us to delete anything else, email [privacy@getenva.ai](mailto:privacy@getenva.ai).
+- **Access, correction and export.** What Enva shows you is visible in the app. Your original Garmin data stays with Garmin, so ask Garmin for a copy or to correct it.
+
+## 3. Enva Intelligence — How AI Features Work
+
+Enva Intelligence is opt-in. If you choose not to enable it during onboarding, no health data ever leaves your device for AI processing. You can also disable it at any time after onboarding by going to **Settings → Enva Intelligence** in the app. Disabling the feature stops all future AI transmissions; it does not delete insights already generated or your local conversation history. If you do enable it, here is exactly what happens:
+
+**What is sent — tiered by feature:**
+
+- **All AI features** include a biometric baseline: recent HRV, resting heart rate, sleep score, recovery score, VO₂ Max estimate, and training load metrics — all as computed aggregates, never as raw timestamped records.
+- **Body and Insights features** additionally include: weight, BMI, and body fat percentage (if you've entered them), and nutrition macro totals.
+- **AI Chat** additionally includes: blood work values you've imported, goal notes you've typed, and the messages in your current conversation.
+- **Workout analysis** additionally includes: session notes you've typed for that workout.
+- **Recipes and meals** include what you type or paste to use them: a description of a meal, a pasted recipe, the ingredients you have, how long you have, and any foods to avoid. Screenshots of recipes are read on your phone first, and only the text is sent. Our backend uses this only to produce the result. It does not store it or write it to its logs.
+
+**How the data travels — two paths:**
+
+- **Most features.** The context block is sent from the app to our backend (Google Cloud, us-central1 region), which forwards it to our AI service provider to generate your response. The backend does not keep your health context. It keeps two short-lived items: the insight it just generated, for up to a day so that reopening a screen is instant, and, if a generated reply fails a safety check, a copy of that reply for up to 30 days so we can fix the prompt.
+- **Photos and documents.** If you import a photo or file, such as a body scan, a lab report or a workout screenshot, the image or its text is sent from your phone to our backend, which passes it to our AI service provider to read it. It is not stored on our backend after the result comes back.
+
+**Device identity.** Your app is associated with an anonymous Firebase device ID — a stable per-install identifier used for AI quota tracking and to associate your conversation history within the app. This ID is not linked to your name, Apple ID, or email address. It is stored in your device's Keychain and survives app updates but is reset on reinstall.
+
+**What our AI service provider does not do.** Your data is not retained by our AI service provider after your response is generated, and is not used to train AI models. For details, refer to our AI service provider's data processing terms.
+
+**AI transparency statement: Garmin data.** Garmin data is included in an AI request only if you turn on **Settings, Enva Intelligence, Use Garmin data**, which is off by default. When it is on, computed summaries from your Garmin data (for example, your average sleep or Body Battery) can be part of the context sent to our AI service provider, Anthropic, to generate your response. Raw Garmin records are not sent. You can turn this off at any time, and it stops all future use of Garmin data in AI requests. Garmin data, and anything derived from it, is never used to train, evaluate, or improve AI models, by us or by our AI service provider.
+
+**Conversation history.** Your AI chat history is stored locally on your device. It is not stored on our servers. If you delete the app, your conversation history is gone.
+
+**Reproductive health.** Reproductive health data (menstrual cycle, fertility metrics) is not included in any AI context block by default. It stays on your device unless you explicitly type it into a chat message.
+
+## 4. How We Share Your Information
+
+We do not sell your personal information. Ever.
+
+We only share the limited data we collect (like your email or anonymized analytics) in the following scenarios:
+
+- **Service providers:** With trusted vendors who help us operate the Services, including:
+
+  - **Google Cloud** — backend infrastructure and Firebase services (anonymous device authentication and the backend that routes AI requests). Governed by Google Cloud's Data Processing Addendum.
+  - **PostHog** — product analytics (opt-in only; receives an anonymous session ID and event names, no health data).
+  - **Apple** — subscription billing via the App Store and MetricKit crash diagnostics.
+  - **Anthropic**: our AI service provider. Processes computed health summaries on our behalf to generate AI responses when you have enabled Enva Intelligence, and processes Garmin summaries only if you have also turned on Garmin data for AI. See §3 for details.
+- **Legal compliance:** If we are legally required to do so by a valid court order, subpoena, or law enforcement request. We will notify you of any compelled disclosure to the extent permitted by law.
+- **Business transfers:** If Olympus Hills Ventures LLC is acquired, merged, or sold, your contact and analytics data (but not your on-device health data) may be transferred as a business asset. Any successor will be bound to treat your data under terms no less protective than this policy.
+
+## 5. Security and Data Retention
+
+We use commercially reasonable security measures, including AES-256 encryption at rest and TLS in transit, to protect the limited data we do hold.
+
+- **Health data on-device:** Stored in an encrypted SwiftData database protected by iOS file protection. You control retention — when you delete the Enva app, your local data is permanently deleted.
+- **Garmin data in transit:** Held on our servers only until your phone has collected it, then deleted, and in any case deleted within 30 days.
+- **Bug reports:** Retained for up to 12 months and then deleted.
+- **AI feedback:** Ratings are kept for up to 90 days and support tickets for up to 12 months, then deleted.
+- **Generated insights and rejected replies:** A generated insight is kept for up to a day. A reply that fails a safety check is kept for up to 30 days.
+- **PostHog analytics:** Retained in anonymized, aggregated form. No health data is included.
+- **Crash reports (MetricKit):** Retained for up to 12 months and then deleted.
+- **Subscription and contact data:** Retained as long as your account is active or as required by law.
+
+## 6. Children's Privacy
+
+Enva is intended for users who are **18 years of age or older**. You must be at least 18 to create an account and use the Services. We do not knowingly collect personal information from anyone under 18. If we learn that a user under 18 has accessed the Services, we will terminate that account and delete any associated data promptly. If you believe a minor has used Enva, please contact us at [privacy@getenva.ai](mailto:privacy@getenva.ai).
+
+## 7. U.S. State Privacy Rights
+
+Many U.S. states have enacted comprehensive consumer privacy laws. If you are a resident of California, Utah, Colorado, Virginia, Texas, Washington, or another state with applicable privacy legislation, you have specific rights regarding your personal data.
+
+Because we do not store your raw health data on our servers, these rights primarily apply to the data we do hold: your email address, support correspondence, analytics profile, and any bug report or feedback data.
+
+Your health and workout data lives on your phone. You can see everything you entered in Enva, and everything you connected from Apple Health, Peloton or Orangetheory, in the app. That data is yours. These are your rights, and how they work here:
+
+- **Right to know or access:** Everything you entered or connected is visible in the app, and you can save what you entered as a backup file from Settings (Backup and Restore), on any plan, at no charge. For the limited data we hold (your email address, support messages, bug and feedback reports, and the device ID if you give it to us), email us and we will tell you what we have. We can only find data linked to an email address or device ID you provide.
+- **Right to delete:** Your health data is on your phone, and you can erase it at any time with Settings, Delete All Data, or by deleting the app. We hold very little else (see Section 2). If you email [privacy@getenva.ai](mailto:privacy@getenva.ai), we will delete anything we can find linked to your email address or device ID, or tell you we have nothing.
+- **Right to correct:** You can edit or remove any entry in the app. For the data we hold, ask us.
+- **Right to opt out of sale or sharing:** We do not sell or share your personal data for targeted advertising. This right is satisfied by our practices.
+- **Right to data portability:** The backup file holds what you entered yourself in Enva: manually logged workouts, strength sets, nutrition, supplements and blood work. Data from Apple Health, Peloton, Orangetheory and other connected services stays with those services, so ask them for a copy of it. We do not charge for any of this, and we do not make privacy requests depend on your subscription plan.
+
+**Scores and calculations.** Enva calculates scores and estimates from your data on your device, such as the Enva Health Score, recovery, and VO2 Max estimates, and shows them to you in the app. We do not keep them on our servers. The methods behind them are proprietary, so the backup file and our responses to requests do not include our formulas or how they are built. Some calculated values may be saved with your records on your device and may appear in a backup file. We will honor your rights as applicable law requires.
+
+**Washington My Health MY Data Act (MHMDA) and similar state health data laws.** Enva processes certain health data as defined under state-level health privacy statutes, including biometric and fitness data. We collect and process this data only with your authorization, use it only to provide the Services, and do not sell it. To the extent state law grants additional rights with respect to health data, we honor those rights. Requests can be submitted to [hello@getenva.ai](mailto:hello@getenva.ai).
+
+To exercise any of these rights, email us at [privacy@getenva.ai](mailto:privacy@getenva.ai). We will respond within 45 days. We will not discriminate against you for exercising your privacy rights.
+
+**Website analytics.** To understand how many people visit getenva.ai and which pages they read, we use Cloudflare Web Analytics. It does not use cookies and does not track you across other websites. It collects page-view information such as the page visited, referring site, country and browser type. It is not used in the Enva mobile app. When you join the waitlist, we also save the website that referred you and any campaign tags in the link you used (for example, which post it came from), alongside your email address, so we can see which channels bring people to Enva.
+
+**"Do Not Track" and Global Privacy Control.** We do not track users across third-party websites. We honor Global Privacy Control (GPC) signals for website analytics.
+
+## 8. International Users
+
+Enva currently operates only in the United States. The app and website are intended for people located in the United States, and we do not offer Enva in the European Economic Area, the United Kingdom, or Switzerland.
+
+If you use Enva or contact us from outside the United States, the limited data we hold (your email address, support messages, and bug and feedback reports) is processed in the United States, and U.S. law applies to how we handle it. If we later offer Enva in other countries, we will update this policy before we do, including how people there can exercise their rights.
+
+Questions about your data can be sent to [privacy@getenva.ai](mailto:privacy@getenva.ai).
+
+## 9. Third-Party Links
+
+Enva may contain links to other websites or services, like Apple Health or research articles. We don't control those third parties, and this Privacy Policy does not apply to them. Please read their privacy policies before sharing your data.
+
+## 10. Changes to this Policy
+
+We may update this Privacy Policy from time to time. For non-material changes (typo corrections, clarifications that do not affect your rights), we will update the "Last updated" date at the top of this page. For material changes — changes that affect what data we collect, how we use it, or who we share it with — we will provide at least 30 days' notice through a prominent in-app notice before the change takes effect. Your continued use of Enva after the effective date of a material change constitutes your acceptance of the updated policy.
+
+## 11. Contact Us
+
+If you have any questions, concerns, or requests regarding your privacy, please reach out to us:
+
+**Olympus Hills Ventures LLC**  
+7533 S Center View Ct # R  
+West Jordan, Utah 84084  
+Privacy requests: [privacy@getenva.ai](mailto:privacy@getenva.ai)  
+Everything else: [support@getenva.ai](mailto:support@getenva.ai)  
+Website: [getenva.ai](https://getenva.ai/)
+
+---
+
+Source: https://getenva.ai/terms
+
+
+
+# Terms of Service
+
+*Legal*
+
+Last updated: November 10, 2026
+
+Let's be straightforward with each other.
+
+Most Terms of Service are written to confuse you. Ours are written to inform you. Enva is built on a simple belief: your health data is yours. Not ours. Not anyone else's. So before you use our app, we want you to actually understand what you're agreeing to — because we think that matters.
+
+These Terms of Use (this "Agreement" or these "Terms") govern your use of [getenva.ai](https://getenva.ai/) (the "Site"), the Enva mobile application (the "Mobile App"), and any related services, features, and content (collectively, the "Services"). Enva is owned and operated by **Olympus Hills Ventures LLC** ("Company," "we," "our," or "us").
+
+BY DOWNLOADING, ACCESSING, OR USING OUR SERVICES, YOU AGREE TO BE BOUND BY THESE TERMS AND OUR PRIVACY POLICY. IF YOU DO NOT AGREE TO THESE TERMS, YOU MUST IMMEDIATELY STOP USING THE SERVICES.
+
+Heads up
+
+These Terms include a binding arbitration clause and class action waiver in Section 12. Please read that section before using the Services.
+
+## 1. What Enva Does
+
+Enva connects to Apple Health and other third-party health data providers ("Third-Party Sources") to generate health scoring, wellness insights, and personalized reference information — all powered by data that lives on your device.
+
+Third-Party Sources operate under their own terms and privacy policies. We don't control them, but we chose to work with them because they're the best at what they do.
+
+## 2. Your Data Stays on Your Phone. Full Stop.
+
+This is the part we're most proud of, so we want to say it clearly.
+
+**Your raw health and fitness data never leaves your device.** Individual timestamped records — discrete heart rate readings, GPS tracks, raw sleep stages — are stored locally on your phone and are never uploaded to our servers. When you delete the app, that data is gone.
+
+Here's exactly what does and doesn't leave your device.
+
+### What stays on your device
+
+- All Apple Health records and raw data imported from third-party integrations
+- Your personal profile, fitness history, and AI conversation history
+- Everything that makes Enva useful to you
+
+### What leaves your device, and what it is
+
+- **App analytics (opt-in).** If you consent during onboarding, we collect anonymized usage data through PostHog — things like which features you use and session frequency. No health data is included. You can change this preference in Settings at any time.
+- **AI processing (opt-in).** If you enable Enva Intelligence, Enva computes aggregate metrics from your on-device data and sends that computed summary to our AI service provider to generate your response. What is sent is a structured summary — not your raw health records — and is not personally identifiable. Our AI service provider processes it to generate your response and does not retain it afterward. For a full breakdown of what each AI feature sends, see our [Privacy Policy §3](https://getenva.ai/privacy).
+- **Garmin data (only if you connect Garmin).** Garmin sends your data to a server rather than letting your phone request it, so it passes through our backend on Google Cloud. We keep it only until your phone has received it, delete it then, and in any case delete it within 30 days. It is never sold, and Garmin data is never used to train AI models. It reaches our AI service provider only if you turn on Garmin data for Enva Intelligence. See [Privacy Policy §2F](https://getenva.ai/privacy#garmin).
+- **Bug reports.** If you submit a bug report through Settings → Report a Bug, we collect your written description, up to 30 recent in-app events, device information, and an optional screenshot you choose to attach.
+- **Crash diagnostics.** If the app crashes or hangs, Apple's MetricKit produces a diagnostic report (no health data) that the app forwards to our backend on Google Cloud.
+- **Recipes, meals and documents (opt-in).** If you use Enva Intelligence to estimate a meal, import or create a recipe, or read a photo or document, what you type, paste or upload is sent to our AI service provider through our backend to produce the result. It is not stored.
+- **AI feedback and support tickets.** If you rate an AI response, we record which part of the app and which prompt version it came from. If you send a support ticket, we collect what you wrote and basic device information. See [Privacy Policy §2E](https://getenva.ai/privacy#ai).
+
+**Anonymous device identity.** Your app is associated with an anonymous Firebase device ID — a stable per-install identifier used for AI quota tracking. It is not linked to your name or Apple ID.
+
+By enabling AI features, you consent to the limited, anonymized processing described above and in our [Privacy Policy](https://getenva.ai/privacy).
+
+## 3. This Is Not Medical Advice
+
+We want Enva to help you feel and perform better. But we're a wellness app, not a doctor.
+
+- **What Enva is:** A tool for general health, fitness, and wellness awareness.
+- **What Enva is not:** A medical device, diagnostic tool, or substitute for professional healthcare.
+
+Nothing in the Services constitutes the practice of medicine, nursing, physical therapy, mental health therapy, or any other licensed healthcare profession. We do not diagnose conditions, prescribe treatment, or replace the advice of a qualified clinician.
+
+**Please talk to your doctor** before making meaningful changes to your physical activity, sleep, diet, or lifestyle based on anything you see in Enva. Don't ignore or delay professional medical advice because of something our app told you.
+
+Our AI-generated insights are generated automatically. They may contain errors or omissions. You assume all risk associated with relying on them.
+
+Recipes, nutrition numbers and workouts that Enva Intelligence suggests are estimates, and no one has tested them. Check ingredients against your own allergies and dietary needs, follow safe food handling, and use judgment about any exercise you are not ready for.
+
+IF YOU THINK YOU ARE EXPERIENCING A MEDICAL EMERGENCY, IMMEDIATELY CALL 911 OR YOUR LOCAL EMERGENCY SERVICES.
+
+## 4. Privacy
+
+Your privacy isn't an afterthought — it's a design decision we made before writing a single line of code.
+
+By using the Services, you agree to our [Privacy Policy](https://getenva.ai/privacy), which is incorporated into these Terms by reference. Because we don't store your health data on our servers, we don't have a traditional data retention schedule for it. Your data lives on your device. You control it: you can save a backup of what you entered from Settings (Backup and Restore) and erase everything on your device with Delete All Data. See Section 7 of our [Privacy Policy](https://getenva.ai/privacy) for how your privacy rights work.
+
+Where required by applicable law, you will be prompted to provide explicit consent before any sensitive data is processed or transmitted.
+
+## 5. Who Can Use Enva
+
+By accessing or using the Services, you confirm that:
+
+- You are at least **18 years of age**;
+- You have the legal capacity to enter into a binding agreement;
+- You are not prohibited by applicable law or U.S. government sanctions from using the Services.
+
+Enva currently operates only in the United States and is intended for people located in the United States. We do not offer Enva in the European Economic Area, the United Kingdom, or Switzerland.
+
+Enva is not intended for users under 18. We do not knowingly collect personal information from anyone under 18. If we learn that a user under 18 has accessed the Services, we will terminate that account and delete associated data promptly. If you believe a minor has used Enva, please contact us at [hello@getenva.ai](mailto:hello@getenva.ai).
+
+## 6. Subscriptions, Free Trials and Billing
+
+Notice regarding automatic renewals and trials
+
+**Free trials.** If you start a free trial offer, your subscription will automatically convert to a paid subscription at the end of the trial period unless cancelled prior. Pursuant to Utah Code § 13-70-201, we will provide clear notice **at least three (3) days before** your trial period expires. That notice will state: (a) the trial expiration date; (b) the exact price to be charged upon conversion; and (c) instructions on how to cancel.
+
+**Automatic renewal.** Enva subscriptions renew automatically. By subscribing, you authorize recurring charges to your payment method through the Apple App Store. **Monthly plans** automatically renew each month until you cancel. **Annual plans** automatically renew each year. Pursuant to Utah Code § 13-70-201, for any paid term longer than 45 days, we will send written notice no fewer than **30 days and no more than 60 days** before your renewal date. That notice will state the renewal date, total renewal cost, and cancellation steps. Apple may also send renewal reminders through your Apple ID account.
+
+### How to cancel
+
+You may cancel anytime through your Apple ID account settings: Settings, then Apple ID, then Subscriptions. Deleting the Mobile App from your phone does not cancel your subscription.
+
+## 7. How You May Use Enva
+
+We grant you a limited, non-exclusive, non-transferable, revocable license to use the Mobile App for your personal, non-commercial purposes.
+
+In exchange, you agree not to:
+
+- Copy, modify, reverse engineer, decompile, or create derivative works from any part of the Services;
+- Probe, scan, or test the security or vulnerability of our systems;
+- Use the Services to transmit fraudulent, unlawful, or misleading content;
+- Use bots, scrapers, or automated tools to extract data from the Services.
+
+## 8. Who Owns What — Including Your Feedback
+
+**Our stuff.** All rights, title, and interest in the Services — including our software, algorithms, designs, trademarks, logos, and AI features — belong exclusively to Olympus Hills Ventures LLC.
+
+**Your feedback.** We genuinely want to hear from you. If you share suggestions, feature ideas, or general feedback about Enva ("Feedback"), here's how that works.
+
+You're never required to share Feedback, and doing so doesn't create any obligation on our part — we may use it, ignore it, or build something inspired by it. If we do use it, we won't owe you compensation or attribution.
+
+By submitting Feedback, you grant us a perpetual, irrevocable, worldwide, royalty-free license to use, reproduce, modify, and incorporate it into the Services. This license doesn't apply to your personal health data, which is governed exclusively by our Privacy Policy and never treated as Feedback.
+
+We don't claim ownership of your Feedback — we just need the ability to act on it freely without legal friction. Think of it like telling a friend who builds apps what you wish their app did differently.
+
+## 9. Assumption of Risk
+
+Health and fitness involve inherent risk. By using Enva, you acknowledge this and voluntarily assume all risks — physical, emotional, or psychological — that may arise from your use of the Services or your reliance on health metrics generated by Enva.
+
+To the maximum extent permitted by law, you release Olympus Hills Ventures LLC, its officers, members, employees, and agents from any and all claims or damages arising from your use of the Services.
+
+## 10. No Warranties
+
+The Services are provided **"AS IS"** and **"AS AVAILABLE."** We make no warranties, express or implied — including warranties of merchantability, fitness for a particular purpose, non-infringement, or accuracy of health data and AI outputs.
+
+We built Enva to be reliable and useful. But we can't promise it will always be available, error-free, or exactly right for your situation.
+
+## 11. Limits on Our Liability
+
+We're a small team building something we believe in. In exchange for offering you access to Enva, we need reasonable limits on our legal exposure.
+
+**Limitation of liability.** Olympus Hills Ventures LLC will not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Services. Our total aggregate liability for all claims arising under these Terms will not exceed the greater of **(a) $100 USD** or **(b) the amount you paid us in the six months before the claim arose.**
+
+**Indemnification.** If you use Enva in a way that violates these Terms or the law, and that causes a third party to sue us, you agree to defend, indemnify, and hold Olympus Hills Ventures LLC harmless from any resulting legal claims, damages, or financial losses, including reasonable attorney's fees.
+
+## 12. Disputes — Let's Talk First
+
+### Step 1: Reach out
+
+If something goes wrong, email us at [support@getenva.ai](mailto:support@getenva.ai). Most problems are resolvable, and we'd rather fix them directly than go through a formal process.
+
+### Step 2: Arbitration, if needed
+
+Any dispute we can't resolve informally will be settled by binding arbitration administered by the American Arbitration Association (AAA) under its Consumer Arbitration Rules. Arbitration is faster and less expensive than court, for both of us.
+
+Class action and jury trial waiver
+
+**No class actions.** You and Olympus Hills Ventures LLC agree that claims must be brought individually. You may not participate in class action lawsuits or representative proceedings against us.
+
+**No jury trial.** By agreeing to arbitration, both parties waive the right to a jury trial.
+
+**Opt-out.** You have the right to opt out of this arbitration agreement. If you do not wish to be bound by arbitration, you must notify us in writing within 30 days of completing onboarding and accepting these Terms by emailing [support@getenva.ai](mailto:support@getenva.ai?subject=Arbitration%20Opt-Out) with the subject line "Arbitration Opt-Out." If you opt out, all other parts of these Terms will still apply.
+
+## 13. Governing Law and Venue
+
+These Terms are governed by the laws of the **State of Utah**, without regard to its conflict of law principles. Any arbitration will take place in **Salt Lake County, Utah**, unless we agree otherwise. For any matter not subject to arbitration, you consent to the exclusive jurisdiction of the state and federal courts located in **Salt Lake County, Utah**.
+
+**Severability.** If any part of these Terms is found to be unenforceable or invalid by a court, that specific section will be removed or edited to reflect its original intent, and the rest of the Terms will remain in full force and effect.
+
+## 14. Changes to These Terms
+
+We may update these Terms from time to time. For non-material changes (clarifications, corrections that do not affect your rights), we will update the "Last updated" date at the top. For material changes — changes to data practices, your legal rights, or subscription terms — we will provide at least 30 days' notice through a prominent in-app notice before the change takes effect. Continued use of the Services after the effective date of a material change constitutes your acceptance of the revised Terms.
+
+## 15. Contact
+
+Questions, concerns, or just want to say hi?
+
+**Olympus Hills Ventures LLC**  
+7533 S Center View Ct # R  
+West Jordan, Utah 84084  
+Support: [support@getenva.ai](mailto:support@getenva.ai)  
+Privacy requests: [privacy@getenva.ai](mailto:privacy@getenva.ai)  
+Website: [getenva.ai](https://getenva.ai/)
+
+By using Enva, you agree to these Terms. Thanks for being here.

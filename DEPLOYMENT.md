@@ -132,3 +132,20 @@ subscriber keyed by their email address. Fields: `email`, `source` (which
 page they signed up from), `createdAt`. Browse/export directly in the
 [Firebase console](https://console.firebase.google.com/project/enva-ai-6afde/firestore)
 — no code needed to pull a list.
+
+## Generated files (sitemap, llms.txt, Markdown pages)
+
+`public/sitemap.xml`, `public/llms.txt`, `public/llms-full.txt` and every
+`public/<page>.md` are generated from the HTML pages by the scripts in
+`scripts/` (see `scripts/README.md`). `firebase deploy --only hosting` runs
+them first through the `predeploy` hook in `firebase.json`, so a deploy never
+ships a stale sitemap or Markdown. After editing a page, run them by hand and
+commit the output together with the page:
+
+```
+node scripts/build-sitemap.mjs
+node scripts/build-llms.mjs
+```
+
+Add a new page's short name to `NAMES` and `GROUPS` in
+`scripts/build-llms.mjs` so it lands in the right section of `llms.txt`.

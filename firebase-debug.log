@@ -1,0 +1,78 @@
+[debug] [2026-11-13T15:47:58.895Z] ----------------------------------------------------------------------
+[debug] [2026-11-13T15:47:58.897Z] Command:       /Users/marcuslopez/.nvm/versions/node/v20.20.2/bin/node /Users/marcuslopez/.nvm/versions/node/v20.20.2/bin/firebase emulators:start --only hosting --project demo-enva --config .firebase-emulator-test.json
+[debug] [2026-11-13T15:47:58.897Z] CLI Version:   15.32.1
+[debug] [2026-11-13T15:47:58.898Z] Platform:      darwin
+[debug] [2026-11-13T15:47:58.898Z] Node Version:  v20.20.2
+[debug] [2026-11-13T15:47:58.898Z] Detected Agent: claude-code_2-1-321_agent
+[debug] [2026-11-13T15:47:58.898Z] Time:          Fri Nov 13 2026 08:47:58 GMT-0700 (Mountain Standard Time)
+[debug] [2026-11-13T15:47:58.898Z] ----------------------------------------------------------------------
+[debug] 
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[info] i  emulators: Detected demo project ID "demo-enva", emulated services will use a demo configuration and attempts to access non-emulated services for this project will fail. {"metadata":{"emulator":{"name":"hub"},"message":"Detected demo project ID \"demo-enva\", emulated services will use a demo configuration and attempts to access non-emulated services for this project will fail."}}
+[debug] [2026-11-13T15:47:59.975Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2026-11-13T15:47:59.975Z] assigned listening specs for emulators {"user":{"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5123}],"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2026-11-13T15:47:59.981Z] Write emulator hub locator at /var/folders/q2/lncyqzyj15bccfsk3mq4w4s80000gn/T/hub-demo-enva.json
+[debug] [2026-11-13T15:47:59.994Z] Checked if tokens are valid: false, expires at: 1794528234834
+[debug] [2026-11-13T15:47:59.994Z] Checked if tokens are valid: false, expires at: 1794528234834
+[debug] [2026-11-13T15:47:59.995Z] > refreshing access token with scopes: []
+[debug] [2026-11-13T15:47:59.996Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-11-13T15:47:59.996Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-11-13T15:48:00.165Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2026-11-13T15:48:00.166Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2026-11-13T15:48:00.166Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[info] i  hosting[demo-enva]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: public"}}
+[info] ✔  hosting[demo-enva]: Local server: http://127.0.0.1:5123 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: http://127.0.0.1:5123"}}
+[warn] ⚠  emulators: The Emulator UI is not starting because none of the running emulators have a UI component. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI is not starting because none of the running emulators have a UI component."}}
+[debug] [2026-11-13T15:48:00.239Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ 127.0.0.1:5123 │
+└──────────┴────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "GET /robots.txt HTTP/1.1" 200 674 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"GET /robots.txt HTTP/1.1\" 200 674 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "HEAD /robots.txt HTTP/1.1" 200 674 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"HEAD /robots.txt HTTP/1.1\" 200 674 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "HEAD /sitemap.xml HTTP/1.1" 200 1035 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"HEAD /sitemap.xml HTTP/1.1\" 200 1035 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "HEAD /llms.txt HTTP/1.1" 200 3323 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"HEAD /llms.txt HTTP/1.1\" 200 3323 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "HEAD /llms-full.txt HTTP/1.1" 200 81976 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"HEAD /llms-full.txt HTTP/1.1\" 200 81976 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "HEAD /index.md HTTP/1.1" 200 4532 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"HEAD /index.md HTTP/1.1\" 200 4532 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "HEAD /about.md HTTP/1.1" 200 2955 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"HEAD /about.md HTTP/1.1\" 200 2955 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "HEAD /intelligence HTTP/1.1" 200 18570 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"HEAD /intelligence HTTP/1.1\" 200 18570 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "HEAD /your-data HTTP/1.1" 200 16448 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"HEAD /your-data HTTP/1.1\" 200 16448 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "GET /intelligence HTTP/1.1" 200 18570 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"GET /intelligence HTTP/1.1\" 200 18570 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "GET /intelligence HTTP/1.1" 200 18570 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"GET /intelligence HTTP/1.1\" 200 18570 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "GET /intelligence HTTP/1.1" 200 18570 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"GET /intelligence HTTP/1.1\" 200 18570 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "GET /intelligence HTTP/1.1" 200 18570 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"GET /intelligence HTTP/1.1\" 200 18570 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "HEAD /about.html HTTP/1.1" 301 - "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"HEAD /about.html HTTP/1.1\" 301 - \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "GET /nope HTTP/1.1" 404 3519 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"GET /nope HTTP/1.1\" 404 3519 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "GET /llms.txt HTTP/1.1" 200 3323 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"GET /llms.txt HTTP/1.1\" 200 3323 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "GET /index.md HTTP/1.1" 200 4532 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"GET /index.md HTTP/1.1\" 200 4532 \"-\" \"curl/8.7.1\""}}
+[info] i  hosting: 127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] "GET / HTTP/1.1" 200 31171 "-" "curl/8.7.1" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [13/Nov/2026:15:48:00 +0000] \"GET / HTTP/1.1\" 200 31171 \"-\" \"curl/8.7.1\""}}
+[debug] [2026-11-13T15:49:20.832Z] Received signal SIGTERM 1
+[info]  
+[info] i  emulators: Received SIGTERM for the first time. Starting a clean shutdown. 
+[info] i  emulators: Please wait for a clean shutdown or send the SIGTERM signal again to stop right now. 
+[debug] [2026-11-13T15:49:20.833Z] Found emulator hub locator: {"version":"15.32.1","origins":["http://127.0.0.1:4400","http://[::1]:4400"],"pid":78385}
+[debug] [2026-11-13T15:49:20.834Z] Delete emulator hub locator file: /var/folders/q2/lncyqzyj15bccfsk3mq4w4s80000gn/T/hub-demo-enva.json
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  hosting: Stopping Hosting Emulator {"metadata":{"emulator":{"name":"hosting"},"message":"Stopping Hosting Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[info] i  logging: Stopping Logging Emulator {"metadata":{"emulator":{"name":"logging"},"message":"Stopping Logging Emulator"}}
+[debug] [2026-11-13T15:49:20.838Z] Could not find VSCode notification endpoint: TypeError: fetch failed. If you are not running the Firebase SQL Connect VSCode extension, this is expected and not an issue.

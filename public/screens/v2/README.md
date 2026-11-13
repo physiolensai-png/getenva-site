@@ -1,6 +1,6 @@
 # Home v2 media
 
-Drop files here with these exact names. `home-v2.html` points at every one.
+Drop files here with these exact names. `index.html` points at every one.
 A missing file shows a dashed placeholder with its name, so add them one at a time.
 
 Capture raw screens, no device frame and no rounded corners baked in. The page draws the frame.

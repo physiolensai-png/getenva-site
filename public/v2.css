@@ -113,7 +113,7 @@ footer a{text-decoration:none}
 /* support */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
-.card h3{font-size:22px;font-weight:500;letter-spacing:-.02em}
+.card h2,.card h3{font-size:22px;font-weight:500;letter-spacing:-.02em}
 .card p{color:var(--ink-2);margin-top:10px;font-size:16px}
 .card .arrow{margin-top:18px}
 @media(max-width:820px){.cards{grid-template-columns:1fr}}
@@ -207,7 +207,7 @@ footer a{text-decoration:none}
 .w-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
 .w-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:12px 12px 22px;display:flex;flex-direction:column;gap:10px}
 .w-card.wide{grid-column:span 2}
-.w-card h4{font-size:19px;font-weight:600;letter-spacing:-.01em;margin:8px 8px 0}
+.w-card h3{font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.25;margin:8px 8px 0}
 .w-card p{color:var(--ink-2);font-size:15px;line-height:1.55;margin:0 8px}
 .w-media{background:#E4652A;border-radius:16px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:10px}
 .w-card.wide .w-media{aspect-ratio:8/3}
@@ -281,7 +281,7 @@ footer a{text-decoration:none}
 .builds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 @media(max-width:860px){.builds{grid-template-columns:1fr}}
 .b-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;display:flex;flex-direction:column}
-.b-card h3{font-size:22px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
+.b-card h2,.b-card h3{font-size:22px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
 .b-card p{color:var(--ink-2);margin-top:12px;font-size:16px}
 .b-card .arrow{margin-top:auto;padding-top:18px}
 .trust{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
@@ -302,6 +302,7 @@ footer a{text-decoration:none}
 .qa-btn[aria-pressed="true"] small{color:var(--accent-deep)}
 .qa-btn:focus-visible{outline:2px solid var(--accent-deep);outline-offset:3px}
 .qa-card{max-width:none;margin:0;min-height:430px}
+.qa-card[hidden]{display:none}
 .cc-top{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
 .cc-top em{font-style:normal;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#F6A77D;border:1px solid rgba(246,167,125,.45);border-radius:999px;padding:3px 10px}
 .also{margin-top:34px}
