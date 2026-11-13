@@ -78,10 +78,11 @@ function slugOf(url) {
  * page's own structure; a short closing section (the waitlist call to action,
  * a contact line) rides along with the chunk before it when it fits.
  */
-function chunkSections(sections) {
+function chunkSections(sections, overhead = 0) {
+  const budget = MAX - overhead; // the page/section/URL header on each chunk counts toward MAX
   const pieces = [];
   for (const s of sections) {
-    if (estimateTokens(s.markdown) <= MAX) { pieces.push(s); continue; }
+    if (estimateTokens(s.markdown) <= budget) { pieces.push(s); continue; }
     const paras = s.markdown.split(/\n\n+/);
     let buf = [];
     let part = 0;
@@ -93,7 +94,7 @@ function chunkSections(sections) {
       part++;
     };
     for (const para of paras) {
-      if (buf.length && estimateTokens(buf.join('\n\n') + '\n\n' + para) > MAX) flush();
+      if (buf.length && estimateTokens(buf.join('\n\n') + '\n\n' + para) > budget) flush();
       buf.push(para);
     }
     flush();
@@ -105,7 +106,7 @@ function chunkSections(sections) {
   const close = () => { if (cur.length) chunks.push(cur); cur = []; };
   for (const s of pieces) {
     const substantial = estimateTokens(s.markdown) >= MIN / 2;
-    if (cur.length && size([...cur, s]) > MAX) close();
+    if (cur.length && size([...cur, s]) > budget) close();
     else if (cur.length && s.level > 0 && s.level <= 2 && size(cur) >= MIN && substantial) close();
     cur.push(s);
   }
@@ -121,11 +122,13 @@ for (const { url, html, lastModified: lm } of pages) {
   const page = extractPage(html, { pageUrl: url, includeImages: false });
   if (page.noindex) continue;
   const slug = slugOf(url);
-  const chunks = chunkSections(page.sections);
+  const contextFor = (section) => `Page: ${page.title}\nSection: ${section && section.path.length ? section.path.join(' > ') : page.title}\nURL: ${url}`;
+  const longestPath = page.sections.reduce((best, s) => (s.path.join(' > ').length > best.path.join(' > ').length ? s : best), page.sections[0] || { path: [] });
+  const chunks = chunkSections(page.sections, estimateTokens(contextFor(longestPath)) + 2);
   chunks.forEach((sections, i) => {
     const first = sections.find((s) => s.heading) || sections[0];
     const body = sections.map((s) => s.markdown).join('\n\n');
-    const context = `Page: ${page.title}\nSection: ${first.path.length ? first.path.join(' > ') : page.title}\nURL: ${url}`;
+    const context = contextFor(first);
     const text = `${context}\n\n${body}`;
     lines.push(JSON.stringify({
       id: `${slug}#${i}`,
