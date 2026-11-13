@@ -1,6 +1,6 @@
 ---
-title: "Enva | Health Score, Biological Age and AI Insights"
-description: "Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, with an assistant that answers from all of it."
+title: "Enva App | Health Score and Biological Age for iPhone"
+description: "Enva is a health app for iPhone and Apple Watch. It turns your training, food, sleep and blood work into one Health Score, a Biological Age and AI answers."
 url: https://getenva.ai/
 markdown_url: https://getenva.ai/index.md
 site: Enva
@@ -11,7 +11,7 @@ last_modified: 2026-11-13
 
 *For iPhone and Apple Watch*
 
-Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, and an assistant that answers from all of it.
+Enva is a health tracking app for iPhone and Apple Watch. It brings your training, food, recovery and blood work into one Health Score and one Biological Age, and an AI assistant that answers from all of it.
 
 7 days free when we launch. Then $12.99 a month.
 
@@ -107,6 +107,32 @@ One answer from your watch, your food log and your lab results, together.
 - Delete everything anytime
 
 [Read the privacy policy](https://getenva.ai/privacy#enva-intelligence)
+
+**Quick answers**
+
+## Before you join.
+
+The short version. [More answers in Support](https://getenva.ai/support).
+
+### How much does Enva cost?
+
+Every plan starts with a 7-day free trial, then it is $12.99 a month or $89.99 a year (about $7.50 a month). Both plans include every feature, and you can cancel anytime in your Apple settings. One trial per customer.
+
+### Which devices and apps does Enva work with?
+
+Enva is built for iPhone and Apple Watch and reads your data from Apple Health. At launch it also connects to Oura Ring, Peloton and Orangetheory, with Garmin, WHOOP and Fitbit coming soon. You do not need an Apple Watch to use Enva, but starting a workout from your wrist does.
+
+### Is there an Android version of Enva?
+
+No. Enva is for iPhone and Apple Watch only. Join the waitlist and we will email you when it launches.
+
+### Is Enva medical advice?
+
+No. Enva is a wellness app, not a medical device. It does not diagnose or treat any condition. A result outside its usual range is a reason to talk to a clinician, not a conclusion.
+
+### Where does my health data go?
+
+Your Health Score and Biological Age are worked out on your phone. Enva Intelligence is off until you turn it on, it receives summaries rather than raw sensor data, and your data is never used to train models. Read the [privacy policy](https://getenva.ai/privacy#enva-intelligence).
 
 **Early access**
 

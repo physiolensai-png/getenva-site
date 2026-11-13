@@ -3,20 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Enva | Health Score, Biological Age and AI Insights</title>
-<meta name="description" content="Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, with an assistant that answers from all of it.">
+<title>Enva App | Health Score and Biological Age for iPhone</title>
+<meta name="description" content="Enva is a health app for iPhone and Apple Watch. It turns your training, food, sleep and blood work into one Health Score, a Biological Age and AI answers.">
 <link rel="canonical" href="https://getenva.ai/">
 <link rel="alternate" type="text/markdown" href="https://getenva.ai/index.md" title="Markdown version of this page">
-<meta property="og:title" content="Enva | Health Score, Biological Age and AI Insights">
-<meta property="og:description" content="Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, with an assistant that answers from all of it.">
+<meta property="og:title" content="Enva App | Health Score and Biological Age for iPhone">
+<meta property="og:description" content="Enva is a health app for iPhone and Apple Watch. It turns your training, food, sleep and blood work into one Health Score, a Biological Age and AI answers.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getenva.ai/">
 <meta property="og:site_name" content="Enva">
 <meta property="og:image" content="https://getenva.ai/og/og-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@getenva">
+<meta name="twitter:creator" content="@getenva">
+<meta name="twitter:title" content="Enva App | Health Score and Biological Age for iPhone">
+<meta name="twitter:description" content="Enva is a health app for iPhone and Apple Watch. It turns your training, food, sleep and blood work into one Health Score, a Biological Age and AI answers.">
+<meta name="twitter:image" content="https://getenva.ai/og/og-home.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Enva. See how it all connects.">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +47,7 @@ h2{font-size:clamp(32px,4.4vw,52px)}
 p{margin:0}
 a{color:inherit}
 img,video{max-width:100%;display:block}
+img{height:auto}
 .wrap{max-width:1120px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
 .band{padding-block:88px}
 .alt{background:var(--ground-2)}
@@ -175,19 +181,31 @@ nav img{height:34px;width:auto}
   .menu a{display:block;padding:14px 16px;border-radius:12px;text-decoration:none;font-size:18px;color:var(--ink)}
   .menu a:hover,.menu a:focus-visible{background:var(--ground-2)}
 }
+/* quick answers (same accordion as the support page) */
+.quick{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+.quick .faq{margin-top:0;border-top:1px solid var(--line)}
+.qa{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-size:18px;font-weight:500;letter-spacing:-.01em;color:var(--ink);position:relative}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:400;color:var(--accent-deep);line-height:1}
+.qa[open] summary::after{content:"\2212"}
+.qa summary:focus-visible{outline:2px solid var(--accent-deep);outline-offset:2px}
+.ans{padding:0 0 22px;color:var(--ink-2);font-size:16.5px;line-height:1.7}
+.ans a{color:var(--accent-deep);text-underline-offset:3px}
+@media(max-width:860px){.quick{grid-template-columns:1fr;gap:28px}}
 footer{border-top:1px solid var(--line);padding-block:36px 56px;color:var(--ink-3);font-size:13.5px;display:grid;gap:14px}
 footer .links{display:flex;gap:10px 24px;flex-wrap:wrap;color:var(--ink-2);font-size:14.5px}
 footer a{text-decoration:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://getenva.ai/#organization","name":"Enva","legalName":"Olympus Hills Ventures LLC","url":"https://getenva.ai/","logo":{"@type":"ImageObject","url":"https://getenva.ai/apple-touch-icon-180x180.png","width":180,"height":180},"description":"Enva brings training, food, recovery and blood work into one Health Score and Biological Age, with an assistant that answers from all of it.","email":"hello@getenva.ai","contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"support@getenva.ai"},{"@type":"ContactPoint","contactType":"privacy requests","email":"privacy@getenva.ai"}]},{"@type":"WebSite","@id":"https://getenva.ai/#website","name":"Enva","url":"https://getenva.ai/","publisher":{"@id":"https://getenva.ai/#organization"},"inLanguage":"en"},{"@type":"MobileApplication","@id":"https://getenva.ai/#app","name":"Enva","url":"https://getenva.ai/","applicationCategory":"HealthApplication","operatingSystem":"iOS, watchOS","description":"Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, with Enva Intelligence, an assistant that answers from all of it. For iPhone and Apple Watch.","author":{"@id":"https://getenva.ai/#organization"},"offers":[{"@type":"Offer","name":"Monthly","price":"12.99","priceCurrency":"USD","description":"7-day free trial, then $12.99 a month. Cancel anytime."},{"@type":"Offer","name":"Annual","price":"89.99","priceCurrency":"USD","description":"7-day free trial, then $89.99 a year, about $7.50 a month."}],"featureList":["Enva Health Score, scored against your own baseline","Biological Age estimate with a confidence range","Sleep and recovery scoring with a daily plan","Workout builder that runs on Apple Watch","Food log with recipes and AI nutrition estimates","Blood work from Apple Health Records, PDF upload or manual entry","Enva Intelligence, an assistant that answers from your own data","Home Screen and Lock Screen widgets","Connects to Apple Health, Apple Watch, Oura Ring, Peloton and Orangetheory"]},{"@type":"WebPage","@id":"https://getenva.ai/","url":"https://getenva.ai/","name":"Enva | Health Score, Biological Age and AI Insights","description":"Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, with an assistant that answers from all of it.","isPartOf":{"@id":"https://getenva.ai/#website"},"about":{"@id":"https://getenva.ai/#app"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://getenva.ai/og/og-home.png"},"inLanguage":"en"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://getenva.ai/#organization","name":"Enva","legalName":"Olympus Hills Ventures LLC","url":"https://getenva.ai/","logo":{"@type":"ImageObject","url":"https://getenva.ai/apple-touch-icon-180x180.png","width":180,"height":180},"description":"Enva brings training, food, recovery and blood work into one Health Score and Biological Age, with an assistant that answers from all of it.","email":"hello@getenva.ai","contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"support@getenva.ai"},{"@type":"ContactPoint","contactType":"privacy requests","email":"privacy@getenva.ai"}],"alternateName":["Enva App","Enva Health","getenva.ai"],"sameAs":["https://x.com/getenva","https://www.instagram.com/getenva","https://www.tiktok.com/@getenva"]},{"@type":"WebSite","@id":"https://getenva.ai/#website","name":"Enva","url":"https://getenva.ai/","publisher":{"@id":"https://getenva.ai/#organization"},"inLanguage":"en"},{"@type":"MobileApplication","@id":"https://getenva.ai/#app","name":"Enva","url":"https://getenva.ai/","applicationCategory":"HealthApplication","operatingSystem":"iOS, watchOS","description":"Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, with Enva Intelligence, an assistant that answers from all of it. For iPhone and Apple Watch.","author":{"@id":"https://getenva.ai/#organization"},"offers":[{"@type":"Offer","name":"Monthly","price":"12.99","priceCurrency":"USD","description":"7-day free trial, then $12.99 a month. Cancel anytime."},{"@type":"Offer","name":"Annual","price":"89.99","priceCurrency":"USD","description":"7-day free trial, then $89.99 a year, about $7.50 a month."}],"featureList":["Enva Health Score, scored against your own baseline","Biological Age estimate with a confidence range","Sleep and recovery scoring with a daily plan","Workout builder that runs on Apple Watch","Food log with recipes and AI nutrition estimates","Blood work from Apple Health Records, PDF upload or manual entry","Enva Intelligence, an assistant that answers from your own data","Home Screen and Lock Screen widgets","Connects to Apple Health, Apple Watch, Oura Ring, Peloton and Orangetheory"]},{"@type":"WebPage","dateModified":"2026-11-13","@id":"https://getenva.ai/","url":"https://getenva.ai/","name":"Enva App | Health Score and Biological Age for iPhone","description":"Enva is a health app for iPhone and Apple Watch. It turns your training, food, sleep and blood work into one Health Score, a Biological Age and AI answers.","isPartOf":{"@id":"https://getenva.ai/#website"},"about":{"@id":"https://getenva.ai/#app"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://getenva.ai/og/og-home.png"},"inLanguage":"en"},{"@type":"FAQPage","@id":"https://getenva.ai/#faq","isPartOf":{"@id":"https://getenva.ai/#website"},"inLanguage":"en","mainEntity":[{"@type":"Question","name":"How much does Enva cost?","acceptedAnswer":{"@type":"Answer","text":"Every plan starts with a 7-day free trial, then it is $12.99 a month or $89.99 a year (about $7.50 a month). Both plans include every feature, and you can cancel anytime in your Apple settings. One trial per customer."}},{"@type":"Question","name":"Which devices and apps does Enva work with?","acceptedAnswer":{"@type":"Answer","text":"Enva is built for iPhone and Apple Watch and reads your data from Apple Health. At launch it also connects to Oura Ring, Peloton and Orangetheory, with Garmin, WHOOP and Fitbit coming soon. You do not need an Apple Watch to use Enva, but starting a workout from your wrist does."}},{"@type":"Question","name":"Is there an Android version of Enva?","acceptedAnswer":{"@type":"Answer","text":"No. Enva is for iPhone and Apple Watch only. Join the waitlist and we will email you when it launches."}},{"@type":"Question","name":"Is Enva medical advice?","acceptedAnswer":{"@type":"Answer","text":"No. Enva is a wellness app, not a medical device. It does not diagnose or treat any condition. A result outside its usual range is a reason to talk to a clinician, not a conclusion."}},{"@type":"Question","name":"Where does my health data go?","acceptedAnswer":{"@type":"Answer","text":"Your Health Score and Biological Age are worked out on your phone. Enva Intelligence is off until you turn it on, it receives summaries rather than raw sensor data, and your data is never used to train models. Read the privacy policy."}}]}]}</script>
 </head>
 <body data-page="home">
 
 <header class="hero">
   <div class="wrap">
     <nav>
-      <a href="/" aria-label="Enva home"><img alt="Enva" src="logo/enva-wordmark-terracotta.svg"></a>
+      <a href="/" aria-label="Enva home"><img width="2349" height="802" alt="Enva" src="logo/enva-wordmark-terracotta.svg"></a>
       <div class="nav-links">
       <a href="intelligence">Enva Intelligence</a>
       <a href="meals">Meals</a><a href="workouts">Workouts</a>
@@ -205,7 +223,7 @@ footer a{text-decoration:none}
       <div>
         <div class="eyebrow">For iPhone and Apple Watch</div>
         <h1>See how it all connects.</h1>
-        <p class="lede">Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, and an assistant that answers from all of it.</p>
+        <p class="lede">Enva is a health tracking app for iPhone and Apple Watch. It brings your training, food, recovery and blood work into one Health Score and one Biological Age, and an AI assistant that answers from all of it.</p>
         <div class="cta">
           <a class="btn" href="#waitlist">Join the waitlist</a>
           <a class="link" href="#intelligence">See how it works</a>
@@ -214,7 +232,7 @@ footer a{text-decoration:none}
       </div>
       <div class="devices">
         <div class="slot phone" data-file="hero-phone.jpg" data-size="1179 x 2556"><img src="screens/v2/hero-phone.jpg" width="720" height="1560" fetchpriority="high" alt="Enva Intelligence answering a question about HRV using workouts, sleep and food"></div>
-        <div class="slot watch" data-file="hero-watch.png" data-size="410 x 502"><img src="screens/v2/hero-watch.png" alt="Enva on Apple Watch showing today's Health Score"></div>
+        <div class="slot watch" data-file="hero-watch.png" data-size="410 x 502"><img width="422" height="514" src="screens/v2/hero-watch.png" alt="Enva on Apple Watch showing today's Health Score"></div>
       </div>
     </div>
   </div>
@@ -234,8 +252,8 @@ footer a{text-decoration:none}
       <p style="margin-top:22px"><a class="link" href="your-data">See how the scores work</a></p>
     </div>
     <div class="twin">
-      <div class="a"><div class="slot phone" data-file="score-health.jpg" data-size="1179 x 2556"><img src="screens/v2/score-health.jpg" alt="Health Score screen" loading="lazy"></div><div class="when">Health Score</div></div>
-      <div class="b"><div class="slot phone" data-file="score-biological-age.jpg" data-size="1179 x 2556"><img src="screens/v2/score-biological-age.jpg" alt="Biological Age screen" loading="lazy"></div><div class="when">Biological Age</div></div>
+      <div class="a"><div class="slot phone" data-file="score-health.jpg" data-size="1179 x 2556"><img width="718" height="1560" src="screens/v2/score-health.jpg" alt="Health Score screen" loading="lazy"></div><div class="when">Health Score</div></div>
+      <div class="b"><div class="slot phone" data-file="score-biological-age.jpg" data-size="1179 x 2556"><img width="718" height="1560" src="screens/v2/score-biological-age.jpg" alt="Biological Age screen" loading="lazy"></div><div class="when">Biological Age</div></div>
     </div>
   </div>
 </div></section>
@@ -250,9 +268,9 @@ footer a{text-decoration:none}
       <ul><li>Big tiles you can read in a hard interval</li><li>Summary on your wrist, confirmation on your phone</li><li>Rings, readiness and the day's score at a glance</li></ul>
     </div>
     <div class="faces">
-      <div class="slot watch" data-file="watch-start.png" data-size="410 x 502"><img src="screens/v2/watch-start.png" alt="Apple Watch workout picker" loading="lazy"></div>
-      <div class="slot watch" data-file="watch-live.png" data-size="410 x 502"><img src="screens/v2/watch-live.png" alt="Apple Watch live heart rate" loading="lazy"></div>
-      <div class="slot watch" data-file="watch-summary.png" data-size="410 x 502"><img src="screens/v2/watch-summary.png" alt="Apple Watch workout summary" loading="lazy"></div>
+      <div class="slot watch" data-file="watch-start.png" data-size="410 x 502"><img width="422" height="514" src="screens/v2/watch-start.png" alt="Apple Watch workout picker" loading="lazy"></div>
+      <div class="slot watch" data-file="watch-live.png" data-size="410 x 502"><img width="422" height="514" src="screens/v2/watch-live.png" alt="Apple Watch live heart rate" loading="lazy"></div>
+      <div class="slot watch" data-file="watch-summary.png" data-size="410 x 502"><img width="422" height="514" src="screens/v2/watch-summary.png" alt="Apple Watch workout summary" loading="lazy"></div>
     </div>
   </div>
 </div></section>
@@ -345,6 +363,24 @@ footer a{text-decoration:none}
   </div>
 </div>
 
+<!-- QUICK ANSWERS -->
+<section class="band alt" id="faq"><div class="wrap">
+  <div class="quick">
+    <div class="head">
+      <div class="eyebrow">Quick answers</div>
+      <h2 style="margin-top:14px">Before you join.</h2>
+      <p class="lede">The short version. <a class="link" href="support">More answers in Support</a>.</p>
+    </div>
+    <div class="faq">
+<details class="qa"><summary>How much does Enva cost?</summary><div class="ans">Every plan starts with a 7-day free trial, then it is $12.99 a month or $89.99 a year (about $7.50 a month). Both plans include every feature, and you can cancel anytime in your Apple settings. One trial per customer.</div></details>
+<details class="qa"><summary>Which devices and apps does Enva work with?</summary><div class="ans">Enva is built for iPhone and Apple Watch and reads your data from Apple Health. At launch it also connects to Oura Ring, Peloton and Orangetheory, with Garmin, WHOOP and Fitbit coming soon. You do not need an Apple Watch to use Enva, but starting a workout from your wrist does.</div></details>
+<details class="qa"><summary>Is there an Android version of Enva?</summary><div class="ans">No. Enva is for iPhone and Apple Watch only. <a href="#waitlist">Join the waitlist</a> and we will email you when it launches.</div></details>
+<details class="qa"><summary>Is Enva medical advice?</summary><div class="ans">No. Enva is a wellness app, not a medical device. It does not diagnose or treat any condition. A result outside its usual range is a reason to talk to a clinician, not a conclusion.</div></details>
+<details class="qa"><summary>Where does my health data go?</summary><div class="ans">Your Health Score and Biological Age are worked out on your phone. Enva Intelligence is off until you turn it on, it receives summaries rather than raw sensor data, and your data is never used to train models. Read the <a href="/privacy#enva-intelligence">privacy policy</a>.</div></details>
+    </div>
+  </div>
+</div></section>
+
 <!-- PRICING + WAITLIST -->
 <section class="band" id="waitlist"><div class="wrap">
   <div class="final">
@@ -368,6 +404,7 @@ footer a{text-decoration:none}
 
 <div class="wrap"><footer>
   <div class="links"><a href="intelligence">Enva Intelligence</a><a href="meals">Meals</a><a href="workouts">Workouts</a><a href="your-data">Your data</a><a href="widgets">Widgets</a><a href="about">About</a><a href="support">Support</a><a href="privacy">Privacy</a><a href="terms">Terms</a></div>
+  <div class="links social"><a href="https://x.com/getenva" rel="me noopener" target="_blank">X</a><a href="https://www.instagram.com/getenva" rel="me noopener" target="_blank">Instagram</a><a href="https://www.tiktok.com/@getenva" rel="me noopener" target="_blank">TikTok</a></div>
   <div>Enva is a wellness app, not a medical device. It doesn't diagnose or treat any condition. Talk to a clinician about your health.</div>
   <div>Apple Watch, Apple Health, Peloton, Orangetheory, Oura, WHOOP, Garmin, Fitbit, HYROX and DEKA are trademarks of their respective owners. Enva is not affiliated with or endorsed by them.</div>
   <div>&#169; 2026 Olympus Hills Ventures LLC. All rights reserved.</div>

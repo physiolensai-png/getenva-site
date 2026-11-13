@@ -6,19 +6,30 @@ They need Node 20 (the same Node the Firebase CLI uses) and nothing else.
 
 | Script | Writes | When it runs |
 | --- | --- | --- |
+| `stamp-pages.mjs` | `dateModified` in each page's schema, the "Last updated" line on `privacy` and `terms`, and `width`/`height` on every local `<img>` | `firebase deploy` (predeploy hook, runs first), or by hand |
 | `build-sitemap.mjs` | `public/sitemap.xml` | `firebase deploy` (predeploy hook), or by hand |
 | `build-llms.mjs` | `public/llms.txt`, `public/llms-full.txt`, `public/<page>.md` | `firebase deploy` (predeploy hook), or by hand |
 | `rag-chunks.mjs` | `build/enva-chunks.jsonl` (ignored by git) | by hand, when you want chunks for a vector database |
 
-Run the two build scripts after editing any page, then commit the output with
-the page:
+Run the build scripts after editing any page, then commit the output with
+the page. This is the routine every time the website changes:
 
 ```
+node scripts/stamp-pages.mjs
 node scripts/build-sitemap.mjs
 node scripts/build-llms.mjs
 ```
 
-Both accept `--check`, which exits 1 when the committed output is out of date
+`stamp-pages.mjs` is what keeps dates honest. A page's date is its last commit
+(today while it has uncommitted edits), so editing a page and running the
+script moves that page's `dateModified`, its sitemap `<lastmod>`, and, for the
+privacy policy and terms, the visible "Last updated" line, all to the same
+day. That matches what both policies promise: a non-material change updates
+the date at the top. Changing only `v2.css` or a shared script does not move
+any page's date, because no page file changed. New `<img>` tags need no sizes
+typed in; the script reads them from the image file.
+
+All three accept `--check`, which exits 1 when the committed output is out of date
 instead of writing it.
 
 ## How pages are discovered

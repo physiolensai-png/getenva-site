@@ -1,6 +1,6 @@
 ---
-title: "About Enva | All Your Health Data in One Place"
-description: "Why Enva exists: one place where training, food, recovery and blood work finally make sense together."
+title: "About Enva | Health App by Olympus Hills Ventures"
+description: "Enva is a health app from Olympus Hills Ventures that puts training, food, recovery and blood work in one place, so the data finally makes sense together."
 url: https://getenva.ai/about
 markdown_url: https://getenva.ai/about.md
 site: Enva
@@ -11,7 +11,7 @@ last_modified: 2026-11-13
 
 *About Enva*
 
-Every morning I stitched my training, sleep, food and blood work together by hand. Enva is the tool I built so nobody has to.
+Every morning I stitched my training, sleep, food and blood work together by hand. Enva is the tool I built so nobody has to. It is a health app for iPhone and Apple Watch, made by Olympus Hills Ventures.
 
 **Why I built it**
 

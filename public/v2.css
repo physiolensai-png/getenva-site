@@ -14,6 +14,7 @@ h2{font-size:clamp(32px,4.4vw,52px)}
 p{margin:0}
 a{color:inherit}
 img,video{max-width:100%;display:block}
+img{height:auto}
 .wrap{max-width:1120px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
 .band{padding-block:88px}
 .alt{background:var(--ground-2)}

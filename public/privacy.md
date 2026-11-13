@@ -11,7 +11,7 @@ last_modified: 2026-11-13
 
 *Legal*
 
-Last updated: November 10, 2026
+Last updated: November 13, 2026
 
 Let's be straightforward with each other.
 

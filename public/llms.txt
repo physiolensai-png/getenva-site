@@ -16,16 +16,16 @@ Every page below is the Markdown version of an HTML page at the same URL without
 
 ## Product
 
-- [Home](https://getenva.ai/index.md): Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, with an assistant that answers from all of it.
-- [Enva Intelligence](https://getenva.ai/intelligence.md): Ask Enva about your training, food, sleep and labs. It builds workouts, finds recipes and explains your data in plain language.
-- [Meals](https://getenva.ai/meals.md): Find a recipe, or ask Enva Intelligence to write one, and get it into your food log with the nutrition worked out.
-- [Workouts](https://getenva.ai/workouts.md): Build a workout around the equipment you have, run it on Apple Watch, and train toward an event with a plan that reads your own data.
-- [Your data](https://getenva.ai/your-data.md): Your Health Score, Biological Age, sleep, recovery and daily plan, all scored against your own baseline.
-- [Widgets](https://getenva.ai/widgets.md): More than 20 Enva widgets put your scores, nutrition and recovery on the Home Screen and Lock Screen.
+- [Home](https://getenva.ai/index.md): Enva is a health app for iPhone and Apple Watch. It turns your training, food, sleep and blood work into one Health Score, a Biological Age and AI answers.
+- [Enva Intelligence](https://getenva.ai/intelligence.md): Enva Intelligence is an AI health coach that answers from your Apple Health data: workouts, sleep, food and labs. It builds workouts and finds recipes.
+- [Meals](https://getenva.ai/meals.md): Log any recipe in your food tracker. Find one or ask Enva Intelligence to write it, and get calories, macros and micronutrients worked out for you.
+- [Workouts](https://getenva.ai/workouts.md): Build a workout around the equipment you have, run it on Apple Watch, and train for Hyrox or any event with a plan that reads your own data.
+- [Your data](https://getenva.ai/your-data.md): Your Health Score, Biological Age, sleep and recovery score, and a daily plan, all measured against your own baseline instead of a population chart.
+- [Widgets](https://getenva.ai/widgets.md): Health widgets for the iPhone Home Screen and Lock Screen: Health Score, HRV, resting heart rate, recovery, protein and hydration at a glance.
 
 ## Company
 
-- [About](https://getenva.ai/about.md): Why Enva exists: one place where training, food, recovery and blood work finally make sense together.
+- [About](https://getenva.ai/about.md): Enva is a health app from Olympus Hills Ventures that puts training, food, recovery and blood work in one place, so the data finally makes sense together.
 - [Support and FAQ](https://getenva.ai/support.md): Answers about syncing, Apple Watch workouts, blood work, Enva Intelligence and your data, plus a way to reach us.
 
 ## Legal

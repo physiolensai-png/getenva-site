@@ -1,6 +1,6 @@
 ---
-title: "Enva Intelligence | Ask AI About Your Training, Food and Labs"
-description: "Ask Enva about your training, food, sleep and labs. It builds workouts, finds recipes and explains your data in plain language."
+title: "Enva Intelligence | AI Health Coach for Apple Health Data"
+description: "Enva Intelligence is an AI health coach that answers from your Apple Health data: workouts, sleep, food and labs. It builds workouts and finds recipes."
 url: https://getenva.ai/intelligence
 markdown_url: https://getenva.ai/intelligence.md
 site: Enva
@@ -9,9 +9,9 @@ last_modified: 2026-11-13
 
 # Ask it like you'd ask a coach.
 
-*Enva Intelligence*
+*Enva Intelligence, your AI health coach*
 
-Type a question in plain words. Enva answers from your own workouts, sleep, food and labs, with the numbers in the reply, so you can see why it said what it said.
+Type a question in plain words. Enva answers from your own Apple Health data, workouts, sleep, food and labs, with the numbers in the reply, so you can see why it said what it said.
 
 A real reply from the app, shown in full. The colours are added here to show where each number came from.
 

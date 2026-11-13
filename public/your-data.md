@@ -1,6 +1,6 @@
 ---
-title: "Health Score, Biological Age and Recovery Explained | Enva"
-description: "Your Health Score, Biological Age, sleep, recovery and daily plan, all scored against your own baseline."
+title: "Biological Age, Health Score and Recovery Score | Enva"
+description: "Your Health Score, Biological Age, sleep and recovery score, and a daily plan, all measured against your own baseline instead of a population chart."
 url: https://getenva.ai/your-data
 markdown_url: https://getenva.ai/your-data.md
 site: Enva
@@ -9,7 +9,7 @@ last_modified: 2026-11-13
 
 # Your numbers, scored against you.
 
-*Your data*
+*Biological Age, Health Score and recovery*
 
 Enva compares you with your own baseline, not a population chart. It turns what your body does into a number for this week, a number for the long run, and a plan for today.
 

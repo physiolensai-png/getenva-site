@@ -24,7 +24,7 @@ Source: https://getenva.ai/
 
 *For iPhone and Apple Watch*
 
-Enva brings your training, food, recovery and blood work into one Health Score and one Biological Age, and an assistant that answers from all of it.
+Enva is a health tracking app for iPhone and Apple Watch. It brings your training, food, recovery and blood work into one Health Score and one Biological Age, and an AI assistant that answers from all of it.
 
 7 days free when we launch. Then $12.99 a month.
 
@@ -121,6 +121,32 @@ One answer from your watch, your food log and your lab results, together.
 
 [Read the privacy policy](https://getenva.ai/privacy#enva-intelligence)
 
+**Quick answers**
+
+## Before you join.
+
+The short version. [More answers in Support](https://getenva.ai/support).
+
+### How much does Enva cost?
+
+Every plan starts with a 7-day free trial, then it is $12.99 a month or $89.99 a year (about $7.50 a month). Both plans include every feature, and you can cancel anytime in your Apple settings. One trial per customer.
+
+### Which devices and apps does Enva work with?
+
+Enva is built for iPhone and Apple Watch and reads your data from Apple Health. At launch it also connects to Oura Ring, Peloton and Orangetheory, with Garmin, WHOOP and Fitbit coming soon. You do not need an Apple Watch to use Enva, but starting a workout from your wrist does.
+
+### Is there an Android version of Enva?
+
+No. Enva is for iPhone and Apple Watch only. Join the waitlist and we will email you when it launches.
+
+### Is Enva medical advice?
+
+No. Enva is a wellness app, not a medical device. It does not diagnose or treat any condition. A result outside its usual range is a reason to talk to a clinician, not a conclusion.
+
+### Where does my health data go?
+
+Your Health Score and Biological Age are worked out on your phone. Enva Intelligence is off until you turn it on, it receives summaries rather than raw sensor data, and your data is never used to train models. Read the [privacy policy](https://getenva.ai/privacy#enva-intelligence).
+
 **Early access**
 
 ## Be first in when Enva opens.
@@ -139,9 +165,9 @@ Source: https://getenva.ai/intelligence
 
 # Ask it like you'd ask a coach.
 
-*Enva Intelligence*
+*Enva Intelligence, your AI health coach*
 
-Type a question in plain words. Enva answers from your own workouts, sleep, food and labs, with the numbers in the reply, so you can see why it said what it said.
+Type a question in plain words. Enva answers from your own Apple Health data, workouts, sleep, food and labs, with the numbers in the reply, so you can see why it said what it said.
 
 A real reply from the app, shown in full. The colours are added here to show where each number came from.
 
@@ -281,7 +307,7 @@ Source: https://getenva.ai/meals
 
 # Any recipe, straight into your food log.
 
-*Meals*
+*Meals, recipes and macro tracker*
 
 Find a recipe anywhere, or ask Enva Intelligence to write one from what you have. Enva works out the nutrition, so you never type in a single ingredient.
 
@@ -355,7 +381,7 @@ Source: https://getenva.ai/workouts
 
 # A workout built for what you have.
 
-*Workouts*
+*Apple Watch workout builder*
 
 Tell Enva your goal, your time and the equipment in front of you, from a full gym to a single pair of dumbbells. It writes the session and runs it on your Apple Watch.
 
@@ -446,7 +472,7 @@ Source: https://getenva.ai/your-data
 
 # Your numbers, scored against you.
 
-*Your data*
+*Biological Age, Health Score and recovery*
 
 Enva compares you with your own baseline, not a population chart. It turns what your body does into a number for this week, a number for the long run, and a plan for today.
 
@@ -610,7 +636,7 @@ Source: https://getenva.ai/widgets
 
 # Your day, without opening the app.
 
-*Features*
+*Health widgets for iPhone*
 
 14 widgets, plus Lock Screen versions, put your scores, nutrition and recovery on the Home Screen and Lock Screen. Pick the ones you check most.
 
@@ -791,7 +817,7 @@ Source: https://getenva.ai/about
 
 *About Enva*
 
-Every morning I stitched my training, sleep, food and blood work together by hand. Enva is the tool I built so nobody has to.
+Every morning I stitched my training, sleep, food and blood work together by hand. Enva is the tool I built so nobody has to. It is a health app for iPhone and Apple Watch, made by Olympus Hills Ventures.
 
 **Why I built it**
 
@@ -973,7 +999,7 @@ Source: https://getenva.ai/privacy
 
 *Legal*
 
-Last updated: November 10, 2026
+Last updated: November 13, 2026
 
 Let's be straightforward with each other.
 
@@ -1156,7 +1182,7 @@ Source: https://getenva.ai/terms
 
 *Legal*
 
-Last updated: November 10, 2026
+Last updated: November 13, 2026
 
 Let's be straightforward with each other.
 

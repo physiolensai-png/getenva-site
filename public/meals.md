@@ -1,6 +1,6 @@
 ---
-title: "Log Any Recipe in Your Food Tracker | Enva Meals"
-description: "Find a recipe, or ask Enva Intelligence to write one, and get it into your food log with the nutrition worked out."
+title: "Recipe Logger and Macro Tracker for iPhone | Enva Meals"
+description: "Log any recipe in your food tracker. Find one or ask Enva Intelligence to write it, and get calories, macros and micronutrients worked out for you."
 url: https://getenva.ai/meals
 markdown_url: https://getenva.ai/meals.md
 site: Enva
@@ -9,7 +9,7 @@ last_modified: 2026-11-13
 
 # Any recipe, straight into your food log.
 
-*Meals*
+*Meals, recipes and macro tracker*
 
 Find a recipe anywhere, or ask Enva Intelligence to write one from what you have. Enva works out the nutrition, so you never type in a single ingredient.
 

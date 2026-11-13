@@ -1,6 +1,6 @@
 ---
 title: "Health Widgets for iPhone and Lock Screen | Enva"
-description: "More than 20 Enva widgets put your scores, nutrition and recovery on the Home Screen and Lock Screen."
+description: "Health widgets for the iPhone Home Screen and Lock Screen: Health Score, HRV, resting heart rate, recovery, protein and hydration at a glance."
 url: https://getenva.ai/widgets
 markdown_url: https://getenva.ai/widgets.md
 site: Enva
@@ -9,7 +9,7 @@ last_modified: 2026-11-13
 
 # Your day, without opening the app.
 
-*Features*
+*Health widgets for iPhone*
 
 14 widgets, plus Lock Screen versions, put your scores, nutrition and recovery on the Home Screen and Lock Screen. Pick the ones you check most.
 

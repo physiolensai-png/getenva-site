@@ -31,6 +31,10 @@ the full story if you need the reasoning behind any of this.
 firebase deploy --only hosting
 ```
 
+The predeploy hook first runs `scripts/stamp-pages.mjs`, `build-sitemap.mjs` and
+`build-llms.mjs` (page dates, image sizes, sitemap, Markdown layer). If they
+change files, commit those changes after deploying. See `scripts/README.md`.
+
 Safe to run any time — uploads `public/` and applies the redirects/headers/
 rewrites in `firebase.json`. Doesn't touch functions.
 

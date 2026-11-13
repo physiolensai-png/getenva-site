@@ -1,6 +1,6 @@
 ---
-title: "Workout Builder, Apple Watch and Hyrox Training | Enva"
-description: "Build a workout around the equipment you have, run it on Apple Watch, and train toward an event with a plan that reads your own data."
+title: "Apple Watch Workout Builder and Hyrox Training | Enva"
+description: "Build a workout around the equipment you have, run it on Apple Watch, and train for Hyrox or any event with a plan that reads your own data."
 url: https://getenva.ai/workouts
 markdown_url: https://getenva.ai/workouts.md
 site: Enva
@@ -9,7 +9,7 @@ last_modified: 2026-11-13
 
 # A workout built for what you have.
 
-*Workouts*
+*Apple Watch workout builder*
 
 Tell Enva your goal, your time and the equipment in front of you, from a full gym to a single pair of dumbbells. It writes the session and runs it on your Apple Watch.
 

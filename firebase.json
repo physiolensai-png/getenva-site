@@ -2,6 +2,7 @@
   "hosting": {
     "public": "public",
     "predeploy": [
+      "node scripts/stamp-pages.mjs",
       "node scripts/build-sitemap.mjs",
       "node scripts/build-llms.mjs"
     ],
