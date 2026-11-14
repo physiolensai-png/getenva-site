@@ -38,6 +38,9 @@ nav img{height:34px;width:auto}
 footer{border-top:1px solid var(--line);padding-block:36px 56px;color:var(--ink-3);font-size:13.5px;display:grid;gap:14px}
 footer .links{display:flex;gap:10px 24px;flex-wrap:wrap;color:var(--ink-2);font-size:14.5px}
 footer a{text-decoration:none}
+footer .social{display:inline-flex;align-items:center;gap:0;margin-left:6px}
+footer .social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-block:-12px;color:var(--ink-3)}
+footer .social a:hover{color:var(--ink)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* page header (inner pages) */
