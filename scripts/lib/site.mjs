@@ -47,11 +47,17 @@ export function lastModified(file) {
     const committed = execFileSync('git', ['log', '-1', '--format=%cs', '--', file], { cwd: ROOT, encoding: 'utf8' }).trim();
     if (committed) return committed;
   } catch { /* not a git checkout, or git missing */ }
-  return fs.statSync(file).mtime.toISOString().slice(0, 10);
+  return localDate(fs.statSync(file).mtime);
+}
+
+/** A date as YYYY-MM-DD in the machine's own time zone, matching the date git records for a commit. */
+function localDate(d) {
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
 export function today() {
-  return new Date().toISOString().slice(0, 10);
+  return localDate(new Date());
 }
 
 /** Writes only when the content differs. Returns 'created' | 'updated' | 'unchanged' | 'stale' (check mode). */
