@@ -4,7 +4,7 @@ description: "Build a workout around the equipment you have, run it on Apple Wat
 url: https://getenva.ai/workouts
 markdown_url: https://getenva.ai/workouts.md
 site: Enva
-last_modified: 2026-11-13
+last_modified: 2026-11-14
 ---
 
 # A workout built for what you have.

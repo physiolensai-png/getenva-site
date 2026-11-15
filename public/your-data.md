@@ -4,7 +4,7 @@ description: "Your Health Score, Biological Age, sleep and recovery score, and a
 url: https://getenva.ai/your-data
 markdown_url: https://getenva.ai/your-data.md
 site: Enva
-last_modified: 2026-11-13
+last_modified: 2026-11-14
 ---
 
 # Your numbers, scored against you.

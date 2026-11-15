@@ -4,7 +4,7 @@ description: "Enva is a health app from Olympus Hills Ventures that puts trainin
 url: https://getenva.ai/about
 markdown_url: https://getenva.ai/about.md
 site: Enva
-last_modified: 2026-11-13
+last_modified: 2026-11-14
 ---
 
 # I was tired of being my own data scientist.

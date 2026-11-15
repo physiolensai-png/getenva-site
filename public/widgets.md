@@ -4,7 +4,7 @@ description: "Health widgets for the iPhone Home Screen and Lock Screen: Health 
 url: https://getenva.ai/widgets
 markdown_url: https://getenva.ai/widgets.md
 site: Enva
-last_modified: 2026-11-13
+last_modified: 2026-11-14
 ---
 
 # Your day, without opening the app.
