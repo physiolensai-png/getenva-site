@@ -4,7 +4,7 @@ description: "Enva is a health app for iPhone and Apple Watch. It turns your tra
 url: https://getenva.ai/
 markdown_url: https://getenva.ai/index.md
 site: Enva
-last_modified: 2026-11-13
+last_modified: 2026-11-16
 ---
 
 # See how it all connects.
@@ -19,7 +19,7 @@ Enva is a health tracking app for iPhone and Apple Watch. It brings your trainin
 
 ![Enva on Apple Watch showing today's Health Score](https://getenva.ai/screens/v2/hero-watch.png)
 
-**Works with:** Apple Watch, Apple Health, Apple Health Records, Oura, Peloton, Orangetheory
+**Works with:** Apple Watch, Apple Health, Oura, Peloton, Orangetheory
 
 **The score**
 
@@ -69,7 +69,7 @@ Scan, search or describe a meal and the day's calories, macros and micronutrient
 
 ## Your labs, next to your training.
 
-Bring in results from Apple Health Records, or upload a PDF or a photo of a lab report. Anything Enva cannot match is listed by name, never guessed.
+Upload a PDF or a photo of a lab report, or enter results by hand. Anything Enva cannot match is listed by name, never guessed.
 
 - Cholesterol, glucose, hormones and more
 - Blood pressure, logged and tracked over time

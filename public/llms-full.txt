@@ -32,7 +32,7 @@ Enva is a health tracking app for iPhone and Apple Watch. It brings your trainin
 
 ![Enva on Apple Watch showing today's Health Score](https://getenva.ai/screens/v2/hero-watch.png)
 
-**Works with:** Apple Watch, Apple Health, Apple Health Records, Oura, Peloton, Orangetheory
+**Works with:** Apple Watch, Apple Health, Oura, Peloton, Orangetheory
 
 **The score**
 
@@ -82,7 +82,7 @@ Scan, search or describe a meal and the day's calories, macros and micronutrient
 
 ## Your labs, next to your training.
 
-Bring in results from Apple Health Records, or upload a PDF or a photo of a lab report. Anything Enva cannot match is listed by name, never guessed.
+Upload a PDF or a photo of a lab report, or enter results by hand. Anything Enva cannot match is listed by name, never guessed.
 
 - Cholesterol, glucose, hormones and more
 - Blood pressure, logged and tracked over time
@@ -947,7 +947,7 @@ Search the food catalog first, which includes restaurant menu items and alcohol,
 
 ### How do I add blood work?
 
-There are three ways: import your results from Apple Health Records if your provider shares records with Apple Health, upload a lab PDF, or enter the values by hand. Not every provider supports Apple Health Records, so PDF upload and manual entry always work. Enva Intelligence only brings your labs into an answer when you ask about them.
+There are two ways: upload a lab PDF or enter the values by hand. Enva Intelligence only brings your labs into an answer when you ask about them.
 
 ### What can I ask Enva Intelligence, and how many questions do I get?
 

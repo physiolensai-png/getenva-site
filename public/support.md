@@ -4,7 +4,7 @@ description: "Answers about syncing, Apple Watch workouts, blood work, Enva Inte
 url: https://getenva.ai/support
 markdown_url: https://getenva.ai/support.md
 site: Enva
-last_modified: 2026-11-13
+last_modified: 2026-11-16
 ---
 
 # We're here to help.
@@ -67,7 +67,7 @@ Search the food catalog first, which includes restaurant menu items and alcohol,
 
 ### How do I add blood work?
 
-There are three ways: import your results from Apple Health Records if your provider shares records with Apple Health, upload a lab PDF, or enter the values by hand. Not every provider supports Apple Health Records, so PDF upload and manual entry always work. Enva Intelligence only brings your labs into an answer when you ask about them.
+There are two ways: upload a lab PDF or enter the values by hand. Enva Intelligence only brings your labs into an answer when you ask about them.
 
 ### What can I ask Enva Intelligence, and how many questions do I get?
 
