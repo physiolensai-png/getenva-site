@@ -4,14 +4,14 @@ description: "The terms for using Enva, including your account, subscriptions, h
 url: https://getenva.ai/terms
 markdown_url: https://getenva.ai/terms.md
 site: Enva
-last_modified: 2026-11-13
+last_modified: 2026-11-16
 ---
 
 # Terms of Service
 
 *Legal*
 
-Last updated: November 13, 2026
+Last updated: November 16, 2026
 
 Let's be straightforward with each other.
 
@@ -41,7 +41,7 @@ Here's exactly what does and doesn't leave your device.
 
 ### What stays on your device
 
-- All Apple Health records and raw data imported from third-party integrations
+- All Apple Health data and raw data imported from third-party integrations
 - Your personal profile, fitness history, and AI conversation history
 - Everything that makes Enva useful to you
 
