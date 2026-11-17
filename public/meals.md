@@ -4,7 +4,7 @@ description: "Log any recipe in your food tracker. Find one or ask Enva Intellig
 url: https://getenva.ai/meals
 markdown_url: https://getenva.ai/meals.md
 site: Enva
-last_modified: 2026-11-13
+last_modified: 2026-11-17
 ---
 
 # Any recipe, straight into your food log.

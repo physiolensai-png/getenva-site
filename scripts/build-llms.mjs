@@ -30,13 +30,14 @@ const NAMES = {
   workouts: 'Workouts',
   'your-data': 'Your data',
   widgets: 'Widgets',
+  'connect-your-devices': 'Connect your devices',
   about: 'About',
   support: 'Support and FAQ',
   privacy: 'Privacy Policy',
   terms: 'Terms of Service',
 };
 const GROUPS = [
-  { title: 'Product', slugs: ['index', 'intelligence', 'meals', 'workouts', 'your-data', 'widgets'] },
+  { title: 'Product', slugs: ['index', 'intelligence', 'meals', 'workouts', 'your-data', 'widgets', 'connect-your-devices'] },
   { title: 'Company', slugs: ['about', 'support'] },
   { title: 'Legal', slugs: ['privacy', 'terms'] },
 ];

@@ -4,7 +4,7 @@ description: "Enva Intelligence is an AI health coach that answers from your App
 url: https://getenva.ai/intelligence
 markdown_url: https://getenva.ai/intelligence.md
 site: Enva
-last_modified: 2026-11-13
+last_modified: 2026-11-17
 ---
 
 # Ask it like you'd ask a coach.

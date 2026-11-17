@@ -22,6 +22,7 @@ Every page below is the Markdown version of an HTML page at the same URL without
 - [Workouts](https://getenva.ai/workouts.md): Build a workout around the equipment you have, run it on Apple Watch, and train for Hyrox or any event with a plan that reads your own data.
 - [Your data](https://getenva.ai/your-data.md): Your Health Score, Biological Age, sleep and recovery score, and a daily plan, all measured against your own baseline instead of a population chart.
 - [Widgets](https://getenva.ai/widgets.md): Health widgets for the iPhone Home Screen and Lock Screen: Health Score, HRV, resting heart rate, recovery, protein and hydration at a glance.
+- [Connect your devices](https://getenva.ai/connect-your-devices.md): How to connect Apple Watch, Orangetheory, Peloton and Oura so every workout counts once and your heart rate comes from the right device.
 
 ## Company
 
